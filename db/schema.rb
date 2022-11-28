@@ -10,9 +10,102 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_28_145512) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_28_154003) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "artists", force: :cascade do |t|
+    t.string "name"
+    t.string "spotify_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.string "message"
+    t.string "status"
+    t.boolean "been_invited"
+    t.bigint "jam_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["jam_id"], name: "index_bookings_on_jam_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "creations", force: :cascade do |t|
+    t.string "name"
+    t.string "type"
+    t.string "file"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_creations_on_user_id"
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "instruments", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "jams", force: :cascade do |t|
+    t.string "location"
+    t.string "photo"
+    t.string "description"
+    t.integer "capacity"
+    t.time "date"
+    t.boolean "cancelled"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "instruments_list", default: [], array: true
+    t.index ["user_id"], name: "index_jams_on_user_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.bigint "jam_id", null: false
+    t.bigint "user_id", null: false
+    t.text "content"
+    t.string "file"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["jam_id"], name: "index_posts_on_jam_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "user_artists", force: :cascade do |t|
+    t.bigint "artist_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_user_artists_on_artist_id"
+    t.index ["user_id"], name: "index_user_artists_on_user_id"
+  end
+
+  create_table "user_genres", force: :cascade do |t|
+    t.bigint "genre_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["genre_id"], name: "index_user_genres_on_genre_id"
+    t.index ["user_id"], name: "index_user_genres_on_user_id"
+  end
+
+  create_table "user_instruments", force: :cascade do |t|
+    t.bigint "instrument_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["instrument_id"], name: "index_user_instruments_on_instrument_id"
+    t.index ["user_id"], name: "index_user_instruments_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,8 +115,27 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_145512) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "avatar"
+    t.string "location"
+    t.string "soundcloud_url"
+    t.string "instagram_url"
+    t.string "description"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "jams"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "creations", "users"
+  add_foreign_key "jams", "users"
+  add_foreign_key "posts", "jams"
+  add_foreign_key "posts", "users"
+  add_foreign_key "user_artists", "artists"
+  add_foreign_key "user_artists", "users"
+  add_foreign_key "user_genres", "genres"
+  add_foreign_key "user_genres", "users"
+  add_foreign_key "user_instruments", "instruments"
+  add_foreign_key "user_instruments", "users"
 end
