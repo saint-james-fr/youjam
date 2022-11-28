@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_28_154003) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_28_161705) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,7 +23,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_154003) do
 
   create_table "bookings", force: :cascade do |t|
     t.string "message"
-    t.string "status"
+    t.string "status", default: "pending"
     t.boolean "been_invited"
     t.bigint "jam_id", null: false
     t.bigint "user_id", null: false
@@ -36,7 +36,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_154003) do
   create_table "creations", force: :cascade do |t|
     t.string "name"
     t.string "type"
-    t.string "file"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -57,11 +56,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_154003) do
 
   create_table "jams", force: :cascade do |t|
     t.string "location"
-    t.string "photo"
-    t.string "description"
+    t.text "description"
     t.integer "capacity"
     t.time "date"
-    t.boolean "cancelled"
+    t.boolean "cancelled", default: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -121,7 +119,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_154003) do
     t.string "location"
     t.string "soundcloud_url"
     t.string "instagram_url"
-    t.string "description"
+    t.text "description"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
