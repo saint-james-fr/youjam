@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  get "dashboard", to: "pages#dashboard"
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :jams, except: :destroy do
+    resources :bookings, only: [:new, :create, :edit, :update, :cancel]
+    resources :posts, except: [:show, :index]
+  end
+
+  resources :posts, only: :destroy
+
+  #resources reviews, only: [:new,:create, :destroy]
+  #resources chatrooms, only: [:new, :create, :show]
 end
