@@ -1,2 +1,11 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+ <div class="container search_banner">
+        <%= form_with url: jams_path, method: :get, class: "d-flex form-search" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Type an address"
+        %>
+        </div>

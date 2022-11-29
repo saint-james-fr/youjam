@@ -7160,3 +7160,222 @@ Completed 200 OK in 20ms (Views: 19.5ms | ActiveRecord: 0.5ms | Allocations: 100
 
 
 >>>>>>> 52cd1247420761c744c3d6fab137a288dc1ae16e
+Started GET "/" for ::1 at 2022-11-29 14:53:51 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mCACHE ActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 3 pending migrations:
+
+20221129113026_change_format_date_in_jams.rb
+20221129132138_change_creations_table.rb
+20221129132854_change_creations_type_column.rb
+
+
+):
+  
+activerecord (7.0.4) lib/active_record/migration.rb:627:in `check_pending!'
+activerecord (7.0.4) lib/active_record/migration.rb:592:in `block (2 levels) in call'
+activesupport (7.0.4) lib/active_support/file_update_checker.rb:83:in `execute'
+activerecord (7.0.4) lib/active_record/migration.rb:597:in `block in call'
+activerecord (7.0.4) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.4) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7671212580499673625)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChangeFormatDateInJams (20221129113026)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "jams" DROP COLUMN "date"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "jams" ADD "jam_date" date[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221129113026"]]
+  [1m[36mTRANSACTION (9.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeCreationsTable (20221129132138)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "creations" ADD "creation_url" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221129132138"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeCreationsTypeColumn (20221129132854)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "creations" DROP COLUMN "type"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221129132854"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7671212580499673625)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7671212580499673625)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7671212580499673625)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2022-11-29 14:55:23 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.7ms | Allocations: 332)
+  Rendered shared/_navbar.html.erb (Duration: 2.0ms | Allocations: 864)
+  Rendered shared/_flashes.html.erb (Duration: 0.4ms | Allocations: 217)
+  Rendered layout layouts/application.html.erb (Duration: 5705.6ms | Allocations: 169384)
+Completed 200 OK in 5714ms (Views: 5708.0ms | ActiveRecord: 0.0ms | Allocations: 173177)
+
+
+Started GET "/" for ::1 at 2022-11-29 14:59:48 +0100
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 12.1ms | Allocations: 8301)
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | Allocations: 8400)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms | Allocations: 9270)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1>Pages#home</h1>
+<p>Find me in app/views/pages/home.html.erb</p>
+
+ <div class="container search_banner">
+        <%= form_with url: raclettes_path, method: :get, class: "d-flex form-search" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Type an address"
+        %>
+
+):
+1:    <h1>Pages#home</h1>
+2:    <p>Find me in app/views/pages/home.html.erb</p>
+3:    
+4:     <div class="container search_banner">
+5:            <%= form_with url: raclettes_path, method: :get, class: "d-flex form-search" do %>
+6:            <%= text_field_tag :query,
+7:              params[:query],
+8:              class: "form-control",
+9:              placeholder: "Type an address"
+10:            %>
+  
+app/views/pages/home.html.erb:13: syntax error, unexpected end-of-input, expecting `end'
+app/views/pages/home.html.erb:13: syntax error, unexpected end-of-input, expecting `end'
+app/views/pages/home.html.erb:13: syntax error, unexpected end-of-input, expecting `end'
+app/views/pages/home.html.erb:13: syntax error, unexpected end-of-input, expecting `end'
+app/views/pages/home.html.erb:13: syntax error, unexpected end-of-input, expecting `end'
+app/views/pages/home.html.erb:13: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/" for ::1 at 2022-11-29 15:00:52 +0100
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.7ms | Allocations: 1162)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | Allocations: 1252)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 2069)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1>Pages#home</h1>
+<p>Find me in app/views/pages/home.html.erb</p>
+
+ <div class="container search_banner">
+        <%= form_with url: jams_path, method: :get, class: "d-flex form-search" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Type an address"
+        %>
+
+):
+1:    <h1>Pages#home</h1>
+2:    <p>Find me in app/views/pages/home.html.erb</p>
+3:    
+4:     <div class="container search_banner">
+5:            <%= form_with url: jams_path, method: :get, class: "d-flex form-search" do %>
+6:            <%= text_field_tag :query,
+7:              params[:query],
+8:              class: "form-control",
+9:              placeholder: "Type an address"
+10:            %>
+  
+app/views/pages/home.html.erb:13: syntax error, unexpected end-of-input, expecting `end'
+app/views/pages/home.html.erb:13: syntax error, unexpected end-of-input, expecting `end'
+app/views/pages/home.html.erb:13: syntax error, unexpected end-of-input, expecting `end'
+app/views/pages/home.html.erb:13: syntax error, unexpected end-of-input, expecting `end'
+app/views/pages/home.html.erb:13: syntax error, unexpected end-of-input, expecting `end'
+app/views/pages/home.html.erb:13: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/" for ::1 at 2022-11-29 15:08:47 +0100
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1166)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | Allocations: 1255)
+Completed 500 Internal Server Error in 3ms (Allocations: 2050)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1>Pages#home</h1>
+<p>Find me in app/views/pages/home.html.erb</p>
+
+ <div class="container search_banner">
+        <%= form_with url: jams_path, method: :get, class: "d-flex form-search" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Type an address"
+        %>
+        </div>
+
+):
+1:    <h1>Pages#home</h1>
+2:    <p>Find me in app/views/pages/home.html.erb</p>
+3:    
+4:     <div class="container search_banner">
+5:            <%= form_with url: jams_path, method: :get, class: "d-flex form-search" do %>
+6:            <%= text_field_tag :query,
+7:              params[:query],
+8:              class: "form-control",
+9:              placeholder: "Type an address"
+10:            %>
+11:            </div>
+  
+app/views/pages/home.html.erb:14: syntax error, unexpected end-of-input, expecting `end'
+app/views/pages/home.html.erb:14: syntax error, unexpected end-of-input, expecting `end'
+app/views/pages/home.html.erb:14: syntax error, unexpected end-of-input, expecting `end'
+app/views/pages/home.html.erb:14: syntax error, unexpected end-of-input, expecting `end'
+app/views/pages/home.html.erb:14: syntax error, unexpected end-of-input, expecting `end'
+app/views/pages/home.html.erb:14: syntax error, unexpected end-of-input, expecting `end'
