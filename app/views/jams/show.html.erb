@@ -1,8 +1,23 @@
 <div class="jambanner">
   <div class="jambanner-image">
+    <%= cl_image_tag @jam.photo.key %>
   </div>
-  <div class="jambanner-infos-container">
-  <div class="jambanner-infos-text">
-  </div>
+  <div class="jambanner-i-container">
+    <div class="jambanner-i-date-time">
+      <%= @jam.jam_date %>
+    </div>
+    <div class="jambanner-i-t-l-container">
+      <div class="jambanner-i-title-and-location">
+        <div class="jambanner-i-title">
+          <%= @jam.title %>
+        </div>
+        <div class="jambanner-i-location">
+          <%= @jam.location %>
+        </div>
+      </div>
+      <div class="jambanner-i-button">
+        <%= link_to "Participez !", new_jam_booking_path(@jam), class:"primary-button"  %>
+      </div>
+    </div>
   </div>
 </div>
