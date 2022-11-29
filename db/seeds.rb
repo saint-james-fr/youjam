@@ -5,9 +5,9 @@ puts ">"
 puts "Destroying previous data..."
 Booking.destroy_all
 Post.destroy_all
-User.destroy_all
 Jam.destroy_all
 Creation.destroy_all
+User.destroy_all
 puts ">"
 puts "Done!"
 
