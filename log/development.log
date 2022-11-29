@@ -7160,3 +7160,758 @@ Completed 200 OK in 20ms (Views: 19.5ms | ActiveRecord: 0.5ms | Allocations: 100
 
 
 >>>>>>> 52cd1247420761c744c3d6fab137a288dc1ae16e
+Started GET "/" for 127.0.0.1 at 2022-11-29 14:47:43 +0100
+  
+ActiveRecord::NoDatabaseError (We could not find your database: youjam_development. Which can be found in the database configuration file located at config/database.yml.
+
+To resolve this issue:
+
+- Did you create the database for this app, or delete it? You may need to create your database.
+- Has the database name changed? Check your database.yml config has the correct database name.
+
+To create your database, run:
+
+        bin/rails db:create
+):
+  
+activerecord (7.0.4) lib/active_record/connection_adapters/postgresql_adapter.rb:81:in `rescue in new_client'
+activerecord (7.0.4) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (7.0.4) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (7.0.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `public_send'
+activerecord (7.0.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `new_connection'
+activerecord (7.0.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:700:in `checkout_new_connection'
+activerecord (7.0.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:679:in `try_to_checkout_new_connection'
+activerecord (7.0.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:640:in `acquire_connection'
+activerecord (7.0.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:341:in `checkout'
+activerecord (7.0.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:181:in `connection'
+activerecord (7.0.4) lib/active_record/connection_adapters/abstract/connection_handler.rb:211:in `retrieve_connection'
+activerecord (7.0.4) lib/active_record/connection_handling.rb:313:in `retrieve_connection'
+activerecord (7.0.4) lib/active_record/connection_handling.rb:280:in `connection'
+activerecord (7.0.4) lib/active_record/migration.rb:613:in `connection'
+activerecord (7.0.4) lib/active_record/migration.rb:608:in `build_watcher'
+activerecord (7.0.4) lib/active_record/migration.rb:590:in `block in call'
+activerecord (7.0.4) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.4) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+  [1m[35m (171.3ms)[0m  [1m[35mCREATE DATABASE "youjam_development" ENCODING = 'unicode'[0m
+  [1m[35m (56.3ms)[0m  [1m[35mCREATE DATABASE "youjam_test" ENCODING = 'unicode'[0m
+  [1m[35m (13.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7671212580499673625)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20221128145512)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "remember_created_at" timestamp(6), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221128145512"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddInfosToUser (20221128153124)
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.8ms)[0m  [1m[35mALTER TABLE "users" ADD "first_name" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "last_name" character varying[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "users" ADD "avatar" character varying[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "users" ADD "location" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "soundcloud_url" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "instagram_url" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "description" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221128153124"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateInstruments (20221128153427)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "instruments" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221128153427"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateGenres (20221128153434)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "genres" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221128153434"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateArtists (20221128153459)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "artists" ("id" bigserial primary key, "name" character varying, "spotify_url" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221128153459"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUserInstruments (20221128153544)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "user_instruments" ("id" bigserial primary key, "instrument_id" bigint NOT NULL, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_247f29b18e"
+FOREIGN KEY ("instrument_id")
+  REFERENCES "instruments" ("id")
+, CONSTRAINT "fk_rails_4f78ab3644"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE INDEX "index_user_instruments_on_instrument_id" ON "user_instruments" ("instrument_id")[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE INDEX "index_user_instruments_on_user_id" ON "user_instruments" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221128153544"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUserGenres (20221128153603)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE TABLE "user_genres" ("id" bigserial primary key, "genre_id" bigint NOT NULL, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_891e09a06e"
+FOREIGN KEY ("genre_id")
+  REFERENCES "genres" ("id")
+, CONSTRAINT "fk_rails_b570792877"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE INDEX "index_user_genres_on_genre_id" ON "user_genres" ("genre_id")[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE INDEX "index_user_genres_on_user_id" ON "user_genres" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221128153603"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUserArtists (20221128153619)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.0ms)[0m  [1m[35mCREATE TABLE "user_artists" ("id" bigserial primary key, "artist_id" bigint NOT NULL, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_1636685173"
+FOREIGN KEY ("artist_id")
+  REFERENCES "artists" ("id")
+, CONSTRAINT "fk_rails_21d079302c"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE INDEX "index_user_artists_on_artist_id" ON "user_artists" ("artist_id")[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE INDEX "index_user_artists_on_user_id" ON "user_artists" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221128153619"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCreations (20221128153635)
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "creations" ("id" bigserial primary key, "name" character varying, "type" character varying, "file" character varying, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_a152910aea"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE INDEX "index_creations_on_user_id" ON "creations" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221128153635"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateJams (20221128153859)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "jams" ("id" bigserial primary key, "location" character varying, "photo" character varying, "description" character varying, "instruments" character varying, "capacity" integer, "date" time, "cancelled" boolean, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_2e55e08061"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE INDEX "index_jams_on_user_id" ON "jams" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221128153859"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBookings (20221128153923)
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE TABLE "bookings" ("id" bigserial primary key, "message" character varying, "status" character varying, "been_invited" boolean, "jam_id" bigint NOT NULL, "user_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_ad1bfc596f"
+FOREIGN KEY ("jam_id")
+  REFERENCES "jams" ("id")
+, CONSTRAINT "fk_rails_ef0571f117"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE INDEX "index_bookings_on_jam_id" ON "bookings" ("jam_id")[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE INDEX "index_bookings_on_user_id" ON "bookings" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221128153923"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePosts (20221128153949)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.8ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "jam_id" bigint NOT NULL, "user_id" bigint NOT NULL, "content" text, "file" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_ff4b67a57e"
+FOREIGN KEY ("jam_id")
+  REFERENCES "jams" ("id")
+, CONSTRAINT "fk_rails_5b5ddfd518"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE INDEX "index_posts_on_jam_id" ON "posts" ("jam_id")[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221128153949"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddArraytoJams (20221128154003)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.1ms)[0m  [1m[35mALTER TABLE "jams" DROP COLUMN "instruments"[0m
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "jams" ADD "instruments_list" character varying[] DEFAULT '{}'[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221128154003"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddMoreDefaultsValues (20221128161705)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "jams" ALTER COLUMN "cancelled" TYPE boolean, ALTER COLUMN "cancelled" SET DEFAULT FALSE[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "bookings" ALTER COLUMN "status" TYPE character varying, ALTER COLUMN "status" SET DEFAULT 'pending'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "bookings" ALTER COLUMN "been_invited" TYPE boolean[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ALTER COLUMN "description" TYPE text[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "jams" ALTER COLUMN "description" TYPE text[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "jams" DROP COLUMN "photo"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "creations" DROP COLUMN "file"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221128161705"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateActiveStorageTables (20221129102825)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "key" character varying NOT NULL, "filename" character varying NOT NULL, "content_type" character varying, "metadata" text, "service_name" character varying NOT NULL, "byte_size" bigint NOT NULL, "checksum" character varying, "created_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (8.8ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "name" character varying NOT NULL, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" bigserial primary key, "blob_id" bigint NOT NULL, "variation_digest" character varying NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221129102825"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RemoveAvatarColumnToUsers (20221129103432)
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" DROP COLUMN "avatar"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221129103432"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeFormatDateInJams (20221129113026)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.1ms)[0m  [1m[35mALTER TABLE "jams" DROP COLUMN "date"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "jams" ADD "jam_date" date[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221129113026"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeCreationsTable (20221129132138)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "creations" ADD "creation_url" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221129132138"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeCreationsTypeColumn (20221129132854)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "creations" DROP COLUMN "type"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221129132854"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-11-29 13:49:18.046150"], ["updated_at", "2022-11-29 13:49:18.046150"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(7671212580499673625)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mBooking Load (0.7ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings"[0m
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mJam Load (0.5ms)[0m  [1m[34mSELECT "jams".* FROM "jams"[0m
+  [1m[36mCreation Load (0.4ms)[0m  [1m[34mSELECT "creations".* FROM "creations"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "anne@youjam.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "first_name", "last_name", "location", "soundcloud_url", "instagram_url", "description") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["email", "anne@youjam.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2022-11-29 13:49:24.017378"], ["updated_at", "2022-11-29 13:49:24.017378"], ["first_name", "Anne"], ["last_name", "Ly"], ["location", "23 rue Coysevox, 75018 Paris"], ["soundcloud_url", "https://soundcloud.com/chuwanaga"], ["instagram_url", "https://www.instagram.com/universalmusicfrance/"], ["description", "hey, my name is Anne and I love music"]]
+  [1m[36mActiveStorage::Blob Load (4.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.9ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Create (0.6ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["key", "7xigpgn3dva9ok83fpzcib925tw2"], ["filename", "nes148957.png"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["service_name", "cloudinary"], ["byte_size", 10322], ["checksum", "n0SYTNwoi3nWUbjzeWTIpQ=="], ["created_at", "2022-11-29 13:49:24.141255"]]
+  [1m[36mActiveStorage::Attachment Create (1.3ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "avatar"], ["record_type", "User"], ["record_id", 1], ["blob_id", 1], ["created_at", "2022-11-29 13:49:24.143399"]]
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1 WHERE "users"."id" = $2[0m  [["updated_at", "2022-11-29 13:49:24.145583"], ["id", 1]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+[36m  Cloudinary Storage (14.0ms) [0m[32mUploaded file to key: 7xigpgn3dva9ok83fpzcib925tw2 (checksum: n0SYTNwoi3nWUbjzeWTIpQ==)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mBooking Load (1.0ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings"[0m
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mJam Load (0.9ms)[0m  [1m[34mSELECT "jams".* FROM "jams" WHERE "jams"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mBooking Load (0.2ms)[0m  [1m[34mSELECT "bookings".* FROM "bookings" WHERE "bookings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mActiveStorage::Attachment Load (1.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Destroy (0.2ms)[0m  [1m[31mDELETE FROM "active_storage_attachments" WHERE "active_storage_attachments"."id" = $1[0m  [["id", 1]]
+  [1m[36mUser Destroy (9.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveStorage::Blob Load (0.8ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] Enqueued ActiveStorage::PurgeJob (Job ID: f33693ea-547d-4c86-83a3-0cd7cdd12b0f) to Async(default) with arguments: #<GlobalID:0x0000000106970368 @uri=#<URI::GID gid://youjam/ActiveStorage::Blob/1>>
+  [1m[36mJam Load (0.2ms)[0m  [1m[34mSELECT "jams".* FROM "jams"[0m
+  [1m[36mCreation Load (0.5ms)[0m  [1m[34mSELECT "creations".* FROM "creations"[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [f33693ea-547d-4c86-83a3-0cd7cdd12b0f]   [1m[36mActiveStorage::Blob Load (0.6ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [f33693ea-547d-4c86-83a3-0cd7cdd12b0f] Performing ActiveStorage::PurgeJob (Job ID: f33693ea-547d-4c86-83a3-0cd7cdd12b0f) from Async(default) enqueued at 2022-11-29T13:57:30Z with arguments: #<GlobalID:0x0000000106a333b8 @uri=#<URI::GID gid://youjam/ActiveStorage::Blob/1>>
+[ActiveJob] [ActiveStorage::PurgeJob] [f33693ea-547d-4c86-83a3-0cd7cdd12b0f]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [f33693ea-547d-4c86-83a3-0cd7cdd12b0f]   [1m[36mActiveStorage::Attachment Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = $1 LIMIT $2[0m  [["blob_id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [f33693ea-547d-4c86-83a3-0cd7cdd12b0f]   [1m[36mActiveStorage::VariantRecord Load (21.3ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = $1[0m  [["blob_id", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [f33693ea-547d-4c86-83a3-0cd7cdd12b0f]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "ActiveStorage::Blob"], ["name", "preview_image"], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [f33693ea-547d-4c86-83a3-0cd7cdd12b0f]   [1m[36mActiveStorage::Blob Destroy (1.3ms)[0m  [1m[31mDELETE FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1[0m  [["id", 1]]
+[ActiveJob] [ActiveStorage::PurgeJob] [f33693ea-547d-4c86-83a3-0cd7cdd12b0f]   [1m[36mTRANSACTION (8.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "anne@youjam.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "first_name", "last_name", "location", "soundcloud_url", "instagram_url", "description") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["email", "anne@youjam.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2022-11-29 13:57:31.970887"], ["updated_at", "2022-11-29 13:57:31.970887"], ["first_name", "Anne"], ["last_name", "Ly"], ["location", "23 rue Coysevox, 75018 Paris"], ["soundcloud_url", "https://soundcloud.com/chuwanaga"], ["instagram_url", "https://www.instagram.com/universalmusicfrance/"], ["description", "hey, my name is Anne and I love music"]]
+  [1m[36mActiveStorage::Blob Load (1.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Create (0.4ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["key", "szqdq22xujb2hzler99woq3ayv2d"], ["filename", "nes155155.png"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["service_name", "cloudinary"], ["byte_size", 8410], ["checksum", "3snD6d4B90cvR/9QMyJ0oQ=="], ["created_at", "2022-11-29 13:57:31.977421"]]
+  [1m[36mActiveStorage::Attachment Create (0.5ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "avatar"], ["record_type", "User"], ["record_id", 2], ["blob_id", 2], ["created_at", "2022-11-29 13:57:31.978491"]]
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1 WHERE "users"."id" = $2[0m  [["updated_at", "2022-11-29 13:57:31.979566"], ["id", 2]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [f33693ea-547d-4c86-83a3-0cd7cdd12b0f] [36m  Cloudinary Storage (1442.3ms) [0m[31mDeleted file from key: 7xigpgn3dva9ok83fpzcib925tw2[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [f33693ea-547d-4c86-83a3-0cd7cdd12b0f] Performed ActiveStorage::PurgeJob (Job ID: f33693ea-547d-4c86-83a3-0cd7cdd12b0f) from Async(default) in 1521.38ms
+[36m  Cloudinary Storage (1147.8ms) [0m[32mUploaded file to key: szqdq22xujb2hzler99woq3ayv2d (checksum: 3snD6d4B90cvR/9QMyJ0oQ==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 6c558d0a-58e5-4bab-b46d-3f07b4e107d5) to Async(default) with arguments: #<GlobalID:0x0000000106fb1948 @uri=#<URI::GID gid://youjam/ActiveStorage::Blob/2>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [6c558d0a-58e5-4bab-b46d-3f07b4e107d5]   [1m[36mActiveStorage::Blob Load (0.8ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [6c558d0a-58e5-4bab-b46d-3f07b4e107d5] Performing ActiveStorage::AnalyzeJob (Job ID: 6c558d0a-58e5-4bab-b46d-3f07b4e107d5) from Async(default) enqueued at 2022-11-29T13:57:33Z with arguments: #<GlobalID:0x0000000106ff3f00 @uri=#<URI::GID gid://youjam/ActiveStorage::Blob/2>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [6c558d0a-58e5-4bab-b46d-3f07b4e107d5] Skipping image analysis because the ruby-vips gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [6c558d0a-58e5-4bab-b46d-3f07b4e107d5]   [1m[36mTRANSACTION (38.5ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [6c558d0a-58e5-4bab-b46d-3f07b4e107d5]   [1m[36mActiveStorage::Blob Update (0.7ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 2]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [6c558d0a-58e5-4bab-b46d-3f07b4e107d5]   [1m[36mTRANSACTION (3.4ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [6c558d0a-58e5-4bab-b46d-3f07b4e107d5] Performed ActiveStorage::AnalyzeJob (Job ID: 6c558d0a-58e5-4bab-b46d-3f07b4e107d5) from Async(default) in 88.81ms
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "pierre@youjam.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "first_name", "last_name", "location", "soundcloud_url", "instagram_url", "description") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["email", "pierre@youjam.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2022-11-29 13:57:33.907934"], ["updated_at", "2022-11-29 13:57:33.907934"], ["first_name", "Pierre"], ["last_name", "Petel"], ["location", "12 rue Halévy, 75009 Paris"], ["soundcloud_url", "https://soundcloud.com/chuwanaga"], ["instagram_url", "https://www.instagram.com/universalmusicfrance/"], ["description", "hey, i'm Pierre, I love to steal keys and of course, I love music!"]]
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["key", "gn7o1hv96xjclzs5gy5x1o5q4w0w"], ["filename", "nes728362.png"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["service_name", "cloudinary"], ["byte_size", 10540], ["checksum", "aZZNaUyEJRzM/Low7scb1w=="], ["created_at", "2022-11-29 13:57:33.920479"]]
+  [1m[36mActiveStorage::Attachment Create (0.4ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "avatar"], ["record_type", "User"], ["record_id", 3], ["blob_id", 3], ["created_at", "2022-11-29 13:57:33.924325"]]
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1 WHERE "users"."id" = $2[0m  [["updated_at", "2022-11-29 13:57:33.928301"], ["id", 3]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+[36m  Cloudinary Storage (1217.2ms) [0m[32mUploaded file to key: gn7o1hv96xjclzs5gy5x1o5q4w0w (checksum: aZZNaUyEJRzM/Low7scb1w==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: c002de4f-6091-4083-b8eb-4b31dd56b7c8) to Async(default) with arguments: #<GlobalID:0x00000001070d7cf0 @uri=#<URI::GID gid://youjam/ActiveStorage::Blob/3>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c002de4f-6091-4083-b8eb-4b31dd56b7c8]   [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c002de4f-6091-4083-b8eb-4b31dd56b7c8] Performing ActiveStorage::AnalyzeJob (Job ID: c002de4f-6091-4083-b8eb-4b31dd56b7c8) from Async(default) enqueued at 2022-11-29T13:57:35Z with arguments: #<GlobalID:0x0000000107121508 @uri=#<URI::GID gid://youjam/ActiveStorage::Blob/3>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c002de4f-6091-4083-b8eb-4b31dd56b7c8] Skipping image analysis because the ruby-vips gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c002de4f-6091-4083-b8eb-4b31dd56b7c8]   [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c002de4f-6091-4083-b8eb-4b31dd56b7c8]   [1m[36mActiveStorage::Blob Update (0.5ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 3]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c002de4f-6091-4083-b8eb-4b31dd56b7c8]   [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c002de4f-6091-4083-b8eb-4b31dd56b7c8] Performed ActiveStorage::AnalyzeJob (Job ID: c002de4f-6091-4083-b8eb-4b31dd56b7c8) from Async(default) in 30.35ms
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "maxence@youjam.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "first_name", "last_name", "location", "soundcloud_url", "instagram_url", "description") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["email", "maxence@youjam.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2022-11-29 13:57:35.893389"], ["updated_at", "2022-11-29 13:57:35.893389"], ["first_name", "Maxence"], ["last_name", "Robinet"], ["location", "2 boulevard Biron, 93400 Saint-Ouen"], ["soundcloud_url", "https://soundcloud.com/chuwanaga"], ["instagram_url", "https://www.instagram.com/universalmusicfrance/"], ["description", "hey, i'm Maxence, I can make music everyday and I'm also a codeur fou"]]
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 4], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 4], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["key", "2zoxshhgck7jalhw1zs1cazkb1td"], ["filename", "nes230885.png"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["service_name", "cloudinary"], ["byte_size", 5353], ["checksum", "4wzYEgdNgbTpUvdoVLJHXQ=="], ["created_at", "2022-11-29 13:57:35.896820"]]
+  [1m[36mActiveStorage::Attachment Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "avatar"], ["record_type", "User"], ["record_id", 4], ["blob_id", 4], ["created_at", "2022-11-29 13:57:35.897820"]]
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1 WHERE "users"."id" = $2[0m  [["updated_at", "2022-11-29 13:57:35.898601"], ["id", 4]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+[36m  Cloudinary Storage (1391.1ms) [0m[32mUploaded file to key: 2zoxshhgck7jalhw1zs1cazkb1td (checksum: 4wzYEgdNgbTpUvdoVLJHXQ==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 51394712-349a-4813-a8c4-fbad04869821) to Async(default) with arguments: #<GlobalID:0x00000001060988a8 @uri=#<URI::GID gid://youjam/ActiveStorage::Blob/4>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [51394712-349a-4813-a8c4-fbad04869821]   [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [51394712-349a-4813-a8c4-fbad04869821] Performing ActiveStorage::AnalyzeJob (Job ID: 51394712-349a-4813-a8c4-fbad04869821) from Async(default) enqueued at 2022-11-29T13:57:37Z with arguments: #<GlobalID:0x0000000105f174c0 @uri=#<URI::GID gid://youjam/ActiveStorage::Blob/4>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [51394712-349a-4813-a8c4-fbad04869821] Skipping image analysis because the ruby-vips gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [51394712-349a-4813-a8c4-fbad04869821]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [51394712-349a-4813-a8c4-fbad04869821]   [1m[36mActiveStorage::Blob Update (0.3ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 4]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [51394712-349a-4813-a8c4-fbad04869821]   [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [51394712-349a-4813-a8c4-fbad04869821] Performed ActiveStorage::AnalyzeJob (Job ID: 51394712-349a-4813-a8c4-fbad04869821) from Async(default) in 7.1ms
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "benjamin@youjam.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "first_name", "last_name", "location", "soundcloud_url", "instagram_url", "description") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["email", "benjamin@youjam.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2022-11-29 13:57:38.001871"], ["updated_at", "2022-11-29 13:57:38.001871"], ["first_name", "Benjamin"], ["last_name", "Doberset"], ["location", "70 Rue Myrha, 75018 Paris"], ["soundcloud_url", "https://soundcloud.com/chuwanaga"], ["instagram_url", "https://www.instagram.com/universalmusicfrance/"], ["description", "hey, i'm Benjamin, I can make music even at my lunch at work!"]]
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 5], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 5], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["key", "dvpw1zn8rwvv4j3cnz3fh48s4pwy"], ["filename", "nes733179.png"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["service_name", "cloudinary"], ["byte_size", 8539], ["checksum", "Pag8LpMfRVZEO6mCIPAaDg=="], ["created_at", "2022-11-29 13:57:38.005139"]]
+  [1m[36mActiveStorage::Attachment Create (0.4ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "avatar"], ["record_type", "User"], ["record_id", 5], ["blob_id", 5], ["created_at", "2022-11-29 13:57:38.006069"]]
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1 WHERE "users"."id" = $2[0m  [["updated_at", "2022-11-29 13:57:38.006881"], ["id", 5]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+[36m  Cloudinary Storage (1212.8ms) [0m[32mUploaded file to key: dvpw1zn8rwvv4j3cnz3fh48s4pwy (checksum: Pag8LpMfRVZEO6mCIPAaDg==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: dbf665ad-f2db-48b5-9d2a-4852e85b65fc) to Async(default) with arguments: #<GlobalID:0x0000000106a82c38 @uri=#<URI::GID gid://youjam/ActiveStorage::Blob/5>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [dbf665ad-f2db-48b5-9d2a-4852e85b65fc]   [1m[36mActiveStorage::Blob Load (0.6ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [dbf665ad-f2db-48b5-9d2a-4852e85b65fc] Performing ActiveStorage::AnalyzeJob (Job ID: dbf665ad-f2db-48b5-9d2a-4852e85b65fc) from Async(default) enqueued at 2022-11-29T13:57:39Z with arguments: #<GlobalID:0x0000000106a40810 @uri=#<URI::GID gid://youjam/ActiveStorage::Blob/5>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [dbf665ad-f2db-48b5-9d2a-4852e85b65fc] Skipping image analysis because the ruby-vips gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [dbf665ad-f2db-48b5-9d2a-4852e85b65fc]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [dbf665ad-f2db-48b5-9d2a-4852e85b65fc]   [1m[36mActiveStorage::Blob Update (0.3ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 5]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [dbf665ad-f2db-48b5-9d2a-4852e85b65fc]   [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [dbf665ad-f2db-48b5-9d2a-4852e85b65fc] Performed ActiveStorage::AnalyzeJob (Job ID: dbf665ad-f2db-48b5-9d2a-4852e85b65fc) from Async(default) in 7.54ms
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "gaspard@youjam.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "first_name", "last_name", "location", "soundcloud_url", "instagram_url", "description") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["email", "gaspard@youjam.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2022-11-29 13:57:39.748702"], ["updated_at", "2022-11-29 13:57:39.748702"], ["first_name", "Gaspard"], ["last_name", "Fauchille"], ["location", "261 Bd de Tournai, 59650 Villeneuve-d'Ascq"], ["soundcloud_url", "https://soundcloud.com/chuwanaga"], ["instagram_url", "https://www.instagram.com/universalmusicfrance/"], ["description", "hey, i'm Gaspard and I love to eat maroille while listening to my music"]]
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["key", "vml265aap3p5g218ha2ryztxldbl"], ["filename", "nes417467.png"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["service_name", "cloudinary"], ["byte_size", 5686], ["checksum", "gm7LUAPXoNjL1JoXHOdvLw=="], ["created_at", "2022-11-29 13:57:39.752126"]]
+  [1m[36mActiveStorage::Attachment Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "avatar"], ["record_type", "User"], ["record_id", 6], ["blob_id", 6], ["created_at", "2022-11-29 13:57:39.753086"]]
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1 WHERE "users"."id" = $2[0m  [["updated_at", "2022-11-29 13:57:39.753857"], ["id", 6]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+[36m  Cloudinary Storage (772.9ms) [0m[32mUploaded file to key: vml265aap3p5g218ha2ryztxldbl (checksum: gm7LUAPXoNjL1JoXHOdvLw==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 85eff265-066a-4266-b4e1-5e966e6a651e) to Async(default) with arguments: #<GlobalID:0x0000000106cf13e8 @uri=#<URI::GID gid://youjam/ActiveStorage::Blob/6>>
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [85eff265-066a-4266-b4e1-5e966e6a651e]   [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [85eff265-066a-4266-b4e1-5e966e6a651e] Performing ActiveStorage::AnalyzeJob (Job ID: 85eff265-066a-4266-b4e1-5e966e6a651e) from Async(default) enqueued at 2022-11-29T13:57:40Z with arguments: #<GlobalID:0x0000000106da1428 @uri=#<URI::GID gid://youjam/ActiveStorage::Blob/6>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [85eff265-066a-4266-b4e1-5e966e6a651e] Skipping image analysis because the ruby-vips gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [85eff265-066a-4266-b4e1-5e966e6a651e]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [85eff265-066a-4266-b4e1-5e966e6a651e]   [1m[36mActiveStorage::Blob Update (0.3ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 6]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [85eff265-066a-4266-b4e1-5e966e6a651e]   [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [85eff265-066a-4266-b4e1-5e966e6a651e] Performed ActiveStorage::AnalyzeJob (Job ID: 85eff265-066a-4266-b4e1-5e966e6a651e) from Async(default) in 6.63ms
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mJam Create (6.5ms)[0m  [1m[32mINSERT INTO "jams" ("location", "description", "capacity", "cancelled", "user_id", "created_at", "updated_at", "instruments_list", "jam_date") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["location", "16 Villa Gaudelet, 75011 Paris"], ["description", "this is the famous wagon jam"], ["capacity", 3], ["cancelled", false], ["user_id", 2], ["created_at", "2022-11-29 13:57:40.891378"], ["updated_at", "2022-11-29 13:57:40.891378"], ["instruments_list", "{drums,guitar,bass}"], ["jam_date", "2022-12-07"]]
+  [1m[36mActiveStorage::Blob Load (0.6ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Jam"], ["name", "photo"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Jam"], ["name", "photo"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["key", "kegwjqj1dbv8h59kur6a0xej6xek"], ["filename", "nes97722.png"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["service_name", "cloudinary"], ["byte_size", 7765], ["checksum", "NbFsrX4Zb3duBJesGSif8g=="], ["created_at", "2022-11-29 13:57:40.905384"]]
+  [1m[36mActiveStorage::Attachment Create (0.5ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "photo"], ["record_type", "Jam"], ["record_id", 1], ["blob_id", 7], ["created_at", "2022-11-29 13:57:40.909643"]]
+  [1m[36mJam Update (0.5ms)[0m  [1m[33mUPDATE "jams" SET "updated_at" = $1 WHERE "jams"."id" = $2[0m  [["updated_at", "2022-11-29 13:57:40.911251"], ["id", 1]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+[36m  Cloudinary Storage (1109.8ms) [0m[32mUploaded file to key: kegwjqj1dbv8h59kur6a0xej6xek (checksum: NbFsrX4Zb3duBJesGSif8g==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 9401bc0e-07a6-4608-a460-97f7481ccfe3) to Async(default) with arguments: #<GlobalID:0x0000000106ff0508 @uri=#<URI::GID gid://youjam/ActiveStorage::Blob/7>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [9401bc0e-07a6-4608-a460-97f7481ccfe3]   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [9401bc0e-07a6-4608-a460-97f7481ccfe3] Performing ActiveStorage::AnalyzeJob (Job ID: 9401bc0e-07a6-4608-a460-97f7481ccfe3) from Async(default) enqueued at 2022-11-29T13:57:42Z with arguments: #<GlobalID:0x000000010704ada0 @uri=#<URI::GID gid://youjam/ActiveStorage::Blob/7>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [9401bc0e-07a6-4608-a460-97f7481ccfe3] Skipping image analysis because the ruby-vips gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [9401bc0e-07a6-4608-a460-97f7481ccfe3]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [9401bc0e-07a6-4608-a460-97f7481ccfe3]   [1m[36mActiveStorage::Blob Update (0.5ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 7]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [9401bc0e-07a6-4608-a460-97f7481ccfe3]   [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [9401bc0e-07a6-4608-a460-97f7481ccfe3] Performed ActiveStorage::AnalyzeJob (Job ID: 9401bc0e-07a6-4608-a460-97f7481ccfe3) from Async(default) in 7.82ms
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mJam Create (0.6ms)[0m  [1m[32mINSERT INTO "jams" ("location", "description", "capacity", "cancelled", "user_id", "created_at", "updated_at", "instruments_list", "jam_date") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["location", "48 avenue Parmentier, 75011 Paris"], ["description", "This is the Jam of the data versus Web Dev"], ["capacity", 6], ["cancelled", false], ["user_id", 6], ["created_at", "2022-11-29 13:57:42.473423"], ["updated_at", "2022-11-29 13:57:42.473423"], ["instruments_list", "{drums,guitar,bass,\"french horn\",saxophone}"], ["jam_date", "2022-12-23"]]
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Jam"], ["name", "photo"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Jam"], ["name", "photo"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Create (0.4ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["key", "ubox7bipfk6fhfuyx95934xu0kti"], ["filename", "nes936449.png"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["service_name", "cloudinary"], ["byte_size", 7812], ["checksum", "4PfFheBehQXc4TJqCuDrLg=="], ["created_at", "2022-11-29 13:57:42.480645"]]
+  [1m[36mActiveStorage::Attachment Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "photo"], ["record_type", "Jam"], ["record_id", 2], ["blob_id", 8], ["created_at", "2022-11-29 13:57:42.482802"]]
+  [1m[36mJam Update (0.5ms)[0m  [1m[33mUPDATE "jams" SET "updated_at" = $1 WHERE "jams"."id" = $2[0m  [["updated_at", "2022-11-29 13:57:42.484379"], ["id", 2]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+[36m  Cloudinary Storage (979.4ms) [0m[32mUploaded file to key: ubox7bipfk6fhfuyx95934xu0kti (checksum: 4PfFheBehQXc4TJqCuDrLg==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: f9fa017e-86a9-44fe-bbb4-7a821bf15fe3) to Async(default) with arguments: #<GlobalID:0x0000000105d96240 @uri=#<URI::GID gid://youjam/ActiveStorage::Blob/8>>
+  [1m[36mJam Load (0.4ms)[0m  [1m[34mSELECT "jams".* FROM "jams" ORDER BY "jams"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mJam Load (0.2ms)[0m  [1m[34mSELECT "jams".* FROM "jams" ORDER BY "jams"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [f9fa017e-86a9-44fe-bbb4-7a821bf15fe3]   [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [f9fa017e-86a9-44fe-bbb4-7a821bf15fe3] Performing ActiveStorage::AnalyzeJob (Job ID: f9fa017e-86a9-44fe-bbb4-7a821bf15fe3) from Async(default) enqueued at 2022-11-29T13:57:43Z with arguments: #<GlobalID:0x00000001067231c8 @uri=#<URI::GID gid://youjam/ActiveStorage::Blob/8>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [f9fa017e-86a9-44fe-bbb4-7a821bf15fe3] Skipping image analysis because the ruby-vips gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [f9fa017e-86a9-44fe-bbb4-7a821bf15fe3]   [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [f9fa017e-86a9-44fe-bbb4-7a821bf15fe3]   [1m[36mActiveStorage::Blob Update (0.6ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 8]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [f9fa017e-86a9-44fe-bbb4-7a821bf15fe3]   [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [f9fa017e-86a9-44fe-bbb4-7a821bf15fe3] Performed ActiveStorage::AnalyzeJob (Job ID: f9fa017e-86a9-44fe-bbb4-7a821bf15fe3) from Async(default) in 12.58ms
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mJam Load (0.3ms)[0m  [1m[34mSELECT "jams".* FROM "jams" WHERE "jams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mBooking Create (3.0ms)[0m  [1m[32mINSERT INTO "bookings" ("message", "status", "been_invited", "jam_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["message", "salut j'ai grave envie de jammer, t'es chaud.e ?"], ["status", "pending"], ["been_invited", nil], ["jam_id", 1], ["user_id", 6], ["created_at", "2022-11-29 13:57:43.503172"], ["updated_at", "2022-11-29 13:57:43.503172"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mJam Load (0.3ms)[0m  [1m[34mSELECT "jams".* FROM "jams" WHERE "jams"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mBooking Create (0.3ms)[0m  [1m[32mINSERT INTO "bookings" ("message", "status", "been_invited", "jam_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["message", "c'est l'heure de la jam! let's go!"], ["status", "pending"], ["been_invited", nil], ["jam_id", 2], ["user_id", 2], ["created_at", "2022-11-29 13:57:43.511289"], ["updated_at", "2022-11-29 13:57:43.511289"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mJam Load (0.3ms)[0m  [1m[34mSELECT "jams".* FROM "jams" ORDER BY "jams"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mJam Load (0.2ms)[0m  [1m[34mSELECT "jams".* FROM "jams" ORDER BY "jams"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mJam Load (0.3ms)[0m  [1m[34mSELECT "jams".* FROM "jams" WHERE "jams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mPost Create (2.0ms)[0m  [1m[32mINSERT INTO "posts" ("jam_id", "user_id", "content", "file", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["jam_id", 1], ["user_id", 6], ["content", "Ca va être mortel les petits loups"], ["file", nil], ["created_at", "2022-11-29 13:57:43.531881"], ["updated_at", "2022-11-29 13:57:43.531881"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mJam Load (0.2ms)[0m  [1m[34mSELECT "jams".* FROM "jams" WHERE "jams"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("jam_id", "user_id", "content", "file", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["jam_id", 2], ["user_id", 2], ["content", "je ramène mon ampli de guitare"], ["file", nil], ["created_at", "2022-11-29 13:57:43.538368"], ["updated_at", "2022-11-29 13:57:43.538368"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCreation Create (1.3ms)[0m  [1m[32mINSERT INTO "creations" ("name", "user_id", "created_at", "updated_at", "creation_url") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Mon dernier concert"], ["user_id", 6], ["created_at", "2022-11-29 13:57:43.555016"], ["updated_at", "2022-11-29 13:57:43.555016"], ["creation_url", "https://www.youtube.com/watch?v=WaM2pxTPstw"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCreation Create (0.4ms)[0m  [1m[32mINSERT INTO "creations" ("name", "user_id", "created_at", "updated_at", "creation_url") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Mon dernier concert"], ["user_id", 2], ["created_at", "2022-11-29 13:57:43.561264"], ["updated_at", "2022-11-29 13:57:43.561264"], ["creation_url", "https://www.youtube.com/watch?v=WaM2pxTPstw"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/raclettes/7" for ::1 at 2022-11-29 15:25:38 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/raclettes/7"):
+  
+Started GET "/" for ::1 at 2022-11-29 15:25:42 +0100
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 123)
+  Rendered layout layouts/application.html.erb (Duration: 3918.4ms | Allocations: 157809)
+Completed 500 Internal Server Error in 3929ms (ActiveRecord: 0.0ms | Allocations: 160393)
+
+
+  
+ActionView::Template::Error (The asset "application.js" is not present in the asset pipeline.
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    10:     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    11:   </head>
+    12: 
+    13:   <body>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/jams" for ::1 at 2022-11-29 15:28:33 +0100
+Processing by JamsController#index as HTML
+Completed 401 Unauthorized in 9ms (ActiveRecord: 0.0ms | Allocations: 1680)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-11-29 15:28:33 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 724)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 51.4ms | Allocations: 34090)
+  Rendered layout layouts/application.html.erb (Duration: 56.5ms | Allocations: 44458)
+Completed 500 Internal Server Error in 79ms (ActiveRecord: 9.6ms | Allocations: 54923)
+
+
+  
+ActionView::Template::Error (The asset "application.js" is not present in the asset pipeline.
+):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    10:     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    11:   </head>
+    12: 
+    13:   <body>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/users/sign_in" for ::1 at 2022-11-29 15:29:09 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 739)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 33.5ms | Allocations: 31079)
+  Rendered shared/_navbar.html.erb (Duration: 1.7ms | Allocations: 658)
+  Rendered shared/_flashes.html.erb (Duration: 0.2ms | Allocations: 223)
+  Rendered layout layouts/application.html.erb (Duration: 175.2ms | Allocations: 88999)
+Completed 200 OK in 192ms (Views: 178.6ms | ActiveRecord: 4.6ms | Allocations: 102071)
+
+
+Started POST "/users/sign_in" for ::1 at 2022-11-29 15:29:24 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"gaspard@youjam.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "gaspard@youjam.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (1.3ms)[0m  [1m[33mUPDATE "users" SET "remember_created_at" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["remember_created_at", "2022-11-29 14:29:24.815866"], ["updated_at", "2022-11-29 14:29:24.816186"], ["id", 6]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/jams
+Completed 302 Found in 289ms (ActiveRecord: 4.9ms | Allocations: 11514)
+
+
+Started GET "/jams" for ::1 at 2022-11-29 15:29:24 +0100
+Processing by JamsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering jams/index.html.erb within layouts/application
+  Rendered jams/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 115)
+  Rendered shared/_navbar.html.erb (Duration: 0.2ms | Allocations: 414)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 41)
+  Rendered layout layouts/application.html.erb (Duration: 4.1ms | Allocations: 9312)
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.2ms | Allocations: 11649)
+
+
+Started GET "/jams" for ::1 at 2022-11-29 15:29:34 +0100
+Processing by JamsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering jams/index.html.erb within layouts/application
+  Rendered jams/index.html.erb within layouts/application (Duration: 23.9ms | Allocations: 5218)
+  Rendered layout layouts/application.html.erb (Duration: 24.3ms | Allocations: 5307)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 0.4ms | Allocations: 7610)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `movies_path' for #<ActionView::Base:0x0000000000ea60>
+
+    '.freeze;@output_buffer.append=  form_with url: movies_path, method: :get, class: "d-flex" do @output_buffer.safe_append='
+                                                    ^^^^^^^^^^^):
+    1: <div class="container">
+    2:   <div class="jams-index-search">
+    3:     <h2>your search: </h2>
+    4:     <%= form_with url: movies_path, method: :get, class: "d-flex" do %>
+    5:       <%= text_field_tag :query,
+    6:       params[:query],
+    7:       class: "form-control",
+  
+app/views/jams/index.html.erb:4
+Started GET "/jams" for ::1 at 2022-11-29 15:29:47 +0100
+Processing by JamsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering jams/index.html.erb within layouts/application
+  Rendered jams/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 548)
+  Rendered shared/_navbar.html.erb (Duration: 1.2ms | Allocations: 755)
+  Rendered shared/_flashes.html.erb (Duration: 0.4ms | Allocations: 202)
+  Rendered layout layouts/application.html.erb (Duration: 18.6ms | Allocations: 10717)
+Completed 200 OK in 28ms (Views: 22.3ms | ActiveRecord: 0.5ms | Allocations: 13044)
+
+
+Started GET "/jams" for ::1 at 2022-11-29 15:32:27 +0100
+Processing by JamsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering jams/index.html.erb within layouts/application
+  Rendered jams/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 539)
+  Rendered shared/_navbar.html.erb (Duration: 0.9ms | Allocations: 755)
+  Rendered shared/_flashes.html.erb (Duration: 0.4ms | Allocations: 202)
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 10515)
+Completed 200 OK in 11ms (Views: 9.5ms | ActiveRecord: 0.2ms | Allocations: 12794)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7671212580499673625)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddTitleJams (20221129143818)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "jams" ADD "title" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (4.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221129143818"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7671212580499673625)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/jams?query=v%2Cbn&commit=Search" for ::1 at 2022-11-29 15:41:12 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by JamsController#index as HTML
+  Parameters: {"query"=>"v,bn", "commit"=>"Search"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering jams/index.html.erb within layouts/application
+  Rendered jams/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 336)
+  Rendered shared/_navbar.html.erb (Duration: 0.2ms | Allocations: 372)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 35)
+  Rendered layout layouts/application.html.erb (Duration: 4.8ms | Allocations: 9632)
+Completed 200 OK in 10ms (Views: 5.2ms | ActiveRecord: 0.9ms | Allocations: 16183)
+
+
+Started GET "/jams?query=v%2Cbn&commit=Search" for ::1 at 2022-11-29 15:53:56 +0100
+Processing by JamsController#index as HTML
+  Parameters: {"query"=>"v,bn", "commit"=>"Search"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering jams/index.html.erb within layouts/application
+  Rendered jams/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 2566)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 2654)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 8.3ms | Allocations: 12246)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass
+
+'.freeze;   @jams.each do |jam| 
+                 ^^^^^):
+    11:     <% end %>
+    12:   </div>
+    13:   <div class="jams-index-cards">
+    14:   <% @jams.each do |jam| %>
+    15:     <div class="jam-card">
+    16:       <%= cl_image_tag jam.photo.key %>
+    17:       <%= cl_image_tag jam.user.avatar.key, class: "avatar-bordered" %>
+  
+app/views/jams/index.html.erb:14
+Started GET "/jams?query=v%2Cbn&commit=Search" for ::1 at 2022-11-29 15:55:34 +0100
+Processing by JamsController#index as HTML
+  Parameters: {"query"=>"v,bn", "commit"=>"Search"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering jams/index.html.erb within layouts/application
+  [1m[36mJam Load (0.9ms)[0m  [1m[34mSELECT "jams".* FROM "jams"[0m
+  ↳ app/views/jams/index.html.erb:14
+  [1m[36mActiveStorage::Attachment Load (1.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Jam"], ["name", "photo"], ["LIMIT", 1]]
+  ↳ app/views/jams/index.html.erb:16
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/jams/index.html.erb:16
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/jams/index.html.erb:17
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/jams/index.html.erb:17
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/jams/index.html.erb:17
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Jam"], ["name", "photo"], ["LIMIT", 1]]
+  ↳ app/views/jams/index.html.erb:16
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/jams/index.html.erb:16
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/jams/index.html.erb:17
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/jams/index.html.erb:17
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/jams/index.html.erb:17
+  Rendered jams/index.html.erb within layouts/application (Duration: 79.4ms | Allocations: 40713)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 768)
+  Rendered shared/_flashes.html.erb (Duration: 0.3ms | Allocations: 202)
+  Rendered layout layouts/application.html.erb (Duration: 85.4ms | Allocations: 50967)
+Completed 200 OK in 106ms (Views: 69.8ms | ActiveRecord: 29.5ms | Allocations: 60785)
+
+
+Started GET "/jams?query=v%2Cbn&commit=Search" for ::1 at 2022-11-29 16:05:04 +0100
+Processing by JamsController#index as HTML
+  Parameters: {"query"=>"v,bn", "commit"=>"Search"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering jams/index.html.erb within layouts/application
+  [1m[36mJam Load (1.1ms)[0m  [1m[34mSELECT "jams".* FROM "jams"[0m
+  ↳ app/views/jams/index.html.erb:14
+  [1m[36mActiveStorage::Attachment Load (0.9ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Jam"], ["name", "photo"], ["LIMIT", 1]]
+  ↳ app/views/shared/_jam_card.html.erb:2
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/shared/_jam_card.html.erb:2
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/shared/_jam_card.html.erb:3
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/shared/_jam_card.html.erb:3
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/shared/_jam_card.html.erb:3
+  Rendered shared/_jam_card.html.erb (Duration: 11.6ms | Allocations: 4873)
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Jam"], ["name", "photo"], ["LIMIT", 1]]
+  ↳ app/views/shared/_jam_card.html.erb:2
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/shared/_jam_card.html.erb:2
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/shared/_jam_card.html.erb:3
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/shared/_jam_card.html.erb:3
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/shared/_jam_card.html.erb:3
+  Rendered shared/_jam_card.html.erb (Duration: 8.3ms | Allocations: 4450)
+  Rendered jams/index.html.erb within layouts/application (Duration: 24.5ms | Allocations: 10880)
+  Rendered shared/_navbar.html.erb (Duration: 1.0ms | Allocations: 744)
+  Rendered shared/_flashes.html.erb (Duration: 0.5ms | Allocations: 202)
+  Rendered layout layouts/application.html.erb (Duration: 38.6ms | Allocations: 20831)
+Completed 200 OK in 73ms (Views: 37.6ms | ActiveRecord: 16.7ms | Allocations: 26120)
+
+
+Started GET "/jams?query=v%2Cbn&commit=Search" for ::1 at 2022-11-29 16:05:48 +0100
+Processing by JamsController#index as HTML
+  Parameters: {"query"=>"v,bn", "commit"=>"Search"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering jams/index.html.erb within layouts/application
+  [1m[36mJam Load (0.4ms)[0m  [1m[34mSELECT "jams".* FROM "jams"[0m
+  ↳ app/views/jams/index.html.erb:14
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Jam"], ["name", "photo"], ["LIMIT", 1]]
+  ↳ app/views/shared/_jam_card.html.erb:2
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/shared/_jam_card.html.erb:2
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/shared/_jam_card.html.erb:3
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/shared/_jam_card.html.erb:3
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/shared/_jam_card.html.erb:3
+  Rendered shared/_jam_card.html.erb (Duration: 16.8ms | Allocations: 4852)
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Jam"], ["name", "photo"], ["LIMIT", 1]]
+  ↳ app/views/shared/_jam_card.html.erb:2
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/shared/_jam_card.html.erb:2
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/shared/_jam_card.html.erb:3
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  ↳ app/views/shared/_jam_card.html.erb:3
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/shared/_jam_card.html.erb:3
+  Rendered shared/_jam_card.html.erb (Duration: 7.7ms | Allocations: 4440)
+  Rendered jams/index.html.erb within layouts/application (Duration: 29.0ms | Allocations: 10749)
+  Rendered shared/_navbar.html.erb (Duration: 1.2ms | Allocations: 744)
+  Rendered shared/_flashes.html.erb (Duration: 0.6ms | Allocations: 202)
+  Rendered layout layouts/application.html.erb (Duration: 41.1ms | Allocations: 20699)
+Completed 200 OK in 51ms (Views: 41.2ms | ActiveRecord: 3.9ms | Allocations: 22974)
+
+
