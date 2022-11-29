@@ -11,7 +11,7 @@ class JamsController < ApplicationController
   def update
   end
 
-  def indexx
+  def index
     @jams = Jam.all
   end
 
