@@ -7,9 +7,9 @@
     </div>
     <div class="jam-card-infos d-flex flex-column justify-content-between p-3">
       <div class="jam-card-details">
-        <p><%= jam.jam_date.strftime('%a. %-d %b %Y, %I:%M %p') %></p>
-        <h3><%= jam.title %></h3>
-        <p><%= jam.location %></p>
+        <p class="card-date"><%= jam.jam_date.strftime('%a. %-d %b %Y, %I:%M %p') %></p>
+        <h3 class="card-title mt-4"><%= jam.title %></h3>
+        <p class="card-location mt-4"><%= jam.location %></p>
       </div>
       <div class="jam-tags flex-wrap">
         <% jam.instruments_list.each do |instrument| %>
