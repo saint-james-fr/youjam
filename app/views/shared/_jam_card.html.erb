@@ -1,0 +1,13 @@
+<div class="jam-card">
+  <div class="jam-card-cover" style="background-image: url(<%= cl_image_path jam.photo.key %>)">
+    <%= cl_image_tag jam.user.avatar.key, class: "avatar-bordered" %>
+  </div>
+  <p><%= jam.location %></p>
+  <p><%= jam.title %></p>
+  <p><%= jam.jam_date %></p>
+  <div class="jam-tags">
+    <% jam.instruments_list.each do |instrument| %>
+      <p class="tag"><%= instrument %></p>
+    <% end %>
+  </div>
+</div>
