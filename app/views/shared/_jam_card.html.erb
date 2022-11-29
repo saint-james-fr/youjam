@@ -1,13 +1,20 @@
-<div class="jam-card">
-  <div class="jam-card-cover" style="background-image: url(<%= cl_image_path jam.photo.key %>)">
-    <%= cl_image_tag jam.user.avatar.key, class: "avatar-bordered" %>
+
+
+
+  <div class="jam-card">
+    <div class="jam-card-cover" style="background-image: url(<%= cl_image_path jam.photo.key %>)">
+      <%= cl_image_tag jam.user.avatar.key, class: "avatar-bordered" %>
+    </div>
+    <div class="jam-card-infos d-flex flex-column justify-content-between p-3">
+      <div class="jam-card-details">
+        <p><%= jam.jam_date.strftime('%a. %-d %b %Y, %I:%M %p') %></p>
+        <h3><%= jam.title %></h3>
+        <p><%= jam.location %></p>
+      </div>
+      <div class="jam-tags flex-wrap">
+        <% jam.instruments_list.each do |instrument| %>
+          <p class="tag"><%= instrument %></p>
+        <% end %>
+      </div>
+    </div>
   </div>
-  <p><%= jam.location %></p>
-  <p><%= jam.title %></p>
-  <p><%= jam.jam_date %></p>
-  <div class="jam-tags">
-    <% jam.instruments_list.each do |instrument| %>
-      <p class="tag"><%= instrument %></p>
-    <% end %>
-  </div>
-</div>

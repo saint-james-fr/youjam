@@ -5,3 +5,8 @@
     <%= link_to "Let's jam", jams_path, class: "primary-button" %>
   </div>
 </div>
+<div class="jam-cards p-5">
+  <% @jams.each do |jam| %>
+      <%= render "shared/jam_card", jam: jam %>
+    <% end %>
+</div>

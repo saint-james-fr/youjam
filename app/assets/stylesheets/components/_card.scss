@@ -1,0 +1,49 @@
+.jam-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+.jam-card {
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 4px;
+}
+
+.jam-card-cover {
+  background-size: cover;
+  height: 180px;
+  position: relative;
+  border-radius: 4px 4px 0px 0px;
+}
+
+.jam-card-cover .avatar-bordered {
+  position: absolute;
+  top: 157px;
+  left: 10px;
+}
+
+.jam-card-infos {
+  flex-grow: 1;
+  // &:first-child{
+  //   font-size: 12px;
+  // }
+}
+
+.jam-card-infos h3 {
+  font-size: 20px;
+  color: $color-primary;
+}
+
+.jam-card-infos > p {
+  font-size: 12px;
+}
+.jam-tags {
+  display: flex;
+  justify-content: space-around;
+}
+
+.jam-tags .tag {
+
+}
