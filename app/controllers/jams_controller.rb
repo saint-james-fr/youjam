@@ -12,6 +12,7 @@ class JamsController < ApplicationController
   end
 
   def index
+    @jams = Jam.all
   end
 
   def show
