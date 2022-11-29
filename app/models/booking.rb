@@ -4,5 +4,9 @@ class Booking < ApplicationRecord
 
   validates :message, presence: true
   validates :status, inclusion: { in: ["pending", "accepted", "declined", "cancelled"] }
-  #scope :pending, -> { where("price > ?", amount) }
+
+  scope :pending, -> { where(status: "pending") }
+  scope :accepted, -> { where(status: "accepted") }
+  scope :declined, -> { where(status: "declined") }
+  scope :cancelled, -> { where(status: "cancelled") }
 end

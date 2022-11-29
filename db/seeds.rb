@@ -113,3 +113,30 @@ jams_options.each do |jam_option|
 end
 puts ">"
 puts "Done!"
+
+# Booking options & Seed
+
+booking1 =  {
+  message: "salut j'ai grave envie de jammer, t'es chaud.e ?",
+  jam_id: 1,
+  user_id: 2
+}
+
+booking2 =  {
+  message: "c'est l'heure de la jam! let's go!",
+  jam_id: 2,
+  user_id: 1
+}
+
+jams_options = [jam1, jam2]
+
+puts ">"
+puts "Starts creating jams..."
+jams_options.each do |jam_option|
+  file = URI.open("https://picsum.photos/200") #get avatar from Lorem Picsum
+  jam = Jam.new(jam_option)
+  jam.photo.attach(io: file, filename: "nes#{rand(1..1000000)}.png", content_type: "image/png")
+  jam.save!
+end
+puts ">"
+puts "Done!"
