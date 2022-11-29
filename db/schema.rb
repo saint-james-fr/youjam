@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_29_103432) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_29_113026) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -86,12 +86,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_103432) do
     t.string "location"
     t.text "description"
     t.integer "capacity"
-    t.time "date"
     t.boolean "cancelled", default: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "instruments_list", default: [], array: true
+    t.date "jam_date"
     t.index ["user_id"], name: "index_jams_on_user_id"
   end
 

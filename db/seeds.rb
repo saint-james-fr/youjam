@@ -1,3 +1,4 @@
+
 # Reinitialization of data
 
 puts ">"
@@ -86,7 +87,8 @@ jam1 =  {
   description: "this is the famous wagon jam",
   instruments_list: ["drums", "guitar", "bass"],
   capacity: 3,
-  date: DateTime.strptime("12/23/2022 20:00", "%m/%d/%Y %H:%M"),
+  #date: DateTime.strptime("12/23/2022 20:00", "%m/%d/%Y %H:%M"),
+  jam_date: Date.current,
   user_id: User.first.id
 }
 
@@ -95,7 +97,7 @@ jam2 =  {
   description: "This is the Jam of the data versus Web Dev",
   instruments_list: ["drums", "guitar", "bass", "french horn", "saxophone"],
   capacity: 6,
-  date: DateTime.strptime("12/23/2022 20:00", "%m/%d/%Y %H:%M"),
+  jam_date: DateTime.strptime("12/23/2022 20:00", "%m/%d/%Y %H:%M"),
   user_id: User.last.id
 }
 
