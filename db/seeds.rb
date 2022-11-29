@@ -5,6 +5,7 @@ puts ">"
 puts "Destroying previous data..."
 User.destroy_all
 Jam.destroy_all
+Booking.destroy_all
 puts ">"
 puts "Done!"
 
@@ -87,8 +88,7 @@ jam1 =  {
   description: "this is the famous wagon jam",
   instruments_list: ["drums", "guitar", "bass"],
   capacity: 3,
-  #date: DateTime.strptime("12/23/2022 20:00", "%m/%d/%Y %H:%M"),
-  jam_date: Date.current,
+  jam_date: DateTime.strptime("12/07/2022 20:00", "%m/%d/%Y %H:%M"),
   user_id: User.first.id
 }
 
@@ -118,25 +118,23 @@ puts "Done!"
 
 booking1 =  {
   message: "salut j'ai grave envie de jammer, t'es chaud.e ?",
-  jam_id: 1,
-  user_id: 2
+  jam_id: Jam.first.id,
+  user_id: User.last.id
 }
 
 booking2 =  {
   message: "c'est l'heure de la jam! let's go!",
-  jam_id: 2,
-  user_id: 1
+  jam_id: Jam.last.id,
+  user_id: User.first.id
 }
 
-jams_options = [jam1, jam2]
+bookings_options = [booking1, booking2]
 
 puts ">"
-puts "Starts creating jams..."
-jams_options.each do |jam_option|
-  file = URI.open("https://picsum.photos/200") #get avatar from Lorem Picsum
-  jam = Jam.new(jam_option)
-  jam.photo.attach(io: file, filename: "nes#{rand(1..1000000)}.png", content_type: "image/png")
-  jam.save!
+puts "Starts creating Bookings..."
+bookings_options.each do |booking_option|
+  booking = Booking.new(booking_option)
+  booking.save!
 end
 puts ">"
 puts "Done!"
