@@ -3,9 +3,11 @@
 
 puts ">"
 puts "Destroying previous data..."
+Booking.destroy_all
+Post.destroy_all
 User.destroy_all
 Jam.destroy_all
-Booking.destroy_all
+Creation.destroy_all
 puts ">"
 puts "Done!"
 
@@ -135,6 +137,56 @@ puts "Starts creating Bookings..."
 bookings_options.each do |booking_option|
   booking = Booking.new(booking_option)
   booking.save!
+end
+puts ">"
+puts "Done!"
+
+# Posts options & Seed
+
+post1 =  {
+  content: "Ca va être mortel les petits loups",
+  jam_id: Jam.first.id,
+  user_id: User.last.id
+}
+
+post2 =  {
+  content: "je ramène mon ampli de guitare",
+  jam_id: Jam.last.id,
+  user_id: User.first.id
+}
+
+post_options = [post1, post2]
+
+puts ">"
+puts "Starts creating Posts..."
+post_options.each do |post_option|
+  post = Post.new(post_option)
+  post.save!
+end
+puts ">"
+puts "Done!"
+
+# Creations options & Seed
+
+creation1 =  {
+  name: "Mon dernier concert",
+  user_id: User.last.id,
+  creation_url: "https://www.youtube.com/watch?v=WaM2pxTPstw"
+}
+
+creation2 =  {
+  name: "Mon dernier concert",
+  user_id: User.first.id,
+  creation_url: "https://www.youtube.com/watch?v=WaM2pxTPstw"
+}
+
+creations_options = [creation1, creation2]
+
+puts ">"
+puts "Starts creating Creations..."
+creations_options.each do |creation_option|
+  creation = Creation.new(creation_option)
+  creation.save!
 end
 puts ">"
 puts "Done!"
