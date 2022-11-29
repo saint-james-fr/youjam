@@ -1,9 +1,13 @@
+
 # Reinitialization of data
 
 puts ">"
 puts "Destroying previous data..."
+Booking.destroy_all
+Post.destroy_all
 User.destroy_all
 Jam.destroy_all
+Creation.destroy_all
 puts ">"
 puts "Done!"
 
@@ -86,7 +90,7 @@ jam1 =  {
   description: "this is the famous wagon jam",
   instruments_list: ["drums", "guitar", "bass"],
   capacity: 3,
-  date: DateTime.strptime("12/23/2022 20:00", "%m/%d/%Y %H:%M"),
+  jam_date: DateTime.strptime("12/07/2022 20:00", "%m/%d/%Y %H:%M"),
   user_id: User.first.id
 }
 
@@ -95,7 +99,7 @@ jam2 =  {
   description: "This is the Jam of the data versus Web Dev",
   instruments_list: ["drums", "guitar", "bass", "french horn", "saxophone"],
   capacity: 6,
-  date: DateTime.strptime("12/23/2022 20:00", "%m/%d/%Y %H:%M"),
+  jam_date: DateTime.strptime("12/23/2022 20:00", "%m/%d/%Y %H:%M"),
   user_id: User.last.id
 }
 
@@ -108,6 +112,81 @@ jams_options.each do |jam_option|
   jam = Jam.new(jam_option)
   jam.photo.attach(io: file, filename: "nes#{rand(1..1000000)}.png", content_type: "image/png")
   jam.save!
+end
+puts ">"
+puts "Done!"
+
+# Booking options & Seed
+
+booking1 =  {
+  message: "salut j'ai grave envie de jammer, t'es chaud.e ?",
+  jam_id: Jam.first.id,
+  user_id: User.last.id
+}
+
+booking2 =  {
+  message: "c'est l'heure de la jam! let's go!",
+  jam_id: Jam.last.id,
+  user_id: User.first.id
+}
+
+bookings_options = [booking1, booking2]
+
+puts ">"
+puts "Starts creating Bookings..."
+bookings_options.each do |booking_option|
+  booking = Booking.new(booking_option)
+  booking.save!
+end
+puts ">"
+puts "Done!"
+
+# Posts options & Seed
+
+post1 =  {
+  content: "Ca va être mortel les petits loups",
+  jam_id: Jam.first.id,
+  user_id: User.last.id
+}
+
+post2 =  {
+  content: "je ramène mon ampli de guitare",
+  jam_id: Jam.last.id,
+  user_id: User.first.id
+}
+
+post_options = [post1, post2]
+
+puts ">"
+puts "Starts creating Posts..."
+post_options.each do |post_option|
+  post = Post.new(post_option)
+  post.save!
+end
+puts ">"
+puts "Done!"
+
+# Creations options & Seed
+
+creation1 =  {
+  name: "Mon dernier concert",
+  user_id: User.last.id,
+  creation_url: "https://www.youtube.com/watch?v=WaM2pxTPstw"
+}
+
+creation2 =  {
+  name: "Mon dernier concert",
+  user_id: User.first.id,
+  creation_url: "https://www.youtube.com/watch?v=WaM2pxTPstw"
+}
+
+creations_options = [creation1, creation2]
+
+puts ">"
+puts "Starts creating Creations..."
+creations_options.each do |creation_option|
+  creation = Creation.new(creation_option)
+  creation.save!
 end
 puts ">"
 puts "Done!"
