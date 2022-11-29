@@ -7160,3 +7160,64 @@ Completed 200 OK in 20ms (Views: 19.5ms | ActiveRecord: 0.5ms | Allocations: 100
 
 
 >>>>>>> 52cd1247420761c744c3d6fab137a288dc1ae16e
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7671212580499673625)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChangeFormatDateInJams (20221129113026)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (10.1ms)[0m  [1m[35mALTER TABLE "jams" DROP COLUMN "date"[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "jams" ADD "jam_date" date[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221129113026"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeCreationsTable (20221129132138)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "creations" ADD "creation_url" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221129132138"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeCreationsTypeColumn (20221129132854)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.6ms)[0m  [1m[35mALTER TABLE "creations" DROP COLUMN "type"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221129132854"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(7671212580499673625)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2022-11-29 15:50:45 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 545)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:13
+  Rendered shared/_navbar.html.erb (Duration: 17.9ms | Allocations: 12455)
+  Rendered shared/_flashes.html.erb (Duration: 0.4ms | Allocations: 248)
+  Rendered layout layouts/application.html.erb (Duration: 467.6ms | Allocations: 116483)
+Completed 200 OK in 473ms (Views: 461.7ms | ActiveRecord: 7.5ms | Allocations: 119842)
+
+
+Started GET "/" for ::1 at 2022-11-29 15:53:04 +0100
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.1ms | Allocations: 85)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:13
+  Rendered shared/_navbar.html.erb (Duration: 2.6ms | Allocations: 1294)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 30)
+  Rendered layout layouts/application.html.erb (Duration: 3100.3ms | Allocations: 72868)
+Completed 200 OK in 3103ms (Views: 3100.6ms | ActiveRecord: 0.8ms | Allocations: 73171)
+
+
+Started GET "/" for ::1 at 2022-11-29 15:53:20 +0100
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.3ms | Allocations: 258)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/shared/_navbar.html.erb:13
+  Rendered shared/_navbar.html.erb (Duration: 3.2ms | Allocations: 1726)
+  Rendered shared/_flashes.html.erb (Duration: 0.8ms | Allocations: 202)
+  Rendered layout layouts/application.html.erb (Duration: 16.9ms | Allocations: 11531)
+Completed 200 OK in 21ms (Views: 19.6ms | ActiveRecord: 0.4ms | Allocations: 12363)
+
+
