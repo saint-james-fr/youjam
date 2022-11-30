@@ -1,0 +1,22 @@
+<div class="jammer-card">
+    <%= cl_image_tag user.avatar.key, class: "avatar-bordered" %>
+  </div>
+  <div class="jammer-card-infos d-flex flex-column justify-content-between p-3">
+    <div class="jammer-card-details">
+      <div class="card-user mt-4">
+        <%= user.first_name %><%= user.last_name %>
+      </div>
+      <div class="card-location mt-2">
+        <%= user.location %>
+      </div>
+    </div>
+    <div class="jam-tags flex-wrap">
+      <% user.instruments.each do |instrument| %>
+        <div class="tag mt-1"><%= instrument %></div>
+      <% end %>
+      <% user.genres.each do |genre| %>
+        <div class="tag mt-1"><%= genre %></div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -16,9 +16,9 @@
   </div>
   <div class="container mt-5 mb-2">
     <h1>Meet some jammers!</h1>
-    <div class="jam-cards mt-4">
-      <% @jams.each do |jam| %>
-          <%= render "shared/jam_card", jam: jam %>
+    <div class="jammer-cards mt-4">
+      <% @users.each do |user| %>
+          <%= render "shared/jammer_card", user: user %>
         <% end %>
     </div>
   </div>
