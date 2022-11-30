@@ -3,7 +3,15 @@
     <div class="container">
       <h1>Stop playing solo your solos</h1>
       <p>Meet musicians & collaborate!</p>
-      <%= link_to "Let's jam", jams_path, class: "primary-button" %>
+      <div class="d-flex ml-1 mr-1">
+        <%= form_with url: jams_path, method: :get, class: "d-flex home-search" do %>
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Type your instrument "%>
+          <%= submit_tag "Let's Jam", class: "primary-button" %>
+        <% end %>
+      </div>
     </div>
   </div>
   <div class="container mt-5 mb-2">
