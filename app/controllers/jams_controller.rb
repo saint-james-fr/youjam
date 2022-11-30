@@ -1,4 +1,7 @@
 class JamsController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[show index]
+  before_action :set_jam, only: %i[show edit update destroy]
+
   def new
   end
 
@@ -16,5 +19,11 @@ class JamsController < ApplicationController
   end
 
   def show
+  end
+
+  private
+
+  def set_jam
+    @jam = Jam.find(params[:id])
   end
 end
