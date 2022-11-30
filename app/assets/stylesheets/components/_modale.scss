@@ -12,5 +12,16 @@
   background-color: #EFEAFF;
   border: none;
   height: 200px;
-  font-family: Quicksand;
+  color: $color-dark-blue;
+}
+
+
+#booking_message::placeholder {
+  color: $color-dark-blue;
+}
+
+.modal-submit {
+  color: $color-dark-blue;
+  background-color: $color-lighter-blue;
+  width: 100%;
 }

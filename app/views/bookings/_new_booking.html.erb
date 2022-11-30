@@ -11,9 +11,9 @@
                 </div>
                 <div class="modal-body modale">
                   <%= simple_form_for [jam, booking] do |f| %>
-                    <%= f.input :message, label: false, placeholder: "Message"%>
+                    <%= f.input :message, as: :text, label: false, placeholder: "Message"%>
 
-                    <%= f.submit %>
+                    <%= f.button :submit, class: "modal-submit", :value => "C'est parti" %>
                   <% end %>
                 </div>
             </div>
