@@ -1,0 +1,12 @@
+<%= simple_form_for(jam) do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :jam_date %>
+    <%= f.input :capacity %>
+    <%= f.input :location %>
+    <%= f.input :instruments_list,
+          collection: @instruments,
+          input_html: { multiple: true, data: {controller: "tom-select", tom_select_options_value: {tags: true, plugins: ['remove_button']}}} %>
+    <%= f.input :photo, as: :file   %>
+    <%= f.submit %>
+<% end %>

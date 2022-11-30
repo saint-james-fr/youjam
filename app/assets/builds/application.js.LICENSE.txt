@@ -4,4 +4,10 @@
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
 
+<<<<<<< HEAD
 /*! http://mths.be/base64 v0.1.0 by @mathias | MIT license */
+=======
+/*! @orchidjs/unicode-variants | https://github.com/orchidjs/unicode-variants | Apache License (v2) */
+
+/*! sifter.js | https://github.com/orchidjs/sifter.js | Apache License (v2) */
+>>>>>>> main
