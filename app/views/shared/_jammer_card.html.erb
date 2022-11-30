@@ -1,22 +1,43 @@
-<div class="jammer-card">
-    <%= cl_image_tag user.avatar.key, class: "avatar-bordered" %>
-  </div>
-  <div class="jammer-card-infos d-flex flex-column justify-content-between p-3">
-    <div class="jammer-card-details">
-      <div class="card-user mt-4">
-        <%= user.first_name %><%= user.last_name %>
+<%= link_to profile_path(user), class: "text-decoration-none" do %>
+  <div class="jammer-card p-3">
+      <%= cl_image_tag user.avatar.key, class: "avatar-bordered" %>
+      <div class="jammer-card-infos">
+        <div class="card-user">
+          <%= user.first_name %> <%= user.last_name %>
+        </div>
+        <div class="card-location mt-2">
+          <%= user.location %>
+        </div>
+        <div class="jam-tags d-flex">
+          <div class="jammer-instruments d-flex">
+            <% if user.instruments.count > 2 %>
+              <% user.instruments.first(2).each do |instrument| %>
+                <div class="tag tag-instruments mt-1"><%= instrument.name %></div>
+              <% end %>
+              <div class="tag tag-supp mt-1">
+                ...
+              </div>
+            <% else %>
+              <% user.instruments.each do |instrument| %>
+                <div class="tag mt-1"><%= instrument.name %></div>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="jammer-genres d-flex">
+            <% if user.genres.count > 2 %>
+              <% user.genres.first(2).each do |genre| %>
+                <div class="tag tag-genres mt-1"><%= genre.name %></div>
+              <% end %>
+              <div class="tag-supp-genres mt-1">
+                ...
+              </div>
+            <% else %>
+              <% user.genres.each do |genre| %>
+                <div class="tag tag-genres mt-1"><%= genre.name %></div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
       </div>
-      <div class="card-location mt-2">
-        <%= user.location %>
-      </div>
-    </div>
-    <div class="jam-tags flex-wrap">
-      <% user.instruments.each do |instrument| %>
-        <div class="tag mt-1"><%= instrument %></div>
-      <% end %>
-      <% user.genres.each do |genre| %>
-        <div class="tag mt-1"><%= genre %></div>
-      <% end %>
-    </div>
   </div>
-</div>
+<% end %>
