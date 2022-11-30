@@ -30,3 +30,32 @@
   border: solid $color-secondary 2px;
   margin-right: 10px;
 }
+
+
+.modal-title-guests {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.modale-guests-header {
+  border-bottom: 1px solid white;
+  color: $color-primary
+}
+
+.modale-guests-status {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.modale-guests-status > div {
+  font-size: 1em;
+  color: $color-primary
+}
+
+.modale-guests-status > div:nth-child(n+1) {
+  margin-left: 25px;
+}
+
+.modale-guests-body {
+  margin: 30px 5%;
+}

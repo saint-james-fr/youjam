@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
-
+  before_action :set_booking, only: %i[edit update accepted declined canceled]
+  before_action :set_jam, only: %i[accepted declined canceled]
 
   def create
     @booking = Booking.new(booking_params)
@@ -19,14 +20,39 @@ class BookingsController < ApplicationController
   end
 
   def update
+    @booking.update(params_booking)
   end
 
-  def cancel
+  def canceled
+    if @booking.update(status: "canceled")
+      redirect_to jam_path(@jam), status: :see_other
+    end
   end
-end
 
-private
+  def accepted
+    if @booking.update(status: "accepted")
+      redirect_to jam_path(@jam)
+    end
+  end
 
-def booking_params
-  params.require(:booking).permit(:message)
+  def declined
+    if @booking.update(status: "declined")
+      redirect_to jam_path(@jam)
+    end
+  end
+
+  private
+
+  def set_booking
+    @booking = Booking.find(params[:id])
+  end
+
+  def set_jam
+    @jam = Jam.find(params[:jam_id])
+  end
+
+  def booking_params
+    params.require(:booking).permit(:message, :status, :jam_id)
+  end
+
 end

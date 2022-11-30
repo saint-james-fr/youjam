@@ -4,7 +4,13 @@ Rails.application.routes.draw do
   get "dashboard", to: "pages#dashboard"
 
   resources :jams, except: :destroy do
-    resources :bookings, only: [:new, :create, :edit, :update, :cancel]
+    resources :bookings, only: [:new, :create, :edit, :update] do
+      member do
+        patch :accepted
+        patch :declined
+        patch :canceled
+    end
+    end
     resources :posts, except: [:show, :index]
   end
 

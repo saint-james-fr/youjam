@@ -21,15 +21,14 @@
         <li>
           <button class="modal-button" data-bs-toggle="modal" data-bs-target="#guestsModal">
             <i class="fa-solid fa-people-group"></i>
-              <%= confirmed_guests %> participant
-                <%if confirmed_guests >= 1 %>
-                  s
+              <%= confirmed_bookings.count %> participant
+              <%if confirmed_bookings.count > 1 %>s
                 <% end %>
-                <% unless pending_guests == 0  %>
-                  , <%= pending_guests %> en attente
+                <% unless pending_bookings.count == 0  %>
+                  , <%= pending_bookings.count %> en attente
                 <% end %>
-            <%= render "jams/guests_modal", jam: @jam %>
           </button>
+            <%= render "jams/guests_modal", jam: @jam %>
         </li>
       </ul>
     </div>

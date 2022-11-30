@@ -19,8 +19,9 @@ class JamsController < ApplicationController
   end
 
   def show
-    @confirmed_guests = Booking.accepted.where('user_id = ?', @jam.user).count
-    @pending_guests = Booking.pending.where('user_id = ?', @jam.user).count
+    @confirmed_bookings = Booking.accepted.where('jam_id = ?', @jam)
+    @pending_bookings = Booking.pending.where('jam_id = ?', @jam)
+    @declined_bookings = Booking.declined.where('jam_id = ?', @jam)
     @booking = Booking.new
   end
 
