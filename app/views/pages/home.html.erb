@@ -1,7 +1,25 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80);">
-  <div class="container">
-    <h1>Stop playing solo your solos</h1>
-    <p>Meet musicians & collaborate!</p>
-    <%= link_to "Let's jams", jams_path, class: "primary-button" %>
+<div class="container-home">
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80);">
+    <div class="container">
+      <h1>Stop playing solo your solos</h1>
+      <p>Meet musicians & collaborate!</p>
+      <%= link_to "Let's jam", jams_path, class: "primary-button" %>
+    </div>
+  </div>
+  <div class="container mt-5 mb-2">
+    <h1>Most popular jams</h1>
+    <div class="jam-cards mt-4">
+      <% @jams.each do |jam| %>
+          <%= render "shared/jam_card", jam: jam %>
+        <% end %>
+    </div>
+  </div>
+  <div class="container mt-5 mb-2">
+    <h1>Meet some jammers!</h1>
+    <div class="jam-cards mt-4">
+      <% @jams.each do |jam| %>
+          <%= render "shared/jam_card", jam: jam %>
+        <% end %>
+    </div>
   </div>
 </div>

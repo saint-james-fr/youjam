@@ -1,2 +1,21 @@
-<h1>Jams#index</h1>
-<p>Find me in app/views/jams/index.html.erb</p>
+<div class="container">
+  <div class="jams-index-search">
+    <h2>your search: </h2>
+    <%= form_with url: jams_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a Jam"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+  <div class="jams-index-cards">
+  <% @jams.each do |jam| %>
+    <%= render "shared/jam_card", jam: jam %>
+  <% end %>
+  </div>
+  <div class="jams-index-map">
+    yes
+  </div>
+</div>
