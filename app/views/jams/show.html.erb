@@ -1,8 +1,6 @@
-<div class="jambanner">
-  <div class="jambanner-image">
-  </div>
-  <div class="jambanner-infos-container">
-  <div class="jambanner-infos-text">
-  </div>
-  </div>
+<%= render "shared/jam_banner", jam: @jam %>
+<div class="show-container">
+  <%= render "shared/jam_details", jam: @jam, confirmed_guests: @confirmed_guests, pending_guests: @pending_guests %>
 </div>
+
+<%= render "bookings/new_booking", booking: @booking, jam: @jam %>
