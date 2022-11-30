@@ -12,7 +12,11 @@ class JamsController < ApplicationController
   end
 
   def index
-    @jams = Jam.all
+    if params[:query].present?
+      @jams = Jam.where('title ILIKE ?', "%#{params[:query]}%")
+    else
+      @jams = Jam.all
+    end
   end
 
   def show
