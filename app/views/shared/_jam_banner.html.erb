@@ -16,7 +16,7 @@
         </div>
       </div>
       <div class="jambanner-i-button">
-        <%= link_to "Participez !", new_jam_booking_path(jam), class:"primary-button"  %>
+        <%= render "bookings/new_booking", booking: @booking, jam: @jam %>
       </div>
     </div>
   </div>
