@@ -1,0 +1,19 @@
+body {
+  background: $color-lighter-blue;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0!important;
+  margin: 0;
+}
+
+.box-shadow-morphism {
+  box-shadow: 20px 20px 60px #d3d0d9,
+      -20px -20px 60px #ffffff
+}

@@ -2,12 +2,14 @@
 @import "config/fonts";
 @import "config/colors";
 @import "config/bootstrap_variables";
-
+@import "config/basic";
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
+@import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder";
 @import "tom-select/dist/css/tom-select.min.css";
 
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "jams/index";
