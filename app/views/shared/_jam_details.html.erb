@@ -28,8 +28,8 @@
                 <% unless pending_guests == 0  %>
                   , <%= pending_guests %> en attente
                 <% end %>
-            <%= render "jams/guests_modal", jam: @jam %>
           </button>
+          <%= render "jams/guests_modal", jam: @jam %>
         </li>
       </ul>
     </div>
@@ -42,7 +42,8 @@
 </div>
 <div class="posts-container">
   <div class="post">
-  Ceci est un post
+    <%= render "posts/new_post", post: @post, jam: @jam %>
+    <%= render "posts/index_posts", posts: @posts, jam: @jam %>
   </div>
 
 </div>

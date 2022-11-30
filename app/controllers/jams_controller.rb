@@ -22,6 +22,8 @@ class JamsController < ApplicationController
     @confirmed_guests = Booking.accepted.where('user_id = ?', @jam.user).count
     @pending_guests = Booking.pending.where('user_id = ?', @jam.user).count
     @booking = Booking.new
+    @post = Post.new
+    @posts = @jam.posts
   end
 
   private
