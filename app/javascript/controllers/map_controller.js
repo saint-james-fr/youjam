@@ -8,8 +8,8 @@ export default class extends Controller {
     apiKey: String,
     markers: Array
   }
-    connect() {
-      mapboxgl.accessToken = this.apiKeyValue
+  connect() {
+    mapboxgl.accessToken = this.apiKeyValue
 
       this.map = new mapboxgl.Map({
         container: this.element,
@@ -25,7 +25,7 @@ export default class extends Controller {
 
     #addMarkersToMap() {
       this.markersValue.forEach((marker) => {
-        const popup = new mapboxgl.Popup().setHTML(marker.infoWindow)
+        const popup = new mapboxgl.Popup().setHTML(marker.info_window)
         const customMarker = document.createElement("div")
         customMarker.className = "marker"
         customMarker.style.backgroundImage = `url('${marker.image_url}')`

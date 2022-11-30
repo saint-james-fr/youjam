@@ -1,6 +1,6 @@
 class Jam < ApplicationRecord
   geocoded_by :location
-  after_validation :geocode, if: :will_save_change_to_address?
+  after_validation :geocode, if: :will_save_change_to_location?
   belongs_to :user
   has_many :bookings
   has_many :posts
@@ -11,5 +11,4 @@ class Jam < ApplicationRecord
   validates :instruments_list, presence: true
   validates :capacity, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validates :jam_date, presence: true, comparison: { greater_than_or_equal_to: DateTime.now}
-
 end
