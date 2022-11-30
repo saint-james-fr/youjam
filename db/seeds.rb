@@ -5,8 +5,13 @@ puts ">"
 puts "Destroying previous data..."
 Booking.destroy_all
 Post.destroy_all
+<<<<<<< HEAD
 Jam.destroy_all
 Creation.destroy_all
+=======
+Creation.destroy_all
+Jam.destroy_all
+>>>>>>> main
 User.destroy_all
 puts ">"
 puts "Done!"
@@ -86,6 +91,7 @@ puts "Done!"
 # Jams options & Seed
 
 jam1 =  {
+  title: "entrainons-nous ensemble",
   location: "16 Villa Gaudelet, 75011 Paris",
   description: "this is the famous wagon jam",
   instruments_list: ["drums", "guitar", "bass"],
@@ -95,6 +101,7 @@ jam1 =  {
 }
 
 jam2 =  {
+  title: "je fais un solo, tu fais un solo",
   location: "48 avenue Parmentier, 75011 Paris",
   description: "This is the Jam of the data versus Web Dev",
   instruments_list: ["drums", "guitar", "bass", "french horn", "saxophone"],
