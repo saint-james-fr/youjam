@@ -1,0 +1,16 @@
+.modale {
+  background-color: $color-light-blue;
+  color: $color-dark-blue;
+  border-radius: 5px;
+}
+
+.modal-content {
+  border-radius: 5px;
+}
+
+.modale .form-control {
+  background-color: #EFEAFF;
+  border: none;
+  height: 200px;
+  font-family: Quicksand;
+}
