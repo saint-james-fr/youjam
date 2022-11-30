@@ -21,7 +21,7 @@ class JamsController < ApplicationController
         lat: jam.latitude,
         lng: jam.longitude,
         info_window: render_to_string(partial: 'info_window', locals: { jam: jam }),
-        image_url: helpers.asset_url('jar-solid')
+        image_url: helpers.asset_url("jitar" )
       }
     end
   end
