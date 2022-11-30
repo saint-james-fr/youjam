@@ -1,7 +1,17 @@
-<%= simple_form_for(jam) do |f| %>
+<%= simple_form_for(jam),
+                    html: {
+                      data: {
+                        controller: 'flatpickr'
+                      }
+                    }
     <%= f.input :title %>
     <%= f.input :description %>
-    <%= f.input :jam_date %>
+    <%= f.input :jam_date,
+                  as: :string,
+                  input_html: {
+                    data: {
+                      flatpickr_target: 'DateInput',
+    } } %>
     <%= f.input :capacity %>
     <%= f.input :location %>
     <%= f.input :instruments_list,
