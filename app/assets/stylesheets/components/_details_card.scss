@@ -1,0 +1,28 @@
+.details-container .details-infos ul li i {
+  display: inline-block;
+  width: 30px;
+}
+
+.details-card {
+  width: 100%;
+  height: auto;
+  padding: 20px;
+  border-radius: 20px;
+  background: $color-lighter-blue;
+  margin-bottom: 40px;
+}
+
+.details-title {
+  color: $color-secondary;
+  font-size: 1.4em;
+}
+
+.details-infos {
+  padding-left: 15px;
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+.details-description {
+  padding-left: 15px;
+}

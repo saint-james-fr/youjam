@@ -1,0 +1,27 @@
+.modale {
+  background-color: $color-light-blue;
+  color: $color-dark-blue;
+  border-radius: 5px;
+}
+
+.modal-content {
+  border-radius: 5px;
+}
+
+.modale .form-control {
+  background-color: #EFEAFF;
+  border: none;
+  height: 200px;
+  color: $color-dark-blue;
+}
+
+
+#booking_message::placeholder {
+  color: $color-dark-blue;
+}
+
+.modal-submit {
+  color: $color-dark-blue;
+  background-color: $color-lighter-blue;
+  width: 100%;
+}
