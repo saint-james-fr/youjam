@@ -5,12 +5,6 @@
     <div class="details-infos">
       <ul>
         <li>
-          <i class="fa-solid fa-circle-user"></i>Proposé par <%= jam.user.first_name %>
-        </li>
-        <li>
-          <i class="fa-solid fa-location-pin"></i><%= jam.location %>
-        </li>
-        <li>
           <button class="modal-button">
             <i class="fa-solid fa-people-group"></i>
               <%= confirmed_guests %> participant
@@ -21,6 +15,12 @@
                   , <%= pending_guests %> en attente
                 <% end %>
           </button>
+        </li>
+        <li>
+          <i class="fa-solid fa-circle-user"></i>Proposé par <%= jam.user.first_name %>
+        </li>
+        <li>
+          <i class="fa-solid fa-location-pin"></i><%= jam.location %>
         </li>
         <li>
           <div class="d-flex">
