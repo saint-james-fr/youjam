@@ -12,12 +12,9 @@ class Jam < ApplicationRecord
   validates :jam_date, presence: true, comparison: { greater_than_or_equal_to: DateTime.now}
 
   include PgSearch::Model
-  pg_search_scope :search_by_title_and_description_and_instrument,
-  against: [ :title, :description, :user_instrument ],
+  pg_search_scope :search_by_title_and_description_and_instruments_lists,
+  against: [:title, :description, :instruments_list],
   using: {
     tsearch: { prefix: true }
   }
-
-  # pg_search_scope :global_search,
-
 end
