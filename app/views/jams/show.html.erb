@@ -2,3 +2,5 @@
 <div class="show-container">
   <%= render "shared/jam_details", jam: @jam, confirmed_guests: @confirmed_guests, pending_guests: @pending_guests %>
 </div>
+
+<%= render "bookings/new_booking", booking: @booking, jam: @jam %>
