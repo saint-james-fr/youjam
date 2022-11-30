@@ -25,3 +25,8 @@
   background-color: $color-lighter-blue;
   width: 100%;
 }
+
+.modale .avatar-bordered {
+  border: solid $color-secondary 2px;
+  margin-right: 10px;
+}
