@@ -15,9 +15,9 @@
 }
 
 .jambanner-i-container {
-  height: 30%;
+  height: auto;
   background-color: $color-light-blue;
-  padding: 30px 5%;
+  padding: 18px 5%;
 }
 
 .jambanner-i-t-l-container {
@@ -25,6 +25,11 @@
   justify-content: space-between;
 }
 
+.jambanner-i-date-time {
+  font-size: 1.4em;
+}
+
 .jambanner-i-title {
   font-weight: bold;
+  font-size: 1.4em;
 }
