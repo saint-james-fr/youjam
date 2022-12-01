@@ -5,21 +5,13 @@
     <div class="details-infos">
       <ul>
         <li>
-          <div class="d-flex">
-          <i class="fa-solid fa-drum"></i>
-            <% jam.instruments_list.each do |instrument|%>
-                <div class="tag-instruments tag"><%= instrument %></div>
-            <% end %>
-          </div>
-        </li>
-        <li>
           <i class="fa-solid fa-circle-user"></i>Proposé par <%= jam.user.first_name %>
         </li>
         <li>
           <i class="fa-solid fa-location-pin"></i><%= jam.location %>
         </li>
         <li>
-          <button class="modal-button" data-bs-toggle="modal" data-bs-target="#guestsModal">
+          <button class="modal-button">
             <i class="fa-solid fa-people-group"></i>
               <%= confirmed_guests %> participant
                 <%if confirmed_guests >= 1 %>
@@ -30,6 +22,14 @@
                 <% end %>
           </button>
           <%= render "jams/guests_modal", jam: @jam %>
+        </li>
+        <li>
+          <div class="d-flex">
+          <i class="fa-solid fa-drum"></i>
+            <% jam.instruments_list.each do |instrument|%>
+                <div class="tag-instruments tag"><%= instrument %></div>
+            <% end %>
+          </div>
         </li>
       </ul>
     </div>

@@ -1,0 +1,12 @@
+.jams-content {
+  display: flex;
+}
+
+.jams-index-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+  margin: 1em 0;
+  align-items: flex-start;
+  width: 50%
+}

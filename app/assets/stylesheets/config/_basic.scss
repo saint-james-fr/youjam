@@ -1,5 +1,5 @@
 body {
-  background: $color-lighter-blue;
+  background-color: $color-lighter-blue;
 }
 
 a {
@@ -40,4 +40,9 @@ ul {
 .box-shadow-morphism {
   box-shadow: 20px 20px 60px #d3d0d9,
       -20px -20px 60px #ffffff
+}
+
+.tab {
+  cursor: pointer;
+  color: $color-darker-blue;
 }
