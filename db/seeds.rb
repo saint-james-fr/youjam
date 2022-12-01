@@ -1,5 +1,5 @@
 
-# Reinitialization of data
+# !Reinitialization of data
 
 puts ">"
 puts "Destroying previous data..."
@@ -12,7 +12,7 @@ puts ">"
 puts "Done!"
 
 
-# Users Options & Seed
+# !Users Options & Seed
 user1 = {
   first_name: "Anne",
   last_name: "Ly",
@@ -83,7 +83,7 @@ end
 puts ">"
 puts "Done!"
 
-# Jams options & Seed
+# !Jams options & Seed
 
 jam1 =  {
   title: "entrainons-nous ensemble",
@@ -118,7 +118,7 @@ end
 puts ">"
 puts "Done!"
 
-# Booking options & Seed
+# !Booking options & Seed
 
 booking1 =  {
   message: "salut j'ai grave envie de jammer, t'es chaud.e ?",
@@ -143,7 +143,7 @@ end
 puts ">"
 puts "Done!"
 
-# Posts options & Seed
+# !Posts options & Seed
 
 post1 =  {
   content: "Ca va être mortel les petits loups",
@@ -168,7 +168,7 @@ end
 puts ">"
 puts "Done!"
 
-# Creations options & Seed
+# !Creations options & Seed
 
 creation1 =  {
   name: "Mon dernier concert",

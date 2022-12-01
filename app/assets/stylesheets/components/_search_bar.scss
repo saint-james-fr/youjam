@@ -1,13 +1,8 @@
-.search_bar {
+.jam-index-search>form {
   display: flex;
-}
+  justify-content: center;
 
-
-#search-query {
-  padding: 9px 9px;
-  border-radius: 5px 0px 0px 5px;
-}
-
-#search-address {
-  padding: 9px 9px;
+  input {
+    padding: 9px 9px;
+  }
 }
