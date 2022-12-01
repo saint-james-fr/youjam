@@ -1,6 +1,7 @@
 .details-container .details-infos ul li i {
   display: inline-block;
-  width: 30px;
+  width: 36px;
+  text-align: left;
 }
 
 .details-card {
@@ -19,8 +20,12 @@
 
 .details-infos {
   padding-left: 15px;
-  margin-top: 4px;
+  margin-top: 10px;
   margin-bottom: 8px;
+}
+
+.details-infos ul li {
+  margin-bottom: 5px;
 }
 
 .details-description {
