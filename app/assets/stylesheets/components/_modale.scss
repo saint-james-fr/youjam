@@ -49,7 +49,6 @@
 
 .modale-guests-status > div {
   font-size: 1em;
-  color: $color-primary
 }
 
 .modale-guests-status > div:nth-child(n+1) {
@@ -57,5 +56,10 @@
 }
 
 .modale-guests-body {
+  min-height: 40px;
   margin: 30px 5%;
+}
+
+.booking-description {
+  margin-bottom: 17px;
 }

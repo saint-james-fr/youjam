@@ -6,3 +6,6 @@ import { application } from "./application"
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import JamStatusToggleController from "./jam_status_toggle_controller"
+application.register("jam-status-toggle", JamStatusToggleController)

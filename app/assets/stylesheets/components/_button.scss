@@ -20,12 +20,14 @@
 }
 
 .primary-button.b-accept {
-  background-color: $color-secondary
+  background-color: $color-secondary;
+  padding: 6px 29px;
 }
 
 .primary-button.b-decline {
   background-color: $color-alert-red;
   margin-left: 10px;
+  padding: 6px 29px;
 }
 
 .modale-guests-line {
