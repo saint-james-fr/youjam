@@ -1,22 +1,25 @@
 
 
+<% if user_signed_in? %>
 <button class="primary-button" data-bs-toggle="modal" data-bs-target="#bookingModal"> Participez ! </button>
+  <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered ">
+      <div class="modal-content">
 
-        <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered ">
-            <div class="modal-content">
-                <div class="modal-header modale">
-                  <%= cl_image_tag jam.user.avatar.key, class: "avatar-bordered" %>
-                  <h2 class="modal-title fs-5" id="bookingModalLabel"><%= @jam.title %></h2>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body modale">
-                  <%= simple_form_for [jam, booking] do |f| %>
-                    <%= f.input :message, as: :text, label: false, placeholder: "Message"%>
-
-                    <%= f.button :submit, class: "modal-submit", :value => "C'est parti" %>
-                  <% end %>
-                </div>
-            </div>
+          <div class="modal-header modale">
+            <%= cl_image_tag jam.user.avatar.key, class: "avatar-bordered" %>
+            <h2 class="modal-title fs-5" id="bookingModalLabel"><%= @jam.title %></h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-        </div>
+          <div class="modal-body modale">
+            <%= simple_form_for [jam, booking] do |f| %>
+              <%= f.input :message, as: :text, label: false, placeholder: "Message"%>
+              <%= f.button :submit, class: "modal-submit", :value => "C'est parti" %>
+            <% end %>
+          </div>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <%= link_to "Participez !", new_user_session_path, class: "primary-button" %>
+<% end %>

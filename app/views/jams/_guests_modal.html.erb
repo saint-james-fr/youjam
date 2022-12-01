@@ -19,6 +19,7 @@
             </div>
           </div>
           <div class="modale-guests-body" id="show-pending">
+          <%# !Pending %>
             <% @pending_bookings.each do |booking| %>
               <div class="d-flex justify-content-between modale-guests-line">
                 <div>
@@ -27,16 +28,32 @@
                 </div>
                 <div class="d-flex">
                   <%= link_to "Accepter", accepted_jam_booking_path(booking.jam, booking), class:"primary-button b-accept", data: {turbo_method: :patch} %>
-                  <div class="primary-button b-decline">
-                  Refuser
-                  </div>
+                  <%= link_to "Refuser", declined_jam_booking_path(booking.jam, booking), class:"primary-button b-decline", data: {turbo_method: :patch} %>
                 </div>
               </div>
             <% end %>
           </div>
-          <div class="modale-guests-body" id="show-accepted">
+          <div class="modale-guests-body d-none" id="show-accepted">
+          <%# !Accepted %>
+            <% @accepted_bookings.each do |booking| %>
+              <div class="d-flex justify-content-between modale-guests-line">
+                <div>
+                  <%= cl_image_tag booking.user.avatar.key, class:"avatar-bordered" %>
+                  <%= booking.user.first_name %>
+                </div>
+              </div>
+            <% end %>
           </div>
-          <div class="modale-guests-body" id="show-declined">
+          <div class="modale-guests-body d-none" id="show-declined">
+          <%# !Declined %>
+            <% @declined_bookings.each do |booking| %>
+              <div class="d-flex justify-content-between modale-guests-line">
+                <div>
+                  <%= cl_image_tag booking.user.avatar.key, class:"avatar-bordered" %>
+                  <%= booking.user.first_name %>
+                </div>
+              </div>
+            <% end %>
           </div>
         </div>
     </div>

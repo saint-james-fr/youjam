@@ -26,18 +26,21 @@ class BookingsController < ApplicationController
   def canceled
     if @booking.update(status: "canceled")
       redirect_to jam_path(@jam), status: :see_other
+      flash.alert = "Invitation annulée"
     end
   end
 
   def accepted
     if @booking.update(status: "accepted")
       redirect_to jam_path(@jam)
+      flash.alert = "Invitation validée"
     end
   end
 
   def declined
     if @booking.update(status: "declined")
       redirect_to jam_path(@jam)
+      flash.alert = "Invitation refusée"
     end
   end
 

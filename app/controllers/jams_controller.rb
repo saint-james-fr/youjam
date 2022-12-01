@@ -19,7 +19,7 @@ class JamsController < ApplicationController
   end
 
   def show
-    @confirmed_bookings = Booking.accepted.where('jam_id = ?', @jam)
+    @accepted_bookings = Booking.accepted.where('jam_id = ?', @jam)
     @pending_bookings = Booking.pending.where('jam_id = ?', @jam)
     @declined_bookings = Booking.declined.where('jam_id = ?', @jam)
     @booking = Booking.new
