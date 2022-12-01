@@ -4,9 +4,14 @@
 
 import { application } from "./application"
 
+import FlatpickrController from "./flatpickr_controller"
+application.register("flatpickr", FlatpickrController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import JamStatusToggleController from "./jam_status_toggle_controller"
+application.register("jam-status-toggle", JamStatusToggleController)
 import MapController from "./map_controller"
 application.register("map", MapController)
 import TomSelectController from "./tom_select_controller"

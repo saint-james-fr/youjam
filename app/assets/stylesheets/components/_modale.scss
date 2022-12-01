@@ -8,13 +8,24 @@
   border-radius: 5px;
 }
 
-.modale .form-control {
-  background-color: #EFEAFF;
-  border: none;
-  height: 200px;
-  color: $color-dark-blue;
+.modal-header {
+  background-color: $color-primary;
 }
 
+.modal-title {
+  color: white;
+}
+
+.modal-title .btn-close btn-close-white {
+  color: white;
+}
+
+.modale .form-control {
+  background-color: white;
+  border: none;
+  height: auto;
+  color: $color-dark-blue;
+}
 
 #booking_message::placeholder {
   color: $color-dark-blue;
@@ -24,4 +35,42 @@
   color: $color-dark-blue;
   background-color: $color-lighter-blue;
   width: 100%;
+}
+
+.modale .avatar-bordered {
+  border: solid $color-secondary 2px;
+  margin-right: 10px;
+}
+
+
+.modal-title-guests {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.modale-guests-header {
+  border-bottom: 1px solid white;
+  color: $color-primary
+}
+
+.modale-guests-status {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.modale-guests-status > div {
+  font-size: 1em;
+}
+
+.modale-guests-status > div:nth-child(n+1) {
+  margin-left: 25px;
+}
+
+.modale-guests-body {
+  min-height: 40px;
+  margin: 30px 5%;
+}
+
+.booking-description {
+  margin-bottom: 17px;
 }
