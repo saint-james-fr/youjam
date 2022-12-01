@@ -28,6 +28,11 @@ class JamsController < ApplicationController
 
   def index
     if params[:query].present?
+      jam_ids = []
+      Jam.all.each do |jam|
+        jam.instruments_list.each { |instrument| jam_ids << jam.id if instrument.include?(params[:query]) }
+      end
+      @jams = Jam.where('id in (?)', jam_ids)
       sql_query = 'title ILIKE :query OR description ILIKE :query OR :instrument = ANY (instruments_list)'
       @jams = Jam.where(sql_query, query: "%#{params[:query]}%", instrument:"#{params[:query]}" )
     else
@@ -41,7 +46,6 @@ class JamsController < ApplicationController
         image_url: helpers.asset_url("jitar" )
       }
     end
-
   end
 
   def show
