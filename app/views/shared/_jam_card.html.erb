@@ -1,7 +1,7 @@
 <%= link_to jam_path(jam), class: "text-decoration-none" do %>
   <div class="jam-card">
     <div class="jam-card-cover" style="background-image: url(<%= cl_image_path jam.photo.key %>)">
-      <%= cl_image_tag jam.user.avatar.key, class: "avatar-bordered" %>
+      <%= cl_image_tag jam.user.avatar.key, class: "avatar" %>
     </div>
     <div class="jam-card-infos d-flex flex-column justify-content-between p-3">
       <div class="jam-card-details">

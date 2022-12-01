@@ -1,11 +1,14 @@
 <div class="posts">
   <% @posts.each do |post| %>
-    <div class="publication">
+    <div class="publication box-shadow-morphism">
       <div class="header-publication">
-        <%= cl_image_tag post.user.avatar.key, class: "avatar-bordered" %>
-        <span class="post-author"><%=post.user.first_name%> <%=post.user.last_name%> </span>
-        <%= distance_of_time_in_words(DateTime.now,
-         post.created_at) %>
+        <%= cl_image_tag post.user.avatar.key, class: "avatar" %>
+        <div class="infos-publication">
+          <span class="post-author"><%=post.user.first_name%> <%=post.user.last_name%> </span>
+          <div class="timeago">
+          <%= distance_of_time_in_words(DateTime.now,post.created_at) %>
+          </div>
+        </div>
       </div>
       <div class="body-publication">
       <p> <%= post.content %> </p>
