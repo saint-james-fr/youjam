@@ -4,11 +4,13 @@ class JamsController < ApplicationController
 
   def new
     @jam = Jam.new
+    authorize @jam
     @instruments = Instrument.all.pluck(:name)
   end
 
   def create
     @jam = Jam.new(params_jam)
+    authorize @jam
     @jam.user = current_user
     @jam.instruments_list = params[:jam][:instruments_list]
     @jam.instruments_list.shift
@@ -21,18 +23,21 @@ class JamsController < ApplicationController
   end
 
   def edit
+    authorize @jam
   end
 
   def update
+    authorize @jam
   end
 
   def index
     if params[:query].present?
       sql_query = 'title ILIKE :query OR description ILIKE :query OR :instrument = ANY (instruments_list)'
-      @jams = Jam.where(sql_query, query: "%#{params[:query]}%", instrument:"#{params[:query]}" )
+      @jams = policy_scope(Jam).where(sql_query, query: "%#{params[:query]}%", instrument:"#{params[:query]}" )
     else
-      @jams = Jam.all
+      @jams = policy_scope(Jam).all
     end
+    authorize @jams
     @markers = @jams.geocoded.map do |jam|
       {
         lat: jam.latitude,
@@ -45,6 +50,7 @@ class JamsController < ApplicationController
   end
 
   def show
+    authorize @jam
     @accepted_bookings = Booking.accepted.where('jam_id = ?', @jam)
     @pending_bookings = Booking.pending.where('jam_id = ?', @jam)
     @declined_bookings = Booking.declined.where('jam_id = ?', @jam)
@@ -56,7 +62,7 @@ class JamsController < ApplicationController
   def set_jam
     @jam = Jam.find(params[:id])
   end
-  
+
   def params_jam
     params.require(:jam).permit(:location, :description, :capacity, :instruments_list, :jam_date, :title, :photo)
   end

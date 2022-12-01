@@ -25,7 +25,7 @@
                   <%= cl_image_tag booking.user.avatar.key, class:"avatar-bordered" %>
                   <%= booking.user.first_name %>
                 </div>
-                <% if user_signed_in? %>
+                <% if policy(booking).accepted? %>
                   <div class="d-flex">
                     <%= link_to "Accepter", accepted_jam_booking_path(booking.jam, booking), class:"primary-button b-accept", data: {turbo_method: :patch} %>
                     <%= link_to "Refuser", declined_jam_booking_path(booking.jam, booking), class:"primary-button b-decline", data: {turbo_method: :patch} %>
@@ -33,7 +33,9 @@
                 <% end %>
               </div>
               <div class="booking-description">
-              <%= booking.message %>
+              <% if policy(booking).accepted? %>
+                <%= booking.message %>
+              <% end %>
               </div>
             <% end %>
           </div>
