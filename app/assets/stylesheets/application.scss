@@ -6,8 +6,9 @@
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
-@import "tom-select/dist/css/tom-select.min.css";
 @import "flatpickr/dist/flatpickr";
+@import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder";
+@import "tom-select/dist/scss/tom-select.scss";
 
 // Your CSS partials
 @import "components/index";
