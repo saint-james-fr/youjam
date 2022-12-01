@@ -3,22 +3,30 @@
     <div class="container">
       <h1>Stop playing solo your solos</h1>
       <p>Meet musicians & collaborate!</p>
-      <%= link_to "Let's jam", jams_path, class: "primary-button" %>
-    </div>
-  </div>
-  <div class="container mt-5 mb-2">
-    <h1>Most popular jams</h1>
-    <div class="jam-cards mt-4">
-      <% @jams.each do |jam| %>
-          <%= render "shared/jam_card", jam: jam %>
+      <div class="d-flex ml-1 mr-1">
+        <%= form_with url: jams_path, method: :get, class: "d-flex home-search" do %>
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Type your instrument "%>
+          <%= submit_tag "Let's Jam", class: "primary-button" %>
         <% end %>
+      </div>
     </div>
   </div>
   <div class="container mt-5 mb-2">
-    <h1>Meet some jammers!</h1>
+    <h1>Les Jams les plus populaires</h1>
     <div class="jam-cards mt-4">
       <% @jams.each do |jam| %>
-          <%= render "shared/jam_card", jam: jam %>
+        <%= render "shared/jam_card", jam: jam %>
+      <% end %>
+    </div>
+  </div>
+  <div class="container mt-5 mb-5">
+    <h1>Rencontre des Jammers</h1>
+    <div class="jammer-cards mt-4">
+      <% @users.each do |user| %>
+            <%= render "shared/jammer_card", user: user %>
         <% end %>
     </div>
   </div>

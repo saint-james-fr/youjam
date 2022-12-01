@@ -1,10 +1,34 @@
 .tag {
-  background-color: $color-secondary;
   width: auto;
   color: white;
   border-radius: 16px;
   padding: 1px 10px;
-  font-size: 13px;
+  font-size: 0.8em;
+  margin-right: 0.2em;
+}
+
+.tag-genres {
+  background-color: $color-primary;
+}
+
+.tag-instruments {
+  background-color: $color-secondary;
+}
+
+.tag-supp {
+  background-color: #eaeaea;
+  border: solid $color-secondary;
+  color: $color-secondary;
+}
+
+.tag-supp-genres {
+  background-color: #eaeaea;
+  border: solid $color-primary;
+  color: $color-primary;
+  width: auto;
+  border-radius: 16px;
+  padding: 1px 10px;
+  font-size: 0.8em;
   margin-right: 0.2em;
   padding-bottom: 3px;
 }
