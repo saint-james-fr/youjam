@@ -1,6 +1,6 @@
 <%= link_to profile_path(user), class: "text-decoration-none" do %>
   <div class="jammer-card p-3">
-      <%= cl_image_tag user.avatar.key, class: "avatar-bordered" %>
+      <%= cl_image_tag user.avatar.key, class: "avatar" %>
       <div class="jammer-card-infos">
         <div class="card-user">
           <%= user.first_name %> <%= user.last_name %>

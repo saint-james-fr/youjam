@@ -55,6 +55,8 @@ class JamsController < ApplicationController
     @pending_bookings = Booking.pending.where('jam_id = ?', @jam)
     @declined_bookings = Booking.declined.where('jam_id = ?', @jam)
     @booking = Booking.new
+    @post = Post.new
+    @posts = @jam.posts
     @instruments = Instrument.all.pluck(:name)
   end
 
