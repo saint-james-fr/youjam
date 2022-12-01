@@ -10,8 +10,8 @@ class JamsController < ApplicationController
 
   def create
     @jam = Jam.new(params_jam)
-    authorize @jam
     @jam.user = current_user
+    authorize @jam
     @jam.instruments_list = params[:jam][:instruments_list]
     @jam.instruments_list.shift
     if @jam.save
