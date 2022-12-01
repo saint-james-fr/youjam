@@ -1,3 +1,16 @@
 .form-control {
   background-color: white;
+  border-radius: 8px;
+}
+
+.edit_jam .primary-button {
+  width: 100%;
+}
+
+.edit_jam .modal-header {
+  background-color: $color-primary;
+}
+
+.edit_jam .modal-title {
+  color: white;
 }

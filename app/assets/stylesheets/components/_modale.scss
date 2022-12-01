@@ -8,13 +8,24 @@
   border-radius: 5px;
 }
 
+.modal-header {
+  background-color: $color-primary;
+}
+
+.modal-title {
+  color: white;
+}
+
+.modal-title .btn-close btn-close-white {
+  color: white;
+}
+
 .modale .form-control {
   background-color: white;
   border: none;
   height: auto;
   color: $color-dark-blue;
 }
-
 
 #booking_message::placeholder {
   color: $color-dark-blue;
