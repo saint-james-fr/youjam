@@ -45,8 +45,9 @@ class JamsController < ApplicationController
   end
 
   def show
-    @confirmed_guests = Booking.accepted.where('user_id = ?', @jam.user).count
-    @pending_guests = Booking.pending.where('user_id = ?', @jam.user).count
+    @accepted_bookings = Booking.accepted.where('jam_id = ?', @jam)
+    @pending_bookings = Booking.pending.where('jam_id = ?', @jam)
+    @declined_bookings = Booking.declined.where('jam_id = ?', @jam)
     @booking = Booking.new
   end
 
@@ -55,9 +56,7 @@ class JamsController < ApplicationController
   def set_jam
     @jam = Jam.find(params[:id])
   end
-
-  private
-
+  
   def params_jam
     params.require(:jam).permit(:location, :description, :capacity, :instruments_list, :jam_date, :title, :photo)
   end

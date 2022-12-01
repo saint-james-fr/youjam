@@ -19,3 +19,18 @@
 .jambanner-i-button .primary-button {
   padding: 9px 29px
 }
+
+.primary-button.b-accept {
+  background-color: $color-secondary;
+  padding: 6px 29px;
+}
+
+.primary-button.b-decline {
+  background-color: $color-alert-red;
+  margin-left: 10px;
+  padding: 6px 29px;
+}
+
+.modale-guests-line {
+  margin-bottom: 15px;
+}
