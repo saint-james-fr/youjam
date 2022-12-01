@@ -8,5 +8,5 @@
           collection: @instruments,
           input_html: { multiple: true, data: {controller: "tom-select", tom_select_options_value: {tags: true, plugins: ['remove_button']}}} %>
     <%= f.input :photo, as: :file   %>
-    <%= f.submit %>
+    <%= f.submit , class: 'primary-button' %>
 <% end %>

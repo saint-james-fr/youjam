@@ -21,7 +21,13 @@ class JamsController < ApplicationController
   end
 
   def update
-    raise
+    @jam.instruments_list = params[:jam][:instruments_list]
+    if @jam.update(params_jam)
+      redirect_to jam_path(@jam)
+    else
+      @instruments = Instrument.all.pluck(:name)
+      render :update, status: :unprocessable_entity
+    end
   end
 
   def index
@@ -36,16 +42,16 @@ class JamsController < ApplicationController
         lat: jam.latitude,
         lng: jam.longitude,
         info_window: render_to_string(partial: 'info_window', locals: { jam: jam }),
-        image_url: helpers.asset_url("jitar" )
+        image_url: helpers.asset_url("jitar")
       }
     end
-
   end
 
   def show
     @confirmed_guests = Booking.accepted.where('user_id = ?', @jam.user).count
     @pending_guests = Booking.pending.where('user_id = ?', @jam.user).count
     @booking = Booking.new
+    @instruments = Instrument.all.pluck(:name)
   end
 
   private
