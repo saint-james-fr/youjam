@@ -1,0 +1,35 @@
+.jambanner {
+  height: 400px;
+  width: 100%;
+  color: $color-dark-blue;
+}
+
+.jambanner-image {
+  height: 70%
+}
+
+.jambanner-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.jambanner-i-container {
+  height: auto;
+  background-color: $color-light-blue;
+  padding: 18px 5%;
+}
+
+.jambanner-i-t-l-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.jambanner-i-date-time {
+  font-size: 1.4em;
+}
+
+.jambanner-i-title {
+  font-weight: bold;
+  font-size: 1.4em;
+}

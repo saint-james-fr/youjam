@@ -1,0 +1,7 @@
+<%= link_to jam_path(jam) do %>
+  <div>
+    <%= cl_image_tag jam.photo.key, crop: :fill %>
+    <h2><%= jam.title %></h2>
+    <p><%= jam.location %></p>
+  </div>
+<% end %>

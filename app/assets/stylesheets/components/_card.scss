@@ -20,17 +20,14 @@
 
 .jam-card-cover .avatar-bordered {
   position: absolute;
-  border: solid $color-secondary 2px;
   top: 157px;
   left: 10px;
 }
 
 .jam-card-infos {
   flex-grow: 1;
-  // &:first-child{
-  //   font-size: 12px;
-  // }
   position: relative;
+  height: 200px;
 }
 
 .jam-card-infos h3 {

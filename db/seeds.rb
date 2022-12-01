@@ -110,7 +110,7 @@ jams_options = [jam1, jam2]
 puts ">"
 puts "Starts creating jams..."
 jams_options.each do |jam_option|
-  file = URI.open("https://picsum.photos/200") #get avatar from Lorem Picsum
+  file = URI.open("https://picsum.photos/1500") #get avatar from Lorem Picsum
   jam = Jam.new(jam_option)
   jam.photo.attach(io: file, filename: "nes#{rand(1..1000000)}.png", content_type: "image/png")
   jam.save!
