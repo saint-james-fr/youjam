@@ -4,13 +4,7 @@
       <h1>Stop playing solo your solos</h1>
       <p>Meet musicians & collaborate!</p>
       <div class="d-flex ml-1 mr-1">
-        <%= form_with url: jams_path, method: :get, class: "d-flex home-search" do %>
-            <%= text_field_tag :query,
-              params[:query],
-              class: "form-control",
-              placeholder: "Guitar, Piano etc... "%>
-          <%= submit_tag "Let's Jam", class: "primary-button" %>
-        <% end %>
+      <%= render "jams/form_search" %>
       </div>
     </div>
   </div>
