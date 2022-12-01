@@ -1,0 +1,47 @@
+<div class="details-card box-shadow-morphism">
+  <div class="details-container">
+    <div class="details-title">détails
+    </div>
+    <div class="details-infos">
+      <ul>
+        <li>
+          <div class="d-flex">
+          <i class="fa-solid fa-drum"></i>
+            <% jam.instruments_list.each do |instrument|%>
+                <div class="tag-instruments tag"><%= instrument %></div>
+            <% end %>
+          </div>
+        </li>
+        <li>
+          <i class="fa-solid fa-circle-user"></i>Proposé par <%= jam.user.first_name %>
+        </li>
+        <li>
+          <i class="fa-solid fa-location-pin"></i><%= jam.location %>
+        </li>
+        <li>
+          <button class="modal-button" data-bs-toggle="modal" data-bs-target="#guestsModal">
+            <i class="fa-solid fa-people-group"></i>
+              <%= accepted_bookings.count %> participant
+              <%if accepted_bookings.count > 1 %>s
+                <% end %>
+                <% unless pending_bookings.count == 0  %>
+                  , <%= pending_bookings.count %> en attente
+                <% end %>
+          </button>
+            <%= render "jams/guests_modal", jam: @jam %>
+        </li>
+      </ul>
+    </div>
+    <div class="details-description">
+      <%= jam.description %>
+    </div>
+  </div>
+</div>
+<div class="show-map">
+</div>
+<div class="posts-container">
+  <div class="post">
+  Ceci est un post
+  </div>
+
+</div>
