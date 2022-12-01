@@ -22,7 +22,7 @@
             <% @pending_bookings.each do |booking| %>
               <div class="d-flex justify-content-between modale-guests-line">
                 <div>
-                  <%= cl_image_tag booking.user.avatar.key, class:"avatar-bordered" %>
+                  <%= cl_image_tag booking.user.avatar.key, class:"avatar" %>
                   <%= booking.user.first_name %>
                 </div>
                 <% if user_signed_in? %>
@@ -45,7 +45,7 @@
             <% @accepted_bookings.each do |booking| %>
               <div class="d-flex justify-content-between modale-guests-line">
                 <div>
-                  <%= cl_image_tag booking.user.avatar.key, class:"avatar-bordered" %>
+                  <%= cl_image_tag booking.user.avatar.key, class:"avatar" %>
                   <%= booking.user.first_name %>
                 </div>
               </div>
@@ -59,7 +59,7 @@
             <% @declined_bookings.each do |booking| %>
               <div class="d-flex justify-content-between modale-guests-line">
                 <div>
-                  <%= cl_image_tag booking.user.avatar.key, class:"avatar-bordered" %>
+                  <%= cl_image_tag booking.user.avatar.key, class:"avatar" %>
                   <%= booking.user.first_name %>
                 </div>
               </div>
