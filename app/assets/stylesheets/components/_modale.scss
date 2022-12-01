@@ -8,13 +8,24 @@
   border-radius: 5px;
 }
 
-.modale .form-control {
-  background-color: #EFEAFF;
-  border: none;
-  height: 200px;
-  color: $color-dark-blue;
+.modal-header {
+  background-color: $color-primary;
 }
 
+.modal-title {
+  color: white;
+}
+
+.modal-title .btn-close btn-close-white {
+  color: white;
+}
+
+.modale .form-control {
+  background-color: white;
+  border: none;
+  height: auto;
+  color: $color-dark-blue;
+}
 
 #booking_message::placeholder {
   color: $color-dark-blue;
@@ -26,7 +37,7 @@
   width: 100%;
 }
 
-.modale .avatar-bordered {
+.modale .avatar {
   border: solid $color-secondary 2px;
   margin-right: 10px;
 }

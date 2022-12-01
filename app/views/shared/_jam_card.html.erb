@@ -1,11 +1,11 @@
 <%= link_to jam_path(jam), class: "text-decoration-none" do %>
   <div class="jam-card">
     <div class="jam-card-cover" style="background-image: url(<%= cl_image_path jam.photo.key %>)">
-      <%= cl_image_tag jam.user.avatar.key, class: "avatar-bordered" %>
+      <%= cl_image_tag jam.user.avatar.key, class: "avatar" %>
     </div>
     <div class="jam-card-infos d-flex flex-column justify-content-between p-3">
       <div class="jam-card-details">
-        <p class="card-date"><%= jam.jam_date.strftime('%a. %-d %b %Y, %I:%M %p') %></p>
+        <p class="card-date"><%= l(jam.jam_date, format:'%a. %-d %b %Y, %H:%M') %></p>
         <h3 class="card-title mt-4"><%= jam.title %></h3>
         <p class="card-location mt-2"><%= jam.location %></p>
       </div>
