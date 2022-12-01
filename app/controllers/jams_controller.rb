@@ -1,6 +1,6 @@
 class JamsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[show index]
-  before_action :set_jam, only: %i[show edit update destroy]
+  before_action :set_jam, only: %i[show update destroy]
 
   def new
     @jam = Jam.new
@@ -20,10 +20,14 @@ class JamsController < ApplicationController
     end
   end
 
-  def edit
-  end
-
   def update
+    @jam.instruments_list = params[:jam][:instruments_list]
+    if @jam.update(params_jam)
+      redirect_to jam_path(@jam)
+    else
+      @instruments = Instrument.all.pluck(:name)
+      render :update, status: :unprocessable_entity
+    end
   end
 
   def index
@@ -38,10 +42,9 @@ class JamsController < ApplicationController
         lat: jam.latitude,
         lng: jam.longitude,
         info_window: render_to_string(partial: 'info_window', locals: { jam: jam }),
-        image_url: helpers.asset_url("jitar" )
+        image_url: helpers.asset_url("jitar")
       }
     end
-
   end
 
   def show
@@ -51,6 +54,7 @@ class JamsController < ApplicationController
     @booking = Booking.new
     @post = Post.new
     @posts = @jam.posts
+    @instruments = Instrument.all.pluck(:name)
   end
 
   private
@@ -58,7 +62,7 @@ class JamsController < ApplicationController
   def set_jam
     @jam = Jam.find(params[:id])
   end
-  
+
   def params_jam
     params.require(:jam).permit(:location, :description, :capacity, :instruments_list, :jam_date, :title, :photo)
   end
