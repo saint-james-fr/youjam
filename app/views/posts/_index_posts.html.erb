@@ -1,14 +1,13 @@
 <div class="posts">
   <% @posts.each do |post| %>
-    <% time = post.created_at %>
     <div class="publication">
       <div class="header-publication">
         <%= cl_image_tag post.user.avatar.key, class: "avatar-bordered" %>
         <span class="post-author"><%=post.user.first_name%> <%=post.user.last_name%> </span>
-        <%= Time.now - time %>
+        <%= distance_of_time_in_words(DateTime.now,
+         post.created_at) %>
       </div>
       <div class="body-publication">
-      <%= hello %>
       <p> <%= post.content %> </p>
       </div>
     </div>
