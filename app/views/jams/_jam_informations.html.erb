@@ -1,3 +1,16 @@
 <div>
+  <div class="information-title">Informations
+  </div>
+  <div class="proposed-by">
+    <%= cl_image_tag jam.user.avatar.key, class: "avatar" %>
+    <div>
+    Proposé par <%= jam.user.first_name %>
+    </div>
+  </div>
+  <div class="informations-container" >
+  </div>
+  <div class="informations-description">
+  <%= jam.description %>
+  </div>
 
 </div>
