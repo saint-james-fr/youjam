@@ -31,20 +31,13 @@ class JamsController < ApplicationController
   end
 
   def index
-    if params[:query].present?
-      # jam_ids = []
-      # Jam.all.each do |jam|
-      #   jam.instruments_list.each { |instrument| jam_ids << jam.id if instrument.include?(params[:query]) }
-      # end
-
-      jam_ids = Jam.all.select { |jam| jam.instruments_list.any? { |instrument| instrument.include?(params[:query]) } }.map(&:id)
+    @jams = Jam.all
+    if params['search']['query'].present?
+      jam_ids = @jams.select { |jam| jam.instruments_list.any? { |instrument| instrument.include?(params['search']['query']) } }.map(&:id)
       sql_query = 'title ILIKE :query OR description ILIKE :query'
-      @jams = Jam.where(sql_query, query: "%#{params[:query]}%").or(Jam.where('id in (?)', jam_ids))
-      # <<~SQL
-      #   SELECT * FROM jams WHERE title ILIKE :query OR description ILIKE :query OR instruments_list ILIKE :query
-      # SQL
-    else
-      @jams = Jam.all
+      @jams = @jams.where(sql_query, query: "%#{params['search']['query']}%").or(Jam.where('id in (?)', jam_ids))
+    if params['search']['address'].present?
+      @jams = @jams.near(params['search']['address'], 10)
     end
     @markers = @jams.geocoded.map do |jam|
       {
@@ -54,6 +47,7 @@ class JamsController < ApplicationController
         image_url: helpers.asset_url("jitar")
       }
     end
+    @jams = @jams.sort_by(&:jam_date)
   end
 
   def show
@@ -61,6 +55,8 @@ class JamsController < ApplicationController
     @pending_bookings = Booking.pending.where('jam_id = ?', @jam)
     @declined_bookings = Booking.declined.where('jam_id = ?', @jam)
     @booking = Booking.new
+    @post = Post.new
+    @posts = @jam.posts
     @instruments = Instrument.all.pluck(:name)
   end
 
@@ -74,3 +70,16 @@ class JamsController < ApplicationController
     params.require(:jam).permit(:location, :description, :capacity, :instruments_list, :jam_date, :title, :photo)
   end
 end
+
+# if params['search']['query'].present? && params['search']['address'].present?
+#   sql_query = 'title ILIKE :query OR description ILIKE :query OR :instrument = ANY (instruments_list)'
+#   @jams = Jam.where(sql_query, query: "%#{params['search']['query']}%", instrument:"#{params['search']['query']}" )
+#   @jams = Jam.near(params['search']['address'], 10)
+# elsif params['search']['query'].present? && params['search']['address'].empty?
+#   sql_query = 'title ILIKE :query OR description ILIKE :query OR :instrument = ANY (instruments_list)'
+#   @jams = Jam.where(sql_query, query: "%#{params['search']['query']}%", instrument:"#{params['search']['query']}" )
+# elsif params['search']['query'].empty? && params['search']['address'].present?
+#   @jams = Jam.near(params['search']['address'], 10)
+# else
+#   @jams = Jam.all
+# end
