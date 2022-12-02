@@ -48,11 +48,7 @@ export default class extends Controller {
 
     #fitMapToMarkers() {
       const bounds = new mapboxgl.LngLatBounds()
-      if (Array.isArray(this.markersValue)) {
-        this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
-      } else {
-        bounds.extend([ markerValue.lng, markerValue.lat ])
-      }
+      this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
       this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
     }
 
