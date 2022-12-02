@@ -1,11 +1,8 @@
 .jambanner {
-  height: 400px;
+  height: 280px;
   width: 100%;
   color: $color-dark-blue;
-}
-
-.jambanner-image {
-  height: 70%
+  background-position: center;
 }
 
 .jambanner-image img {
@@ -16,13 +13,18 @@
 
 .jambanner-i-container {
   height: auto;
-  background-color: $color-light-blue;
   padding: 18px 5%;
+}
+
+.jambanner-box {
+  padding-top: 100px;
+  color: white;
 }
 
 .jambanner-i-t-l-container {
   display: flex;
   justify-content: space-between;
+  align-items: self-end;
 }
 
 .jambanner-i-date-time {
@@ -31,5 +33,6 @@
 
 .jambanner-i-title {
   font-weight: bold;
-  font-size: 1.4em;
+  font-size: 2em;
+  margin-bottom: 35px;
 }

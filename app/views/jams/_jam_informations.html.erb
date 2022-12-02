@@ -1,13 +1,40 @@
-<div>
+<div class="information-container">
   <div class="information-title">Informations
   </div>
   <div class="proposed-by">
-    <%= cl_image_tag jam.user.avatar.key, class: "avatar" %>
     <div>
-    Proposé par <%= jam.user.first_name %>
+    <%= cl_image_tag jam.user.avatar.key, class: "avatar" %>
+    </div>
+    <div class="user-information-jam">
+      <div class="user-information-name">
+      Proposé par <%= jam.user.first_name %>
+      </div>
+      <div class="user-information-description">
+      <p><%= jam.user.description.truncate(30) %></p>
+      </div>
     </div>
   </div>
-  <div class="informations-container" >
+  <div class="informations-picto" >
+    <ul class="picto">
+        <li>
+          <div class="d-flex">
+          <i class="fa-solid fa-drum"></i>
+            <% jam.instruments_list.each do |instrument|%>
+                <div class="tag-instruments tag"><%= instrument %></div>
+            <% end %>
+          </div>
+        </li>
+        <li>
+          <i class="fa-solid fa-location-pin"></i><%= jam.location %>
+        </li>
+        <li>
+        <%# * Running tests to style and launch modals %>
+          <<%= "button" unless jam.bookings.empty? %><%= "div" if jam.bookings.empty? %> class="<%= "modal-button" unless jam.bookings.empty? %>" data-bs-toggle="modal" data-bs-target="#guestsModal">
+            <i class="fa-solid fa-people-group"></i><%= accepted_bookings.count %> participant<%if accepted_bookings.count > 1 %>s<% end %><% unless pending_bookings.count == 0 %>, <%= pending_bookings.count %> en attente<% end %>
+          </button>
+            <%= render "jams/guests_modal", jam: @jam %>
+        </li>
+      </ul>
   </div>
   <div class="informations-description">
   <%= jam.description %>
