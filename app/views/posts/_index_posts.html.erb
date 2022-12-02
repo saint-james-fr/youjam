@@ -6,7 +6,7 @@
         <div class="infos-publication">
           <span class="post-author"><%=post.user.first_name%> <%=post.user.last_name%> </span>
           <div class="timeago">
-          <%= distance_of_time_in_words(DateTime.now,post.created_at) %>
+            <%= distance_of_time_in_words(DateTime.now,post.created_at) %>
           </div>
         </div>
       </div>

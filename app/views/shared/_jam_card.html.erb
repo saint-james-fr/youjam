@@ -6,8 +6,8 @@
     <div class="jam-card-infos d-flex flex-column justify-content-between p-3">
       <div class="jam-card-details">
         <p class="card-date"><%= l(jam.jam_date, format:'%a. %-d %b %Y, %H:%M') %></p>
-        <h3 class="card-title mt-4"><%= jam.title %></h3>
-        <p class="card-location mt-2"><%= jam.location %></p>
+        <h3 class="card-title mt-4"><%= jam.title.capitalize %></h3>
+        <p class="card-location mt-2"><%= jam.location%></p>
       </div>
       <div class="jam-tags flex-wrap">
         <% if jam.instruments_list.count > 3 %>
