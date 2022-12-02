@@ -1,6 +1,11 @@
 <%= render "jams/jam_banner", jam: @jam %>
 <div class="show-container">
-  <%= render "jams/jam_details", jam: @jam, accepted_bookings: @accepted_bookings, pending_bookings: @pending_bookings %>
+  <%= render "jams/jam_informations", jam: @jam, accepted_bookings: @accepted_bookings, pending_bookings: @pending_bookings %>
+  <%= render "jams/map_jam", jam: @jam, accepted_bookings: @accepted_bookings, pending_bookings: @pending_bookings %>
+</div>
+
+
+
   <% if @booking.persisted? && policy(@booking).accepted?  %>
     <div class="post">
       <div class="create-publication">
@@ -9,4 +14,3 @@
       <%= render "posts/index_posts", posts: @posts, jam: @jam %>
     </div>
   <% end %>
-</div>
