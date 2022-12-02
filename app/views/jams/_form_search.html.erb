@@ -1,6 +1,6 @@
 <%= simple_form_for :search, url: jams_path, method: :get, html: {class: "search-form"} do |f| %>
-  <%= f.input :query, input_html: {placeholder: "Trouver une jam" }, label: false, wrapper_html: {class: "search-input-jam"} %>
-  <%= f.input :address, input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"}, label: false,
+  <%= f.input :query, input_html: {placeholder: "Chercher" }, label: false, wrapper_html: {class: "search-input-jam"} %>
+  <%= f.input :address, input_html: {data: {address_autocomplete_target: "address"}, class: "d-none", placeholder: "adresse"}, label: false,
   wrapper_html: {class: "search-input-address", data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
   <%= f.submit class: "secondary-button", value: "Let's jam !" %>
 <% end %>

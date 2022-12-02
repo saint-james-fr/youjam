@@ -25,6 +25,9 @@ class JamsController < ApplicationController
   def update
     authorize @jam
     @jam.instruments_list = params[:jam][:instruments_list]
+    if @jam.instruments_list[0] == ""
+      @jam.instruments_list.shift
+    end
     if @jam.update(params_jam)
       redirect_to jam_path(@jam)
     else
