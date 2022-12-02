@@ -1,0 +1,20 @@
+<button class="primary-button" data-bs-toggle="modal" data-bs-target="#postModal"> Publier un message </button>
+
+        <div class="modal fade" id="postModal" tabindex="-1" aria-labelledby="postModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered ">
+            <div class="modal-content">
+                <div class="modal-header modale">
+                  <%= cl_image_tag jam.user.avatar.key, class: "avatar" %>
+                  <h2 class="modal-title fs-5" id="postModalLabel">Publier un message</h2>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body modale">
+                  <%= simple_form_for [jam, post] do |f| %>
+                    <%= f.input :content, as: :text, label: false, placeholder: "Mon message"%>
+
+                    <%= f.button :submit, class: "modal-submit", :value => "Publier mon message" %>
+                  <% end %>
+                </div>
+            </div>
+          </div>
+        </div>

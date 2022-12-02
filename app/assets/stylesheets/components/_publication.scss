@@ -1,0 +1,37 @@
+.header-publication {
+  display: flex;
+}
+
+
+.post-author {
+  font-weight: 600;
+  font-size: 0.9em;
+}
+
+.publication {
+  margin: 10px;
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  border-radius: 10px;
+  background: $color-lighter-blue;
+  margin-bottom: 20px;
+}
+
+.body-publication {
+  padding: 10px 10px 5px 40px;
+}
+
+.infos-publication {
+  font-family: Quicksand;
+  padding: 5px 0px 0px 10px;
+}
+.timeago {
+  font-weight: 400;
+  font-size: 0.6em;
+  margin-top: -4px
+}
+
+.create-publication {
+  text-align: end;
+}
