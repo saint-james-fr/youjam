@@ -4,20 +4,26 @@
   </div>
   <div class="jambanner-i-container">
     <div class="jambanner-i-date-time">
-      <%= jam.jam_date.strftime('%a. %-d %b %Y, %I:%M %p') %>
+      <%= l(jam.jam_date, format:'%a. %-d %b %Y, %H:%M') %>
     </div>
     <div class="jambanner-i-t-l-container">
       <div class="jambanner-i-title-and-location">
         <div class="jambanner-i-title">
-          <%= jam.title %>
+          <%= jam.title.capitalize %>
         </div>
         <div class="jambanner-i-location">
           <%= jam.location %>
         </div>
       </div>
       <div class="jambanner-i-button">
-        <%= render "bookings/new_booking", booking: @booking, jam: @jam %>
-        <%= render "edit_jam", jam: @jam %>
+        <% unless jam.bookings.any?{|booking| booking.user_id == current_user.id} %>
+          <%= render "bookings/new_booking", booking: @booking, jam: @jam %>
+          <% if policy(jam).edit? %>
+          <%= render "edit_jam", jam: @jam %>
+          <% end %>
+        <% else %>
+          <div class="primary-button b-inactive"> Je Participe </div>
+        <% end %>
       </div>
     </div>
   </div>
