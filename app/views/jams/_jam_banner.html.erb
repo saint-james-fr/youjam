@@ -16,7 +16,7 @@
         </div>
       </div>
       <div class="jambanner-i-button">
-        <% unless jam.bookings.any?{|booking| booking.user_id == current_user.id} %>
+        <% unless user_signed_in? && jam.bookings.any?{|booking| booking.user_id == current_user.id} %>
           <%= render "bookings/new_booking", booking: @booking, jam: @jam %>
           <% if policy(jam).edit? %>
           <%= render "edit_jam", jam: @jam %>
