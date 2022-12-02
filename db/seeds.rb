@@ -180,7 +180,7 @@ jam9 =  {
 
 jam10 =  {
   title: " Edit path",
-  location: "4 place Pigalle",
+  location: "4 place Jean Baptiste Pigalle",
   description: "Pour les codeurs qui aiment les classiques de la chanson française",
   instruments_list: ["piano", "trompette", "guitare"],
   capacity: 5,
@@ -232,6 +232,30 @@ end
 puts ">"
 puts "Done!"
 
+
+photo1 = URI.open('https://images.unsplash.com/photo-1477611160464-0b9fb6404529?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80')
+jams[0].photo.attach(io: photo1, filename: "nes#{rand(1..1000000)}.png", content_type: "image/png")
+photo2 = URI.open("https://images.unsplash.com/photo-1477233534935-f5e6fe7c1159?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80")
+jams[1].photo.attach(io: photo2, filename: "nes#{rand(1..1000000)}.png", content_type: "image/png")
+photo3 = URI.open("https://images.unsplash.com/photo-1600771488491-c22d42a9347d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2xhcmluZXR8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60")
+jams[2].photo.attach(io: photo3, filename: "nes#{rand(1..1000000)}.png", content_type: "image/png")
+photo4 = URI.open("https://images.unsplash.com/photo-1446057032654-9d8885db76c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1856&q=80")
+jams[3].photo.attach(io: photo4, filename: "nes#{rand(1..1000000)}.png", content_type: "image/png")
+photo5 = URI.open("https://upload.wikimedia.org/wikipedia/commons/7/71/Abraham_Bloemaert_-_The_Bagpiper_-_WGA02274.jpg")
+jams[4].photo.attach(io: photo5, filename: "nes#{rand(1..1000000)}.png", content_type: "image/png")
+photo6 = URI.open('https://images.unsplash.com/photo-1588032786045-59cefda005c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1788&q=80')
+jams[5].photo.attach(io: photo6, filename: "nes#{rand(1..1000000)}.png", content_type: "image/png")
+photo7 = URI.open("https://www.cyclicdefrost.com/wp-content/ATOM-photo-retouched-example-1.jpg")
+jams[6].photo.attach(io: photo7, filename: "nes#{rand(1..1000000)}.png", content_type: "image/png")
+photo8 = URI.open("https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80")
+jams[7].photo.attach(io: photo8, filename: "nes#{rand(1..1000000)}.png", content_type: "image/png")
+photo9 = URI.open("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoL-TgLqPi0NQfAlvPpNfpJBwET0wr8ADbFQ&usqp=CAU")
+jams[8].photo.attach(io: photo9, filename: "nes#{rand(1..1000000)}.png", content_type: "image/png")
+photo10 = URI.open("https://img-4.linternaute.com/9dkRcdwNecBxCbK83hN7hQpRaLE=/1500x/smart/4508a2ffc1084b2398e1b69a9db22cd1/ccmcms-linternaute/11208389.jpg")
+jams[9].photo.attach(io: photo10, filename: "nes#{rand(1..1000000)}.png", content_type: "image/png")
+
+puts ">"
+
 # !Posts options & Seed
 
 post1 =  {
@@ -249,7 +273,7 @@ post3 =  {
 }
 
 post4 =  {
-  content: "j'en ai un dans mon grenier !",
+  content: "Ca va être trop bien!",
 
 }
 
@@ -293,5 +317,11 @@ puts ">"
 puts "Done!"
 
 puts ">"
-
+puts "Starts creating Instruments..."
+instruments_options = [{ name:"Piano" }, { name:"Hautbois" }, { name:"Harpe" }, { name:"Synthétiseurs" }, { name:"Saxophone" }, { name:"Trompette" }, { name:"Triangle" }, { name:"Clavecin" },{ name:"Basse" },{ name:"Batterie" }, { name:"Guitare" },]
+instruments_options.each do |instrument_option|
+  instrument = Instrument.new(instrument_option)
+  instrument.save!
+end
+puts ">"
 puts "Done!"
