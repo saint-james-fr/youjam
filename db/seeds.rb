@@ -135,7 +135,7 @@ jam4 =  {
 
 jam5 =  {
   title: "Korn et Muse",
-  location: "12 Boulevard Marguerite de Rochechouard, 75011 Paris",
+  location: "12 Boulevard Marguerite de Rochechouart, 75018 Paris",
   description: "Venez jouer les plus grands tubes de Muse et Korn",
   instruments_list: ["batterie", "guitare", "basse", "kazoo"],
   capacity: 4,
@@ -180,7 +180,7 @@ jam9 =  {
 
 jam10 =  {
   title: " Edit path",
-  location: "4 place Jean Baptiste Pigalle",
+  location: "4 place Jean-Baptiste Pigalle, 75009 Paris",
   description: "Pour les codeurs qui aiment les classiques de la chanson française",
   instruments_list: ["piano", "trompette", "guitare"],
   capacity: 5,
