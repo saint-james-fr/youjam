@@ -25,6 +25,9 @@ class JamsController < ApplicationController
   def update
     authorize @jam
     @jam.instruments_list = params[:jam][:instruments_list]
+    if @jam.instruments_list[0] == ""
+      @jam.instruments_list.shift
+    end
     if @jam.update(params_jam)
       redirect_to jam_path(@jam)
     else
@@ -64,6 +67,13 @@ class JamsController < ApplicationController
     @post = Post.new
     @posts = @jam.posts
     @instruments = Instrument.all.pluck(:name)
+
+    @markers = [{
+        lat: @jam.latitude,
+        lng: @jam.longitude,
+        info_window: render_to_string(partial: 'info_window', locals: { jam: @jam }),
+        image_url: helpers.asset_url("jitar")
+    }]
   end
 
   private
