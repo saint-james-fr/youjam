@@ -3,11 +3,12 @@
   <%= render "jams/jam_informations", jam: @jam, accepted_bookings: @accepted_bookings, pending_bookings: @pending_bookings %>
   <%= render "jams/map_jam", jam: @jam, accepted_bookings: @accepted_bookings, pending_bookings: @pending_bookings %>
 </div>
-  <% if @booking.persisted? && policy(@booking).accepted?  %>
+<div class="container">
     <div class="post">
       <div class="create-publication">
         <%= render "posts/new_post", post: @post, jam: @jam %>
       </div>
       <%= render "posts/index_posts", posts: @posts, jam: @jam %>
     </div>
-  <% end %>
+</div>
+  <%# end %>
