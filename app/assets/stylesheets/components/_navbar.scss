@@ -12,10 +12,15 @@
   width: 40px;
 }
 
+.navbar-brand h3 {
+  color: $color-primary;
+}
+
 .navbar-nav {
   align-items: center;
   width: 44vw;
   justify-content: flex-end;
+  color: $color-primary;
 }
 
 .navbar-nav .primary-button {
