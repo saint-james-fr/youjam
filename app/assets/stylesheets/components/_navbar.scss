@@ -20,7 +20,9 @@
 
 .navbar-nav .primary-button {
   padding: 4px 23px;
+  color: white;
 }
+
 
 .navbar-nav .user-infos {
   display: flex;
@@ -55,4 +57,8 @@
 
 .nav-item {
   margin-left: 2em;
+}
+
+#addjambutton:hover {
+  color: white!important;
 }
