@@ -6,6 +6,8 @@
                     } do |f| %>
     <%= f.input :title, label: 'Titre de la Jam' %>
     <%= f.input :description, label: 'Description' %>
+    <%= f.input :location, input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"}, label: "Adresse",
+                 wrapper_html: {class: "search-input-address", data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
     <%= f.input :jam_date, label: 'Sélectionner une date',
                 as: :string,
                 input_html: {
@@ -14,12 +16,11 @@
                   }
                 } %>
     <%= f.input :capacity, label: 'Nombre de participants' %>
-    <%= f.input :location, label: 'Adresse' %>
     <%= f.input :instruments_list,
           class: "form-select",
           label: 'Sélectionner les instruments recherchés',
           collection: @instruments,
           input_html: { multiple: true, data: {controller: "tom-select", tom_select_options_value: {tags: true, plugins: ['remove_button']}}} %>
     <%= f.input :photo, label: "Télécharger une photo d'illustration", as: :file %>
-    <%= f.submit 'Créer ma Jam', class: 'primary-button' %>
+    <%= f.submit 'Valider', class: 'primary-button' %>
 <% end %>
