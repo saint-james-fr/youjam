@@ -15,8 +15,8 @@ class Jam < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search_by_title_and_description_and_instruments_lists,
-  against: [:title, :description, :instruments_list],
-  using: {
-    tsearch: { prefix: true }
-  }
+                  against: [:title, :description, :instruments_list],
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 end
