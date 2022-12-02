@@ -1,6 +1,10 @@
-<%= render "shared/jam_banner", jam: @jam %>
+<%= render "jams/jam_banner", jam: @jam %>
 <div class="show-container">
-  <%= render "shared/jam_details", jam: @jam, confirmed_guests: @confirmed_guests, pending_guests: @pending_guests %>
+  <%= render "jams/jam_details", jam: @jam, accepted_bookings: @accepted_bookings, pending_bookings: @pending_bookings %>
+  <div class="post">
+    <div class="create-publication">
+      <%= render "posts/new_post", post: @post, jam: @jam %>
+    </div>
+    <%= render "posts/index_posts", posts: @posts, jam: @jam %>
+  </div>
 </div>
-
-<%= render "bookings/new_booking", booking: @booking, jam: @jam %>

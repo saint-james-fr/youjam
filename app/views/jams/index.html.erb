@@ -1,14 +1,6 @@
 <div class="container">
   <div class="jams-index-search">
-    <h2>your search: </h2>
-    <%= form_with url: jams_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Find a Jam"
-      %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
-    <% end %>
+      <%= render 'form_search' %>
   </div>
   <div class="jams-content">
     <div class="jams-index-cards">
@@ -23,3 +15,14 @@
     </div>
   </div>
 </div>
+
+    <%#= form_with url: jams_path, method: :get, class: "d-flex" do %>
+      <%#= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a Jam"
+      %>
+      <%#= text_field_tag :address,
+      data: {address_autocomplete_target: "address", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]} %>
+      <%#= submit_tag "Search", class: "btn btn-primary" %>
+    <%# end %>
