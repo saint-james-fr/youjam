@@ -14,11 +14,45 @@
 
 .navbar-nav {
   align-items: center;
-  width: 33vw;
-  justify-content: space-between;
+  width: 44vw;
+  justify-content: flex-end;
+}
+
+.navbar-nav .primary-button {
+  padding: 4px 23px;
 }
 
 .navbar-nav .user-infos {
   display: flex;
   align-items: center;
+}
+
+.navbar-transparent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: transparent;
+  color: white;
+}
+
+.navbar-transparent h3 {
+  color: white;
+}
+
+.navbar-transparent .nav-link {
+  color: white;
+}
+
+.user-infos .nav-item {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-nav .avatar {
+  width: 30px;
+}
+
+.nav-item {
+  margin-left: 2em;
 }

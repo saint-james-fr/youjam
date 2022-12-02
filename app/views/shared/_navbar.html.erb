@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon <%= "navbar-transparent" if params[:action] == "home" %> ">
   <div class="container align-items-normal">
     <%= link_to "/", class: "navbar-brand" do %>
       <h3>YouJam</h3>
@@ -19,7 +19,7 @@
           </li>
           <div class="user-infos">
             <li class="nav-item dropdown">
-              <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle pe-1", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle me-2", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <div class="user-name">
                 <%= current_user.first_name %> <%= current_user.last_name %>
               </div>
