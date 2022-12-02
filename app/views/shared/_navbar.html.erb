@@ -1,10 +1,9 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <div class="nav-bar-logo">
-      <%= link_to "/", class: "navbar-brand" do %>
-        <h2>YouJam</h2>
-      <% end %>
-    </div>
+  <div class="container align-items-normal">
+    <%= link_to "/", class: "navbar-brand" do %>
+      <h3>YouJam</h3>
+    <% end %>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -18,16 +17,18 @@
           <li class="nav-item">
             <%= link_to "Tous les événements", jams_path, class: "nav-link" %>
           </li>
-          <li class="nav-item dropdown">
-            <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="user-name">
-              <%= current_user.first_name %><%= current_user.last_name %>
-            </div>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
-              <%= link_to "Se déconnecter", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
-          </li>
+          <div class="user-infos">
+            <li class="nav-item dropdown">
+              <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle pe-1", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <div class="user-name">
+                <%= current_user.first_name %> <%= current_user.last_name %>
+              </div>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
+                <%= link_to "Se déconnecter", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+              </div>
+            </li>
+          </div>
         <% else %>
           <li class="nav-item">
             <%= link_to "S'identifier", new_user_session_path, class: "nav-link" %>

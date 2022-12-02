@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get "profile/:id", to: "pages#profile", as: :profile
 
   resources :jams, except: :destroy do
-    resources :bookings, only: [:new, :create, :edit, :update] do
+    resources :bookings, only: [:new, :create] do
       member do
         patch :accepted
         patch :declined

@@ -1,9 +1,11 @@
 class PostsController < ApplicationController
   def destroy
+    authorize @post
   end
 
   def create
     @post = Post.new(post_params)
+    authorize @post
     @jam = Jam.find(params[:jam_id])
     @post.jam = @jam
     @post.user = current_user
@@ -17,9 +19,11 @@ class PostsController < ApplicationController
   end
 
   def edit
+    authorize @post
   end
 
   def update
+    authorize @post
   end
 
   private

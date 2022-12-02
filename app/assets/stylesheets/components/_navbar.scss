@@ -11,3 +11,14 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.navbar-nav {
+  align-items: center;
+  width: 33vw;
+  justify-content: space-between;
+}
+
+.navbar-nav .user-infos {
+  display: flex;
+  align-items: center;
+}

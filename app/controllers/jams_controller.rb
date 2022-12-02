@@ -4,12 +4,14 @@ class JamsController < ApplicationController
 
   def new
     @jam = Jam.new
+    authorize @jam
     @instruments = Instrument.all.pluck(:name)
   end
 
   def create
     @jam = Jam.new(params_jam)
     @jam.user = current_user
+    authorize @jam
     @jam.instruments_list = params[:jam][:instruments_list]
     @jam.instruments_list.shift
     if @jam.save
@@ -21,6 +23,7 @@ class JamsController < ApplicationController
   end
 
   def update
+    authorize @jam
     @jam.instruments_list = params[:jam][:instruments_list]
     if @jam.update(params_jam)
       redirect_to jam_path(@jam)
@@ -31,7 +34,8 @@ class JamsController < ApplicationController
   end
 
   def index
-    @jams = Jam.all
+    @jams = policy_scope(Jam).all
+    authorize @jams
     if params['search']['query'].present?
       jam_ids = @jams.select { |jam| jam.instruments_list.any? { |instrument| instrument.include?(params['search']['query']) } }.map(&:id)
       sql_query = 'title ILIKE :query OR description ILIKE :query'
@@ -52,6 +56,7 @@ class JamsController < ApplicationController
   end
 
   def show
+    authorize @jam
     @accepted_bookings = Booking.accepted.where('jam_id = ?', @jam)
     @pending_bookings = Booking.pending.where('jam_id = ?', @jam)
     @declined_bookings = Booking.declined.where('jam_id = ?', @jam)
