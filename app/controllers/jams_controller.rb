@@ -39,6 +39,9 @@ class JamsController < ApplicationController
   def index
     @jams = policy_scope(Jam).all
     authorize @jams
+    if params.present?
+      params[:search] = ""
+    end
     if params['search']['query'].present?
       jam_ids = @jams.select { |jam| jam.instruments_list.any? { |instrument| instrument.include?(params['search']['query']) } }.map(&:id)
       sql_query = 'title ILIKE :query OR description ILIKE :query'
