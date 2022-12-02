@@ -1,10 +1,13 @@
 <%= render "jams/jam_banner", jam: @jam %>
 <div class="show-container">
   <%= render "jams/jam_details", jam: @jam, accepted_bookings: @accepted_bookings, pending_bookings: @pending_bookings %>
+  <%= render "jams/map_jam", jam: @jam, accepted_bookings: @accepted_bookings, pending_bookings: @pending_bookings %>
+</div>
+
+
   <div class="post">
     <div class="create-publication">
       <%= render "posts/new_post", post: @post, jam: @jam %>
     </div>
     <%= render "posts/index_posts", posts: @posts, jam: @jam %>
   </div>
-</div>
