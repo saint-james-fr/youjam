@@ -5,9 +5,12 @@
 </div>
 
 
-  <div class="post">
-    <div class="create-publication">
-      <%= render "posts/new_post", post: @post, jam: @jam %>
+
+  <% if @booking.persisted? && policy(@booking).accepted?  %>
+    <div class="post">
+      <div class="create-publication">
+        <%= render "posts/new_post", post: @post, jam: @jam %>
+      </div>
+      <%= render "posts/index_posts", posts: @posts, jam: @jam %>
     </div>
-    <%= render "posts/index_posts", posts: @posts, jam: @jam %>
-  </div>
+  <% end %>
