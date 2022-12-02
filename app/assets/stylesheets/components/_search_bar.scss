@@ -1,8 +1,48 @@
-.jam-index-search>form {
+.search-form {
   display: flex;
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 5px;
+  border-radius: 8px;
   justify-content: center;
+}
+
+.search-input-jam {
+  margin-bottom: 0 !important;
+  height: 100%;
+
+  margin-right: 5px;
 
   input {
-    padding: 9px 9px;
+    border: 0;
+    height: inherit;
+    border-radius: 6px;
   }
+}
+
+.search-input-address {
+  margin-bottom: 0 !important;
+  margin-right: 5px;
+
+  input {
+    border: 0;
+  }
+
+  div {
+    box-shadow: 0 0 0 white;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+  }
+}
+
+.search-query {
+  margin-bottom: 0 !important;
+}
+
+.mapboxgl-ctrl-geocoder--input {
+  height: 42px;
+}
+
+.mapboxgl-ctrl-geocoder--icon {
+  top: 11px;
 }
