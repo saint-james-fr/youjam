@@ -4,6 +4,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    authorize @booking
     @jam = Jam.find(params[:jam_id])
     @booking.jam = @jam
     @booking.user = current_user
@@ -16,14 +17,8 @@ class BookingsController < ApplicationController
     end
   end
 
-  def edit
-  end
-
-  def update
-    @booking.update(params_booking)
-  end
-
   def canceled
+    authorize @booking
     if @booking.update(status: "canceled")
       redirect_to jam_path(@jam), status: :see_other
       flash.alert = "Invitation annulée"
@@ -31,6 +26,7 @@ class BookingsController < ApplicationController
   end
 
   def accepted
+    authorize @booking
     if @booking.update(status: "accepted")
       redirect_to jam_path(@jam)
       flash.alert = "Invitation validée"
@@ -38,6 +34,7 @@ class BookingsController < ApplicationController
   end
 
   def declined
+    authorize @booking
     if @booking.update(status: "declined")
       redirect_to jam_path(@jam)
       flash.alert = "Invitation refusée"
@@ -58,10 +55,4 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(:message, :status, :jam_id)
   end
 
-end
-
-private
-
-def booking_params
-  params.require(:booking).permit(:message)
 end
