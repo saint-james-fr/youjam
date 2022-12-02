@@ -37,9 +37,9 @@ class JamsController < ApplicationController
     @jams = policy_scope(Jam).all
     authorize @jams
     if params['search']['query'].present?
-      sql_query = 'title ILIKE :query OR description ILIKE :query OR :instrument = ANY (instruments_list)'
-      @jams = @jams.where(sql_query, query: "%#{params['search']['query']}%", instrument:"#{params['search']['query']}" )
-    end
+      jam_ids = @jams.select { |jam| jam.instruments_list.any? { |instrument| instrument.include?(params['search']['query']) } }.map(&:id)
+      sql_query = 'title ILIKE :query OR description ILIKE :query'
+      @jams = @jams.where(sql_query, query: "%#{params['search']['query']}%").or(Jam.where('id in (?)', jam_ids))
     if params['search']['address'].present?
       @jams = @jams.near(params['search']['address'], 10)
     end
@@ -75,16 +75,3 @@ class JamsController < ApplicationController
     params.require(:jam).permit(:location, :description, :capacity, :instruments_list, :jam_date, :title, :photo)
   end
 end
-
-# if params['search']['query'].present? && params['search']['address'].present?
-#   sql_query = 'title ILIKE :query OR description ILIKE :query OR :instrument = ANY (instruments_list)'
-#   @jams = Jam.where(sql_query, query: "%#{params['search']['query']}%", instrument:"#{params['search']['query']}" )
-#   @jams = Jam.near(params['search']['address'], 10)
-# elsif params['search']['query'].present? && params['search']['address'].empty?
-#   sql_query = 'title ILIKE :query OR description ILIKE :query OR :instrument = ANY (instruments_list)'
-#   @jams = Jam.where(sql_query, query: "%#{params['search']['query']}%", instrument:"#{params['search']['query']}" )
-# elsif params['search']['query'].empty? && params['search']['address'].present?
-#   @jams = Jam.near(params['search']['address'], 10)
-# else
-#   @jams = Jam.all
-# end
