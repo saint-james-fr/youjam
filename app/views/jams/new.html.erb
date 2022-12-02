@@ -1,4 +1,9 @@
-<div class="container m-4">
-  <h1>Créer une Jam</h1>
-  <%= render 'form', jam: @jam %>
+<div style="background-image: url(<%= asset_path 'banner' %>); color: white; background-size: cover">
+  <div class="container pt-5 pb-5">
+    <div class="w-50" style="margin: 0 auto">
+      <div class="formboxwhite">
+        <%= render 'new_jam_form', jam: @jam %>
+      </div>
+    </div>
+  </div>
 </div>

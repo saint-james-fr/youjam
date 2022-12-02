@@ -12,7 +12,7 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to "Créer une Jam", new_jam_path, class: "nav-link primary-button" %>
+            <%= link_to "Créer une Jam", new_jam_path, class: "nav-link primary-button", id: "addjambutton" %>
           </li>
           <li class="nav-item">
             <%= link_to "Tous les événements", jams_path, class: "nav-link" %>
