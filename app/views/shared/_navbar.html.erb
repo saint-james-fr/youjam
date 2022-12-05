@@ -20,10 +20,10 @@
           <div class="user-infos">
             <li class="nav-item dropdown">
               <div class="dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown">
-                <%= cl_image_tag current_user.avatar.key, class: "avatar me-2" %>
                 <div class="user-name">
                   <%= current_user.first_name %> <%= current_user.last_name %>
                 </div>
+                <%= cl_image_tag current_user.avatar.key, class: "avatar ms-2" %>
               </div>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
