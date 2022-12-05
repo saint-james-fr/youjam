@@ -245,7 +245,7 @@ photo5 = URI.open("https://upload.wikimedia.org/wikipedia/commons/7/71/Abraham_B
 jams[4].photo.attach(io: photo5, filename: "nes#{rand(1..1000000)}.png", content_type: "image/png")
 photo6 = URI.open('https://images.unsplash.com/photo-1588032786045-59cefda005c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1788&q=80')
 jams[5].photo.attach(io: photo6, filename: "nes#{rand(1..1000000)}.png", content_type: "image/png")
-photo7 = URI.open("https://www.cyclicdefrost.com/wp-content/ATOM-photo-retouched-example-1.jpg")
+photo7 = URI.open("https://fr.wikipedia.org/wiki/Groupe_musical#/media/Fichier:Choreia_Kozatska_2015-09-14.JPG")
 jams[6].photo.attach(io: photo7, filename: "nes#{rand(1..1000000)}.png", content_type: "image/png")
 photo8 = URI.open("https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80")
 jams[7].photo.attach(io: photo8, filename: "nes#{rand(1..1000000)}.png", content_type: "image/png")
