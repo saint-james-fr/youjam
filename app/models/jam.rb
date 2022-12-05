@@ -19,4 +19,8 @@ class Jam < ApplicationRecord
                   using: {
                     tsearch: { prefix: true }
                   }
+
+   def accepted_bookings
+    bookings.where(status: "accepted")
+   end
 end

@@ -1,0 +1,42 @@
+<%= link_to jam_path(jam), class: "text-decoration-none" do %>
+  <div class="jam-card">
+    <div class="jam-card-cover" style="background-image: url(<%= cl_image_path jam.photo.key %>)">
+      <%= cl_image_tag jam.user.avatar.key, class: "avatar" %>
+    </div>
+    <div class="jam-card-infos d-flex flex-column justify-content-between p-3">
+      <div class="jam-card-details">
+        <p class="card-date"><%= l(jam.jam_date, format:'%a. %-d %b %Y, %H:%M') %></p>
+        <h3 class="card-title mt-4"><%= jam.title.capitalize %></h3>
+        <p class="card-location mt-2"><%= jam.location %></p>
+        <p class="card-location mt-2">
+          <% if jam.user == current_user %>
+            <<%= "button" unless jam.bookings.empty? %><%= "div" if jam.bookings.empty? %> class="<%= "modal-button" unless jam.bookings.empty? %>" data-bs-toggle="modal" data-bs-target="#guestsModal">
+            <i class="fa-solid fa-people-group"></i><%= accepted_bookings.count %> participant<%if accepted_bookings.count > 1 %>s<% end %><% unless pending_bookings.count == 0 %>, <%= pending_bookings.count %> en attente<% end %>
+            </button>
+            <%= render "jams/guests_modal_dashboard", jam: jam, accepted_bookings: accepted_bookings, pending_bookings: pending_bookings, declined_bookings %>
+         <% end %>
+        </p>
+            <p class="card-location mt-2"><% jam.bookings.each do |booking|%>
+              <% if booking.user == current_user %>
+                <%= booking.status %>
+              <% end %>
+            <% end %>
+            </p>
+      </div>
+      <div class="jam-tags flex-wrap">
+        <% if jam.instruments_list.count > 3 %>
+          <% jam.instruments_list.first(3).each do |instrument| %>
+            <div class="tag tag-instruments mt-1"><%= instrument %></div>
+          <% end %>
+          <div class="tag tag-supp mt-1">
+            ...
+          </div>
+        <% else %>
+          <% jam.instruments_list.each do |instrument| %>
+            <div class="tag tag-instruments mt-1"><%= instrument %></div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

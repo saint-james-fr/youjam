@@ -1,17 +1,26 @@
-<div class="supercontainer d-flex">
-  <div class="sidebar w-25">
-    <div class="sidebar-elements" data-controller="dashboard-sidebar">
-      <ul>
-        <li data-action = "click->dashboard-sidebar#activeJam">
-          My Jams
-        </li>
-        <li>
-        <%= link_to "Paramètres", edit_user_registration_path %>
-        </li>
-      </ul>
+
+
+<div class="container container-centered">
+  <h2>Mes jams</h2>
+  <div class="jams-content">
+    <div class="jams-index-cards">
+      <% @all_my_jams.each do |jam| %>
+          <% accepted_bookings = Booking.accepted.where('jam_id = ?', jam) %>
+          <% pending_bookings = Booking.pending.where('jam_id = ?', jam) %>
+          <% declined_bookings = Booking.declined.where('jam_id = ?', jam) %>
+          <%= render "shared/dashboard_bookings_jam", jam: jam, accepted_bookings: accepted_bookings, pending_bookings: pending_bookings %>
+          <% end %>
     </div>
   </div>
-  <h3>salut</h3>
-  <div>
+</div>
+
+<div class="container container-centered">
+  <h2> Les Jams auxquelles je participe </h2>
+  <div class="jams-content">
+    <div class="jams-index-cards">
+      <% @my_bookings_jam.each do |jam| %>
+          <%= render "shared/dashboard_bookings_jam", jam: jam %>
+          <% end %>
+    </div>
   </div>
-  </div>
+</div>
