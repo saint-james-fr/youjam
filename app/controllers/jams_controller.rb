@@ -39,8 +39,8 @@ class JamsController < ApplicationController
   def index
     @jams = policy_scope(Jam).all
     authorize @jams
-    if params.present?
-      params[:search] = ""
+    if params[:search].nil?
+      params[:search] = ''
     end
     if params['search']['query'].present?
       jam_ids = @jams.select { |jam| jam.instruments_list.any? { |instrument| instrument.include?(params['search']['query']) } }.map(&:id)
