@@ -315,6 +315,17 @@ creations_options.each do |creation_option|
 end
 
 
+puts ">"
+puts "Starts creating Instruments..."
+instruments_options = [{ name:"Piano" }, { name:"Hautbois" }, { name:"Harpe" }, { name:"Synthétiseurs" }, { name:"Saxophone" }, { name:"Trompette" }, { name:"Triangle" }, { name:"Clavecin" },{ name:"Basse" },{ name:"Batterie" }, { name:"Guitare" },]
+instruments_options.each do |instrument_option|
+  instrument = Instrument.new(instrument_option)
+  instrument.save!
+end
+puts ">"
+puts "Done!"
+
+
 user_instrument1 = {
   instrument_id: Instrument.last.id,
   user_id: User.first.id
@@ -340,7 +351,7 @@ user_inst_options = [user_instrument1, user_instrument2, user_instrument3, user_
 puts ">"
 puts "Starts creating user_instruments..."
 user_inst_options.each do |user_inst_option|
-  creation = Creation.new(user_inst_option)
+  creation = UserInstrument.new(user_inst_option)
   creation.save!
 end
 
@@ -348,11 +359,44 @@ puts ">"
 puts "Done!"
 
 puts ">"
-puts "Starts creating Instruments..."
-instruments_options = [{ name:"Piano" }, { name:"Hautbois" }, { name:"Harpe" }, { name:"Synthétiseurs" }, { name:"Saxophone" }, { name:"Trompette" }, { name:"Triangle" }, { name:"Clavecin" },{ name:"Basse" },{ name:"Batterie" }, { name:"Guitare" },]
-instruments_options.each do |instrument_option|
-  instrument = Instrument.new(instrument_option)
-  instrument.save!
+puts "Starts creating genres..."
+genres_options = [{ name:"Blues" }, { name:"Classic" }, { name:"Country" }, { name:"Disco" }, { name:"Hip-Hop" }, { name:"Jazz" }, { name:"Métal" }, { name:"Pop" },{ name:"Reggae" },{ name:"Rock" }]
+genres_options.each do |genre_option|
+  genre = Genre.new(genre_option)
+  genre.save!
 end
+puts ">"
+puts "Done!"
+
+
+user_genre1 = {
+  genre_id: Genre.last.id,
+  user_id: User.first.id
+}
+
+user_genre2 = {
+  genre_id: Genre.first.id,
+  user_id: User.first.id
+}
+
+user_genre3 = {
+  genre_id: Genre.last.id,
+  user_id: User.last.id
+}
+
+user_genre4 = {
+  genre_id: Genre.first.id,
+  user_id: User.last.id
+}
+
+user_inst_options = [user_genre1, user_genre2, user_genre3, user_genre4]
+
+puts ">"
+puts "Starts creating user_instruments..."
+user_inst_options.each do |user_inst_option|
+  creation = UserGenre.new(user_inst_option)
+  creation.save!
+end
+
 puts ">"
 puts "Done!"
