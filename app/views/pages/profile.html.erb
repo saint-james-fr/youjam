@@ -1,1 +1,12 @@
-<%= @user.first_name %>
+<div class="container">
+  <div class="card-infos-profile">
+    <%= cl_image_tag @user.avatar.key, class: "avatar" %>
+    <div class="infos-profile-description">
+      <p><%= @user.first_name%> <%= @user.last_name %></p>
+      <div class="profile-instruments-tags">
+      <% raise %>
+        <%= @user.user_instruments.instrument.name %>
+      </div>
+    </div>
+  </div>
+</div>

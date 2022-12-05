@@ -190,5 +190,36 @@ creations_options.each do |creation_option|
   creation = Creation.new(creation_option)
   creation.save!
 end
+
+
+user_instrument2 = {
+  instrument_id: Instrument.last.id,
+  user_id: User.first.id
+}
+
+user_instrument2 = {
+  instrument_id: Instrument.first.id,
+  user_id: User.first.id
+}
+
+user_instrument3 = {
+  instrument_id: Instrument.last.id,
+  user_id: User.last.id
+}
+
+user_instrument4 = {
+  instrument_id: Instrument.first.id,
+  user_id: User.last.id
+}
+
+user_inst_options = [user_instrument1, user_instrument2, user_instrument3, user_instrument4]
+
+puts ">"
+puts "Starts creating user_instruments..."
+user_inst_options.each do |user_inst_options|
+  creation = Creation.new(user_inst_options)
+  creation.save!
+end
+
 puts ">"
 puts "Done!"
