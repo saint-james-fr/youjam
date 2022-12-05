@@ -219,6 +219,7 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
+    redis (4.8.0)
     regexp_parser (2.6.1)
     reline (0.3.1)
       io-console (~> 0.5)
@@ -310,6 +311,7 @@ DEPENDENCIES
   pundit
   rails (~> 7.0.4)
   rails-i18n
+  redis (~> 4.0)
   sassc-rails
   selenium-webdriver
   simple_form!
