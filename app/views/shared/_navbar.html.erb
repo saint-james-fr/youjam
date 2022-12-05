@@ -17,6 +17,9 @@
           <li class="nav-item">
             <%= link_to "Tous les événements", jams_path, class: "nav-link" %>
           </li>
+          <li class="nav-item">
+            <%= link_to "Mes messages", chatrooms_path, class: "nav-link" %>
+          </li>
           <div class="user-infos">
             <li class="nav-item dropdown">
               <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle me-2", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

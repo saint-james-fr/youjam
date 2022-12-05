@@ -27,4 +27,39 @@
       margin-bottom: 0;
     }
   }
+
+  .primary-button {
+    height: fit-content;
+  }
+
+  .chatroom-name {
+    font-size: 19px;
+    border-bottom: solid $gray-200 1px;
+    margin-bottom: 1em;
+    padding: 1em;
+  }
+}
+
+.messages-list {
+  width: 22vw;
+  margin-top: 0.5em;
+  background-color: $color-light-blue;
+
+  h4 {
+    padding: 0.5em;
+    color: $color-primary;
+    font-weight: bold;
+  }
+
+  .chatroom-title {
+    margin: 0.5em;
+    padding: 1em;
+    background-color: $color-primary;
+    border-radius: 4px;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
 }
