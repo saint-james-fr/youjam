@@ -1,0 +1,12 @@
+<h1>hello from spotify</h1>
+<% @my_spotify.playlists.each do |playlist| %>
+  <%= playlist.name %>
+  <br>--------<br>
+  <% playlist.tracks.each do |track| %>
+    <% track.artists.each_with_index do |artist, index| %>
+     <%= artist.name %>
+    <% end %>
+  <% end %>
+  <br>
+  <br>
+<% end %>
