@@ -192,7 +192,7 @@ creations_options.each do |creation_option|
 end
 
 
-user_instrument2 = {
+user_instrument1 = {
   instrument_id: Instrument.last.id,
   user_id: User.first.id
 }
@@ -216,8 +216,8 @@ user_inst_options = [user_instrument1, user_instrument2, user_instrument3, user_
 
 puts ">"
 puts "Starts creating user_instruments..."
-user_inst_options.each do |user_inst_options|
-  creation = Creation.new(user_inst_options)
+user_inst_options.each do |user_inst_option|
+  creation = Creation.new(user_inst_option)
   creation.save!
 end
 
