@@ -12,6 +12,7 @@
   transition: opacity 0.1s ease-in-out;
   background-color:white;
   border-radius: 12px;
+  height: 446px;
 }
 
 .jam-card:hover .jam-card-cover,
@@ -39,13 +40,13 @@
 
 .jam-card-cover .avatar {
   position: absolute;
-  top: 33px;
-  left: 241px;
+  top: 18%;
+  right: 10%;
 }
 
 .jam-card-infos {
   flex-grow: 1;
-  height: 250px;
+  height: 100%;
 }
 
 .jam-card-infos h3 {
