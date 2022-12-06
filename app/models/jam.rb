@@ -19,4 +19,16 @@ class Jam < ApplicationRecord
                   using: {
                     tsearch: { prefix: true }
                   }
+
+  def accepted_bookings
+    bookings.where(status: "accepted")
+  end
+
+  def pending_bookings
+    bookings.where(status: "pending")
+  end
+
+  def declined_bookings
+    bookings.where(status: "declined")
+  end
 end

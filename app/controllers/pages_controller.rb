@@ -7,9 +7,12 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @all_my_jams = current_user.jams + current_user.booked_jams
+    @all_my_jams = @all_my_jams.sort_by{|jam| jam.jam_date}
   end
 
   def profile
     @user = User.find(params[:id])
   end
+
 end

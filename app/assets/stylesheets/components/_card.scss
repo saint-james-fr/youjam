@@ -57,3 +57,18 @@
 .jam-tags {
   display: flex;
 }
+.participant-icon {
+  font-size: 25px;
+  margin-right: 20px;
+  color: $color-secondary;
+}
+
+.participants {
+  display: flex;
+  align-items: center;
+  width: 80%;
+}
+
+.status_participants {
+  text-align: left;
+}
