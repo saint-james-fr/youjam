@@ -1,8 +1,8 @@
-<div class="modal fade modale-guests" id="<%= "guestsModal" unless jam.bookings.empty? %><%= "noshow" if jam.bookings.nil? %>" tabindex="-1" aria-labelledby="guestsModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered ">
+<div class="modal fade modale-guests" id="<%= "guestsModalDashboard" unless jam.bookings.empty? %><%= "noshow" if jam.bookings.nil? %>" tabindex="-1" aria-labelledby="guestsModalDashboardLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
         <div class="modal-header modale modale-guests-header">
-          <h2 class="modal-title fs-5 modal-title-guests" id="guestsModalLabel">Invité.e.s</h2>
+          <h2 class="modal-title fs-5 modal-title-guests" id="guestsModalDashboardLabel">Invité.e.s</h2>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body modale" data-controller="jam-status-toggle">
@@ -18,8 +18,8 @@
             </div>
           </div>
           <div class="modale-guests-body" data-jam-status-toggle-target="pendingBody">
-            <%# !Pending %>
-            <% @pending_bookings.each do |booking| %>
+          <%# !Pending %>
+            <% jam.pending_bookings.each do |booking| %>
               <div class="d-flex justify-content-between modale-guests-line">
                 <div class="d-inline-flex align-items-center">
                   <%= cl_image_tag booking.user.avatar.key, class:"avatar" %>
@@ -42,11 +42,11 @@
             <% end %>
           </div>
           <div class="modale-guests-body d-none" data-jam-status-toggle-target="acceptedBody">
-            <%# !Accepted %>
-            <% if @accepted_bookings.empty?  %>
+          <%# !Accepted %>
+            <% if jam.accepted_bookings.empty?  %>
               Personne n'est encore confirmé pour cette jam.
             <% end %>
-            <% @accepted_bookings.each do |booking| %>
+            <% jam.accepted_bookings.each do |booking| %>
               <div class="d-flex justify-content-between modale-guests-line">
                 <div>
                   <%= cl_image_tag booking.user.avatar.key, class:"avatar" %>
@@ -56,11 +56,11 @@
             <% end %>
           </div>
           <div class="modale-guests-body d-none" data-jam-status-toggle-target="declinedBody">
-            <%# !Declined %>
-            <% if @declined_bookings.empty?  %>
+          <%# !Declined %>
+            <% if jam.declined_bookings.empty?  %>
               Personne n'est encore confirmé pour cette jam.
             <% end %>
-            <% @declined_bookings.each do |booking| %>
+            <% jam.declined_bookings.each do |booking| %>
               <div class="d-flex justify-content-between modale-guests-line">
                 <div>
                   <%= cl_image_tag booking.user.avatar.key, class:"avatar" %>
