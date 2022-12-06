@@ -2,7 +2,7 @@
   <small>
     <%#= cl_image_tag message.user.avatar.key, class:"avatar" %>
     <strong><%= message.user.first_name %></strong>
-    <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+    <i>-  <%= distance_of_time_in_words(DateTime.now,message.created_at) %></i>
   </small>
   <p><%= message.content %></p>
 </div>
