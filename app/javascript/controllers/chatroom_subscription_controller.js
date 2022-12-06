@@ -19,8 +19,16 @@ export default class extends Controller {
      // Creating the whole message from the `data.message` String
     const messageElement = this.#buildMessageElement(currentUserIsSender, data.message)
     // Inserting the `message` in the DOM
-    this.messagesTarget.insertAdjacentHTML("beforeend", data)
+    this.messagesTarget.insertAdjacentHTML("beforeend", messageElement)
     this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
+  }
+
+  #justifyClass(currentUserIsSender) {
+    return currentUserIsSender ? "justify-content-end" : "justify-content-start"
+  }
+
+  #userStyleClass(currentUserIsSender) {
+    return currentUserIsSender ? "sender-style" : "receiver-style"
   }
 
   #buildMessageElement(currentUserIsSender, message) {
@@ -31,14 +39,6 @@ export default class extends Controller {
         </div>
       </div>
     `
-  }
-
-  #justifyClass(currentUserIsSender) {
-    return currentUserIsSender ? "justify-content-end" : "justify-content-start"
-  }
-
-  #userStyleClass(currentUserIsSender) {
-    return currentUserIsSender ? "sender-style" : "receiver-style"
   }
 
   resetForm(event) {
