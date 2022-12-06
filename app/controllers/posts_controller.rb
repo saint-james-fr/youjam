@@ -10,11 +10,23 @@ class PostsController < ApplicationController
     @jam = Jam.find(params[:jam_id])
     @post.jam = @jam
     if @post.save
-      redirect_to jam_path(@jam)
-      flash.alert = "Message publié !"
+      JamChannel.broadcast_to(
+        @jam,
+        {
+          post: render_to_string(partial: "post", locals: {post: @post, jam: @jam}),
+          user_id: current_user.id
+        }
+      )
+      head :ok
+      # redirect_to jam_path(@jam)
     else
-      flash.alert = "Vérfie que tu n'aies rien oublié"
-      render "jams/show", status: :unprocessable_entity
+      JamChannel.broadcast_to(
+        @jam,
+        {
+          form_error: render_to_string(partial: "post_form", locals: {post: @post, jam: @jam}),
+          user_id: current_user.id
+        }
+      )
     end
   end
 
