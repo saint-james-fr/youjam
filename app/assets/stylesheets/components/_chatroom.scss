@@ -40,26 +40,4 @@
   }
 }
 
-.messages-list {
-  width: 22vw;
-  margin-top: 0.5em;
-  background-color: $color-light-blue;
 
-  h4 {
-    padding: 0.5em;
-    color: $color-primary;
-    font-weight: bold;
-  }
-
-  .chatroom-title {
-    margin: 0.5em;
-    padding: 1em;
-    background-color: $color-primary;
-    border-radius: 4px;
-  }
-
-  a {
-    text-decoration: none;
-    color: white;
-  }
-}
