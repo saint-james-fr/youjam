@@ -46,13 +46,20 @@
   justify-content: space-evenly;
       margin-left: 10px;
 
-   i {
+  i {
     font-size: 1.5em;
     font-weight: 400;
     color: white;
     padding: 10px;
     padding-right: 10px;
+    transition: 0.1s ease-in-out
   }
+
+  i:hover {
+    color: $color-background-blue;
+    opacity: 0.4;
+  }
+
 }
 
 .profile-instruments-tags {

@@ -24,7 +24,8 @@ user1 = {
   email: "anne@youjam.com",
   location: "23 rue Coysevox, 75018 Paris",
   soundcloud_url: "https://soundcloud.com/chuwanaga",
-  instagram_url: "https://www.instagram.com/universalmusicfrance/"
+  instagram_url: "https://www.instagram.com/universalmusicfrance/",
+  spotify_account: "gas.fauchille"
 }
 user2 = {
   first_name: "Pierre",
@@ -35,7 +36,8 @@ user2 = {
   email: "pierre@youjam.com",
   location: "12 rue Halévy, 75009 Paris",
   soundcloud_url: "https://soundcloud.com/chuwanaga",
-  instagram_url: "https://www.instagram.com/universalmusicfrance/"
+  instagram_url: "https://www.instagram.com/universalmusicfrance/",
+  spotify_account: "gas.fauchille"
 }
 user3 = {
   first_name: "Maxence",
@@ -46,7 +48,8 @@ user3 = {
   email: "maxence@youjam.com",
   location: "2 boulevard Biron, 93400 Saint-Ouen",
   soundcloud_url: "https://soundcloud.com/chuwanaga",
-  instagram_url: "https://www.instagram.com/universalmusicfrance/"
+  instagram_url: "https://www.instagram.com/universalmusicfrance/",
+  spotify_account: "gas.fauchille"
 }
 user4 = {
   first_name: "Benjamin",
@@ -57,8 +60,8 @@ user4 = {
   email: "benjamin@youjam.com",
   location: "70 Rue Myrha, 75018 Paris",
   soundcloud_url: "https://soundcloud.com/chuwanaga",
-  instagram_url: "https://www.instagram.com/universalmusicfrance/"
-
+  instagram_url: "https://www.instagram.com/universalmusicfrance/",
+  spotify_account: "gas.fauchille"
 }
 user5 = {
   first_name: "Gaspard",
@@ -69,7 +72,8 @@ user5 = {
   email: "gaspard@youjam.com",
   location: "261 Bd de Tournai, 59650 Villeneuve-d'Ascq",
   soundcloud_url: "https://soundcloud.com/chuwanaga",
-  instagram_url: "https://www.instagram.com/universalmusicfrance/"
+  instagram_url: "https://www.instagram.com/universalmusicfrance/",
+  spotify_account: "gas.fauchille"
 }
 
 users_options = [user1, user2, user3, user4, user5]
