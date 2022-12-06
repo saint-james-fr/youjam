@@ -71,3 +71,15 @@
 #addjambutton:hover {
   color: white!important;
 }
+
+.dropdown-toggle::after {
+  display: none!important;
+}
+
+#navbarDropdown {
+  display: flex;
+}
+
+.user-name {
+  cursor:pointer;
+}

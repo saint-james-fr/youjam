@@ -3,11 +3,13 @@
   </div>
   <div class="proposed-by">
     <div>
+    <%= link_to profile_path(jam.user) do %>
     <%= cl_image_tag jam.user.avatar.key, class: "avatar" %>
+    <% end %>
     </div>
     <div class="user-information-jam">
       <div class="user-information-name">
-      Proposé par <%= jam.user.first_name %>
+      Proposé par <%= link_to jam.user.first_name, profile_path(jam.user), class:"link" %>
       </div>
       <div class="user-information-description">
       <p><%= jam.user.description.truncate(100) %></p>

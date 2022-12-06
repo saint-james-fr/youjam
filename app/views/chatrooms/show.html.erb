@@ -1,0 +1,39 @@
+<div class="container d-flex">
+  <%= render "index_bar", chatrooms: @chatrooms %>
+  <div class="container chatroom"
+    data-controller="chatroom-subscription"
+    data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
+    data-chatroom-subscription-current-user-id-value="<%= current_user.id %>"
+  >
+    <div class="chatroom-name">
+      <% if @chatroom.name.nil? %>
+        <% @chatroom.chatmembers.each do |chatmember| %>
+          <%= chatmember.user.first_name %> <%= chatmember.user.last_name %>
+        <% end %>
+      <% else %>
+        <%= @chatroom.name.capitalize %>
+      <% end %>
+    </div>
+
+    <div class="messages" data-chatroom-subscription-target="messages">
+      <% @chatroom.messages.each do |message| %>
+        <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
+          <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
+            <%= render "messages/message", message: message %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <%= simple_form_for [@chatroom, @message],
+      html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f|
+    %>
+      <%= f.input :content,
+        label: false,
+        placeholder: "Message ##{@chatroom.name}",
+        wrapper_html: {class: "flex-grow-1"}
+      %>
+      <%= f.submit "Envoyer", class: "primary-button" %>
+    <% end %>
+  </div>
+</div>

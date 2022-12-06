@@ -1,17 +1,10 @@
-<div class="supercontainer d-flex">
-  <div class="sidebar w-25">
-    <div class="sidebar-elements" data-controller="dashboard-sidebar">
-      <ul>
-        <li data-action = "click->dashboard-sidebar#activeJam">
-          My Jams
-        </li>
-        <li>
-        <%= link_to "Paramètres", edit_user_registration_path %>
-        </li>
-      </ul>
-    </div>
+
+
+<div class="container container-dashboard">
+  <h2>Mes jams</h2>
+  <div class="jams-content-dashboard">
+      <% @all_my_jams.each do |jam| %>
+        <%= render "shared/dashboard_bookings_jam", jam: jam %>
+      <% end %>
   </div>
-  <h3>salut</h3>
-  <div>
-  </div>
-  </div>
+</div>

@@ -5,10 +5,10 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.user = current_user
     authorize @post
     @jam = Jam.find(params[:jam_id])
     @post.jam = @jam
-    @post.user = current_user
     if @post.save
       redirect_to jam_path(@jam)
       flash.alert = "Message publié !"

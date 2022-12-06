@@ -7,6 +7,8 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @all_my_jams = current_user.jams + current_user.booked_jams
+    @all_my_jams = @all_my_jams.sort_by{|jam| jam.jam_date}
   end
 
   def profile
@@ -17,4 +19,10 @@ class PagesController < ApplicationController
       creation.update(creation_url: creation_url)
     end
   end
+  
+  def update
+    @user = User.find(params[:id])
+    @user.update(params[:user])
+  end
+
 end

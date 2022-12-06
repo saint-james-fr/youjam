@@ -3,12 +3,15 @@
   <%= render "jams/jam_informations", jam: @jam, accepted_bookings: @accepted_bookings, pending_bookings: @pending_bookings %>
   <%= render "jams/map_jam", jam: @jam, accepted_bookings: @accepted_bookings, pending_bookings: @pending_bookings %>
 </div>
-<div class="container">
-    <div class="post">
-      <div class="create-publication">
-        <%= render "posts/new_post", post: @post, jam: @jam %>
+<% if @jam.user == current_user || @jam.bookings.any? {|booking| booking.user == current_user && booking.status == "accepted"} %>
+  <div class="container">
+      <div class="post">
+        <div class="create-publication mb-5">
+          <%= render "posts/new_post", post: @post, jam: @jam %>
+        </div>
+        <%= render "posts/index_posts", posts: @posts, jam: @jam %>
       </div>
-      <%= render "posts/index_posts", posts: @posts, jam: @jam %>
-    </div>
-</div>
+  </div>
+<% end %>
+
   <%# end %>

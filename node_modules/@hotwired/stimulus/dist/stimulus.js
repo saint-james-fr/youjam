@@ -1,5 +1,5 @@
 /*
-Stimulus 3.1.1
+Stimulus 3.2.1
 Copyright © 2022 Basecamp, LLC
  */
 class EventListener {
@@ -165,16 +165,23 @@ const defaultActionDescriptorFilters = {
         }
     },
 };
-const descriptorPattern = /^((.+?)(@(window|document))?->)?(.+?)(#([^:]+?))(:(.+))?$/;
+const descriptorPattern = /^(?:(.+?)(?:\.(.+?))?(?:@(window|document))?->)?(.+?)(?:#([^:]+?))(?::(.+))?$/;
 function parseActionDescriptorString(descriptorString) {
     const source = descriptorString.trim();
     const matches = source.match(descriptorPattern) || [];
+    let eventName = matches[1];
+    let keyFilter = matches[2];
+    if (keyFilter && !["keydown", "keyup", "keypress"].includes(eventName)) {
+        eventName += `.${keyFilter}`;
+        keyFilter = "";
+    }
     return {
-        eventTarget: parseEventTarget(matches[4]),
-        eventName: matches[2],
-        eventOptions: matches[9] ? parseEventOptions(matches[9]) : {},
-        identifier: matches[5],
-        methodName: matches[7],
+        eventTarget: parseEventTarget(matches[3]),
+        eventName,
+        eventOptions: matches[6] ? parseEventOptions(matches[6]) : {},
+        identifier: matches[4],
+        methodName: matches[5],
+        keyFilter,
     };
 }
 function parseEventTarget(eventTargetName) {
@@ -202,6 +209,9 @@ function stringifyEventTarget(eventTarget) {
 function camelize(value) {
     return value.replace(/(?:[_-])([a-z0-9])/g, (_, char) => char.toUpperCase());
 }
+function namespaceCamelize(value) {
+    return camelize(value.replace(/--/g, "-").replace(/__/g, "_"));
+}
 function capitalize(value) {
     return value.charAt(0).toUpperCase() + value.slice(1);
 }
@@ -213,7 +223,7 @@ function tokenize(value) {
 }
 
 class Action {
-    constructor(element, index, descriptor) {
+    constructor(element, index, descriptor, schema) {
         this.element = element;
         this.index = index;
         this.eventTarget = descriptor.eventTarget || element;
@@ -221,13 +231,35 @@ class Action {
         this.eventOptions = descriptor.eventOptions || {};
         this.identifier = descriptor.identifier || error("missing identifier");
         this.methodName = descriptor.methodName || error("missing method name");
+        this.keyFilter = descriptor.keyFilter || "";
+        this.schema = schema;
     }
-    static forToken(token) {
-        return new this(token.element, token.index, parseActionDescriptorString(token.content));
+    static forToken(token, schema) {
+        return new this(token.element, token.index, parseActionDescriptorString(token.content), schema);
     }
     toString() {
-        const eventNameSuffix = this.eventTargetName ? `@${this.eventTargetName}` : "";
-        return `${this.eventName}${eventNameSuffix}->${this.identifier}#${this.methodName}`;
+        const eventFilter = this.keyFilter ? `.${this.keyFilter}` : "";
+        const eventTarget = this.eventTargetName ? `@${this.eventTargetName}` : "";
+        return `${this.eventName}${eventFilter}${eventTarget}->${this.identifier}#${this.methodName}`;
+    }
+    isFilterTarget(event) {
+        if (!this.keyFilter) {
+            return false;
+        }
+        const filteres = this.keyFilter.split("+");
+        const modifiers = ["meta", "ctrl", "alt", "shift"];
+        const [meta, ctrl, alt, shift] = modifiers.map((modifier) => filteres.includes(modifier));
+        if (event.metaKey !== meta || event.ctrlKey !== ctrl || event.altKey !== alt || event.shiftKey !== shift) {
+            return true;
+        }
+        const standardFilter = filteres.filter((key) => !modifiers.includes(key))[0];
+        if (!standardFilter) {
+            return false;
+        }
+        if (!Object.prototype.hasOwnProperty.call(this.keyMappings, standardFilter)) {
+            error(`contains unknown key filter: ${this.keyFilter}`);
+        }
+        return this.keyMappings[standardFilter].toLowerCase() !== event.key.toLowerCase();
     }
     get params() {
         const params = {};
@@ -243,6 +275,9 @@ class Action {
     }
     get eventTargetName() {
         return stringifyEventTarget(this.eventTarget);
+    }
+    get keyMappings() {
+        return this.schema.keyMappings;
     }
 }
 const defaultEventNames = {
@@ -335,6 +370,9 @@ class Binding {
     }
     willBeInvokedByEvent(event) {
         const eventTarget = event.target;
+        if (event instanceof KeyboardEvent && this.action.isFilterTarget(event)) {
+            return false;
+        }
         if (this.element === eventTarget) {
             return true;
         }
@@ -548,95 +586,6 @@ class AttributeObserver {
     }
 }
 
-class StringMapObserver {
-    constructor(element, delegate) {
-        this.element = element;
-        this.delegate = delegate;
-        this.started = false;
-        this.stringMap = new Map();
-        this.mutationObserver = new MutationObserver((mutations) => this.processMutations(mutations));
-    }
-    start() {
-        if (!this.started) {
-            this.started = true;
-            this.mutationObserver.observe(this.element, { attributes: true, attributeOldValue: true });
-            this.refresh();
-        }
-    }
-    stop() {
-        if (this.started) {
-            this.mutationObserver.takeRecords();
-            this.mutationObserver.disconnect();
-            this.started = false;
-        }
-    }
-    refresh() {
-        if (this.started) {
-            for (const attributeName of this.knownAttributeNames) {
-                this.refreshAttribute(attributeName, null);
-            }
-        }
-    }
-    processMutations(mutations) {
-        if (this.started) {
-            for (const mutation of mutations) {
-                this.processMutation(mutation);
-            }
-        }
-    }
-    processMutation(mutation) {
-        const attributeName = mutation.attributeName;
-        if (attributeName) {
-            this.refreshAttribute(attributeName, mutation.oldValue);
-        }
-    }
-    refreshAttribute(attributeName, oldValue) {
-        const key = this.delegate.getStringMapKeyForAttribute(attributeName);
-        if (key != null) {
-            if (!this.stringMap.has(attributeName)) {
-                this.stringMapKeyAdded(key, attributeName);
-            }
-            const value = this.element.getAttribute(attributeName);
-            if (this.stringMap.get(attributeName) != value) {
-                this.stringMapValueChanged(value, key, oldValue);
-            }
-            if (value == null) {
-                const oldValue = this.stringMap.get(attributeName);
-                this.stringMap.delete(attributeName);
-                if (oldValue)
-                    this.stringMapKeyRemoved(key, attributeName, oldValue);
-            }
-            else {
-                this.stringMap.set(attributeName, value);
-            }
-        }
-    }
-    stringMapKeyAdded(key, attributeName) {
-        if (this.delegate.stringMapKeyAdded) {
-            this.delegate.stringMapKeyAdded(key, attributeName);
-        }
-    }
-    stringMapValueChanged(value, key, oldValue) {
-        if (this.delegate.stringMapValueChanged) {
-            this.delegate.stringMapValueChanged(value, key, oldValue);
-        }
-    }
-    stringMapKeyRemoved(key, attributeName, oldValue) {
-        if (this.delegate.stringMapKeyRemoved) {
-            this.delegate.stringMapKeyRemoved(key, attributeName, oldValue);
-        }
-    }
-    get knownAttributeNames() {
-        return Array.from(new Set(this.currentAttributeNames.concat(this.recordedAttributeNames)));
-    }
-    get currentAttributeNames() {
-        return Array.from(this.element.attributes).map((attribute) => attribute.name);
-    }
-    get recordedAttributeNames() {
-        return Array.from(this.stringMap.keys());
-    }
-}
-
 function add(map, key, value) {
     fetch(map, key).add(value);
 }
@@ -724,6 +673,158 @@ class IndexedMultimap extends Multimap {
     getKeysForValue(value) {
         const set = this.keysByValue.get(value);
         return set ? Array.from(set) : [];
+    }
+}
+
+class SelectorObserver {
+    constructor(element, selector, delegate, details = {}) {
+        this.selector = selector;
+        this.details = details;
+        this.elementObserver = new ElementObserver(element, this);
+        this.delegate = delegate;
+        this.matchesByElement = new Multimap();
+    }
+    get started() {
+        return this.elementObserver.started;
+    }
+    start() {
+        this.elementObserver.start();
+    }
+    pause(callback) {
+        this.elementObserver.pause(callback);
+    }
+    stop() {
+        this.elementObserver.stop();
+    }
+    refresh() {
+        this.elementObserver.refresh();
+    }
+    get element() {
+        return this.elementObserver.element;
+    }
+    matchElement(element) {
+        const matches = element.matches(this.selector);
+        if (this.delegate.selectorMatchElement) {
+            return matches && this.delegate.selectorMatchElement(element, this.details);
+        }
+        return matches;
+    }
+    matchElementsInTree(tree) {
+        const match = this.matchElement(tree) ? [tree] : [];
+        const matches = Array.from(tree.querySelectorAll(this.selector)).filter((match) => this.matchElement(match));
+        return match.concat(matches);
+    }
+    elementMatched(element) {
+        this.selectorMatched(element);
+    }
+    elementUnmatched(element) {
+        this.selectorUnmatched(element);
+    }
+    elementAttributeChanged(element, _attributeName) {
+        const matches = this.matchElement(element);
+        const matchedBefore = this.matchesByElement.has(this.selector, element);
+        if (!matches && matchedBefore) {
+            this.selectorUnmatched(element);
+        }
+    }
+    selectorMatched(element) {
+        if (this.delegate.selectorMatched) {
+            this.delegate.selectorMatched(element, this.selector, this.details);
+            this.matchesByElement.add(this.selector, element);
+        }
+    }
+    selectorUnmatched(element) {
+        this.delegate.selectorUnmatched(element, this.selector, this.details);
+        this.matchesByElement.delete(this.selector, element);
+    }
+}
+
+class StringMapObserver {
+    constructor(element, delegate) {
+        this.element = element;
+        this.delegate = delegate;
+        this.started = false;
+        this.stringMap = new Map();
+        this.mutationObserver = new MutationObserver((mutations) => this.processMutations(mutations));
+    }
+    start() {
+        if (!this.started) {
+            this.started = true;
+            this.mutationObserver.observe(this.element, { attributes: true, attributeOldValue: true });
+            this.refresh();
+        }
+    }
+    stop() {
+        if (this.started) {
+            this.mutationObserver.takeRecords();
+            this.mutationObserver.disconnect();
+            this.started = false;
+        }
+    }
+    refresh() {
+        if (this.started) {
+            for (const attributeName of this.knownAttributeNames) {
+                this.refreshAttribute(attributeName, null);
+            }
+        }
+    }
+    processMutations(mutations) {
+        if (this.started) {
+            for (const mutation of mutations) {
+                this.processMutation(mutation);
+            }
+        }
+    }
+    processMutation(mutation) {
+        const attributeName = mutation.attributeName;
+        if (attributeName) {
+            this.refreshAttribute(attributeName, mutation.oldValue);
+        }
+    }
+    refreshAttribute(attributeName, oldValue) {
+        const key = this.delegate.getStringMapKeyForAttribute(attributeName);
+        if (key != null) {
+            if (!this.stringMap.has(attributeName)) {
+                this.stringMapKeyAdded(key, attributeName);
+            }
+            const value = this.element.getAttribute(attributeName);
+            if (this.stringMap.get(attributeName) != value) {
+                this.stringMapValueChanged(value, key, oldValue);
+            }
+            if (value == null) {
+                const oldValue = this.stringMap.get(attributeName);
+                this.stringMap.delete(attributeName);
+                if (oldValue)
+                    this.stringMapKeyRemoved(key, attributeName, oldValue);
+            }
+            else {
+                this.stringMap.set(attributeName, value);
+            }
+        }
+    }
+    stringMapKeyAdded(key, attributeName) {
+        if (this.delegate.stringMapKeyAdded) {
+            this.delegate.stringMapKeyAdded(key, attributeName);
+        }
+    }
+    stringMapValueChanged(value, key, oldValue) {
+        if (this.delegate.stringMapValueChanged) {
+            this.delegate.stringMapValueChanged(value, key, oldValue);
+        }
+    }
+    stringMapKeyRemoved(key, attributeName, oldValue) {
+        if (this.delegate.stringMapKeyRemoved) {
+            this.delegate.stringMapKeyRemoved(key, attributeName, oldValue);
+        }
+    }
+    get knownAttributeNames() {
+        return Array.from(new Set(this.currentAttributeNames.concat(this.recordedAttributeNames)));
+    }
+    get currentAttributeNames() {
+        return Array.from(this.element.attributes).map((attribute) => attribute.name);
+    }
+    get recordedAttributeNames() {
+        return Array.from(this.stringMap.keys());
     }
 }
 
@@ -930,7 +1031,7 @@ class BindingObserver {
         this.bindingsByAction.clear();
     }
     parseValueForToken(token) {
-        const action = Action.forToken(token);
+        const action = Action.forToken(token, this.schema);
         if (action.identifier == this.identifier) {
             return action;
         }
@@ -1098,6 +1199,155 @@ class TargetObserver {
     }
 }
 
+function readInheritableStaticArrayValues(constructor, propertyName) {
+    const ancestors = getAncestorsForConstructor(constructor);
+    return Array.from(ancestors.reduce((values, constructor) => {
+        getOwnStaticArrayValues(constructor, propertyName).forEach((name) => values.add(name));
+        return values;
+    }, new Set()));
+}
+function readInheritableStaticObjectPairs(constructor, propertyName) {
+    const ancestors = getAncestorsForConstructor(constructor);
+    return ancestors.reduce((pairs, constructor) => {
+        pairs.push(...getOwnStaticObjectPairs(constructor, propertyName));
+        return pairs;
+    }, []);
+}
+function getAncestorsForConstructor(constructor) {
+    const ancestors = [];
+    while (constructor) {
+        ancestors.push(constructor);
+        constructor = Object.getPrototypeOf(constructor);
+    }
+    return ancestors.reverse();
+}
+function getOwnStaticArrayValues(constructor, propertyName) {
+    const definition = constructor[propertyName];
+    return Array.isArray(definition) ? definition : [];
+}
+function getOwnStaticObjectPairs(constructor, propertyName) {
+    const definition = constructor[propertyName];
+    return definition ? Object.keys(definition).map((key) => [key, definition[key]]) : [];
+}
+
+class OutletObserver {
+    constructor(context, delegate) {
+        this.context = context;
+        this.delegate = delegate;
+        this.outletsByName = new Multimap();
+        this.outletElementsByName = new Multimap();
+        this.selectorObserverMap = new Map();
+    }
+    start() {
+        if (this.selectorObserverMap.size === 0) {
+            this.outletDefinitions.forEach((outletName) => {
+                const selector = this.selector(outletName);
+                const details = { outletName };
+                if (selector) {
+                    this.selectorObserverMap.set(outletName, new SelectorObserver(document.body, selector, this, details));
+                }
+            });
+            this.selectorObserverMap.forEach((observer) => observer.start());
+        }
+        this.dependentContexts.forEach((context) => context.refresh());
+    }
+    stop() {
+        if (this.selectorObserverMap.size > 0) {
+            this.disconnectAllOutlets();
+            this.selectorObserverMap.forEach((observer) => observer.stop());
+            this.selectorObserverMap.clear();
+        }
+    }
+    refresh() {
+        this.selectorObserverMap.forEach((observer) => observer.refresh());
+    }
+    selectorMatched(element, _selector, { outletName }) {
+        const outlet = this.getOutlet(element, outletName);
+        if (outlet) {
+            this.connectOutlet(outlet, element, outletName);
+        }
+    }
+    selectorUnmatched(element, _selector, { outletName }) {
+        const outlet = this.getOutletFromMap(element, outletName);
+        if (outlet) {
+            this.disconnectOutlet(outlet, element, outletName);
+        }
+    }
+    selectorMatchElement(element, { outletName }) {
+        return (this.hasOutlet(element, outletName) &&
+            element.matches(`[${this.context.application.schema.controllerAttribute}~=${outletName}]`));
+    }
+    connectOutlet(outlet, element, outletName) {
+        var _a;
+        if (!this.outletElementsByName.has(outletName, element)) {
+            this.outletsByName.add(outletName, outlet);
+            this.outletElementsByName.add(outletName, element);
+            (_a = this.selectorObserverMap.get(outletName)) === null || _a === void 0 ? void 0 : _a.pause(() => this.delegate.outletConnected(outlet, element, outletName));
+        }
+    }
+    disconnectOutlet(outlet, element, outletName) {
+        var _a;
+        if (this.outletElementsByName.has(outletName, element)) {
+            this.outletsByName.delete(outletName, outlet);
+            this.outletElementsByName.delete(outletName, element);
+            (_a = this.selectorObserverMap
+                .get(outletName)) === null || _a === void 0 ? void 0 : _a.pause(() => this.delegate.outletDisconnected(outlet, element, outletName));
+        }
+    }
+    disconnectAllOutlets() {
+        for (const outletName of this.outletElementsByName.keys) {
+            for (const element of this.outletElementsByName.getValuesForKey(outletName)) {
+                for (const outlet of this.outletsByName.getValuesForKey(outletName)) {
+                    this.disconnectOutlet(outlet, element, outletName);
+                }
+            }
+        }
+    }
+    selector(outletName) {
+        return this.scope.outlets.getSelectorForOutletName(outletName);
+    }
+    get outletDependencies() {
+        const dependencies = new Multimap();
+        this.router.modules.forEach((module) => {
+            const constructor = module.definition.controllerConstructor;
+            const outlets = readInheritableStaticArrayValues(constructor, "outlets");
+            outlets.forEach((outlet) => dependencies.add(outlet, module.identifier));
+        });
+        return dependencies;
+    }
+    get outletDefinitions() {
+        return this.outletDependencies.getKeysForValue(this.identifier);
+    }
+    get dependentControllerIdentifiers() {
+        return this.outletDependencies.getValuesForKey(this.identifier);
+    }
+    get dependentContexts() {
+        const identifiers = this.dependentControllerIdentifiers;
+        return this.router.contexts.filter((context) => identifiers.includes(context.identifier));
+    }
+    hasOutlet(element, outletName) {
+        return !!this.getOutlet(element, outletName) || !!this.getOutletFromMap(element, outletName);
+    }
+    getOutlet(element, outletName) {
+        return this.application.getControllerForElementAndIdentifier(element, outletName);
+    }
+    getOutletFromMap(element, outletName) {
+        return this.outletsByName.getValuesForKey(outletName).find((outlet) => outlet.element === element);
+    }
+    get scope() {
+        return this.context.scope;
+    }
+    get identifier() {
+        return this.context.identifier;
+    }
+    get application() {
+        return this.context.application;
+    }
+    get router() {
+        return this.application.router;
+    }
+}
+
 class Context {
     constructor(module, scope) {
         this.logDebugActivity = (functionName, detail = {}) => {
@@ -1111,6 +1361,7 @@ class Context {
         this.bindingObserver = new BindingObserver(this, this.dispatcher);
         this.valueObserver = new ValueObserver(this, this.controller);
         this.targetObserver = new TargetObserver(this, this);
+        this.outletObserver = new OutletObserver(this, this);
         try {
             this.controller.initialize();
             this.logDebugActivity("initialize");
@@ -1123,6 +1374,7 @@ class Context {
         this.bindingObserver.start();
         this.valueObserver.start();
         this.targetObserver.start();
+        this.outletObserver.start();
         try {
             this.controller.connect();
             this.logDebugActivity("connect");
@@ -1130,6 +1382,9 @@ class Context {
         catch (error) {
             this.handleError(error, "connecting controller");
         }
+    }
+    refresh() {
+        this.outletObserver.refresh();
     }
     disconnect() {
         try {
@@ -1139,6 +1394,7 @@ class Context {
         catch (error) {
             this.handleError(error, "disconnecting controller");
         }
+        this.outletObserver.stop();
         this.targetObserver.stop();
         this.valueObserver.stop();
         this.bindingObserver.stop();
@@ -1172,43 +1428,18 @@ class Context {
     targetDisconnected(element, name) {
         this.invokeControllerMethod(`${name}TargetDisconnected`, element);
     }
+    outletConnected(outlet, element, name) {
+        this.invokeControllerMethod(`${namespaceCamelize(name)}OutletConnected`, outlet, element);
+    }
+    outletDisconnected(outlet, element, name) {
+        this.invokeControllerMethod(`${namespaceCamelize(name)}OutletDisconnected`, outlet, element);
+    }
     invokeControllerMethod(methodName, ...args) {
         const controller = this.controller;
         if (typeof controller[methodName] == "function") {
             controller[methodName](...args);
         }
     }
-}
-
-function readInheritableStaticArrayValues(constructor, propertyName) {
-    const ancestors = getAncestorsForConstructor(constructor);
-    return Array.from(ancestors.reduce((values, constructor) => {
-        getOwnStaticArrayValues(constructor, propertyName).forEach((name) => values.add(name));
-        return values;
-    }, new Set()));
-}
-function readInheritableStaticObjectPairs(constructor, propertyName) {
-    const ancestors = getAncestorsForConstructor(constructor);
-    return ancestors.reduce((pairs, constructor) => {
-        pairs.push(...getOwnStaticObjectPairs(constructor, propertyName));
-        return pairs;
-    }, []);
-}
-function getAncestorsForConstructor(constructor) {
-    const ancestors = [];
-    while (constructor) {
-        ancestors.push(constructor);
-        constructor = Object.getPrototypeOf(constructor);
-    }
-    return ancestors.reverse();
-}
-function getOwnStaticArrayValues(constructor, propertyName) {
-    const definition = constructor[propertyName];
-    return Array.isArray(definition) ? definition : [];
-}
-function getOwnStaticObjectPairs(constructor, propertyName) {
-    const definition = constructor[propertyName];
-    return definition ? Object.keys(definition).map((key) => [key, definition[key]]) : [];
 }
 
 function bless(constructor) {
@@ -1484,6 +1715,56 @@ class TargetSet {
     }
 }
 
+class OutletSet {
+    constructor(scope, controllerElement) {
+        this.scope = scope;
+        this.controllerElement = controllerElement;
+    }
+    get element() {
+        return this.scope.element;
+    }
+    get identifier() {
+        return this.scope.identifier;
+    }
+    get schema() {
+        return this.scope.schema;
+    }
+    has(outletName) {
+        return this.find(outletName) != null;
+    }
+    find(...outletNames) {
+        return outletNames.reduce((outlet, outletName) => outlet || this.findOutlet(outletName), undefined);
+    }
+    findAll(...outletNames) {
+        return outletNames.reduce((outlets, outletName) => [...outlets, ...this.findAllOutlets(outletName)], []);
+    }
+    getSelectorForOutletName(outletName) {
+        const attributeName = this.schema.outletAttributeForScope(this.identifier, outletName);
+        return this.controllerElement.getAttribute(attributeName);
+    }
+    findOutlet(outletName) {
+        const selector = this.getSelectorForOutletName(outletName);
+        if (selector)
+            return this.findElement(selector, outletName);
+    }
+    findAllOutlets(outletName) {
+        const selector = this.getSelectorForOutletName(outletName);
+        return selector ? this.findAllElements(selector, outletName) : [];
+    }
+    findElement(selector, outletName) {
+        const elements = this.scope.queryElements(selector);
+        return elements.filter((element) => this.matchesElement(element, selector, outletName))[0];
+    }
+    findAllElements(selector, outletName) {
+        const elements = this.scope.queryElements(selector);
+        return elements.filter((element) => this.matchesElement(element, selector, outletName));
+    }
+    matchesElement(element, selector, outletName) {
+        const controllerAttribute = element.getAttribute(this.scope.schema.controllerAttribute) || "";
+        return element.matches(selector) && controllerAttribute.split(" ").includes(outletName);
+    }
+}
+
 class Scope {
     constructor(schema, element, identifier, logger) {
         this.targets = new TargetSet(this);
@@ -1496,6 +1777,7 @@ class Scope {
         this.element = element;
         this.identifier = identifier;
         this.guide = new Guide(logger);
+        this.outlets = new OutletSet(this.documentScope, element);
     }
     findElement(selector) {
         return this.element.matches(selector) ? this.element : this.queryElements(selector).find(this.containsElement);
@@ -1511,6 +1793,14 @@ class Scope {
     }
     get controllerSelector() {
         return attributeValueContainsToken(this.schema.controllerAttribute, this.identifier);
+    }
+    get isDocumentScope() {
+        return this.element === document.documentElement;
+    }
+    get documentScope() {
+        return this.isDocumentScope
+            ? this
+            : new Scope(this.schema, document.documentElement, this.identifier, this.guide.logger);
     }
 }
 
@@ -1603,6 +1893,10 @@ class Router {
         this.unloadIdentifier(definition.identifier);
         const module = new Module(this.application, definition);
         this.connectModule(module);
+        const afterLoad = definition.controllerConstructor.afterLoad;
+        if (afterLoad) {
+            afterLoad(definition.identifier, this.application);
+        }
     }
     unloadIdentifier(identifier) {
         const module = this.modulesByIdentifier.get(identifier);
@@ -1653,7 +1947,12 @@ const defaultSchema = {
     actionAttribute: "data-action",
     targetAttribute: "data-target",
     targetAttributeForScope: (identifier) => `data-${identifier}-target`,
+    outletAttributeForScope: (identifier, outlet) => `data-${identifier}-${outlet}-outlet`,
+    keyMappings: Object.assign(Object.assign({ enter: "Enter", tab: "Tab", esc: "Escape", space: " ", up: "ArrowUp", down: "ArrowDown", left: "ArrowLeft", right: "ArrowRight", home: "Home", end: "End" }, objectFromEntries("abcdefghijklmnopqrstuvwxyz".split("").map((c) => [c, c]))), objectFromEntries("0123456789".split("").map((n) => [n, n]))),
 };
+function objectFromEntries(array) {
+    return array.reduce((memo, [k, v]) => (Object.assign(Object.assign({}, memo), { [k]: v })), {});
+}
 
 class Application {
     constructor(element = document.documentElement, schema = defaultSchema) {
@@ -1671,7 +1970,7 @@ class Application {
         this.actionDescriptorFilters = Object.assign({}, defaultActionDescriptorFilters);
     }
     static start(element, schema) {
-        const application = new Application(element, schema);
+        const application = new this(element, schema);
         application.start();
         return application;
     }
@@ -1764,6 +2063,73 @@ function propertiesForClassDefinition(key) {
         [`has${capitalize(key)}Class`]: {
             get() {
                 return this.classes.has(key);
+            },
+        },
+    };
+}
+
+function OutletPropertiesBlessing(constructor) {
+    const outlets = readInheritableStaticArrayValues(constructor, "outlets");
+    return outlets.reduce((properties, outletDefinition) => {
+        return Object.assign(properties, propertiesForOutletDefinition(outletDefinition));
+    }, {});
+}
+function propertiesForOutletDefinition(name) {
+    const camelizedName = namespaceCamelize(name);
+    return {
+        [`${camelizedName}Outlet`]: {
+            get() {
+                const outlet = this.outlets.find(name);
+                if (outlet) {
+                    const outletController = this.application.getControllerForElementAndIdentifier(outlet, name);
+                    if (outletController) {
+                        return outletController;
+                    }
+                    else {
+                        throw new Error(`Missing "data-controller=${name}" attribute on outlet element for "${this.identifier}" controller`);
+                    }
+                }
+                throw new Error(`Missing outlet element "${name}" for "${this.identifier}" controller`);
+            },
+        },
+        [`${camelizedName}Outlets`]: {
+            get() {
+                const outlets = this.outlets.findAll(name);
+                if (outlets.length > 0) {
+                    return outlets
+                        .map((outlet) => {
+                        const controller = this.application.getControllerForElementAndIdentifier(outlet, name);
+                        if (controller) {
+                            return controller;
+                        }
+                        else {
+                            console.warn(`The provided outlet element is missing the outlet controller "${name}" for "${this.identifier}"`, outlet);
+                        }
+                    })
+                        .filter((controller) => controller);
+                }
+                return [];
+            },
+        },
+        [`${camelizedName}OutletElement`]: {
+            get() {
+                const outlet = this.outlets.find(name);
+                if (outlet) {
+                    return outlet;
+                }
+                else {
+                    throw new Error(`Missing outlet element "${name}" for "${this.identifier}" controller`);
+                }
+            },
+        },
+        [`${camelizedName}OutletElements`]: {
+            get() {
+                return this.outlets.findAll(name);
+            },
+        },
+        [`has${capitalize(camelizedName)}Outlet`]: {
+            get() {
+                return this.outlets.has(name);
             },
         },
     };
@@ -1989,6 +2355,9 @@ class Controller {
     static get shouldLoad() {
         return true;
     }
+    static afterLoad(_identifier, _application) {
+        return;
+    }
     get application() {
         return this.context.application;
     }
@@ -2003,6 +2372,9 @@ class Controller {
     }
     get targets() {
         return this.scope.targets;
+    }
+    get outlets() {
+        return this.scope.outlets;
     }
     get classes() {
         return this.scope.classes;
@@ -2023,8 +2395,14 @@ class Controller {
         return event;
     }
 }
-Controller.blessings = [ClassPropertiesBlessing, TargetPropertiesBlessing, ValuePropertiesBlessing];
+Controller.blessings = [
+    ClassPropertiesBlessing,
+    TargetPropertiesBlessing,
+    ValuePropertiesBlessing,
+    OutletPropertiesBlessing,
+];
 Controller.targets = [];
+Controller.outlets = [];
 Controller.values = {};
 
-export { Application, AttributeObserver, Context, Controller, ElementObserver, IndexedMultimap, Multimap, StringMapObserver, TokenListObserver, ValueListObserver, add, defaultSchema, del, fetch, prune };
+export { Application, AttributeObserver, Context, Controller, ElementObserver, IndexedMultimap, Multimap, SelectorObserver, StringMapObserver, TokenListObserver, ValueListObserver, add, defaultSchema, del, fetch, prune };
