@@ -10,7 +10,15 @@ class ChatroomPolicy < ApplicationPolicy
     true
   end
 
+  def new?
+    true
+  end
+
   def show?
     record.users.where(id: user.id).any?
+  end
+
+  def create?
+    true
   end
 end

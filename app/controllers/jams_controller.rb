@@ -68,7 +68,7 @@ class JamsController < ApplicationController
     @declined_bookings = Booking.declined.where('jam_id = ?', @jam)
     @booking = Booking.new
     @post = Post.new
-    @posts = @jam.posts
+    @posts = @jam.posts.reverse
     @instruments = Instrument.all.pluck(:name)
 
     @markers = [{

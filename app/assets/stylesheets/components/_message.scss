@@ -1,6 +1,41 @@
+.messages-index {
+  width: 22vw;
+  margin-top: 0.5em;
+  background-color: $color-light-blue;
+
+  h4 {
+    padding: 0.5em;
+    color: $color-primary;
+    font-weight: bold;
+  }
+
+  .chatroom-title {
+    margin: 0.5em;
+    padding: 1em;
+    background-color: $color-primary;
+    border-radius: 4px;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  .messages-list {
+
+  }
+
+  .messages-new {
+    margin: 0.5em;
+    padding: 1em;
+    border-radius: 4px;
+  }
+}
+
 .message-row {
   margin-bottom: 10px;
   padding: 8px;
+  color: white;
 }
 
 // To style the message itself
@@ -10,12 +45,15 @@
   border-radius: 4px;
   padding: 8px;
   min-height: 80px;
+
 }
 
 .sender-style {
-  background-color: lightcoral;
+  opacity: 0.7;
+  background-color: $color-primary;
 }
 
 .receiver-style {
-  background-color: lightblue;
+  opacity: 0.7;
+  background-color: $color-secondary;
 }

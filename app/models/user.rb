@@ -13,6 +13,8 @@ class User < ApplicationRecord
   has_many :jams, dependent: :destroy
   has_many :bookings, dependent: :destroy
   has_many :posts, dependent: :destroy
+  has_many :creations, dependent: :destroy
+
   has_many :messages
   has_many :chatmembers
   has_many :chatrooms, through: :chatmembers

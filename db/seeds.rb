@@ -2,6 +2,10 @@
 
 puts ">"
 puts "Destroying previous data..."
+UserInstrument.destroy_all
+Instrument.destroy_all
+UserArtist.destroy_all
+Artist.destroy_all
 Booking.destroy_all
 Post.destroy_all
 Creation.destroy_all
@@ -24,7 +28,8 @@ user1 = {
   email: "anne@youjam.com",
   location: "23 rue Coysevox, 75018 Paris",
   soundcloud_url: "https://soundcloud.com/chuwanaga",
-  instagram_url: "https://www.instagram.com/universalmusicfrance/"
+  instagram_url: "https://www.instagram.com/universalmusicfrance/",
+  spotify_account: "gas.fauchille"
 }
 user2 = {
   first_name: "Pierre",
@@ -35,7 +40,8 @@ user2 = {
   email: "pierre@youjam.com",
   location: "12 rue Halévy, 75009 Paris",
   soundcloud_url: "https://soundcloud.com/chuwanaga",
-  instagram_url: "https://www.instagram.com/universalmusicfrance/"
+  instagram_url: "https://www.instagram.com/universalmusicfrance/",
+  spotify_account: "gas.fauchille"
 }
 user3 = {
   first_name: "Maxence",
@@ -46,7 +52,8 @@ user3 = {
   email: "maxence@youjam.com",
   location: "2 boulevard Biron, 93400 Saint-Ouen",
   soundcloud_url: "https://soundcloud.com/chuwanaga",
-  instagram_url: "https://www.instagram.com/universalmusicfrance/"
+  instagram_url: "https://www.instagram.com/universalmusicfrance/",
+  spotify_account: "gas.fauchille"
 }
 user4 = {
   first_name: "Benjamin",
@@ -57,8 +64,8 @@ user4 = {
   email: "benjamin@youjam.com",
   location: "70 Rue Myrha, 75018 Paris",
   soundcloud_url: "https://soundcloud.com/chuwanaga",
-  instagram_url: "https://www.instagram.com/universalmusicfrance/"
-
+  instagram_url: "https://www.instagram.com/universalmusicfrance/",
+  spotify_account: "gas.fauchille"
 }
 user5 = {
   first_name: "Gaspard",
@@ -69,7 +76,8 @@ user5 = {
   email: "gaspard@youjam.com",
   location: "261 Bd de Tournai, 59650 Villeneuve-d'Ascq",
   soundcloud_url: "https://soundcloud.com/chuwanaga",
-  instagram_url: "https://www.instagram.com/universalmusicfrance/"
+  instagram_url: "https://www.instagram.com/universalmusicfrance/",
+  spotify_account: "gas.fauchille"
 }
 
 users_options = [user1, user2, user3, user4, user5]
@@ -298,16 +306,56 @@ puts "Done!"
 # !Creations options & Seed
 
 creation1 =  {
-  name: "Je suis chaud !",
-  creation_url: "https://www.youtube.com/watch?v=WaM2pxTPstw"
+  creation_url: "https://www.youtube.com/watch?v=WaM2pxTPstw",
+  message: "On avait bien rigolé ce jour là!"
 }
 
 creation2 =  {
-  name: "Mon dernier concert",
-  creation_url: "https://www.youtube.com/watch?v=WaM2pxTPstw"
+  creation_url: "https://www.youtube.com/watch?v=g-D99C9poR4",
+  message: "Super jam, en plus le public était chaud"
 }
 
-creations_options = [creation1, creation2]
+creation3 =  {
+  creation_url: "https://www.youtube.com/watch?v=bKn7FyGK080",
+  message: "Écoutez le batteur, c'est de la folie !"
+}
+
+creation4 =  {
+  creation_url: "https://www.youtube.com/watch?v=Kk6j3BXHBWM",
+  message: "Super hâte de remettre ça avec vous"
+}
+
+creation5 =  {
+  creation_url: "https://www.youtube.com/watch?v=opdEWV9PcNo",
+  message: "J'en garde un super souvenir, meilleur jam de l'année !"
+}
+
+creation6 =  {
+  creation_url: "https://www.youtube.com/watch?v=T5cMv7-Gr5Q",
+  message: "La prochaine fois, on fera encore mieux !"
+}
+
+creation7 =  {
+  creation_url: "https://www.youtube.com/watch?v=wrHCWDffcXo",
+  message: "Franchement pas mal pour une première !"
+}
+
+creation8 =  {
+  creation_url: "https://www.youtube.com/watch?v=1s6rtWjMTVs",
+  message: "J'ai pris beaucoup de plaisir, merci Youjam d'avoir rendu ça possible !"
+}
+
+creation9 =  {
+  creation_url: "https://www.youtube.com/watch?v=DLn48c05xVA",
+  message: "Groove de malade, équipe de dingue, un résultat de folie..."
+}
+
+creation10 =  {
+  creation_url: "https://www.youtube.com/watch?v=HO_STXzgdjg",
+  message: "Attention, cette vidéo va vous faire groover !"
+}
+
+creations_options = [creation1, creation2, creation3, creation4, creation5, creation6, creation7, creation8, creation9, creation10]
 
 puts ">"
 puts "Starts creating Creations..."
@@ -316,8 +364,7 @@ creations_options.each do |creation_option|
   creation.user = users.sample
   creation.save!
 end
-puts ">"
-puts "Done!"
+
 
 puts ">"
 puts "Starts creating Instruments..."
@@ -329,3 +376,78 @@ end
 puts ">"
 puts "Done!"
 
+
+user_instrument1 = {
+  instrument_id: Instrument.last.id,
+  user_id: User.first.id
+}
+
+user_instrument2 = {
+  instrument_id: Instrument.first.id,
+  user_id: User.first.id
+}
+
+user_instrument3 = {
+  instrument_id: Instrument.last.id,
+  user_id: User.last.id
+}
+
+user_instrument4 = {
+  instrument_id: Instrument.first.id,
+  user_id: User.last.id
+}
+
+user_inst_options = [user_instrument1, user_instrument2, user_instrument3, user_instrument4]
+
+puts ">"
+puts "Starts creating user_instruments..."
+user_inst_options.each do |user_inst_option|
+  creation = UserInstrument.new(user_inst_option)
+  creation.save!
+end
+
+puts ">"
+puts "Done!"
+
+puts ">"
+puts "Starts creating genres..."
+genres_options = [{ name:"Blues" }, { name:"Classic" }, { name:"Country" }, { name:"Disco" }, { name:"Hip-Hop" }, { name:"Jazz" }, { name:"Métal" }, { name:"Pop" },{ name:"Reggae" },{ name:"Rock" }]
+genres_options.each do |genre_option|
+  genre = Genre.new(genre_option)
+  genre.save!
+end
+puts ">"
+puts "Done!"
+
+
+user_genre1 = {
+  genre_id: Genre.last.id,
+  user_id: User.first.id
+}
+
+user_genre2 = {
+  genre_id: Genre.first.id,
+  user_id: User.first.id
+}
+
+user_genre3 = {
+  genre_id: Genre.last.id,
+  user_id: User.last.id
+}
+
+user_genre4 = {
+  genre_id: Genre.first.id,
+  user_id: User.last.id
+}
+
+user_inst_options = [user_genre1, user_genre2, user_genre3, user_genre4]
+
+puts ">"
+puts "Starts creating user_instruments..."
+user_inst_options.each do |user_inst_option|
+  creation = UserGenre.new(user_inst_option)
+  creation.save!
+end
+
+puts ">"
+puts "Done!"
