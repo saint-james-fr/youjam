@@ -44,10 +44,34 @@
 }
 
 .profile-bookings {
+  display: grid;
+  justify-content: start;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 2em;
+
+  a {
+    color: $color-primary;
+  }
 }
 
 .user-creations {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
+}
+
+
+.jam-mini-infos {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  padding: 1em;
+  position: relative;
+}
+
+.mini-jam-card {
+  background-color: white;
+  border-radius: 0px 0px 20px 20px;
+  height: 100%;
 }
