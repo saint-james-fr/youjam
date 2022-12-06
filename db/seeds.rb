@@ -6,6 +6,9 @@ Booking.destroy_all
 Post.destroy_all
 Creation.destroy_all
 Jam.destroy_all
+Message.destroy_all
+Chatmember.destroy_all
+Chatroom.destroy_all
 User.destroy_all
 puts ">"
 puts "Done!"
@@ -325,3 +328,4 @@ instruments_options.each do |instrument_option|
 end
 puts ">"
 puts "Done!"
+
