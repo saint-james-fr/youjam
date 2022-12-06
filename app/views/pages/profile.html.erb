@@ -1,7 +1,14 @@
-<div class="container">
+<div class="container mb-5">
   <div class="card-profile">
     <div class="profile-infos">
+      <div>
       <%= cl_image_tag @user.avatar.key, class: "avatar" %>
+        <div class="socials">
+          <a href="<%= @user.spotify_account %>"><i class="fa-brands fa-spotify"></i></a>
+          <a href="<%= @user.instagram_url %>"><i class="fab fa-instagram"></i></a>
+          <a href="https://open.spotify.com/user/<%= @user.soundcloud_url %>"><i class="fab fa-soundcloud"></i></a>
+        </div>
+      </div>
       <div class="profile-details">
         <p class="information-title"><%= @user.first_name%> <%= @user.last_name %></p>
         <p><%= @user.location %></p>
@@ -17,11 +24,6 @@
         </div>
         <p><%= @user.description %></p>
       </div>
-    </div>
-    <div class="socials">
-      <a href="#"><i class="fa-brands fa-spotify"></i></a>
-      <a href="<%= @user.instagram_url %>"><i class="fab fa-instagram"></i></a>
-      <a href="<%= @user.soundcloud_url  %>"><i class="fab fa-soundcloud"></i></a>
     </div>
   </div>
   <div class="profile-bookings">
@@ -40,10 +42,12 @@
       <%# <%# <%= link_to artist.name , artist.spotify_url %>
     <%# <% end %>
   <%# </div> %>
-  <h5>Son contenu</h5>
+  <h4>Son contenu</h4>
   <div class="user-creations">
     <% @user.creations.each do |creation| %>
-      <iframe width="560" height="315" loading="lazy" src="<%= creation.creation_url %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div>
+      <iframe width="auto" height="auto" loading="lazy" src="<%= creation.creation_url %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
     <% end %>
   </div>
 </div>

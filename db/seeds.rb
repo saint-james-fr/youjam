@@ -298,23 +298,43 @@ puts "Done!"
 # !Creations options & Seed
 
 creation1 =  {
-  name: "Je suis chaud !",
   creation_url: "https://www.youtube.com/watch?v=WaM2pxTPstw"
 }
 
 creation2 =  {
-  name: "Mon dernier concert",
-  creation_url: "https://www.youtube.com/watch?v=WaM2pxTPstw"
+  creation_url: "https://www.youtube.com/watch?v=g-D99C9poR4"
 }
 
 creation3 =  {
-  name: "Mon dernier concert",
-  creation_url: "https://www.youtube.com/watch?v=WaM2pxTPstw"
+  creation_url: "https://www.youtube.com/watch?v=bKn7FyGK080"
 }
 
 creation4 =  {
-  name: "Mon dernier concert",
-  creation_url: "https://www.youtube.com/watch?v=WaM2pxTPstw"
+  creation_url: "https://www.youtube.com/watch?v=Kk6j3BXHBWM"
+}
+
+creation5 =  {
+  creation_url: "https://www.youtube.com/watch?v=opdEWV9PcNo"
+}
+
+creation6 =  {
+  creation_url: "https://www.youtube.com/watch?v=T5cMv7-Gr5Q"
+}
+
+creation7 =  {
+  creation_url: "https://www.youtube.com/watch?v=wrHCWDffcXo"
+}
+
+creation8 =  {
+  creation_url: "https://www.youtube.com/watch?v=1s6rtWjMTVs"
+}
+
+creation9 =  {
+  creation_url: "https://www.youtube.com/watch?v=DLn48c05xVA"
+}
+
+creation10 =  {
+  creation_url: "https://www.youtube.com/watch?v=HO_STXzgdjg"
 }
 
 creations_options = [creation1, creation2, creation3, creation4]

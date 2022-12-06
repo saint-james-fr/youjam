@@ -2,8 +2,7 @@
   display: flex;
     margin-top: 50px;
     border: 1px solid #3912A7;
-    flex-direction: column;
-    align-items: flex-start;
+    display: block;
 }
 
 .profile-infos {
@@ -12,6 +11,7 @@
 
 
   .avatar {
+
     width: 150px;
   }
 }
@@ -19,19 +19,22 @@
 .socials {
   display: flex;
   justify-content: space-evenly;
+      margin-left: 10px;
 
    i {
-    font-size: 2em;
+    font-size: 1.5em;
     font-weight: 400;
     color: $color-primary;
     padding: 10px;
+    padding-right: 10px;
   }
 }
 
 .profile-details {
+  padding-left: 50px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .profile-instruments-tags {
@@ -48,6 +51,6 @@
 
 .user-creations {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
 }
