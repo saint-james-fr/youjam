@@ -18,6 +18,7 @@ class PagesController < ApplicationController
       creation_url = "https://www.youtube.com/embed/#{match}"
       creation.update(creation_url: creation_url)
     end
+    @review = Review.new
   end
 
   def update

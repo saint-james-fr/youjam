@@ -1,11 +1,11 @@
-<button class="primary-button" data-bs-toggle="modal" data-bs-target="#postModal"> Publier un message </button>
+<button class="primary-button" data-bs-toggle="modal" data-bs-target="#reviewModal"> Publier un message </button>
 
-<div class="modal fade" id="postModal" tabindex="-1" aria-labelledby="postModalLabel" aria-hidden="true" data-jam-subscription-target="modal">
+<div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true" data-jam-subscription-target="modal">
   <div class="modal-dialog modal-dialog-centered ">
     <div class="modal-content">
         <div class="modal-header modale">
           <%= cl_image_tag current_user.avatar.key, class: "avatar" %>
-          <h2 class="modal-title fs-5" id="postModalLabel">Publier un message</h2>
+          <h2 class="modal-title fs-5" id="postModalLabel">Publier une review</h2>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body modale" data-jam-subscription-target="form">
