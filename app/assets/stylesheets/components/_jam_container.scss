@@ -1,6 +1,17 @@
-.container-centered {
+.container-dashboard h2 {
   color: $color-primary;
   padding: 40px;
-  text-align: center;
+  text-align: center
+}
 
+.jams-content-dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 25px;
+
+}
+
+.container-dashboard {
+
+  margin-bottom: 40px;
 }

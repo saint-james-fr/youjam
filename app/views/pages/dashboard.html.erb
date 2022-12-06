@@ -1,26 +1,10 @@
 
 
-<div class="container container-centered">
+<div class="container container-dashboard">
   <h2>Mes jams</h2>
-  <div class="jams-content">
-    <div class="jams-index-cards">
+  <div class="jams-content-dashboard">
       <% @all_my_jams.each do |jam| %>
-          <% accepted_bookings = Booking.accepted.where('jam_id = ?', jam) %>
-          <% pending_bookings = Booking.pending.where('jam_id = ?', jam) %>
-          <% declined_bookings = Booking.declined.where('jam_id = ?', jam) %>
-          <%= render "shared/dashboard_bookings_jam", jam: jam, accepted_bookings: accepted_bookings, pending_bookings: pending_bookings %>
-          <% end %>
-    </div>
-  </div>
-</div>
-
-<div class="container container-centered">
-  <h2> Les Jams auxquelles je participe </h2>
-  <div class="jams-content">
-    <div class="jams-index-cards">
-      <% @my_bookings_jam.each do |jam| %>
           <%= render "shared/dashboard_bookings_jam", jam: jam %>
           <% end %>
-    </div>
   </div>
 </div>
