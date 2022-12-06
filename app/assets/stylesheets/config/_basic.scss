@@ -4,12 +4,16 @@ body {
 
 a {
   color: inherit;
-  text-decoration: none;
+  text-decoration: none!important;
 }
 
 p {
   margin-top: 0!important;
   margin-bottom: 0!important;
+}
+
+.fullheight {
+  min-height: calc(100vh - 163px);
 }
 
 button {

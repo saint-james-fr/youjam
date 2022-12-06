@@ -1,15 +1,14 @@
 <div class="container-home">
   <div class="banner" style="background-image: url(<%= asset_path 'banner' %>);">
     <div class="container">
-      <h1>Stop playing solo your solos</h1>
-      <p>Meet musicians & collaborate!</p>
+      <h4 class="pt-5" style="color: white">Rencontre des musiciens, collabore avec eux !</h4>
       <div class="d-flex ml-1 mr-1">
       <%= render "jams/form_search" %>
       </div>
     </div>
   </div>
   <div class="container mt-5 mb-2">
-    <h1>Les Jams les plus populaires</h1>
+    <h2>Les Jams les plus populaires</h2>
     <div class="jam-cards mt-4">
       <% @jams.first(4).each do |jam| %>
         <%= render "shared/jam_card", jam: jam %>
@@ -17,7 +16,7 @@
     </div>
   </div>
   <div class="container mt-5 mb-5">
-    <h1>Rencontre des Jammers</h1>
+    <h2>Rencontre des Jammers</h2>
     <div class="jammer-cards mt-4">
       <% @users.each do |user| %>
             <%= render "shared/jammer_card", user: user %>

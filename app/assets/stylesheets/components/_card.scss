@@ -10,6 +10,12 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 20px;
   min-width: 266.25px;
+  transition: opacity 0.1s ease-in-out
+}
+
+.jam-card:hover .jam-card-cover,
+.jam-card:hover .card-title {
+  opacity: 0.9;
 }
 
 .jam-card-cover {
@@ -50,4 +56,19 @@
 }
 .jam-tags {
   display: flex;
+}
+.participant-icon {
+  font-size: 25px;
+  margin-right: 20px;
+  color: $color-secondary;
+}
+
+.participants {
+  display: flex;
+  align-items: center;
+  width: 80%;
+}
+
+.status_participants {
+  text-align: left;
 }

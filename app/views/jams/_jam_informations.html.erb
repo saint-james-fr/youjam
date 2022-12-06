@@ -1,9 +1,23 @@
-<div class="details-card box-shadow-morphism">
-  <div class="details-container">
-    <div class="details-title">détails
+<div class="information-container">
+  <div class="information-title">Informations
+  </div>
+  <div class="proposed-by">
+    <div>
+    <%= link_to profile_path(jam.user) do %>
+    <%= cl_image_tag jam.user.avatar.key, class: "avatar" %>
+    <% end %>
     </div>
-    <div class="details-infos">
-      <ul>
+    <div class="user-information-jam">
+      <div class="user-information-name">
+      Proposé par <%= link_to jam.user.first_name, profile_path(jam.user), class:"link" %>
+      </div>
+      <div class="user-information-description">
+      <p><%= jam.user.description.truncate(100) %></p>
+      </div>
+    </div>
+  </div>
+  <div class="informations-picto" >
+    <ul class="picto">
         <li>
           <div class="d-flex">
           <i class="fa-solid fa-drum"></i>
@@ -11,9 +25,6 @@
                 <div class="tag-instruments tag"><%= instrument %></div>
             <% end %>
           </div>
-        </li>
-        <li>
-          <i class="fa-solid fa-circle-user"></i>Proposé par <%= jam.user.first_name %>
         </li>
         <li>
           <i class="fa-solid fa-location-pin"></i><%= jam.location %>
@@ -26,11 +37,9 @@
             <%= render "jams/guests_modal", jam: @jam %>
         </li>
       </ul>
-    </div>
-    <div class="details-description">
-      <%= jam.description %>
-    </div>
   </div>
-</div>
-<div class="show-map">
+  <div class="informations-description">
+  <%= jam.description %>
+  </div>
+
 </div>

@@ -1,0 +1,16 @@
+<div class="messages-list">
+    <h4>Mes messages</h4>
+    <% chatrooms.each do |chatroom| %>
+      <div class="chatroom-title">
+        <%= link_to chatroom_path(chatroom) do %>
+          <% if chatroom.name.nil? %>
+            <% chatroom.chatmembers.each do |chatmember| %>
+              <%= chatmember.user.first_name %> <%= chatmember.user.last_name %>
+            <% end %>
+          <% else %>
+            <%= chatroom.name.capitalize %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>

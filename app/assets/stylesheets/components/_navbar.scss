@@ -12,15 +12,22 @@
   width: 40px;
 }
 
+.navbar-brand h3 {
+  color: $color-primary;
+}
+
 .navbar-nav {
   align-items: center;
-  width: 44vw;
+  width: 50vw;
   justify-content: flex-end;
+  color: $color-primary;
 }
 
 .navbar-nav .primary-button {
   padding: 4px 23px;
+  color: white;
 }
+
 
 .navbar-nav .user-infos {
   display: flex;
@@ -44,6 +51,10 @@
   color: white;
 }
 
+.navbar-transparent .nav-item {
+  color: white;
+}
+
 .user-infos .nav-item {
   display: flex;
   align-items: center;
@@ -55,4 +66,20 @@
 
 .nav-item {
   margin-left: 2em;
+}
+
+#addjambutton:hover {
+  color: white!important;
+}
+
+.dropdown-toggle::after {
+  display: none!important;
+}
+
+#navbarDropdown {
+  display: flex;
+}
+
+.user-name {
+  cursor:pointer;
 }

@@ -1,0 +1,62 @@
+.information-title {
+  color: $color-tertiary;
+  font-size: 1.4em;
+  font-weight: 1000;
+  font-family: quicksand;
+  margin-bottom: 20px;
+}
+
+.proposed-by{
+  display: flex;
+  background-color: white;
+  border-radius: 5px;
+  padding: 15px 10px;
+  color: $color-dark-blue;
+}
+
+.informations-picto{
+  background-color: $color-primary;
+  margin-top: 20px;
+  border-radius: 5px;
+  padding: 20px 20px 5px;
+  color: white;
+}
+
+.informations-picto ul li {
+  margin-bottom: 7px;
+}
+
+.informations-picto ul li i {
+  display: inline-block;
+  width: 36px;
+  text-align: left;
+}
+
+.informations-description{
+  margin: 10px;
+}
+
+.information-container{
+  width: 50%;
+}
+.user-information-jam {
+  padding: 0px 10px;
+}
+
+.user-information-name {
+  font-weight: 600;
+}
+
+.user-information-name a{
+  color: inherit!important;
+  text-decoration: none!important;
+}
+
+.user-information-description {
+  font-size: 0.85em;
+  color: $color-dark-blue;
+}
+
+.map-jam {
+  margin-top: 52px;
+}

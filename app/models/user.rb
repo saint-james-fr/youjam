@@ -13,7 +13,10 @@ class User < ApplicationRecord
   has_many :jams, dependent: :destroy
   has_many :bookings, dependent: :destroy
   has_many :posts, dependent: :destroy
-
+  has_many :messages
+  has_many :chatmembers
+  has_many :chatrooms, through: :chatmembers
+  has_many :booked_jams, through: :bookings, source: :jam
   has_one_attached :avatar
 
   validates :first_name, presence: true

@@ -18,7 +18,7 @@
             </div>
           </div>
           <div class="modale-guests-body" data-jam-status-toggle-target="pendingBody">
-          <%# !Pending %>
+            <%# !Pending %>
             <% @pending_bookings.each do |booking| %>
               <div class="d-flex justify-content-between modale-guests-line">
                 <div class="d-inline-flex align-items-center">
@@ -42,7 +42,7 @@
             <% end %>
           </div>
           <div class="modale-guests-body d-none" data-jam-status-toggle-target="acceptedBody">
-          <%# !Accepted %>
+            <%# !Accepted %>
             <% if @accepted_bookings.empty?  %>
               Personne n'est encore confirmé pour cette jam.
             <% end %>
@@ -56,7 +56,7 @@
             <% end %>
           </div>
           <div class="modale-guests-body d-none" data-jam-status-toggle-target="declinedBody">
-          <%# !Declined %>
+            <%# !Declined %>
             <% if @declined_bookings.empty?  %>
               Personne n'est encore confirmé pour cette jam.
             <% end %>

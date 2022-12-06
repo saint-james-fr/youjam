@@ -1,0 +1,5 @@
+meta_product_name: "YouJam"
+meta_title: "YouJam - Stop playing solo your solos"
+meta_description: "Meet musicians & collaborate!"
+meta_image: "banner.png" # should exist in `app/assets/images/`
+#twitter_account: "@product_twitter_account"   # required for Twitter Cards
