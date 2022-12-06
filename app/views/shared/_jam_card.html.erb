@@ -1,27 +1,32 @@
 <%= link_to jam_path(jam), class: "text-decoration-none" do %>
   <div class="jam-card">
-    <div class="jam-card-cover" style="background-image: url(<%= cl_image_path jam.photo.key %>)">
+    <div class="jam-card-cover">
+      <%= cl_image_tag jam.photo.key, class: "jam-card-photo" %>
       <%= cl_image_tag jam.user.avatar.key, class: "avatar" %>
     </div>
     <div class="jam-card-infos d-flex flex-column justify-content-between p-3">
       <div class="jam-card-details">
-        <p class="card-date"><%= l(jam.jam_date, format:'%a. %-d %b %Y, %H:%M') %></p>
-        <h3 class="card-title mt-4"><%= jam.title.capitalize %></h3>
-        <p class="card-location mt-2"><%= jam.location %></p>
-      </div>
-      <div class="jam-tags flex-wrap">
-        <% if jam.instruments_list.count > 3 %>
-          <% jam.instruments_list.first(3).each do |instrument| %>
-            <div class="tag tag-instruments mt-1"><%= instrument %></div>
+        <h3 class="card-title"><%= jam.title.capitalize %></h3>
+        <div class="jam-tags flex-wrap">
+          <% if jam.instruments_list.count > 3 %>
+            <% jam.instruments_list.first(3).each do |instrument| %>
+              <div class="tag tag-instruments mt-1"><%= instrument %></div>
+            <% end %>
+            <div class="tag tag-supp mt-1">
+              ...
+            </div>
+          <% else %>
+            <% jam.instruments_list.each do |instrument| %>
+              <div class="tag tag-instruments mt-1"><%= instrument %></div>
+            <% end %>
           <% end %>
-          <div class="tag tag-supp mt-1">
-            ...
-          </div>
-        <% else %>
-          <% jam.instruments_list.each do |instrument| %>
-            <div class="tag tag-instruments mt-1"><%= instrument %></div>
-          <% end %>
-        <% end %>
+        </div>
+        <div class="card-date">
+          <i class="fa-regular fa-calendar-days"></i><%= l(jam.jam_date, format:'%a. %-d %b %Y, %H:%M') %>
+        </div>
+        <div class="card-location">
+          <i class="fa-solid fa-location-dot"></i><%= jam.location %>
+        </div>
       </div>
     </div>
   </div>
