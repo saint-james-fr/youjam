@@ -17,8 +17,8 @@
       <div class="profile-description mt-3 mb-5">
         <p><%= @user.description %></p>
       </div>
-      <div>
-        <p><%= @user.location %></p>
+      <div class="w-100">
+        <p><i class="fa-solid fa-location-pin"></i> <%= @user.location %></p>
       </div>
       <div class="profile-instruments-tags">
         <% @user.instruments.each do |instrument| %>
@@ -33,6 +33,14 @@
     </div>
   </div>
   <div class="profile-content ms-5 me-5">
+    <% unless @user.artists.empty?  %>
+      <h4>Artists favorites</h4>
+      <div class="user-creations mt-1 mb-5">
+        <% @user.artists.each do |artist| %>
+          <%= artist %>
+        <% end %>
+      </div>
+    <% end %>
     <% unless @user.creations.empty?  %>
       <h4>Vidéos</h4>
       <div class="user-creations mt-1 mb-5">
