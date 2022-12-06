@@ -15,9 +15,9 @@
         <p class="card-location mt-2">
           <% if jam.user == current_user %>
             <<%= "button" unless jam.bookings.empty? %><%= "div" if jam.bookings.empty? %> class="<%= "modal-button" unless jam.bookings.empty? %> participants" data-bs-toggle="modal" data-bs-target="#guestsModalDashboard">
-            <div class="participant-icon"><i class="fa-solid fa-people-group"></i></div>
-            <div class="status-participants"><%= jam.accepted_bookings.count %> participant<%if jam.accepted_bookings.count > 1 %>s<% end %> <br>
-            <% unless jam.pending_bookings.count == 0 %><%= jam.pending_bookings.count %> en attente<% end %></div>
+              <div class="participant-icon"><i class="fa-solid fa-people-group"></i></div>
+              <div class="status-participants"><%= jam.accepted_bookings.count %> participant<%if jam.accepted_bookings.count > 1 %>s<% end %> <br>
+              <% unless jam.pending_bookings.count == 0 %><%= jam.pending_bookings.count %> en attente<% end %></div>
             </<%= "button" unless jam.bookings.empty? %><%= "div" if jam.bookings.empty? %>>
             <%= render "jams/guests_modal_dashboard", jam: jam %>
          <% end %>
