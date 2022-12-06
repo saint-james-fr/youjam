@@ -47,6 +47,11 @@
   font-weight: 600;
 }
 
+.user-information-name a{
+  color: inherit!important;
+  text-decoration: none!important;
+}
+
 .user-information-description {
   font-size: 0.85em;
   color: $color-dark-blue;

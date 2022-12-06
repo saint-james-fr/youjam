@@ -20,7 +20,7 @@ user1 = {
   last_name: "Ly",
   password: "annely",
   password_confirmation: "annely",
-  description: "hey, my name is Anne and I love music",
+  description: "Bonjour à tous, je m'appelle Anne et j'adore la musique !",
   email: "anne@youjam.com",
   location: "23 rue Coysevox, 75018 Paris",
   soundcloud_url: "https://soundcloud.com/chuwanaga",
@@ -31,7 +31,7 @@ user2 = {
   last_name: "Petel",
   password: "pierrepetel",
   password_confirmation: "pierrepetel",
-  description: "hey, i'm Pierre, I love to steal keys and of course, I love music!",
+  description: "Salut moi c'est Pierre, je suis fan de percussion!",
   email: "pierre@youjam.com",
   location: "12 rue Halévy, 75009 Paris",
   soundcloud_url: "https://soundcloud.com/chuwanaga",
@@ -42,7 +42,7 @@ user3 = {
   last_name: "Robinet",
   password: "maxencerobinet",
   password_confirmation: "maxencerobinet",
-  description: "hey, i'm Maxence, I can make music everyday and I'm also a codeur fou",
+  description: "Salut à tous, ici Maxence, je suis un fan de synthétiseurs.",
   email: "maxence@youjam.com",
   location: "2 boulevard Biron, 93400 Saint-Ouen",
   soundcloud_url: "https://soundcloud.com/chuwanaga",
@@ -53,7 +53,7 @@ user4 = {
   last_name: "Doberset",
   password: "benjamindoberset",
   password_confirmation: "benjamindoberset",
-  description: "hey, i'm Benjamin, I can make music even at my lunch at work!",
+  description: "Salut les amis, moi c'est Benjamin et j'essaie de prôner la musique sur les lieux de travail",
   email: "benjamin@youjam.com",
   location: "70 Rue Myrha, 75018 Paris",
   soundcloud_url: "https://soundcloud.com/chuwanaga",
@@ -65,7 +65,7 @@ user5 = {
   last_name: "Fauchille",
   password: "gaspardfauchille",
   password_confirmation: "gaspardfauchille",
-  description: "hey, i'm Gaspard and I love to eat maroille while listening to my music",
+  description: "Bonjour à tous amis musiciens, je m'appelle Gaspard et je suis fan d'instruments traditionnels.",
   email: "gaspard@youjam.com",
   location: "261 Bd de Tournai, 59650 Villeneuve-d'Ascq",
   soundcloud_url: "https://soundcloud.com/chuwanaga",
@@ -101,7 +101,7 @@ puts ">"
 # !Jams options & Seed
 
 jam1 =  {
-  title: "Entrainons-nous ensemble",
+  title: "Entraînons-nous ensemble",
   location: "16 Villa Gaudelet, 75011 Paris",
   description: "La célèbre Jam du Wagon",
   instruments_list: ["batterie", "guitare", "basse"],
@@ -113,7 +113,7 @@ jam2 =  {
   title: "Je fais un solo, tu fais un solo",
   location: "48 avenue Parmentier, 75011 Paris",
   description: "La Jam de la Data versus Web Dev",
-  instruments_list: ["drums", "guitar", "bass", "french horn", "saxophone"],
+  instruments_list: ["batterie", "guitare", "basse", "trompette", "saxophone"],
   capacity: 6,
   jam_date: DateTime.strptime("12/23/2022 20:00", "%m/%d/%Y %H:%M"),
 }
@@ -121,7 +121,7 @@ jam2 =  {
 jam3 =  {
   title: "Clarinette au clair de Lune",
   location: "42 rue de Maubeuge, 75011 Paris",
-  description: "After-Work Clarinette si ça vous dit ",
+  description: "After-Work clarinette si ça vous dit ",
   instruments_list: ["batterie", "guitare", "basse", "clarinette"],
   capacity: 3,
   jam_date: DateTime.strptime("12/23/2022 20:00", "%m/%d/%Y %H:%M"),
@@ -130,7 +130,7 @@ jam3 =  {
 jam4 =  {
   title: "Session Jazz",
   location: "34 Boulevard Voltaire, 75011 Paris",
-  description: "Venez comme vous êtes",
+  description: "Venez comme vous êtes, ça va jazzer!",
   instruments_list: ["batterie", "trompette", "basse", "saxophone", "contrebasse"],
   capacity: 5,
   jam_date: DateTime.strptime("12/01/2023 20:00", "%m/%d/%Y %H:%M"),
@@ -148,16 +148,16 @@ jam5 =  {
 jam6 =  {
   title: "Christmas jam",
   location: "12 Place de Clichy, 75008 Paris",
-  description: "nous somme une chorale de 2 et nous cherchons un orgue pour nous accompagner",
-  instruments_list: ["orgue"],
+  description: "Nous somme une chorale de deux et nous cherchons un orgue pour nous accompagner",
+  instruments_list: ["orgue", "voix"],
   capacity: 3,
   jam_date: DateTime.strptime("12/13/2022 17:00", "%m/%d/%Y %H:%M"),
 }
 
 jam7 =  {
-  title: "Old new wave",
+  title: "De la vieille New Wave",
   location: "107 rue Saint Lazare, 75009 Paris",
-  description: "venez jouez du synthé sur nos textes enjoués ",
+  description: "Venez jouez du synthé sur nos textes enjoués ",
   instruments_list: ["guitare", "synthétiseur",],
   capacity: 2,
   jam_date: DateTime.strptime("01/01/2023 10:00", "%m/%d/%Y %H:%M"),
@@ -166,23 +166,23 @@ jam7 =  {
 jam8 =  {
   title: "Trap Europ Express",
   location: "50 rue des deux gares, 75010 Paris",
-  description: "je souhaiterai faire de la musique aussi bien influencée par la trap que Kraftwerk, rejoignez-moi !",
-  instruments_list: ["synthétiseur, batterie, vocoder","xylophone"],
+  description: "je souhaiterais faire de la musique aussi bien influencée par la trap que Kraftwerk, rejoignez-moi dans ce nouveau défi !",
+  instruments_list: ["synthétiseur", "batterie", "vocoder", "xylophone"],
   capacity: 4,
   jam_date: DateTime.strptime("12/20/2022 20:00", "%m/%d/%Y %H:%M"),
 }
 
 jam9 =  {
-  title: " Pump up the Jam",
+  title: "Pump up the Jam",
   location: "21 rue de Maubeuge, 75009 Paris",
-  description: "Je fais de l'eurodance et je cherche un joueur de triangle pour donner de l'âme à mes compos",
-  instruments_list: ["triangle"],
+  description: "Je fais de l'Eurodance et je cherche un joueur de triangle pour donner de l'âme à mes compos",
+  instruments_list: ["triangle", "synthétiseur"],
   capacity: 2,
   jam_date: DateTime.strptime("12/14/2022 20:00", "%m/%d/%Y %H:%M"),
 }
 
 jam10 =  {
-  title: " Edit path",
+  title: "Edit path",
   location: "4 place Jean-Baptiste Pigalle, 75009 Paris",
   description: "Pour les codeurs qui aiment les classiques de la chanson française",
   instruments_list: ["piano", "trompette", "guitare"],
@@ -219,7 +219,7 @@ booking2 =  {
 }
 
 booking3 =  {
-  message: "c'est l'heure de la jam! let's go!",
+  message: "J'ai réussi à me libérer pour cette date, je te promets que ça va être super !",
 }
 bookings_options = [booking1, booking2, booking3]
 
@@ -276,7 +276,7 @@ post3 =  {
 }
 
 post4 =  {
-  content: "Ca va être trop bien!",
+  content: "Ca va être trop bien !",
 
 }
 
@@ -321,7 +321,7 @@ puts "Done!"
 
 puts ">"
 puts "Starts creating Instruments..."
-instruments_options = [{ name:"Piano" }, { name:"Hautbois" }, { name:"Harpe" }, { name:"Synthétiseurs" }, { name:"Saxophone" }, { name:"Trompette" }, { name:"Triangle" }, { name:"Clavecin" },{ name:"Basse" },{ name:"Batterie" }, { name:"Guitare" },]
+instruments_options = [{ name:"Piano" }, { name:"Hautbois" }, { name:"Harpe" }, { name:"Synthétiseurs" }, { name:"Saxophone" }, { name:"Trompette" }, { name:"Triangle" }, { name:"Clavecin" },{ name:"Basse" },{ name:"Batterie" }, { name:"Guitare" }, { name:"Voix" },]
 instruments_options.each do |instrument_option|
   instrument = Instrument.new(instrument_option)
   instrument.save!
