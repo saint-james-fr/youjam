@@ -10,3 +10,9 @@
 .container-home h2 {
   color: $color-primary
 }
+
+.home-creations {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
