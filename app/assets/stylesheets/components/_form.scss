@@ -14,3 +14,35 @@
 .edit_jam .modal-title {
   color: white;
 }
+
+.supercontainer {
+  margin: 25px;
+  border-color: none;
+background-color: gre
+}
+.body .h2 {
+  margin: 25px;
+
+}
+
+
+
+.was-validated .form-control:valid, .form-control.is-valid {
+  background: white;
+  border: 1px solid #ced4da;
+  border-color:#ced4da;
+}
+.form-control:focus {
+  border-color: none;
+  outline: 0;
+  box-shadow: none;
+  border-color:#ced4da;
+
+}
+
+.form-control.is-valid:focus {
+  border-color: none;
+  box-shadow: none;
+  border-color:#ced4da;
+
+}

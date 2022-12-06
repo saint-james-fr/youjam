@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   resources :jams, except: :destroy do
     resources :bookings, only: [:new, :create] do
       member do
-        patch :accepted
-        patch :declined
-        patch :canceled
+      patch :accepted
+      patch :declined
+      patch :canceled
     end
     end
     resources :posts, except: [:show, :index]

@@ -12,4 +12,9 @@ class PagesController < ApplicationController
   def profile
     @user = User.find(params[:id])
   end
+
+  def update
+    @user = User.find(params[:id])
+    @user.update(params[:user])
+  end
 end
