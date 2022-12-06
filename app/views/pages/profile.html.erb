@@ -35,15 +35,10 @@
     </div>
     <% end %>
   </div>
+  <h4>Jams à venir</h4>
   <div class="profile-bookings">
-    <h4>Jams à venir</h4>
-    <% @user.bookings.each do |booking| %>
-      <%= link_to jam_path(booking.jam) do %>
-        <div class="mini-jam" style="background-image: url:( <%= cl_image_tag booking.jam.photo.key, crop: :fill %>)">
-          <h2><%= booking.jam.title.capitalize %></h2>
-          <p><%= booking.jam.location %></p>
-        </div>
-      <% end %>
+    <% @user.booked_jams.each do |jam| %>
+        <%= render "mini_jams", jam: jam %>
     <% end %>
   </div>
   <%# <div class="user-artists"> %>
@@ -52,3 +47,14 @@
     <%# <% end %>
   <%# </div> %>
 </div>
+
+<%# <div class="booked-jams"> %>
+      <%# <% @user.bookings.each do |booking| %>
+        <%# <%= link_to jam_path(booking.jam) do %>
+          <%# <div class="mini-jam" style="background-image: url( <%= cl_image_path booking.jam.photo.key, crop: :fill %>)"> %>
+            <%# <h2><%= booking.jam.title.capitalize</h2>  %>
+            <%# <p><%= booking.jam.location</p>  %>
+          <%# </div> %>
+        <%# <% end %>
+      <%# <% end %>
+    <%# </div> %>
