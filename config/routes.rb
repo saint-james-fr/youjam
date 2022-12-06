@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
   get "dashboard", to: "pages#dashboard"
+  get "spotify", to: "spotify#artists"
   get "profile/:id", to: "pages#profile", as: :profile
+  post "update_artist_list", to: "pages#update_artist_list", as: :update_artist_list
 
   resources :jams, except: :destroy do
     resources :bookings, only: [:new, :create] do
@@ -17,9 +19,8 @@ Rails.application.routes.draw do
 
   resources :posts, only: :destroy
 
-  resources :chatrooms, only: [:index, :show] do
+  resources :chatrooms, only: [:index, :show, :new, :create] do
     resources :messages, only: :create
   end
 
-  #resources reviews, only: [:new,:create, :destroy]
 end

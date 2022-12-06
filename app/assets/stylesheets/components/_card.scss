@@ -8,9 +8,11 @@
   display: flex;
   flex-direction: column;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  border-radius: 20px;
   min-width: 266.25px;
-  transition: opacity 0.1s ease-in-out
+  transition: opacity 0.1s ease-in-out;
+  background-color:white;
+  border-radius: 12px;
+  height: 446px;
 }
 
 .jam-card:hover .jam-card-cover,
@@ -23,39 +25,62 @@
   height: 180px;
   position: relative;
   border-radius: 20px 20px 0px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .jam-card-photo {
+    height: 89%;
+    width: 89%;
+    border-radius: 12px;
+    object-fit: cover;
+    margin-top: 1.5em;
+  }
 }
 
 .jam-card-cover .avatar {
   position: absolute;
-  top: 157px;
-  left: 10px;
+  top: 18%;
+  right: 10%;
 }
 
 .jam-card-infos {
   flex-grow: 1;
-  position: relative;
-  height: 250px;
+  height: 100%;
 }
 
 .jam-card-infos h3 {
   font-size: 1.3em;
-  color: $color-primary;
-  font-weight: bold;
+  color: $color-black;
+  font-weight: 600;
 }
 
 .jam-card-infos .card-date {
   font-size: 0.9em;
-  position: absolute;
-  top: 5px;
-  left: 61px;
-  color: $color-tertiary;
+  color: $color-light-grey;
+  margin-top: 1em;
+  font-weight: 700;
+
+  i {
+    font-size: 15px;
+    margin-right: 8px;
+  }
 }
 .jam-card-infos .card-location {
-  font-size: 1em;
-  color: $color-tertiary;
+  font-size: 0.9em;
+  color: $color-light-grey;
+  margin-top: 1em;
+  font-weight: 700;
+
+  i {
+    font-size: 15px;
+    margin-right: 8px;
+  }
 }
+
 .jam-tags {
   display: flex;
+  margin-top: 0.5em;
 }
 .participant-icon {
   font-size: 25px;

@@ -5,11 +5,16 @@
 </div>
 <% if @jam.user == current_user || @jam.bookings.any? {|booking| booking.user == current_user && booking.status == "accepted"} %>
   <div class="container">
-      <div class="post">
+      <div class="post" data-controller="jam-subscription"
+      data-jam-subscription-jam-id-value="<%= @jam.id %>"  data-jam-subscription-user-id-value="<%= current_user.id %>" >
         <div class="create-publication mb-5">
           <%= render "posts/new_post", post: @post, jam: @jam %>
         </div>
-        <%= render "posts/index_posts", posts: @posts, jam: @jam %>
+        <div class="posts" data-jam-subscription-target="posts">
+            <% @posts.each do |post| %>
+             <%= render "posts/post", post: post, jam: @jam%>
+            <% end %>
+          </div>
       </div>
   </div>
 <% end %>

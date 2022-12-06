@@ -1,5 +1,5 @@
 .chatroom {
-  background: white;
+  background-color:rgba(255, 255, 255, 0.676);
   margin-top: 9px;
   height: calc(100vh - 75px);
   display: flex;
@@ -40,26 +40,4 @@
   }
 }
 
-.messages-list {
-  width: 22vw;
-  margin-top: 0.5em;
-  background-color: $color-light-blue;
 
-  h4 {
-    padding: 0.5em;
-    color: $color-primary;
-    font-weight: bold;
-  }
-
-  .chatroom-title {
-    margin: 0.5em;
-    padding: 1em;
-    background-color: $color-primary;
-    border-radius: 4px;
-  }
-
-  a {
-    text-decoration: none;
-    color: white;
-  }
-}

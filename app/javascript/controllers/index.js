@@ -19,6 +19,9 @@ application.register("hello", HelloController)
 import JamStatusToggleController from "./jam_status_toggle_controller"
 application.register("jam-status-toggle", JamStatusToggleController)
 
+import JamSubscriptionController from "./jam_subscription_controller"
+application.register("jam-subscription", JamSubscriptionController)
+
 import MapController from "./map_controller"
 application.register("map", MapController)
 

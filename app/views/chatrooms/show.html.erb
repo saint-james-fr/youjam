@@ -6,13 +6,7 @@
     data-chatroom-subscription-current-user-id-value="<%= current_user.id %>"
   >
     <div class="chatroom-name">
-      <% if @chatroom.name.nil? %>
-        <% @chatroom.chatmembers.each do |chatmember| %>
-          <%= chatmember.user.first_name %> <%= chatmember.user.last_name %>
-        <% end %>
-      <% else %>
-        <%= @chatroom.name.capitalize %>
-      <% end %>
+      <%= @chatroom.title(current_user) %>
     </div>
 
     <div class="messages" data-chatroom-subscription-target="messages">
