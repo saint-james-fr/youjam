@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
   get "dashboard", to: "pages#dashboard"
+  get "spotify", to: "spotify#artists"
   get "profile/:id", to: "pages#profile", as: :profile
 
   resources :jams, except: :destroy do
@@ -21,5 +22,4 @@ Rails.application.routes.draw do
     resources :messages, only: :create
   end
 
-  #resources reviews, only: [:new,:create, :destroy]
 end

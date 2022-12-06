@@ -1,1 +1,69 @@
-<%= @user.first_name %>
+<div class="container mb-5 mt-5 profile-grid">
+  <div class="sidebar-profile">
+    <div class="profile-infos">
+      <div>
+        <div>
+          <p class="information-title mb-3"><%= @user.first_name%> <%= @user.last_name %></p>
+        </div>
+        <div class="d-flex">
+          <%= cl_image_tag @user.avatar.key, class: "avatar" %>
+        </div>
+        <div class="socials">
+          <a href="<%= @user.spotify_account %>"><i class="fa-brands fa-spotify"></i></a>
+          <a href="<%= @user.instagram_url %>"><i class="fab fa-instagram"></i></a>
+          <a href="https://open.spotify.com/user/<%= @user.soundcloud_url %>"><i class="fab fa-soundcloud"></i></a>
+        </div>
+      </div>
+      <div class="profile-description mt-3 mb-5">
+        <p><%= @user.description %></p>
+      </div>
+      <div class="w-100">
+        <p><i class="fa-solid fa-location-pin"></i> <%= @user.location %></p>
+      </div>
+      <div class="profile-instruments-tags">
+        <% @user.instruments.each do |instrument| %>
+          <p class="tag tag-instruments"><%= instrument.name  %></p>
+        <% end %>
+      </div>
+      <div class="profile-genres-tags">
+          <% @user.genres.each do |genre| %>
+          <p class="tag tag-genres"><%= genre.name  %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="profile-content ms-5 me-5">
+    <h4>Artist.e.s favorit.e.s</h4>
+    <% unless @user.artists.empty?  %>
+      <div class="user-artists mt-1 mb-5">
+        <% @user.artists.each do |artist| %>
+          <%= artist.name %>
+        <% end %>
+      </div>
+    <% end %>
+    <% if params[:id].to_i == current_user.id  %>
+      <%= link_to "Connexion à Spotify", spotify_path %>
+    <% else %>
+      <p>Pas d'artistes à montrer encore...</p>
+    <% end %>
+    <% unless @user.creations.empty?  %>
+      <h4>Vidéos</h4>
+      <div class="user-creations mt-1 mb-5">
+        <% @user.creations.each do |creation| %>
+        <div class="creation-card p-3">
+          <iframe class="br-3" width="auto" height="auto" loading="lazy" src="<%= creation.creation_url %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <div class="pt-2 pb-2"><%= creation.message %></div>
+        </div>
+        <% end %>
+      </div>
+    <% end %>
+    <% unless @user.booked_jams.empty? %>
+      <h4>Jams à venir</h4>
+      <div class="profile-bookings">
+        <% @user.booked_jams.each do |jam| %>
+            <%= render "mini_jams", jam: jam %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
