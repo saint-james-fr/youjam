@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get "dashboard", to: "pages#dashboard"
   get "spotify", to: "spotify#artists"
   get "profile/:id", to: "pages#profile", as: :profile
+  post "update_artist_list", to: "pages#update_artist_list", as: :update_artist_list
 
   resources :jams, except: :destroy do
     resources :bookings, only: [:new, :create] do
