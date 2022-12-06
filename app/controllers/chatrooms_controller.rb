@@ -12,7 +12,7 @@ class ChatroomsController < ApplicationController
 
   def new
     @chatroom = Chatroom.new
-    @users = User.all.map { |user| ["#{user.first_name} #{user.last_name}", user.id] }
+    @users = User.all.reject { |user| user.id == current_user.id }.map { |user| ["#{user.first_name} #{user.last_name}", user.id] }
     authorize @chatroom
   end
 
