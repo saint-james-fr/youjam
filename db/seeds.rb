@@ -2,6 +2,10 @@
 
 puts ">"
 puts "Destroying previous data..."
+UserInstrument.destroy_all
+Instrument.destroy_all
+UserArtist.destroy_all
+Artist.destroy_all
 Booking.destroy_all
 Post.destroy_all
 Creation.destroy_all
@@ -351,7 +355,7 @@ creation10 =  {
   message: "Attention, cette vidéo va vous faire groover !"
 }
 
-creations_options = [creation1, creation2, creation3, creation4]
+creations_options = [creation1, creation2, creation3, creation4, creation5, creation6, creation7, creation8, creation9, creation10]
 
 puts ">"
 puts "Starts creating Creations..."

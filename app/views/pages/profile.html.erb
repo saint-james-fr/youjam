@@ -33,13 +33,18 @@
     </div>
   </div>
   <div class="profile-content ms-5 me-5">
+    <h4>Artist.e.s favorit.e.s</h4>
     <% unless @user.artists.empty?  %>
-      <h4>Artists favorites</h4>
-      <div class="user-creations mt-1 mb-5">
+      <div class="user-artists mt-1 mb-5">
         <% @user.artists.each do |artist| %>
-          <%= artist %>
+          <%= artist.name %>
         <% end %>
       </div>
+    <% end %>
+    <% if params[:id].to_i == current_user.id  %>
+      <%= link_to "Connexion à Spotify", spotify_path %>
+    <% else %>
+      <p>Pas d'artistes à montrer encore...</p>
     <% end %>
     <% unless @user.creations.empty?  %>
       <h4>Vidéos</h4>
