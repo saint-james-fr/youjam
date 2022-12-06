@@ -22,9 +22,18 @@
             <p class="tag tag-genres"><%= genre.name  %></p>
           <% end %>
         </div>
+      </div>
+      <div class="profile-description">
         <p><%= @user.description %></p>
       </div>
     </div>
+  </div>
+  <div class="user-creations mt-5 mb-5">
+    <% @user.creations.each do |creation| %>
+    <div>
+      <iframe width="auto" height="auto" loading="lazy" src="<%= creation.creation_url %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <% end %>
   </div>
   <div class="profile-bookings">
     <h4>Jams à venir</h4>
@@ -42,12 +51,4 @@
       <%# <%# <%= link_to artist.name , artist.spotify_url %>
     <%# <% end %>
   <%# </div> %>
-  <h4>Son contenu</h4>
-  <div class="user-creations">
-    <% @user.creations.each do |creation| %>
-    <div>
-      <iframe width="auto" height="auto" loading="lazy" src="<%= creation.creation_url %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-    <% end %>
-  </div>
 </div>
