@@ -39,8 +39,8 @@ class JamsController < ApplicationController
   def index
     @jams = policy_scope(Jam).all
     authorize @jams
-    if params.present?
-      params[:search] = ""
+    if params[:search].nil?
+      params[:search] = ''
     end
     if params['search']['query'].present?
       jam_ids = @jams.select { |jam| jam.instruments_list.any? { |instrument| instrument.include?(params['search']['query']) } }.map(&:id)
@@ -70,6 +70,13 @@ class JamsController < ApplicationController
     @post = Post.new
     @posts = @jam.posts
     @instruments = Instrument.all.pluck(:name)
+
+    @markers = [{
+        lat: @jam.latitude,
+        lng: @jam.longitude,
+        info_window: render_to_string(partial: 'info_window', locals: { jam: @jam }),
+        image_url: helpers.asset_url("jitar")
+    }]
   end
 
   private

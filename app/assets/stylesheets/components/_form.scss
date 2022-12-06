@@ -15,6 +15,7 @@
   color: white;
 }
 
+
 .supercontainer {
   margin: 25px;
   border-color: none;
@@ -24,7 +25,6 @@ background-color: gre
   margin: 25px;
 
 }
-
 
 
 .was-validated .form-control:valid, .form-control.is-valid {
@@ -45,4 +45,10 @@ background-color: gre
   box-shadow: none;
   border-color:#ced4da;
 
+
+.formboxwhite {
+  padding: 40px;
+  background-color: #00000030;
+  border-radius: 5px;
+  opacity: 1;
 }
