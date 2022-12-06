@@ -1,14 +1,32 @@
+.profile-grid {
+  display: grid;
+  grid-template-columns: 2fr 5fr;
+}
+
+.sidebar-profile {
+  height: 100%;
+  background-color: $color-dark-blue;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  border-radius: 5px;
+
+  .information-title {
+    color: white;
+    text-align: center;
+  }
+}
+
 .card-profile {
   display: flex;
-    margin-top: 50px;
-    border: 1px solid #3912A7;
     display: block;
 }
 
 .profile-infos {
   padding: 20px;
   display: flex;
-
+  flex-direction: column;
+  align-items: center;
 
   .avatar {
 
@@ -24,28 +42,24 @@
    i {
     font-size: 1.5em;
     font-weight: 400;
-    color: $color-primary;
+    color: white;
     padding: 10px;
     padding-right: 10px;
   }
 }
 
-.profile-details {
-  padding-left: 50px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  flex-grow: 1;
-}
-
 .profile-instruments-tags {
-  margin-top: 0.7em;
+  margin-top: 1.4em;
   display: flex;
+  justify-content: flex-start;
+  width: 100%;
 }
 
 .profile-genres-tags {
   display: flex;
   margin-top: 0.7em;
+  justify-content: flex-start;
+  width: 100%;
 }
 
 .profile-description {
@@ -82,5 +96,11 @@
 .mini-jam-card {
   background-color: white;
   border-radius: 0px 0px 20px 20px;
+  height: 100%;
+}
+
+.creation-card {
+  background-color: white;
+  border-radius: 20px;
   height: 100%;
 }

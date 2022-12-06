@@ -1,7 +1,10 @@
-<div class="container mb-5">
-  <div class="card-profile">
+<div class="container mb-5 mt-5 profile-grid">
+  <div class="sidebar-profile">
     <div class="profile-infos">
       <div>
+      <div>
+        <p class="information-title mb-3"><%= @user.first_name%> <%= @user.last_name %></p>
+      </div>
       <%= cl_image_tag @user.avatar.key, class: "avatar" %>
         <div class="socials">
           <a href="<%= @user.spotify_account %>"><i class="fa-brands fa-spotify"></i></a>
@@ -9,52 +12,37 @@
           <a href="https://open.spotify.com/user/<%= @user.soundcloud_url %>"><i class="fab fa-soundcloud"></i></a>
         </div>
       </div>
-      <div class="profile-details">
-        <p class="information-title"><%= @user.first_name%> <%= @user.last_name %></p>
+      <div>
         <p><%= @user.location %></p>
-        <div class="profile-instruments-tags">
-          <% @user.instruments.each do |instrument| %>
-            <p class="tag tag-instruments"><%= instrument.name  %></p>
-          <% end %>
-        </div>
-        <div class="profile-genres-tags">
-            <% @user.genres.each do |genre| %>
-            <p class="tag tag-genres"><%= genre.name  %></p>
-          <% end %>
-        </div>
       </div>
-      <div class="profile-description">
+      <div class="profile-description mt-5">
         <p><%= @user.description %></p>
       </div>
+      <div class="profile-instruments-tags">
+        <% @user.instruments.each do |instrument| %>
+          <p class="tag tag-instruments"><%= instrument.name  %></p>
+        <% end %>
+      </div>
+      <div class="profile-genres-tags">
+          <% @user.genres.each do |genre| %>
+          <p class="tag tag-genres"><%= genre.name  %></p>
+        <% end %>
+      </div>
     </div>
   </div>
-  <div class="user-creations mt-5 mb-5">
-    <% @user.creations.each do |creation| %>
-    <div>
-      <iframe width="auto" height="auto" loading="lazy" src="<%= creation.creation_url %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <div class="profile-content ms-5 me-5">
+    <div class="user-creations mt-5 mb-5">
+      <% @user.creations.each do |creation| %>
+      <div class="creation-card p-3">
+        <iframe width="auto" height="auto" loading="lazy" src="<%= creation.creation_url %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <% end %>
     </div>
-    <% end %>
+    <h4>Jams à venir</h4>
+    <div class="profile-bookings">
+      <% @user.booked_jams.each do |jam| %>
+          <%= render "mini_jams", jam: jam %>
+      <% end %>
+    </div>
   </div>
-  <h4>Jams à venir</h4>
-  <div class="profile-bookings">
-    <% @user.booked_jams.each do |jam| %>
-        <%= render "mini_jams", jam: jam %>
-    <% end %>
-  </div>
-  <%# <div class="user-artists"> %>
-    <%# <% @user.artists.each do |artist| %>
-      <%# <%# <%= link_to artist.name , artist.spotify_url %>
-    <%# <% end %>
-  <%# </div> %>
 </div>
-
-<%# <div class="booked-jams"> %>
-      <%# <% @user.bookings.each do |booking| %>
-        <%# <%= link_to jam_path(booking.jam) do %>
-          <%# <div class="mini-jam" style="background-image: url( <%= cl_image_path booking.jam.photo.key, crop: :fill %>)"> %>
-            <%# <h2><%= booking.jam.title.capitalize</h2>  %>
-            <%# <p><%= booking.jam.location</p>  %>
-          <%# </div> %>
-        <%# <% end %>
-      <%# <% end %>
-    <%# </div> %>
