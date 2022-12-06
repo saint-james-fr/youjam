@@ -1,29 +1,30 @@
 .tag {
   width: auto;
-  color: white;
-  border-radius: 16px;
-  padding: 1px 10px;
+  border-radius: 4px;
+  padding: 2px 11px;
   font-size: 0.8em;
-  margin-right: 0.2em;
+  margin-right: 0.4em;
+  font-family: $headers-font;
+  font-weight: 800;
 }
 
 .tag-genres {
-  background-color: $color-primary;
+  color: $color-primary;
+  background-color: $color-light-blue;
 }
 
 .tag-instruments {
-  background-color: $color-secondary;
+  color: $color-secondary;
+  background-color: #CCEEEE;
 }
 
 .tag-supp {
-  background-color: #eaeaea;
-  border: solid $color-secondary;
+  background-color: #CCEEEE;
   color: $color-secondary;
 }
 
 .tag-supp-genres {
-  background-color: #eaeaea;
-  border: solid $color-primary;
+  background-color: $color-light-blue;
   color: $color-primary;
   width: auto;
   border-radius: 16px;
