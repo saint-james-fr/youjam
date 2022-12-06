@@ -1,0 +1,53 @@
+.card-profile {
+  display: flex;
+    margin-top: 50px;
+    border: 1px solid #3912A7;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.profile-infos {
+  padding: 20px;
+  display: flex;
+
+
+  .avatar {
+    width: 150px;
+  }
+}
+
+.socials {
+  display: flex;
+  justify-content: space-evenly;
+
+   i {
+    font-size: 2em;
+    font-weight: 400;
+    color: $color-primary;
+    padding: 10px;
+  }
+}
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.profile-instruments-tags {
+  display: flex;
+}
+
+.profile-genres-tags {
+  display: flex;
+  margin-top: 1em;
+}
+
+.profile-bookings {
+}
+
+.user-creations {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+}

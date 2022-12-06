@@ -304,7 +304,17 @@ creation2 =  {
   creation_url: "https://www.youtube.com/watch?v=WaM2pxTPstw"
 }
 
-creations_options = [creation1, creation2]
+creation3 =  {
+  name: "Mon dernier concert",
+  creation_url: "https://www.youtube.com/watch?v=WaM2pxTPstw"
+}
+
+creation4 =  {
+  name: "Mon dernier concert",
+  creation_url: "https://www.youtube.com/watch?v=WaM2pxTPstw"
+}
+
+creations_options = [creation1, creation2, creation3, creation4]
 
 puts ">"
 puts "Starts creating Creations..."

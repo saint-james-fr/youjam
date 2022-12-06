@@ -1,12 +1,49 @@
 <div class="container">
-  <div class="card-infos-profile">
-    <%= cl_image_tag @user.avatar.key, class: "avatar" %>
-    <div class="infos-profile-description">
-      <p><%= @user.first_name%> <%= @user.last_name %></p>
-      <div class="profile-instruments-tags">
-      <% raise %>
-        <%= @user.user_instruments.instrument.name %>
+  <div class="card-profile">
+    <div class="profile-infos">
+      <%= cl_image_tag @user.avatar.key, class: "avatar" %>
+      <div class="profile-details">
+        <p class="information-title"><%= @user.first_name%> <%= @user.last_name %></p>
+        <p><%= @user.location %></p>
+        <div class="profile-instruments-tags">
+          <% @user.instruments.each do |instrument| %>
+            <p class="tag tag-instruments"><%= instrument.name  %></p>
+          <% end %>
+        </div>
+        <div class="profile-genres-tags">
+            <% @user.genres.each do |genre| %>
+            <p class="tag tag-genres"><%= genre.name  %></p>
+          <% end %>
+        </div>
+        <p><%= @user.description %></p>
       </div>
     </div>
+    <div class="socials">
+      <a href="#"><i class="fa-brands fa-spotify"></i></a>
+      <a href="<%= @user.instagram_url %>"><i class="fab fa-instagram"></i></a>
+      <a href="<%= @user.soundcloud_url  %>"><i class="fab fa-soundcloud"></i></a>
+    </div>
+  </div>
+  <div class="profile-bookings">
+    <h4>Jams à venir</h4>
+    <% @user.bookings.each do |booking| %>
+      <%= link_to jam_path(booking.jam) do %>
+        <div class="mini-jam" style="background-image: url:( <%= cl_image_tag booking.jam.photo.key, crop: :fill %>)">
+          <h2><%= booking.jam.title.capitalize %></h2>
+          <p><%= booking.jam.location %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <%# <div class="user-artists"> %>
+    <%# <% @user.artists.each do |artist| %>
+      <%# <%# <%= link_to artist.name , artist.spotify_url %>
+    <%# <% end %>
+  <%# </div> %>
+  <h5>Son contenu</h5>
+  <div class="user-creations">
+    <% @user.creations.each do |creation| %>
+      <iframe width="560" height="315" loading="lazy" src="<%= creation.creation_url %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <% end %>
   </div>
 </div>

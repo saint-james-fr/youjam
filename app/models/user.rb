@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :jams, dependent: :destroy
   has_many :bookings, dependent: :destroy
   has_many :posts, dependent: :destroy
+  has_many :creations, dependent: :destroy
 
   has_one_attached :avatar
 
