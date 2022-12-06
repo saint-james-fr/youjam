@@ -298,43 +298,53 @@ puts "Done!"
 # !Creations options & Seed
 
 creation1 =  {
-  creation_url: "https://www.youtube.com/watch?v=WaM2pxTPstw"
+  creation_url: "https://www.youtube.com/watch?v=WaM2pxTPstw",
+  message: "On avait bien rigolé ce jour là!"
 }
 
 creation2 =  {
-  creation_url: "https://www.youtube.com/watch?v=g-D99C9poR4"
+  creation_url: "https://www.youtube.com/watch?v=g-D99C9poR4",
+  message: "Super jam, en plus le public était chaud"
 }
 
 creation3 =  {
-  creation_url: "https://www.youtube.com/watch?v=bKn7FyGK080"
+  creation_url: "https://www.youtube.com/watch?v=bKn7FyGK080",
+  message: "Écoutez le batteur, c'est de la folie !"
 }
 
 creation4 =  {
-  creation_url: "https://www.youtube.com/watch?v=Kk6j3BXHBWM"
+  creation_url: "https://www.youtube.com/watch?v=Kk6j3BXHBWM",
+  message: "Super hâte de remettre ça avec vous"
 }
 
 creation5 =  {
-  creation_url: "https://www.youtube.com/watch?v=opdEWV9PcNo"
+  creation_url: "https://www.youtube.com/watch?v=opdEWV9PcNo",
+  message: "J'en garde un super souvenir, meilleur jam de l'année !"
 }
 
 creation6 =  {
-  creation_url: "https://www.youtube.com/watch?v=T5cMv7-Gr5Q"
+  creation_url: "https://www.youtube.com/watch?v=T5cMv7-Gr5Q",
+  message: "La prochaine fois, on fera encore mieux !"
 }
 
 creation7 =  {
-  creation_url: "https://www.youtube.com/watch?v=wrHCWDffcXo"
+  creation_url: "https://www.youtube.com/watch?v=wrHCWDffcXo",
+  message: "Franchement pas mal pour une première !"
 }
 
 creation8 =  {
-  creation_url: "https://www.youtube.com/watch?v=1s6rtWjMTVs"
+  creation_url: "https://www.youtube.com/watch?v=1s6rtWjMTVs",
+  message: "J'ai pris beaucoup de plaisir, merci Youjam d'avoir rendu ça possible !"
 }
 
 creation9 =  {
-  creation_url: "https://www.youtube.com/watch?v=DLn48c05xVA"
+  creation_url: "https://www.youtube.com/watch?v=DLn48c05xVA",
+  message: "Groove de malade, équipe de dingue, un résultat de folie..."
 }
 
 creation10 =  {
-  creation_url: "https://www.youtube.com/watch?v=HO_STXzgdjg"
+  creation_url: "https://www.youtube.com/watch?v=HO_STXzgdjg",
+  message: "Attention, cette vidéo va vous faire groover !"
 }
 
 creations_options = [creation1, creation2, creation3, creation4]

@@ -17,20 +17,27 @@
   }
 }
 
+.profile-content {
+  color:white;
+  background-color:rgba(255, 255, 255, 0.676);
+  padding: 20px;
+  border-radius: 5px
+}
+
 .card-profile {
   display: flex;
     display: block;
 }
 
 .profile-infos {
-  padding: 20px;
+  padding: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
 
   .avatar {
-
     width: 150px;
+    margin: 0 auto;
   }
 }
 
@@ -69,7 +76,7 @@
 .profile-bookings {
   display: grid;
   justify-content: start;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 2em;
 
   a {
@@ -95,8 +102,13 @@
 
 .mini-jam-card {
   background-color: white;
-  border-radius: 0px 0px 20px 20px;
+  border-radius: 20px;
   height: 100%;
+}
+
+.mini-jam-card:hover .jam-card-cover,
+.mini-jam-card:hover .jam-card-title {
+  opacity: 0.9;
 }
 
 .creation-card {
