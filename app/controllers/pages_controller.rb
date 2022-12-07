@@ -19,14 +19,18 @@ class PagesController < ApplicationController
       creation.update(creation_url: creation_url)
     end
     @user_artists = UserArtist.where(user_id: @user.id)
-    @all_artists = @user.artists#.map {|artist| [artist.name, artist.id]}
+    @all_artists = @user.artists
   end
 
   def update_artist_list
-    params[:artists].each do |artist_id|
-      UserArtist.find_by(artist: Artist.find(artist_id.to_i), user: current_user).update(toplist: true)
+    unless params[:artists].nil?
+      params[:artists].each do |artist_id|
+        UserArtist.find_by(artist: Artist.find(artist_id.to_i), user: current_user).update(toplist: true)
+      end
+      redirect_to profile_path(current_user)
+    else
+      flash.alert = "Veuillez remplir le formulaire."
     end
-    redirect_to profile_path(current_user)
   end
 
   def update
