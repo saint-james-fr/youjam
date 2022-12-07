@@ -10,14 +10,14 @@
         <div class="jam-tags flex-wrap">
           <% if jam.instruments_list.count > 3 %>
             <% jam.instruments_list.first(3).each do |instrument| %>
-              <div class="tag tag-instruments mt-1"><%= instrument %></div>
+              <div class="tag tag-instruments mt-1"><%= instrument.capitalize %></div>
             <% end %>
             <div class="tag tag-supp mt-1">
-              ...
+              + <%=jam.instruments_list.count - 3 %>
             </div>
           <% else %>
             <% jam.instruments_list.each do |instrument| %>
-              <div class="tag tag-instruments mt-1"><%= instrument %></div>
+              <div class="tag tag-instruments mt-1"><%= instrument.capitalize %></div>
             <% end %>
           <% end %>
         </div>
