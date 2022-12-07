@@ -1,0 +1,23 @@
+<button class="button-circle" data-bs-toggle="modal" data-bs-target="#reviewModal"> + </button>
+
+<div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered ">
+    <div class="modal-content">
+        <div class="modal-header modale">
+          <%# <%= cl_image_tag current_user.avatar.key, class: "avatar" %>
+          <h2 class="modal-title fs-5" id="reviewModallLabel">Publier une revue</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body modale">
+          <%= simple_form_for review do |f| %>
+
+            <%= f.input :description, as: :text, label: false, placeholder: "Mon message" %>
+            <%= f.input :rating, collection: (1..5), include_blank: false %>
+            <%= f.input :reviewee_id, as: :hidden, input_html: {value: params["id"]}%>
+
+            <%= f.button :submit, class: "modal-submit", value: "Publier ma revue" %>
+          <% end %>
+        </div>
+    </div>
+  </div>
+</div>

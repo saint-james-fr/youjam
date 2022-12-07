@@ -3,10 +3,10 @@
     <div class="profile-infos">
       <div>
         <div>
-          <p class="information-title mb-3"><%= @user.first_name%> <%= @user.last_name %></p>
+          <p class="information-title mb-3 "><%= @user.first_name%> <%= @user.last_name %></p>
         </div>
         <div class="d-flex">
-          <%= cl_image_tag @user.avatar.key, class: "avatar" %>
+          <%= cl_image_tag @user.avatar.key, class: "avatar profile-infos-avatar" %>
         </div>
         <div class="socials">
           <a href="https://open.spotify.com/user/<%= @user.spotify_account %>"><i class="fa-brands fa-spotify"></i></a>
@@ -14,6 +14,12 @@
           <a href="<%= @user.soundcloud_url %>"><i class="fab fa-soundcloud"></i></a>
         </div>
       </div>
+      <div class="index-reviews">
+      <div><%= render "reviews/sum_review", reviews: @reviews, average: @average %></div>
+      <div class="note-review"><%= @average %></div>
+      <div><%= render "reviews/new_review", review: @review %></div>
+      </div>
+
       <div class="profile-description mt-3 mb-5">
         <p><%= @user.description %></p>
       </div>
@@ -60,7 +66,7 @@
       <% end %>
     </div>
     <% unless @user.creations.empty?  %>
-      <h4>Vidéos</h4>
+      <h4><%= "Mes " if @user == current_user %>Vidéos</h4>
       <div class="user-creations mt-1 mb-5">
         <% @user.creations.each do |creation| %>
         <div class="creation-card p-3">

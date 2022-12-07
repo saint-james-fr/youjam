@@ -1,0 +1,18 @@
+
+
+
+    <div class="publication box-shadow-morphism publication-reviews" >
+                <div class="header-publication">
+                  <%= cl_image_tag review.reviewer.avatar.key, class: "avatar" %>
+                  <div class="infos-publication">
+                    <span class="post-author"><%=review.reviewer.first_name%> <%=review.reviewer.last_name%> </span>
+                    <div class="timeago">
+                      <%= distance_of_time_in_words(DateTime.now,review.created_at) %>
+                    </div>
+                  </div>
+                </div>
+                <div class="body-publication">
+                <p> <%= review.description %> </p>
+                <p> <%= review.rating %> </p>
+                </div>
+          </div>
