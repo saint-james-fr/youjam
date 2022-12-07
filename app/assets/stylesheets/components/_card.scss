@@ -42,6 +42,8 @@
   position: absolute;
   top: 18%;
   right: 10%;
+  box-shadow: 0px 0px 8px #ffffff90;
+  outline: 2px solid white;
 }
 
 .jam-card-infos {
@@ -80,8 +82,7 @@
 
 .participant-icon {
   font-size: 25px;
-  margin-right: 20px;
-  color: $color-secondary;
+  color: $color-light-grey;
 }
 
 .participants {
