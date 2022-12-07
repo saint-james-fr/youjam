@@ -1,16 +1,13 @@
 
 
 <div class="container container-dashboard">
-  <h2>Mes jams</h2>
-  <div class="jams-content-dashboard">
-      <% @all_my_jams.each do |jam| %>
-        <%= render "shared/dashboard_bookings_jam", jam: jam %>
-      <% end %>
-  </div>
-
-  <%= link_to "Editer mon profil", edit_user_registration_path %>
-
-
-
-
+  <% unless @all_my_jams.empty?  %>
+    <div class="jams-content-dashboard">
+        <% @all_my_jams.each do |jam| %>
+          <%= render "shared/dashboard_bookings_jam", jam: jam %>
+        <% end %>
+    </div>
+  <% else %>
+  <h2>Il n'y a pas encore de jams à afficher.</h2>
+  <% end %>
 </div>
