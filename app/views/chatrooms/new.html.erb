@@ -1,8 +1,9 @@
-<div class="container d-flex">
+<div class="container d-flex mt-2 mb-1 pb-5 chat-container">
   <%= render "index_bar", chatrooms: @chatrooms %>
   <div class="container chatroom">
-    <div class="chatroom-name">
-
+    <div class="">
+    </div>
+    <div class="w-75 mt-5 mb-3 mx-auto">
       <%= simple_form_for (@chatroom) do |f| %>
           <%= f.input :name, label: 'Nom de la conversation' %>
           <%= f.input :users,
@@ -12,17 +13,8 @@
                 input_html: { multiple: true, data: {controller: "tom-select", tom_select_options_value: {plugins: ['remove_button']}}} %>
           <%= f.submit 'Valider', class: 'primary-button w-100' %>
       <% end %>
-
-
-
-
-
     </div>
-
     <div class="messages" data-chatroom-subscription-target="messages">
-
     </div>
-
-
   </div>
 </div>
