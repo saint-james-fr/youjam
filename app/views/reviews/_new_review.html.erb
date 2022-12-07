@@ -1,20 +1,21 @@
-<button class="primary-button" data-bs-toggle="modal" data-bs-target="#reviewModal"> Publier un message </button>
+<button class="button-circle" data-bs-toggle="modal" data-bs-target="#reviewModal"> + </button>
 
-<div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true" data-jam-subscription-target="modal">
+<div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered ">
     <div class="modal-content">
         <div class="modal-header modale">
-          <%= cl_image_tag current_user.avatar.key, class: "avatar" %>
-          <h2 class="modal-title fs-5" id="postModalLabel">Publier une review</h2>
+          <%# <%= cl_image_tag current_user.avatar.key, class: "avatar" %>
+          <h2 class="modal-title fs-5" id="reviewModallLabel">Publier une revue</h2>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body modale" data-jam-subscription-target="form">
-          <%= simple_form_for [jam, post],
-          html: { data: { action: "turbo:submit-end->jam-subscription#resetForm" } } do |f| %>
+        <div class="modal-body modale">
+          <%= simple_form_for review do |f| %>
 
-            <%= f.input :content, as: :text, label: false, placeholder: "Mon message" %>
+            <%= f.input :description, as: :text, label: false, placeholder: "Mon message" %>
+            <%= f.input :rating, collection: (1..5), include_blank: false %>
+            <%= f.input :reviewee_id, as: :hidden, input_html: {value: params["id"]}%>
 
-            <%= f.button :submit, class: "modal-submit", value: "Publier mon message" %>
+            <%= f.button :submit, class: "modal-submit", value: "Publier ma revue" %>
           <% end %>
         </div>
     </div>

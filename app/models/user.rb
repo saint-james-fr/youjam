@@ -21,8 +21,8 @@ class User < ApplicationRecord
   has_many :booked_jams, through: :bookings, source: :jam
   has_one_attached :avatar
 
-  has_many :reviews_as_reviewer, foreign_key: :reviewer_id
-  has_many :reviews_as_reviewee, foreign_key: :reviewee_id
+  has_many :reviews_as_reviewer, foreign_key: :reviewer_id, class_name: "Review"
+  has_many :reviews_as_reviewee, foreign_key: :reviewee_id, class_name: "Review"
 
   validates :first_name, presence: true
   validates :last_name, presence: true
