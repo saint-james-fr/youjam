@@ -9,11 +9,17 @@
 
 .primary-button:hover {
   background-color: $color-secondary;
+  color: white;
   transition: background 0.3s ease;
 }
 
 .jambanner-i-button .primary-button {
   padding: 9px 29px
+}
+
+.primary-button.b-accept {
+  background-color: $color-secondary;
+  padding: 6px 29px;
 }
 
 .primary-button.b-accept {
