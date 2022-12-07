@@ -23,6 +23,15 @@ class PagesController < ApplicationController
 
     set_average(@user)
 
+    @user_artists = UserArtist.where(user_id: @user.id)
+    @all_artists = @user.artists#.map {|artist| [artist.name, artist.id]}
+  end
+
+  def update_artist_list
+    params[:artists].each do |artist_id|
+      UserArtist.find_by(artist: Artist.find(artist_id.to_i), user: current_user).update(toplist: true)
+    end
+    redirect_to profile_path(current_user)
   end
 
   def update

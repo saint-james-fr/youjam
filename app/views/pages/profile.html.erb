@@ -39,25 +39,38 @@
     </div>
   </div>
   <div class="profile-content ms-5 me-5">
-    <h4>Artist.e.s favorit.e.s</h4>
-    <% unless @user.artists.empty?  %>
-      <div class="user-artists mt-1 mb-5">
-        <% @user.artists.each do |artist| %>
-          <%= artist.name %>
+    <div class="mt-3 mb-3">
+      <h4>Artist.e.s favorit.e.s</h4>
+      <% unless @user.artists.empty?  %>
+        <% if @user == current_user %>
+          <%= form_with url:update_artist_list_path, method: :post do |f| %>
+            <%= select_tag :artists, options_from_collection_for_select(@all_artists, "id", "name"), { placeholder: "Choisissez vos artistes favoris", multiple: true, data: { controller: "tom-select", tom_select_options_value: { plugins: ['remove_button'] } } }%>
+            <%= submit_tag "C'est parti", class: "primary-button w-100 mt-2" %>
+          <% end %>
         <% end %>
-      </div>
-    <% end %>
-    <% if params[:id].to_i == current_user.id  %>
-      <%= link_to "Connexion à Spotify", spotify_path %>
-    <% else %>
-      <p>Pas d'artistes à montrer encore...</p>
-    <% end %>
+        <div class="d-flex w-100 flex-wrap mt-3 mb-3">
+          <% @all_artists.each do |artist| %>
+            <% if artist.user_artists.where(toplist: true).any? %>
+              <%= link_to artist.spotify_url do %>
+              <div class="tag tag-artist"><%= artist.name %></div>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+      <% if @user == current_user && @user.artists.empty? %>
+        <%= link_to "Connexion à Spotify", spotify_path, class: "primary-button" %>
+      <% end %>
+      <% if @user != current_user && @user.artists.empty?  %>
+        <p>Pas d'artistes à montrer encore...</p>
+      <% end %>
+    </div>
     <% unless @user.creations.empty?  %>
       <h4>Vidéos</h4>
       <div class="user-creations mt-1 mb-5">
         <% @user.creations.each do |creation| %>
         <div class="creation-card p-3">
-          <iframe class="br-3" width="auto" height="auto" loading="lazy" src="<%= creation.creation_url %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe class="br-3" width="100%" height="auto" loading="lazy" src="<%= creation.creation_url %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           <div class="pt-2 pb-2"><%= creation.message %></div>
         </div>
         <% end %>
