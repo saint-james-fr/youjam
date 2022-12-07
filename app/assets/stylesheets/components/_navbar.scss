@@ -59,7 +59,7 @@
   color: white;
 }
 
-.navbar-transparent .nav-item:hover {
+.navbar-transparent .nav-item:hover:not(.dropdown) {
   opacity: 0.7;
 }
 
@@ -103,7 +103,7 @@
 
 .user-name:hover {
   font-weight: 600;
-  color: var(--bs-nav-link-hover-color);
+  opacity: 0.7;
 }
 
 .dropdown-item:active {
