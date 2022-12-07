@@ -32,6 +32,12 @@
 }
 
 .tag-artist {
+  background-color: $color-dark-blue;
+  color: white;
+}
+
+.tag-artist a {
+  color: white;
   margin-bottom: 2px;
   background-color: $color-primary;
   color:  white;
