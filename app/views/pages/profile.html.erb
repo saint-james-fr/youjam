@@ -9,9 +9,9 @@
           <%= cl_image_tag @user.avatar.key, class: "avatar profile-infos-avatar" %>
         </div>
         <div class="socials">
-          <a href="<%= @user.spotify_account %>"><i class="fa-brands fa-spotify"></i></a>
+          <a href="https://open.spotify.com/user/<%= @user.spotify_account %>"><i class="fa-brands fa-spotify"></i></a>
           <a href="<%= @user.instagram_url %>"><i class="fab fa-instagram"></i></a>
-          <a href="https://open.spotify.com/user/<%= @user.soundcloud_url %>"><i class="fab fa-soundcloud"></i></a>
+          <a href="<%= @user.soundcloud_url %>"><i class="fab fa-soundcloud"></i></a>
         </div>
       </div>
       <div class="index-reviews">
@@ -44,15 +44,15 @@
       <% unless @user.artists.empty?  %>
         <% if @user == current_user %>
           <%= form_with url:update_artist_list_path, method: :post do |f| %>
-            <%= select_tag :artists, options_from_collection_for_select(@all_artists, "id", "name"), { placeholder: "Choisissez vos artistes favorit.e.s", multiple: true, data: { controller: "tom-select", tom_select_options_value: { plugins: ['remove_button'] } } }%>
-            <%= submit_tag "C'est parti", class: "primary-button w-100 mt-2" %>
+            <%= select_tag :artists, options_from_collection_for_select(@all_artists, "id", "name"), { placeholder: "Choisissez vos artistes favoris", multiple: true, data: { controller: "tom-select", tom_select_options_value: { plugins: ['remove_button'] } } }%>
+            <%= submit_tag "C'est parti !", class: "primary-button w-100 mt-2" %>
           <% end %>
         <% end %>
         <div class="d-flex w-100 flex-wrap mt-3 mb-3">
-          <% @all_artists.each do |artist| %>
-            <% if artist.user_artists.where(toplist: true).any? %>
-              <%= link_to artist.spotify_url do %>
-              <div class="tag tag-artist"><%= artist.name %></div>
+          <% @user_artists.each do |reference| %>
+            <% if reference.toplist == true %>
+              <%= link_to reference.artist.spotify_url do %>
+              <div class="tag tag-artist"><%= reference.artist.name %></div>
               <% end %>
             <% end %>
           <% end %>
@@ -61,7 +61,7 @@
       <% if @user == current_user && @user.artists.empty? %>
         <%= link_to "Connexion à Spotify", spotify_path, class: "primary-button" %>
       <% end %>
-      <% if @user != current_user && @user.artists.empty?  %>
+      <% if (@user != current_user && @user.artists.empty?) || (@user != current_user && @user_artists.where(toplist: true).none?)  %>
         <p>Pas d'artistes à montrer encore...</p>
       <% end %>
     </div>
