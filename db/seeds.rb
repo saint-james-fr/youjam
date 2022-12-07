@@ -13,6 +13,7 @@ Jam.destroy_all
 Message.destroy_all
 Chatmember.destroy_all
 Chatroom.destroy_all
+Review.destroy_all
 User.destroy_all
 puts ">"
 puts "Done!"
