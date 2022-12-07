@@ -14,25 +14,27 @@
       <div class="user-information-description">
       <p><%= jam.user.description.truncate(100) %></p>
       <%# * Run test to see if there is a match with top artists %>
-      <% union = jam.user.user_artists.where(toplist: true) + current_user.user_artists.where(toplist: true) %>
-      <% array = [] %>
-      <% union.each do |ref| %>
-        <% array.push(ref.attributes.values_at("artist_id")[0]) %>
-      <% end %>
-      <% count_array = array.count %>
-      <% unique_array = array.uniq %>
-      <% common_array = array.group_by{ |e| e }.select { |k, v| v.size > 1 }.map(&:first)  %>
-      <% count_unique_array = unique_array.count %>
-      <% common = count_array - count_unique_array %>
-      <% if common == 0 %>
-        <br><p>Vous n'aves pas encore d'artistes favoris en commun avec <%= jam.user.first_name %>.</p>
-      <% else %>
-        <% unless count_array == unique_array %>
-        <%# * Modale encapsulation of matching artists %>
-          <button class="modal-button" data-bs-toggle="modal" data-bs-target="#artistsModal">
-          <p><br>Vous et <%= jam.user.first_name %> avez <%= common %> artiste<%= "s" if common > 1 %> favori<%= "s" if common > 1 %> en commun.
-          </button>
-          </p>
+      <% if user_signed_in? %>
+        <% union = jam.user.user_artists.where(toplist: true) + current_user.user_artists.where(toplist: true) %>
+        <% array = [] %>
+        <% union.each do |ref| %>
+          <% array.push(ref.attributes.values_at("artist_id")[0]) %>
+        <% end %>
+        <% count_array = array.count %>
+        <% unique_array = array.uniq %>
+        <% common_array = array.group_by{ |e| e }.select { |k, v| v.size > 1 }.map(&:first)  %>
+        <% count_unique_array = unique_array.count %>
+        <% common = count_array - count_unique_array %>
+        <% if common == 0 %>
+          <br><p>Vous n'aves pas encore d'artistes favoris en commun avec <%= jam.user.first_name %>.</p>
+        <% else %>
+          <% unless count_array == unique_array %>
+          <%# * Modale encapsulation of matching artists %>
+            <button class="modal-button" data-bs-toggle="modal" data-bs-target="#artistsModal">
+            <p><br>Vous et <%= jam.user.first_name %> avez <%= common %> artiste<%= "s" if common > 1 %> favori<%= "s" if common > 1 %> en commun.
+            </button>
+            </p>
+          <% end %>
         <% end %>
       <% end %>
       </div>
@@ -66,4 +68,6 @@
 </div>
 
 <%= render "jams/guests_modal", jam: @jam %>
+<% if user_signed_in? %>
 <%= render "jams/artists_modal", common_array: common_array %>
+<% end %>
