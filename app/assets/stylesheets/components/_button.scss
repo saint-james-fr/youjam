@@ -22,15 +22,29 @@
   padding: 6px 29px;
 }
 
-.primary-button.b-accept {
-  background-color: $color-secondary;
+.primary-button.b-accept:hover {
+  background-color: $color-dark-blue;
+  color: white;
+  text-decoration: none;
   padding: 6px 29px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
 }
 
 .primary-button.b-decline {
   background-color: $color-alert-red;
   margin-left: 10px;
   padding: 6px 29px;
+}
+
+.primary-button.b-decline:hover {
+  background-color: $color-dark-blue;
+  margin-left: 10px;
+  padding: 6px 29px;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.3s ease;
 }
 
 .primary-button.b-inactive {
