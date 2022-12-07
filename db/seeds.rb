@@ -79,8 +79,61 @@ user5 = {
   instagram_url: "https://www.instagram.com/universalmusicfrance/",
   spotify_account: "gas.fauchille"
 }
+user6 = {
+  first_name: "Paul",
+  last_name: "Lahana",
+  password: "youjam",
+  password_confirmation: "youjam",
+  description: "Salut, moi c'est Paul. J'adore les maracasses et le Ukulele ! ",
+  email: "paul@test.com",
+  location: "5 Rue Vouland, 30900 Nîmes",
+  soundcloud_url: "https://soundcloud.com/chuwanaga",
+  instagram_url: "https://www.instagram.com/universalmusicfrance/",
+  spotify_account: "gas.fauchille"
+}
+user7 = {
+  first_name: "Timothée",
+  last_name: "Regis",
+  password: "youjam",
+  password_confirmation: "youjam",
+  description: "Coucou les amis, j'adore le surf et les Beach Boys !!",
+  email: "tim@test.com",
+  location: "65 avenue de Verdun, 64200 Biarritz",
+  soundcloud_url: "https://soundcloud.com/chuwanaga",
+  instagram_url: "https://www.instagram.com/universalmusicfrance/",
+  spotify_account: "gas.fauchille"
+}
+user8 = {
+  first_name: "Diane",
+  last_name: "Johnston-Roussillon",
+  password: "youjam",
+  password_confirmation: "youjam",
+  description: "Hello, je cherche des musicos pour créer un groupe de ROCK !",
+  email: "diane@test.com",
+  location: "30 Rue Pierre Leroux, 75007 Paris",
+  soundcloud_url: "https://soundcloud.com/chuwanaga",
+  instagram_url: "https://www.instagram.com/universalmusicfrance/",
+  spotify_account: "gas.fauchille"
+}
 
-users_options = [user1, user2, user3, user4, user5]
+10.times do
+  user = User.create(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    password: "youjam",
+    password_confirmation: "youjam",
+    description: Faker::Quote.yoda,
+    email: Faker::Name.first_name"@test.com",
+    location: Faker::Address.full_address,
+    soundcloud_url: "https://soundcloud.com/chuwanaga",
+    instagram_url: "https://www.instagram.com/universalmusicfrance/",
+    spotify_account: "gas.fauchille"
+  )
+  photo = URI.open(Faker::Avatar.image)
+  user.avatar.attach(io: photo, filename: "nes#{rand(1..1000000)}.png", content_type: "image/png")
+end
+
+users_options = [user1, user2, user3, user4, user5, user6, user7, user8]
 
 puts ">"
 puts "Starts creating users..."
@@ -105,6 +158,12 @@ photo4 = URI.open("https://avatars.githubusercontent.com/u/36986044?v=4")
 users[3].avatar.attach(io: photo4, filename: "nes#{rand(1..1000000)}.png", content_type: "image/png")
 photo5 = URI.open("https://avatars.githubusercontent.com/u/114876925?v=4")
 users[4].avatar.attach(io: photo5, filename: "nes#{rand(1..1000000)}.png", content_type: "image/png")
+photo6 = URI.open("https://avatars.githubusercontent.com/u/26028980?v=4")
+users[5].avatar.attach(io: photo6, filename: "nes#{rand(1..1000000)}.png", content_type: "image/png")
+photo7 = URI.open("https://media-exp1.licdn.com/dms/image/C5603AQF_UcrJfLwZEg/profile-displayphoto-shrink_800_800/0/1583877931238?e=2147483647&v=beta&t=cYWJi8KwvDtA7DAlM0ckfwr8-J7gPXAFh38jbFbuqoI")
+users[6].avatar.attach(io: photo7, filename: "nes#{rand(1..1000000)}.png", content_type: "image/png")
+photo8 = URI.open("https://media-exp1.licdn.com/dms/image/C4E03AQHQOltQOMiIyQ/profile-displayphoto-shrink_800_800/0/1517528413961?e=2147483647&v=beta&t=SxuG-wE_1I2QN6d7NEqIafzw9ilbfXhAqt139vgBnDI")
+users[7].avatar.attach(io: photo7, filename: "nes#{rand(1..1000000)}.png", content_type: "image/png")
 puts ">"
 # !Jams options & Seed
 

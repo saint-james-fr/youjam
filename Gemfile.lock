@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: 7c0f3b4cf2fcf92bf86984e492b9cf60a72542b0
+  branch: main
+  specs:
+    faker (3.0.0)
+      i18n (>= 1.8.11, < 2)
+
+GIT
   remote: https://github.com/heartcombo/simple_form.git
   revision: 31fe25504771bd6cd425b585a4e0ed652fba4521
   specs:
@@ -330,6 +338,7 @@ DEPENDENCIES
   devise
   devise-i18n (~> 1.2)
   dotenv-rails
+  faker!
   font-awesome-sass (~> 6.1)
   geocoder
   jbuilder
