@@ -1,0 +1,22 @@
+<div class="modal fade modale-guests" id="artistsModal" tabindex="-1" aria-labelledby="artistsModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered ">
+    <div class="modal-content">
+        <div class="modal-header modale modale-guests-header">
+          <h2 class="modal-title fs-5 modal-title-guests" id="artistsModalLabel">Artistes en commun</h2>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body modale" data-controller="jam-status-toggle">
+          <div class="modale-guests-body" data-jam-status-toggle-target="pendingBody">
+            <div class="d-flex w-100 flex-wrap mt-3 mb-3">
+              <% common_array.each do |ref| %>
+                <% artist = Artist.find(ref) %>
+                <%= link_to artist.spotify_url do %>
+                  <div class="tag tag-artist"><%= artist.name %></div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

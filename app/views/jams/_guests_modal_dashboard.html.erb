@@ -22,7 +22,11 @@
             <% jam.pending_bookings.each do |booking| %>
               <div class="d-flex justify-content-between modale-guests-line">
                 <div class="d-inline-flex align-items-center">
-                  <%= cl_image_tag booking.user.avatar.key, class:"avatar" %>
+                  <div>
+                    <%= link_to profile_path(booking.user), class: "tex-decoration-none" do %>
+                      <%= cl_image_tag booking.user.avatar.key, class:"avatar" %>
+                    <% end %>
+                  </div>
                   <div>
                   <%= booking.user.first_name %>
                   </div>
@@ -49,7 +53,11 @@
             <% jam.accepted_bookings.each do |booking| %>
               <div class="d-flex justify-content-between modale-guests-line">
                 <div>
-                  <%= cl_image_tag booking.user.avatar.key, class:"avatar" %>
+                  <%= link_to profile_path(booking.user), class: "tex-decoration-none" do %>
+                    <%= cl_image_tag booking.user.avatar.key, class:"avatar" %>
+                  <% end %>
+                </div>
+                <div>
                   <%= booking.user.first_name %>
                 </div>
               </div>
@@ -63,7 +71,11 @@
             <% jam.declined_bookings.each do |booking| %>
               <div class="d-flex justify-content-between modale-guests-line">
                 <div>
-                  <%= cl_image_tag booking.user.avatar.key, class:"avatar" %>
+                  <%= link_to profile_path(booking.user), class: "tex-decoration-none" do %>
+                    <%= cl_image_tag booking.user.avatar.key, class:"avatar" %>
+                  <% end %>
+                </div>
+                <div>
                   <%= booking.user.first_name %>
                 </div>
               </div>
