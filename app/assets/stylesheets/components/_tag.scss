@@ -8,9 +8,22 @@
   font-weight: 800;
 }
 
+.jam-tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0.5em;
+}
+
 .tag-genres {
   color: $color-primary;
   background-color: $color-light-blue;
+  width: auto;
+  border-radius: 4px;
+  padding: 2px 11px;
+  font-size: 0.8em;
+  margin-right: 0.4em;
+  font-family: $headers-font;
+  font-weight: 800;
 }
 
 .tag-instruments {
