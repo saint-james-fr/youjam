@@ -14,7 +14,7 @@
               <div class="tag tag-instruments mt-1"><%= instrument.capitalize %></div>
             <% end %>
             <div class="tag tag-supp mt-1">
-              ...
+              + <%=jam.instruments_list.count - 3 %>
             </div>
           <% else %>
             <% jam.instruments_list.each do |instrument| %>
