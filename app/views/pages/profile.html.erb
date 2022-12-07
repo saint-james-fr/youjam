@@ -38,7 +38,7 @@
       <% unless @user.artists.empty?  %>
         <% if @user == current_user %>
           <%= form_with url:update_artist_list_path, method: :post do |f| %>
-            <%= select_tag :artists, options_from_collection_for_select(@all_artists, "id", "name"), { placeholder: "Choisissez vos artistes favoris", multiple: true, data: { controller: "tom-select", tom_select_options_value: { plugins: ['remove_button'] } } }%>
+            <%= select_tag :artists, options_from_collection_for_select(@all_artists, "id", "name"), { placeholder: "Choisissez vos artistes favorit.e.s", multiple: true, data: { controller: "tom-select", tom_select_options_value: { plugins: ['remove_button'] } } }%>
             <%= submit_tag "C'est parti", class: "primary-button w-100 mt-2" %>
           <% end %>
         <% end %>
@@ -60,7 +60,7 @@
       <% end %>
     </div>
     <% unless @user.creations.empty?  %>
-      <h4>Vidéos</h4>
+      <h4><%= "Mes " if @user == current_user %>Vidéos</h4>
       <div class="user-creations mt-1 mb-5">
         <% @user.creations.each do |creation| %>
         <div class="creation-card p-3">
