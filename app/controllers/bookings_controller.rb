@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     if @booking.save
       redirect_to jam_path(@jam)
-      flash.alert = "Jam demandée !"
+      flash.alert = "Demande envoyée !"
     else
       flash.alert = "Vérifie que tu n'aies rien oublié"
       render "jams/show", status: :unprocessable_entity
