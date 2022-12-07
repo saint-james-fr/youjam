@@ -19,6 +19,19 @@
     padding: 1rem;
   }
 
+  // FIX THE WHITE SCROLLBAR :)
+  .messages {
+    height: 100%;
+    overflow: scroll;
+    padding: 1rem;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  .messages::-webkit-scrollbar {
+      display: none;
+  }
+
   #new_message {
     border-top: 1px solid $gray-200;
     padding: 1rem;
