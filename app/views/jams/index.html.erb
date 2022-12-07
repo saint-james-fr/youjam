@@ -2,6 +2,11 @@
   <div class="jams-index-search">
       <%= render 'form_search' %>
   </div>
+  <div class="alert alert-warning">
+    <% if @jams.count == 0 %>
+      <p>il semble qu'aucune Jam ne corresponde à vos critères, relancez la recherche</p>
+    <% end %>
+  </div>
   <div class="jams-content">
     <div class="jams-index-cards">
       <% @jams.each do |jam| %>
