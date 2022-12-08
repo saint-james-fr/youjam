@@ -17,10 +17,15 @@
   </div>
   <div class="container mt-5 mb-5">
     <h2>Rencontre des Jammers</h2>
-    <div class="jammer-cards mt-4">
-      <% @users.first(3).each do |user| %>
-            <%= render "shared/jammer_card", user: user %>
-        <% end %>
+
+    <div class="scrollmenu">
+      <div class="jammer-cards mt-4">
+        <% @users.all.each do |user| %>
+              <%= render "shared/jammer_card", user: user %>
+          <% end %>
+      </div>
     </div>
+
+
   </div>
 </div>

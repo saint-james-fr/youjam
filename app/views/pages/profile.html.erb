@@ -15,9 +15,15 @@
         </div>
       </div>
       <div class="index-reviews">
-      <div><%= render "reviews/sum_review", reviews: @reviews, average: @average %></div>
-      <div class="note-review"><%= @average %></div>
-      <div><%= render "reviews/new_review", review: @review %></div>
+        <div>
+          <%= render "reviews/sum_review", reviews: @reviews, average: @average, user: @user %>
+        </div>
+        <div class="note-review">
+          <%= @average %>
+        </div>
+        <div>
+          <%= render "reviews/new_review", review: @review %>
+        </div>
       </div>
 
       <div class="profile-description mt-3 mb-5">

@@ -5,8 +5,10 @@
         <div class="card-user">
           <%= user.first_name %> <%= user.last_name %>
         </div>
-        <div class="card-location mt-2">
-          <%= user.location %>
+        <div class="index-reviews">
+          <div>
+            <%= render "reviews/sum_review", reviews: @reviews, average: @average, user: user %>
+          </div>
         </div>
         <div class="jam-tags d-flex">
           <div class="jammer-instruments d-flex">
@@ -14,9 +16,9 @@
               <% user.instruments.first(1).each do |instrument| %>
                 <div class="tag tag-instruments mt-1"><%= instrument.name %></div>
               <% end %>
-              <div class="tag tag-instruments mt-1">
-                ...
-              </div>
+              <%# <div class="tag tag-instruments mt-1"> %>
+                <%#= user.instruments.count - 1 %>
+              <%# </div> %>
             <% else %>
               <% user.instruments.each do |instrument| %>
                 <div class="tag tag-instruments mt-1"><%= instrument.name %></div>
@@ -26,14 +28,14 @@
           <div class="jammer-genres d-flex">
             <% if user.genres.count > 1 %>
               <% user.genres.first(1).each do |genre| %>
-                <div class="tag-genres mt-1"><%= genre.name %></div>
+                <div class="tag tag-genres mt-1"><%= genre.name %></div>
               <% end %>
-              <div class="tag-genres mt-1">
-                ...
-              </div>
+              <%# <div class="tag-genres mt-1"> %>
+                <%#= user.genres.count - 1 %>
+              <%# </div> %>
             <% else %>
               <% user.genres.each do |genre| %>
-                <div class="tag-genres mt-1"><%= genre.name %></div>
+                <div class="tag tag-genres mt-1"><%= genre.name %></div>
               <% end %>
             <% end %>
           </div>
