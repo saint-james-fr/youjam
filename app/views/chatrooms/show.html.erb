@@ -17,6 +17,7 @@
       </div>
     </div>
     <div class="messages" data-chatroom-subscription-target="messages">
+    <%= image_tag "illustrations/ecouteadeux.svg", :class => "messagerie-background-inside" %>
       <% @chatroom.messages.each do |message| %>
         <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
           <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
