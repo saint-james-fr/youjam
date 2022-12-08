@@ -1143,3 +1143,208 @@ end
 
 puts ">"
 puts "Done!"
+
+chatroom1 = { name: "La git har"}
+chatroom2 = { name: "time2dance"}
+chatroom3 = { name: "Les écharpes de Paul"}
+chatroom4 = { name: "Dit anne" }
+chatroom5 = { name: "les loustics" }
+chatroom6 = { name: "la raclette c'est la fête"}
+
+chatrooms_options = [chatroom1, chatroom2, chatroom3, chatroom4, chatroom5, chatroom6]
+
+puts ">"
+puts "Starts creating chatrooms..."
+chatrooms = []
+chatrooms_options.each do |chatroom|
+  chatroom_new = Chatroom.new(chatroom)
+  chatroom_new.save!
+  chatrooms << chatroom_new
+end
+
+puts ">"
+puts "done !"
+
+chatmembers1 = {
+  chatroom_id: chatrooms[0].id,
+  user_id: users[3].id
+}
+
+chatmembers2 = {
+  chatroom_id: chatrooms[0].id,
+  user_id: users[0].id
+}
+
+chatmembers3 = {
+  chatroom_id: chatrooms[0].id,
+  user_id: users[1].id
+}
+
+chatmembers4 = {
+  chatroom_id: chatrooms[0].id,
+  user_id: users[2].id
+}
+chatmembers5 = {
+  chatroom_id: chatrooms[1].id,
+  user_id: users[3].id
+}
+
+chatmembers6 = {
+  chatroom_id: chatrooms[1].id,
+  user_id: users[6].id
+}
+
+chatmembers7 = {
+  chatroom_id: chatrooms[2].id,
+  user_id: users[3].id
+}
+
+chatmembers8 = {
+  chatroom_id: chatrooms[2].id,
+  user_id: users[2].id
+}
+
+chatmembers9 = {
+  chatroom_id: chatrooms[3].id,
+  user_id: users[3].id
+}
+
+chatmembers10 = {
+  chatroom_id: chatrooms[3].id,
+  user_id: users[11].id
+}
+
+chatmembers11 = {
+  chatroom_id: chatrooms[3].id,
+  user_id: users[12].id
+}
+
+chatmembers12 = {
+  chatroom_id: chatrooms[3].id,
+  user_id: users[0].id
+}
+chatmembers13 = {
+  chatroom_id: chatrooms[3].id,
+  user_id: users[13].id
+}
+
+chatmembers14 = {
+  chatroom_id: chatrooms[4].id,
+  user_id: users[3].id
+}
+
+chatmembers15 = {
+  chatroom_id: chatrooms[4].id,
+  user_id: users[2].id
+}
+
+chatmembers16 = {
+  chatroom_id: chatrooms[4].id,
+  user_id: users[5].id
+}
+chatmembers17 = {
+  chatroom_id: chatrooms[5].id,
+  user_id: users[3].id
+}
+
+chatmembers18 = {
+  chatroom_id: chatrooms[5].id,
+  user_id: users[0].id
+}
+
+chatmembers19 = {
+  chatroom_id: chatrooms[5].id,
+  user_id: users[1].id
+}
+
+chatmembers20 = {
+  chatroom_id: chatrooms[5].id,
+  user_id: users[2].id
+}
+
+chatmembers21 = {
+  chatroom_id: chatrooms[5].id,
+  user_id: users[4].id
+}
+
+chatmembers22 = {
+  chatroom_id: chatrooms[5].id,
+  user_id: users[5].id
+}
+
+
+chatmembers = [chatmembers1, chatmembers2, chatmembers3, chatmembers4, chatmembers5, chatmembers6, chatmembers7, chatmembers8, chatmembers9, chatmembers10, chatmembers11, chatmembers12, chatmembers13, chatmembers14, chatmembers15, chatmembers16, chatmembers17, chatmembers18, chatmembers19, chatmembers20, chatmembers21, chatmembers22 ]
+
+puts ">"
+puts "Starts creating chatmembers..."
+chatmembers.each do |chatmember|
+  chatmember_new = Chatmember.new(chatmember)
+  chatmember_new.save!
+end
+
+puts ">"
+puts "done !"
+
+message_options = []
+i = 0
+while i < 6
+  message_option = {
+    content: "Hello, vous allez bien ?",
+    chatroom_id: chatrooms[i].id,
+    user_id: users[3].id
+  }
+  i += 1
+  message_options << message_option
+end
+
+message_option = {
+  content: "Yes, super et toi ? On jam bientôt ?",
+  chatroom_id: chatrooms[0].id,
+  user_id: users[0].id
+}
+message_options << message_option
+
+message_option = {
+  content: "Yes, super et toi ? On jam bientôt ?",
+  chatroom_id: chatrooms[1].id,
+  user_id: users[6].id
+}
+message_options << message_option
+
+message_option = {
+  content: "Yes, super et toi ? On jam bientôt ?",
+  chatroom_id: chatrooms[2].id,
+  user_id: users[2].id
+}
+message_options << message_option
+
+message_option = {
+  content: "Yes, super et toi ? On jam bientôt ?",
+  chatroom_id: chatrooms[3].id,
+  user_id: users[11].id
+}
+message_options << message_option
+
+message_option = {
+  content: "Yes, super et toi ? On jam bientôt ?",
+  chatroom_id: chatrooms[4].id,
+  user_id: users[2].id
+}
+message_options << message_option
+
+message_option = {
+  content: "Yes, super et toi ? On jam bientôt ?",
+  chatroom_id: chatrooms[5].id,
+  user_id: users[5].id
+}
+message_options << message_option
+
+puts ">"
+puts "Starts creating chatmembers..."
+message_options.each do |message_option|
+  message_new = Message.new(message_option)
+  message_new.save!
+end
+
+puts ">"
+puts "done !"
