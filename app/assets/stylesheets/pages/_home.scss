@@ -10,3 +10,14 @@
 .container-home h2 {
   color: #2D0B8D
 }
+
+.scrollmenu {
+  overflow: auto;
+  white-space: nowrap;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollmenu::-webkit-scrollbar {
+  display: none;
+}
