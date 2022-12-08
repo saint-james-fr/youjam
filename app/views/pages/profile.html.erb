@@ -66,6 +66,7 @@
       <% end %>
     </div>
     <% unless @user.creations.empty?  %>
+      <% transform_url(@user.creations) %>
       <h4><%= "Mes " if @user == current_user %>Vidéos</h4>
       <div class="user-creations mt-1 mb-5">
         <% @user.creations.each do |creation| %>

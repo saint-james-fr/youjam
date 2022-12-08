@@ -304,7 +304,7 @@ jam1 =  {
   description: "La célèbre Jam du Wagon",
   instruments_list: ["Batterie", "Guitare", "Basse"],
   capacity: 3,
-  jam_date: DateTime.strptime("12/07/2022 20:00", "%m/%d/%Y %H:%M"),
+  jam_date: DateTime.strptime("12/22/2022 20:00", "%m/%d/%Y %H:%M"),
   user_id: users[0].id
 }
 
@@ -605,13 +605,13 @@ puts "Done!"
 creation1 =  {
   creation_url: "https://www.youtube.com/watch?v=WaM2pxTPstw",
   message: "On avait bien rigolé ce jour là!",
-  user_id: users[4].id
+  user_id: users[2].id
 }
 
 creation2 =  {
-  creation_url: "https://www.youtube.com/watch?v=g-D99C9poR4",
+  creation_url: "https://www.youtube.com/watch?v=ryz0QmMjexY",
   message: "Super jam, en plus le public était chaud",
-  user_id: users[4].id
+  user_id: users[3].id
 }
 
 creation3 =  {
@@ -623,7 +623,7 @@ creation3 =  {
 creation4 =  {
   creation_url: "https://www.youtube.com/watch?v=Kk6j3BXHBWM",
   message: "Super hâte de remettre ça avec vous",
-  user_id: users[4].id
+  user_id: users[1].id
 }
 
 creation5 =  {
@@ -633,7 +633,7 @@ creation5 =  {
 }
 
 creation6 =  {
-  creation_url: "https://www.youtube.com/watch?v=T5cMv7-Gr5Q",
+  creation_url: "https://www.youtube.com/watch?v=eDwofY2eYHQ",
   message: "La prochaine fois, on fera encore mieux !",
   user_id: users[10].id
 }
