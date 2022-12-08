@@ -2,8 +2,15 @@
   <div class="sidebar-profile">
     <div class="profile-infos">
       <div>
-        <div>
-          <p class="information-title mb-3 "><%= @user.first_name%> <%= @user.last_name %></p>
+        <div class="profile-name">
+          <p class="information-title mb-3 ">
+            <%= @user.first_name%> <%= @user.last_name %>  
+            <% if current_user == @user %>
+              <%= link_to edit_user_registration_path(current_user), class: "text-decoration-none" do %>
+                <i class="fa-solid fa-pen"></i>
+              <% end %>
+            <% end %>
+          </p>
         </div>
         <div class="d-flex">
           <%= cl_image_tag @user.avatar.key, class: "avatar profile-infos-avatar" %>
@@ -14,16 +21,15 @@
           <a href="<%= @user.soundcloud_url %>"><i class="fab fa-soundcloud"></i></a>
         </div>
       </div>
-      <div class="index-reviews">
-        <div>
+      <div class="mt-3">
+        <div class="d-flex justify-content-center">
           <%= render "reviews/sum_review", reviews: @reviews, average: @average, user: @user %>
         </div>
-        <div class="note-review">
-          <%= @average %>
-        </div>
-        <div>
-          <%= render "reviews/new_review", review: @review %>
-        </div>
+        <% if current_user != @user %>
+          <div class="d-flex justify-content-center">
+            <%= render "reviews/new_review", review: @review %>
+          </div>
+        <% end %>
       </div>
 
       <div class="profile-description mt-3 mb-5">
@@ -46,12 +52,20 @@
   </div>
   <div class="profile-content ms-5 me-5">
     <div class="mt-3 mb-3">
-      <h4>Artist.e.s favorit.e.s</h4>
+      <div class="mb-3 d-flex justify-content-between">
+        <h4><i class="fa-brands fa-spotify" style="color: #1DB954"></i> Artist.e.s favorit.e.s</h4>
+        <% if @user == current_user && @user.artists.empty? %>
+          <%= link_to "Connexion à Spotify", spotify_path, class: "spotify-button" %>
+        <% end %>
+      </div>
+      <% if @user == current_user && @user.artists.empty? %>
+        <p>Connectez-vous et choisissez parmi les artistes de vos playlists Spotify</p>
+      <% end %>
       <% unless @user.artists.empty?  %>
         <% if @user == current_user %>
           <%= form_with url:update_artist_list_path, method: :post do |f| %>
             <%= select_tag :artists, options_from_collection_for_select(@all_artists, "id", "name"), { placeholder: "Choisissez vos artistes favoris", multiple: true, data: { controller: "tom-select", tom_select_options_value: { plugins: ['remove_button'] } } }%>
-            <%= submit_tag "C'est parti !", class: "primary-button w-100 mt-2" %>
+            <%= submit_tag "C'est parti !", class: "spotify-button w-100 mt-2" %>
           <% end %>
         <% end %>
         <div class="d-flex w-100 flex-wrap mt-3 mb-3">
@@ -63,9 +77,6 @@
             <% end %>
           <% end %>
         </div>
-      <% end %>
-      <% if @user == current_user && @user.artists.empty? %>
-        <%= link_to "Connexion à Spotify", spotify_path, class: "primary-button" %>
       <% end %>
       <% if (@user != current_user && @user.artists.empty?) || (@user != current_user && @user_artists.where(toplist: true).none?)  %>
         <p>Pas d'artistes à montrer encore...</p>

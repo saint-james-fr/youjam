@@ -2,16 +2,6 @@
   display: flex;
 }
 
-.button-circle {
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  color: white;
-  margin-left: 20px;
-  border: solid white 1px;
-  font-size: 10px;
-  font-weight: bold;
-}
 
 button:focus-visible {
   outline: 0px;
