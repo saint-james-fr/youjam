@@ -5,8 +5,14 @@
   padding: 9px 14px;
   border-radius: 4px;
   border: none;
+  transition: 0.1s ease-in-out;
 }
 
+.primary-button:hover {
+  opacity: 0.8;
+  color: white;
+
+}
 .spotify-button {
   background-color: $color-spotify;
   color: white;
@@ -23,11 +29,6 @@
 }
 
 
-.primary-button:hover {
-  background-color: $color-secondary;
-  color: white;
-  transition: background 0.3s ease;
-}
 
 .jambanner-i-button .primary-button {
   padding: 9px 29px
@@ -36,43 +37,34 @@
 .primary-button.b-accept {
   background-color: $color-secondary;
   padding: 6px 29px;
+  transition: 0.1s ease-in-out;
+  border-radius: 4px;
 }
 
 .primary-button.b-accept:hover {
-  background-color: $color-dark-blue;
+  opacity: 0.8;
   color: white;
   text-decoration: none;
-  padding: 6px 29px;
-  border-radius: 4px;
-  transition: background 0.3s ease;
 }
 
 .primary-button.b-decline {
   background-color: $color-alert-red;
   margin-left: 10px;
   padding: 6px 29px;
+  transition: 0.1s ease-in-out;
 }
 
 .primary-button.b-decline:hover {
   background-color: $color-dark-blue;
-  margin-left: 10px;
-  padding: 6px 29px;
-  color: white;
-  text-decoration: none;
-  border-radius: 4px;
-  transition: background 0.3s ease;
+  opacity: 0.8;
 }
 
 .secondary-button.b-inactive {
-  background-color: $color-grey ;
+  background-color: $color-grey;
 }
 
 .secondary-button.b-inactive:hover {
-  background-color: $color-grey ;
-}
-
-.modale-guests-line {
-  margin-bottom: 15px;
+  background-color: $color-grey;
 }
 
 .secondary-button {
@@ -82,13 +74,9 @@
   padding: 9px 14px;
   border-radius: 4px;
   border: none;
+  transition: 0.1s ease-in-out;
 }
 
 .secondary-button:hover {
-  background-color: $color-dark-blue;
-  color: white;
-  text-decoration: none;
-  padding: 9px 14px;
-  border-radius: 4px;
-  transition: background 0.1s ease-in-out;
+  opacity: 0.8;
 }
