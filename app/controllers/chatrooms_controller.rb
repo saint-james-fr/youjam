@@ -19,6 +19,11 @@ class ChatroomsController < ApplicationController
   def create
     @chatroom = Chatroom.new(params_chatroom)
     authorize @chatroom
+    if params[:chatroom][:name] == "" && params[:chatroom][:users] == [""]
+      return
+    elsif params[:chatroom][:users] == [""]
+      return
+    end
     if @chatroom.save
       Chatmember.create(chatroom_id: @chatroom.id, user_id: current_user.id)
       selected_users = params.dig(:chatroom, :users).drop(1).map { |user| user.to_i }
