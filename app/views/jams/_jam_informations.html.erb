@@ -26,12 +26,12 @@
         <% count_unique_array = unique_array.count %>
         <% common = count_array - count_unique_array %>
         <% if common == 0 %>
-          <br><p>Vous n'aves pas encore d'artistes favoris en commun avec <%= jam.user.first_name %>.</p>
+          <br><p><i class="fa-brands fa-spotify" style="color: #1DB954"></i> Vous n'avez pas encore d'artistes favoris en commun avec <%= jam.user.first_name %>.</p>
         <% else %>
           <% unless count_array == unique_array %>
           <%# * Modale encapsulation of matching artists %>
             <button class="modal-button" data-bs-toggle="modal" data-bs-target="#artistsModal">
-            <p><br>Vous et <%= jam.user.first_name %> avez <%= common %> artiste<%= "s" if common > 1 %> favori<%= "s" if common > 1 %> en commun.
+            <p><br><i class="fa-brands fa-spotify" style="color: #1DB954"></i> Vous et <%= jam.user.first_name %> avez <%= common %> artiste<%= "s" if common > 1 %> favori<%= "s" if common > 1 %> en commun.
             </button>
             </p>
           <% end %>
