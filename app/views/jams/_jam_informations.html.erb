@@ -56,7 +56,7 @@
         <li>
         <%# * Running tests to style and launch modals %>
           <<%= "button" unless jam.bookings.empty? %><%= "div" if jam.bookings.empty? %> class="<%= "modal-button" unless jam.bookings.empty? %>" data-bs-toggle="modal" data-bs-target="#guestsModal">
-            <i class="fa-solid fa-people-group"></i><%= accepted_bookings.count %> participant<%if accepted_bookings.count > 1 %>s<% end %><% unless pending_bookings.count == 0 %>, <%= pending_bookings.count %> en attente<% end %>
+            <i class="fa-solid fa-people-group"></i><%= accepted_bookings.count %> / <%= jam.capacity %> participants<% unless pending_bookings.count == 0 %>, <%= pending_bookings.count %> en attente<% end %>
           </<%= "button" unless jam.bookings.empty? %><%= "div" if jam.bookings.empty? %>>
         </li>
       </ul>
