@@ -5,11 +5,6 @@
         <div class="card-user">
           <%= user.first_name %> <%= user.last_name %>
         </div>
-        <div class="index-reviews">
-          <div>
-            <%= render "reviews/sum_review", reviews: @reviews, average: @average, user: user %>
-          </div>
-        </div>
         <div class="jam-tags d-flex">
           <div class="jammer-instruments d-flex">
             <% if user.instruments.count > 1 %>

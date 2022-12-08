@@ -4,7 +4,6 @@ class PagesController < ApplicationController
   def home
     @jams = Jam.all.first(4).reverse
     @users = User.all
-    @reviews = Review.all
     @users.each do |user|
       set_average(user)
     end

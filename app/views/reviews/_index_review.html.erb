@@ -1,6 +1,3 @@
-
-
-
     <div class="publication box-shadow-morphism publication-reviews" >
                 <div class="header-publication">
                   <%= cl_image_tag review.reviewer.avatar.key, class: "avatar" %>
@@ -13,7 +10,7 @@
                 </div>
                 <div class="body-publication">
                 <p> <%= review.description %> </p>
-                <h2 class="modal-title fs-5" id="reviewAverageModalLabel">
+                <h2 class="modal-title fs-5 review-comments" id="reviewAverageModalLabel">
                   <% average.round.times do %>
                     <i class="fa-solid fa-star"></i>
                   <% end %>
