@@ -24,15 +24,15 @@ class JamsController < ApplicationController
 
   def update
     authorize @jam
-    @jam.instruments_list = params[:jam][:instruments_list]
-    if @jam.instruments_list[0] == ""
-      @jam.instruments_list.shift
+    # @jam.instruments_list = params[:jam][:instruments_list]
+    if params[:jam][:instruments_list][0] == ""
+      params[:jam][:instruments_list].shift
     end
     if @jam.update(params_jam)
       redirect_to jam_path(@jam)
     else
-      @instruments = Instrument.all.pluck(:name)
-      render :update, status: :unprocessable_entity
+      set_show_data
+      render :show, status: :unprocessable_entity
     end
   end
 
@@ -62,6 +62,12 @@ class JamsController < ApplicationController
   end
 
   def show
+    set_show_data
+  end
+
+  private
+
+  def set_show_data
     authorize @jam
     @accepted_bookings = Booking.accepted.where('jam_id = ?', @jam)
     @pending_bookings = Booking.pending.where('jam_id = ?', @jam)
@@ -79,13 +85,11 @@ class JamsController < ApplicationController
     }]
   end
 
-  private
-
   def set_jam
     @jam = Jam.find(params[:id])
   end
 
   def params_jam
-    params.require(:jam).permit(:location, :description, :capacity, :instruments_list, :jam_date, :title, :photo)
+    params.require(:jam).permit(:location, :description, :capacity, :jam_date, :title, :photo, instruments_list: [])
   end
 end

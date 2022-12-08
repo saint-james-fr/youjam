@@ -94,3 +94,21 @@
 .status_participants {
   text-align: left;
 }
+
+ .card-about-us {
+    display: flex;
+    height: auto;
+    margin: 25px 0;
+
+    img {
+      height: 100vh;
+    }
+ }
+
+ .text-about-us {
+    font-size: 1.2em;
+
+    div {
+      padding: 0px 0px 50px 30px;;
+    }
+ }

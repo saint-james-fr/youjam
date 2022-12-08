@@ -15,3 +15,7 @@
 @import "pages/index";
 @import "jams/index";
 @import "devise/index";
+
+.main-container {
+  min-height: calc(100vh - 100px);
+}

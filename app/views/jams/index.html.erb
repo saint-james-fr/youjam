@@ -2,24 +2,24 @@
   <div class="jams-index-search">
       <%= render 'form_search' %>
   </div>
-  <div class="alert alert-warning">
-    <% if @jams.count == 0 %>
-      <p>Il semble qu'aucune Jam ne corresponde à vos critères, relancez la recherche.</p>
-    <% end %>
-  </div>
-  <div class="jams-content">
-    <div class="jams-index-cards">
-      <% @jams.each do |jam| %>
-        <%= render "shared/jam_card", jam: jam %>
-      <% end %>
+  <% if @jams.count != 0 %>
+    <div class="jams-content">
+      <div class="jams-index-cards">
+        <% @jams.each do |jam| %>
+          <%= render "shared/jam_card", jam: jam %>
+        <% end %>
+      </div>
+      <div class="map"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
     </div>
-    <div class="map"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
-  </div>
+  <% else %>
+    <h2 class="message-error-index">Aucune jam ne correspond à votre recherche.</h2>
+  <% end %>
 </div>
+
 
     <%#= form_with url: jams_path, method: :get, class: "d-flex" do %>
       <%#= text_field_tag :query,

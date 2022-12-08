@@ -14,7 +14,7 @@
       <div class="user-information-description">
       <p><%= jam.user.description.truncate(100) %></p>
       <%# * Run test to see if there is a match with top artists %>
-      <% if user_signed_in? %>
+      <% if user_signed_in? && jam.user.id != current_user.id %>
         <% union = jam.user.user_artists.where(toplist: true) + current_user.user_artists.where(toplist: true) %>
         <% array = [] %>
         <% union.each do |ref| %>
@@ -26,12 +26,12 @@
         <% count_unique_array = unique_array.count %>
         <% common = count_array - count_unique_array %>
         <% if common == 0 %>
-          <br><p>Vous n'aves pas encore d'artistes favoris en commun avec <%= jam.user.first_name %>.</p>
+          <br><p><i class="fa-brands fa-spotify" style="color: #1DB954"></i> Vous n'avez pas encore d'artistes favoris en commun avec <%= jam.user.first_name %>.</p>
         <% else %>
           <% unless count_array == unique_array %>
           <%# * Modale encapsulation of matching artists %>
             <button class="modal-button" data-bs-toggle="modal" data-bs-target="#artistsModal">
-            <p><br>Vous et <%= jam.user.first_name %> avez <%= common %> artiste<%= "s" if common > 1 %> favori<%= "s" if common > 1 %> en commun.
+            <p><br><i class="fa-brands fa-spotify" style="color: #1DB954"></i> Vous et <%= jam.user.first_name %> avez <%= common %> artiste<%= "s" if common > 1 %> favori<%= "s" if common > 1 %> en commun.
             </button>
             </p>
           <% end %>
@@ -46,7 +46,7 @@
           <div class="d-flex">
           <i class="fa-solid fa-drum"></i>
             <% jam.instruments_list.each do |instrument|%>
-                <div class="tag-instruments tag"><%= instrument %></div>
+              <div class="tag-instruments tag"><%= instrument %></div>
             <% end %>
           </div>
         </li>
@@ -56,7 +56,7 @@
         <li>
         <%# * Running tests to style and launch modals %>
           <<%= "button" unless jam.bookings.empty? %><%= "div" if jam.bookings.empty? %> class="<%= "modal-button" unless jam.bookings.empty? %>" data-bs-toggle="modal" data-bs-target="#guestsModal">
-            <i class="fa-solid fa-people-group"></i><%= accepted_bookings.count %> participant<%if accepted_bookings.count > 1 %>s<% end %><% unless pending_bookings.count == 0 %>, <%= pending_bookings.count %> en attente<% end %>
+            <i class="fa-solid fa-people-group"></i><%= accepted_bookings.count %> / <%= jam.capacity %> participants<% unless pending_bookings.count == 0 %>, <%= pending_bookings.count %> en attente<% end %>
           </<%= "button" unless jam.bookings.empty? %><%= "div" if jam.bookings.empty? %>>
         </li>
       </ul>
@@ -69,5 +69,5 @@
 
 <%= render "jams/guests_modal", jam: @jam %>
 <% if user_signed_in? %>
-<%= render "jams/artists_modal", common_array: common_array %>
+<%= render "jams/artists_modal", common_array: common_array.nil? ? [] : common_array %>
 <% end %>

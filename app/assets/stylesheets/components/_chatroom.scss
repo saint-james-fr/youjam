@@ -1,5 +1,5 @@
 .chat-container {
-  min-height: calc(100vh - 172px);
+  min-height: calc(80vh - 172px);
 }
 
 .chatroom {
@@ -17,15 +17,10 @@
     padding: 1rem;
   }
 
-  .messages {
-    height: 100%;
-    overflow: scroll;
-    padding: 1rem;
-  }
 
   // FIX THE WHITE SCROLLBAR :)
   .messages {
-    height: 100%;
+    height: calc(80vh - 172px);
     overflow: scroll;
     padding: 1rem;
     -ms-overflow-style: none;  /* IE and Edge */
@@ -37,7 +32,6 @@
   }
 
   #new_message {
-    border-top: 1px solid $gray-200;
     padding: 1rem;
 
     .form-group {
@@ -62,4 +56,18 @@
 
 #message_content {
   width: 96%;
+}
+
+.messagerie-background {
+  height: 65vh;
+  filter: hue-rotate(-162deg);
+  opacity: 0.8;
+}
+
+.messagerie-background-inside {
+  height: 65vh;
+  filter: hue-rotate(-162deg);
+  position: absolute;
+  left: 40%;
+  z-index: -1;
 }
