@@ -4,6 +4,10 @@ class PagesController < ApplicationController
   def home
     @jams = Jam.all.first(4).reverse
     @users = User.all
+    @reviews = Review.all
+    @users.each do |user|
+      set_average(user)
+    end
     @creations = Creation.all
     render "pages/home/home"
   end
@@ -44,7 +48,7 @@ class PagesController < ApplicationController
     if user.reviews_as_reviewee.empty?
       @average = 2
     else
-    @average = user.reviews_as_reviewee.average(:rating)
+      @average = user.reviews_as_reviewee.average(:rating)
     end
   end
 
