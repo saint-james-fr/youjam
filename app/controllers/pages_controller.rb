@@ -22,7 +22,9 @@ class PagesController < ApplicationController
     @review = Review.new
     @reviews = Review.all
 
-    set_average(@user)
+    unless @user.reviews_as_reviewee.empty?
+      set_average(@user)
+    end
 
     @user_artists = UserArtist.where(user_id: @user.id)
     @all_artists = @user.artists
@@ -45,11 +47,7 @@ class PagesController < ApplicationController
   end
 
   def set_average(user)
-    if user.reviews_as_reviewee.empty?
-      @average = 2
-    else
-      @average = user.reviews_as_reviewee.average(:rating)
-    end
+    @average = user.reviews_as_reviewee.average(:rating)
   end
 
 end
