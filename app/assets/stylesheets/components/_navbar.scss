@@ -63,6 +63,13 @@
   -webkit-text-fill-color: transparent;
 }
 
+.navbar-transparent h3:hover {
+  background: -webkit-linear-gradient(180deg, rgb(241, 244, 245) 20%, rgb(222, 233, 231) 64%);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 
 .navbar-transparent .nav-link {
   color: white;

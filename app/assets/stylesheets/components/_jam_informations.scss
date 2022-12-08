@@ -7,6 +7,13 @@
   background-clip: border-box;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  i {
+    background: initial;
+    background-clip: initial;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial;
+  }
 }
 
 .proposed-by {
