@@ -13,6 +13,13 @@
                 </div>
                 <div class="body-publication">
                 <p> <%= review.description %> </p>
-                <p> <%= review.rating %> </p>
+                <h2 class="modal-title fs-5" id="reviewAverageModalLabel">
+                  <% average.round.times do %>
+                    <i class="fa-solid fa-star"></i>
+                  <% end %>
+                  <% (5-average.round).times do %>
+                    <i class="fa-regular fa-star"></i>
+                  <% end %>
+                </h2>
                 </div>
           </div>

@@ -31,7 +31,7 @@
           </div>
           <div class="modal-body modale reviews-body-modal">
             <% reviews.each do |review| %>
-              <%= render "reviews/index_review", review: review %>
+              <%= render "reviews/index_review", review: review, average: @average %>
             <% end %>
           </div>
       </div>
