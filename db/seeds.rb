@@ -304,7 +304,7 @@ jam1 =  {
   description: "La célèbre Jam du Wagon",
   instruments_list: ["Batterie", "Guitare", "Basse"],
   capacity: 3,
-  jam_date: DateTime.strptime("12/07/2022 20:00", "%m/%d/%Y %H:%M"),
+  jam_date: DateTime.strptime("12/12/2022 20:00", "%m/%d/%Y %H:%M"),
   user_id: users[0].id
 }
 
