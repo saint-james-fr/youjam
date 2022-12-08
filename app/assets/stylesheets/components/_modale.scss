@@ -2,8 +2,6 @@
   background-color: $color-light-blue;
   color: $color-dark-blue;
   border-radius: 0px 0px 5px 5px;
-  padding: 40px 40px;
-
 }
 
 .modal {
@@ -14,6 +12,9 @@
   border-radius: 46px;
 }
 
+.modal-body {
+  padding: 40px 40px;
+}
 
 
 .modal-header {
@@ -92,17 +93,12 @@
   border-color: #EFEAFF;
 }
 
-.mb-3{
+.form_input{
   padding-left: 13px;
 }
 
-.mb-3 integer required jam_capacity{
-  padding-left:12px;
-}
 
-.mb-3 string required jam_jam_date{
-  padding: 0px 16px 0px 0px;
-}
+
 
 .form-select.is-valid:not([multiple]):not([size]) {
   padding-right: 2.125rem

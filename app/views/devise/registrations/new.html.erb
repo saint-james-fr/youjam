@@ -57,8 +57,8 @@
             <%= f.input :location,label: false, placeholder: "68 avenue Parmentier, 75011 Paris", input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
                         wrapper_html: {class: "col-6 address-sign-up", data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
           </div>
+          <%= f.input :spotify_account, label:false, placeholder: "Nom de votre compte Spotify", required: false %>
           <%= f.input :description, label: false, placeholder: "I Love to jam and meet people. Music is my passion ...",required: true %>
-
         </div>
 
         <div class="form-actions">

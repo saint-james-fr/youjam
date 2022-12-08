@@ -4,25 +4,32 @@
                         controller: 'flatpickr'
                       }
                     } do |f| %>
-    <%= f.input :title, label: 'Titre de la Jam' %>
-    <%= f.input :description, label: 'Description' %>
+    <%= f.input :title, label: 'Titre de la Jam', required: false %>
+    <%= f.input :description, required: false, label: 'Description' %>
     <div class="d-flex justify-content-center">
-      <%= f.input :location, input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"}, label: "Adresse",
+      <%= f.input :location, required: false, input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"}, label: "Adresse",
                   wrapper_html: {class: "search-input-address", data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
-      <%= f.input :jam_date, label: 'Sélectionner une date',
+      <%= f.input :jam_date, required: false, label: 'Sélectionner une date',
                   as: :string,
                   input_html: {
                     data: {
                       flatpickr_target: 'DateInput',
                     }
-                  } %>
-      <%= f.input :capacity, label: 'Nombre de participants' %>
+                  },
+                  wrapper_html: {class:"form_date"} %>
+      <%= f.input :capacity, required: false, label: 'Nombre de participants', wrapper_html: {class:"form_input"} %>
     </div>
     <%= f.input :instruments_list,
           class: "form-select",
+          required: false,
           label: 'Sélectionner les instruments recherchés',
           collection: @instruments,
           input_html: { multiple: true, data: {controller: "tom-select", tom_select_options_value: {tags: true, plugins: ['remove_button']}}} %>
     <%= f.input :photo, label: "Télécharger une photo d'illustration", as: :file %>
-    <%= f.submit 'Continuez', class: 'secondary-button' %>
+
+    <% if action_name =="update" || action_name== "show"  %>
+      <%= f.submit 'Modifier', class: 'secondary-button' %>
+    <% else %>
+      <%= f.submit 'Valider', class: 'secondary-button' %>
+    <% end %>
 <% end %>
