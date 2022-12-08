@@ -15,9 +15,15 @@
         </div>
       </div>
       <div class="index-reviews">
-      <div><%= render "reviews/sum_review", reviews: @reviews, average: @average %></div>
-      <div class="note-review"><%= @average %></div>
-      <div><%= render "reviews/new_review", review: @review %></div>
+        <div>
+          <%= render "reviews/sum_review", reviews: @reviews, average: @average, user: @user %>
+        </div>
+        <div class="note-review">
+          <%= @average %>
+        </div>
+        <div>
+          <%= render "reviews/new_review", review: @review %>
+        </div>
       </div>
 
       <div class="profile-description mt-3 mb-5">
@@ -66,6 +72,7 @@
       <% end %>
     </div>
     <% unless @user.creations.empty?  %>
+      <% transform_url(@user.creations) %>
       <h4><%= "Mes " if @user == current_user %>Vidéos</h4>
       <div class="user-creations mt-1 mb-5">
         <% @user.creations.each do |creation| %>

@@ -17,11 +17,15 @@
   </div>
   <div class="container mt-5 mb-5">
     <h2>Rencontre des Jammers</h2>
-    <div class="jammer-cards mt-4">
-      <% @users.first(3).each do |user| %>
-            <%= render "shared/jammer_card", user: user %>
-        <% end %>
+
+    <div class="scrollmenu">
+      <div class="jammer-cards mt-4">
+        <% @users.all.each do |user| %>
+              <%= render "shared/jammer_card", user: user %>
+          <% end %>
+      </div>
     </div>
+<<<<<<< HEAD
     <div class="card-about-us">
     <%= image_tag 'Rectangle 124.png' %>
     <div class="text-about-us">
@@ -39,5 +43,9 @@
       </div>
     </div>
   </div>
+=======
+
+
+>>>>>>> 65df588ba009c549c7a4b89499461908ffaddca6
   </div>
 </div>
