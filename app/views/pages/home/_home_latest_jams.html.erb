@@ -1,0 +1,8 @@
+<div class="container mt-5 mb-2">
+    <h2>Les Jams les plus populaires</h2>
+    <div class="jam-cards mt-4">
+      <% @jams.first(4).each do |jam| %>
+        <%= render "shared/jam_card", jam: jam %>
+      <% end %>
+    </div>
+  </div>

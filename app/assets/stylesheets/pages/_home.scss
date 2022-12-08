@@ -8,7 +8,7 @@
 }
 
 .container-home h2 {
-  color: #2D0B8D
+  color: #2D0B8D;
 }
 
 .scrollmenu {
@@ -20,4 +20,10 @@
 
 .scrollmenu::-webkit-scrollbar {
   display: none;
+}
+
+.home-creations {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
 }

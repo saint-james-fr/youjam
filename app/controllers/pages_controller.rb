@@ -8,6 +8,8 @@ class PagesController < ApplicationController
     @users.each do |user|
       set_average(user)
     end
+    @creations = Creation.all
+    render "pages/home/home"
   end
 
   def dashboard
@@ -17,11 +19,6 @@ class PagesController < ApplicationController
 
   def profile
     @user = User.find(params[:id])
-    @user.creations.map do |creation|
-      match = creation.creation_url.match(/\w+\Z/)
-      creation_url = "https://www.youtube.com/embed/#{match}"
-      creation.update(creation_url: creation_url)
-    end
     @review = Review.new
     @reviews = Review.all
 
