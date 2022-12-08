@@ -40,10 +40,15 @@
 }
 
 .mapboxgl-ctrl-geocoder--input {
-  height: 42px;
+  height: 44px;
 }
 
 .mapboxgl-ctrl-geocoder--icon {
   top: 11px;
 }
 
+.search-form .secondary-button {
+  font-size: 1.1em;
+  font-family: $headers-font;
+  font-weight: bold;
+}

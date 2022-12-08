@@ -1,7 +1,7 @@
 <%= simple_form_for :search, url: jams_path, method: :get, html: {class: "search-form"} do |f| %>
   <%= f.input :query,
               input_html: {
-                placeholder: "Chercher",
+                placeholder: "Guitare, piano...",
                 value:
                   if params[:action] == "home"
                     ""
