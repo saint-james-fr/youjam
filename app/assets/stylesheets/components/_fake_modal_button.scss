@@ -4,7 +4,7 @@
   line-height: inherit;
   font-size: 1rem;
   white-space: nowrap;
-  text-decoration: underline;
+  text-decoration: none;
   padding: 0;
   margin: 0;
   cursor: pointer;
@@ -13,4 +13,5 @@
 
 .modal-button:hover {
   opacity: 0.7;
+  text-decoration: underline;
 }
