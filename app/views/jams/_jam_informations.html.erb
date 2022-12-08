@@ -1,7 +1,7 @@
 <div class="information-container">
   <div class="information-title">Informations
   </div>
-  <div class="proposed-by">
+  <div class="proposed-by box-shadow-morphism">
     <div>
     <%= link_to profile_path(jam.user) do %>
     <%= cl_image_tag jam.user.avatar.key, class: "avatar" %>
@@ -61,7 +61,7 @@
         </li>
       </ul>
   </div>
-  <div class="informations-description">
+  <div class="informations-description box-shadow-morphism">
   <%= jam.description %>
   </div>
 

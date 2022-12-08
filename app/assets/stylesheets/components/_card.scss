@@ -7,7 +7,7 @@
 .jam-card {
   display: flex;
   flex-direction: column;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  // box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   min-width: 266.25px;
   transition: opacity 0.1s ease-in-out;
   background-color:white;
@@ -53,7 +53,7 @@
 
 .jam-card-infos h3 {
   font-size: 1.3em;
-  color: $color-black;
+  color: $color-dark-blue;
   font-weight: 600;
 }
 
