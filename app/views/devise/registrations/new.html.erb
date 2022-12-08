@@ -1,25 +1,72 @@
-<h2><%= t(".sign_up") %></h2>
+<div class="m-3 row">
+  <div class="col-3"></div>
+  <div class="col-6 form-sign-up">
+    <h2><%= t(".sign_up") %></h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { data: { controller: "avatar-uploader" } } ) do |f| %>
+      <%= f.error_notification %>
 
-    <div class="form-inputs">
-      <%= f.input :email,
-                  required: true,
-                  autofocus: true ,
-                  input_html: { autocomplete: "email" }%>
-      <%= f.input :password,
-                  required: true,
-                  hint: (t('devise.shared.minimum_password_length', count: @minimum_password_length) if @minimum_password_length),
-                  input_html: { autocomplete: "new-password" } %>
-      <%= f.input :password_confirmation,
-                  required: true,
-                  input_html: { autocomplete: "new-password" } %>
-    </div>
+        <div class="form-inputs">
+          <div class="d-flex justify-content-center m-3">
+            <% if user_signed_in? && current_user.avatar.attached? %>
+              <%= cl_image_tag current_user.avatar.key,
+                            class: "upload-avatar",
+                            'data-avatar-uploader-target': 'image',
+                            'data-action': 'click->avatar-uploader#openOSWindow' %>
+            <% else %>
+              <%= image_tag 'upload-avatar.png',
+                            class: "upload-avatar",
+                            'data-avatar-uploader-target': 'image',
+                            'data-action': 'click->avatar-uploader#openOSWindow' %>
+            <% end %>
+            <%= f.input :avatar,
+                        as: :file,
+                        label: false,
+                        wrapper_html: { class: "col-6", style: "display: none"},
+                        input_html: {
+                          data: {
+                            action: 'change->avatar-uploader#displayImage',
+                            'avatar-uploader-target': 'input'
+                          }
+                        } %>
+          </div>
+          <%= f.input :email,
+                      required: true,
+                      placeholder: "john.smith@youjam.co",
+                      label: false,
+                      autofocus: true,
+                      input_html: { autocomplete: "email" }%>
+          <div class="row">
+            <%= f.input :password,
+                        required: true,
+                        label: false,
+                        placeholder: "motDePasse",
+                        hint: (t('devise.shared.minimum_password_length', count: @minimum_password_length) if @minimum_password_length),
+                        input_html: { autocomplete: "new-password" }, wrapper_html: { class: "col-6"} %>
+            <%= f.input :password_confirmation,
+                        required: true,
+                        label: false,
+                        placeholder: "motDePasse",
+                        input_html: { autocomplete: "new-password" }, wrapper_html: { class: "col-6"} %>
+          </div>
+          <div class="row">
+            <%= f.input :first_name, label: false, placeholder: "John",required: true, wrapper_html: { class: "col-6"} %>
+            <%= f.input :last_name, label: false, placeholder: "Smith", required: true, wrapper_html: { class: "col-6"} %>
+          </div>
+          <div class="row">
+            <%= f.input :location,label: false, placeholder: "68 avenue Parmentier, 75011 Paris", input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+                        wrapper_html: {class: "col-6 address-sign-up", data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
+          </div>
+          <%= f.input :description, label: false, placeholder: "I Love to jam and meet people. Music is my passion ...",required: true %>
 
-    <div class="form-actions">
-      <%= f.button :submit, t(".sign_up") %>
-    </div>
-<% end %>
+        </div>
 
-<%= render "devise/shared/links" %>
+        <div class="form-actions">
+          <%= f.button :submit, t(".sign_up"), class: "primary-button" %>
+          <%= render "devise/shared/links" %>
+        </div>
+    <% end %>
+    <br>
+  </div>
+  <div class="col-3"></div>
+</div>

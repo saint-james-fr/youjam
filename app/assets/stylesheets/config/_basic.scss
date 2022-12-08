@@ -13,7 +13,7 @@ p {
 }
 
 .fullheight {
-  min-height: calc(100vh - 163px);
+  min-height: calc(100vh - 172px);
 }
 
 button {
@@ -54,4 +54,32 @@ ul {
 .tab {
   cursor: pointer;
   color: $color-darker-blue;
+}
+
+.tooltip-avatar {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-avatar .tooltiptext {
+  visibility: hidden;
+  width: auto;
+  background-color: $color-primary;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 10px;
+  line-break: strict;
+
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 110%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltip-avatar:hover .tooltiptext {
+  visibility: visible;
 }

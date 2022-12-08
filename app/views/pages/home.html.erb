@@ -31,7 +31,7 @@
   <div class="container mt-5 mb-5">
     <h2>Rencontre des Jammers</h2>
     <div class="jammer-cards mt-4">
-      <% @users.each do |user| %>
+      <% @users.first(3).each do |user| %>
             <%= render "shared/jammer_card", user: user %>
         <% end %>
     </div>

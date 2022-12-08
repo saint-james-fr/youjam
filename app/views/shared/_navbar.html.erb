@@ -15,7 +15,7 @@
             <%= link_to "Créer une Jam", new_jam_path, class: "nav-link primary-button", id: "addjambutton" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Tous les événements", jams_path, class: "nav-link" %>
+            <%= link_to "Toutes les jams", jams_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "Mes messages", chatrooms_path, class: "nav-link" %>
@@ -29,7 +29,8 @@
                 <%= cl_image_tag current_user.avatar.key, class: "avatar ms-2" %>
               </div>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
+                <%= link_to "Mes jams", dashboard_path, class: "dropdown-item" %>
+                <%= link_to "Editer mon profil", edit_user_registration_path, class: "dropdown-item" %>
                 <%= link_to "Se déconnecter", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
               </div>
             </li>

@@ -43,7 +43,7 @@ class JamsController < ApplicationController
       params[:search] = ''
     end
     if params['search']['query'].present?
-      jam_ids = @jams.select { |jam| jam.instruments_list.any? { |instrument| instrument.include?(params['search']['query']) } }.map(&:id)
+      jam_ids = @jams.select { |jam| jam.instruments_list.any? { |instrument| instrument.include?(params['search']['query'].capitalize) } }.map(&:id)
       sql_query = 'title ILIKE :query OR description ILIKE :query'
       @jams = @jams.where(sql_query, query: "%#{params['search']['query']}%").or(Jam.where('id in (?)', jam_ids))
     end

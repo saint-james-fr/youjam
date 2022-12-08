@@ -1,0 +1,54 @@
+.form-sign-up {
+  background-color: rgba(255, 255, 255, 0.3);
+  margin-top: 2em;
+  margin-bottom: 2em;;
+  padding: 15px;
+  border-radius: 15px;
+}
+
+.avatar-input {
+    width:150px;
+    height:150px;
+    margin: 25px auto;
+    overflow: hidden;
+    border-radius:50%;
+    position: relative;
+}
+
+.upload-avatar {
+  height: 65px;
+  width: 65px;
+  background: gray;
+  cursor: pointer;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+
+
+.address-sign-up {
+
+  div {
+    max-width: 500px;
+    width: 454px;
+  }
+
+//   input {
+//     width: 454px;
+//   }
+// }
+}
+
+.image-sign-in {
+  flex-grow: 1;
+
+  img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+}
+
+.sign-in a {
+  color: $color-primary;
+}

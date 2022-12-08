@@ -1,0 +1,40 @@
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
+
+        <div class="form-inputs">
+          <%= f.input :email,
+                      required: true,
+                      placeholder: "john.smith@youjam.co",
+                      label: false,
+                      autofocus: true,
+                      input_html: { autocomplete: "email" }%>
+          <div class="row">
+            <%= f.input :password,
+                        required: true,
+                        label: false,
+                        placeholder: "motDePasse",
+                        hint: (t('devise.shared.minimum_password_length', count: @minimum_password_length) if @minimum_password_length),
+                        input_html: { autocomplete: "new-password" }, wrapper_html: { class: "col-6"} %>
+            <%= f.input :password_confirmation,
+                        required: true,
+                        label: false,
+                        placeholder: "motDePasse",
+                        input_html: { autocomplete: "new-password" }, wrapper_html: { class: "col-6"} %>
+          </div>
+          <div class="row">
+            <%= f.input :first_name, label: false, placeholder: "John",required: true, wrapper_html: { class: "col-6"} %>
+            <%= f.input :last_name, label: false, placeholder: "Smith", required: true, wrapper_html: { class: "col-6"} %>
+          </div>
+          <div class="row">
+            <%= f.input :location,label: false, placeholder: "68 avenue Parmentier, 75011 Paris", input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+                        wrapper_html: {class: "col-6", data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
+            <%= f.input :avatar, label: false, as: :file, wrapper_html: { class: "col-6 avatar-input"} %>
+          </div>
+          <%= f.input :description, label: false, placeholder: "I Love to jam and meet people. Music is my passion ...",required: true %>
+
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, t(".sign_up") %>
+        </div>
+    <% end %>

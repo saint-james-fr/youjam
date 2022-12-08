@@ -1,20 +1,27 @@
-<div class="container fullheight"><h2 class="text-center pt-5"><%= t(".sign_in") %></h2>
-  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="form-inputs">
-      <%= f.input :email,
-                  required: false,
-                  autofocus: true,
-                  input_html: { autocomplete: "email" } %>
-      <%= f.input :password,
-                  required: false,
-                  input_html: { autocomplete: "current-password" } %>
-      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-    </div>
+<div class="row">
+  <div class="sign-in col-4 pt-3 px-5">
+    <div class="container fullheight py-2"><h2 class="text-center pt-5"><%= t(".sign_in") %></h2>
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-inputs">
+          <%= f.input :email,
+                      required: false,
+                      autofocus: true,
+                      input_html: { autocomplete: "email" } %>
+          <%= f.input :password,
+                      required: false,
+                      input_html: { autocomplete: "current-password" } %>
+          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        </div>
 
-    <div class="form-actions">
-      <%= f.button :submit, t(".sign_in") %>
-    </div>
-  <% end %>
+        <div class="form-actions">
+          <%= f.button :submit, t(".sign_in"), class: "primary-button mb-4" %>
+        </div>
+      <% end %>
 
-  <%= render "devise/shared/links" %>
+      <%= render "devise/shared/links" %>
+      </div>
   </div>
+  <div class="col-6 image-sign-in">
+    <%= image_tag 'bg-sing-in.jpg' %>
+  </div>
+</div>

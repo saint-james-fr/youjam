@@ -134,6 +134,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_150435) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.string "description"
+    t.integer "rating"
+    t.bigint "reviewer_id", null: false
+    t.bigint "reviewee_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["reviewee_id"], name: "index_reviews_on_reviewee_id"
+    t.index ["reviewer_id"], name: "index_reviews_on_reviewer_id"
+  end
+
   create_table "user_artists", force: :cascade do |t|
     t.bigint "artist_id", null: false
     t.bigint "user_id", null: false
@@ -195,6 +206,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_150435) do
   add_foreign_key "messages", "users"
   add_foreign_key "posts", "jams"
   add_foreign_key "posts", "users"
+  add_foreign_key "reviews", "users", column: "reviewee_id"
+  add_foreign_key "reviews", "users", column: "reviewer_id"
   add_foreign_key "user_artists", "artists"
   add_foreign_key "user_artists", "users"
   add_foreign_key "user_genres", "genres"

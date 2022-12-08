@@ -22,7 +22,9 @@
             <% @pending_bookings.each do |booking| %>
               <div class="d-flex justify-content-between modale-guests-line">
                 <div class="d-inline-flex align-items-center">
-                  <%= cl_image_tag booking.user.avatar.key, class:"avatar" %>
+                  <%= link_to profile_path(booking.user), class: "text-decoration-none" do %>
+                    <%= cl_image_tag booking.user.avatar.key, class:"avatar" %>
+                  <% end %>
                   <div>
                   <%= booking.user.first_name %>
                   </div>
@@ -49,7 +51,9 @@
             <% @accepted_bookings.each do |booking| %>
               <div class="d-flex justify-content-between modale-guests-line">
                 <div>
-                  <%= cl_image_tag booking.user.avatar.key, class:"avatar" %>
+                   <%= link_to profile_path(booking.user), class: "text-decoration-none" do %>
+                    <%= cl_image_tag booking.user.avatar.key, class:"avatar" %>
+                  <% end %>
                   <%= booking.user.first_name %>
                 </div>
               </div>
@@ -63,7 +67,9 @@
             <% @declined_bookings.each do |booking| %>
               <div class="d-flex justify-content-between modale-guests-line">
                 <div>
-                  <%= cl_image_tag booking.user.avatar.key, class:"avatar" %>
+                   <%= link_to profile_path(booking.user), class: "text-decoration-none" do %>
+                    <%= cl_image_tag booking.user.avatar.key, class:"avatar" %>
+                  <% end %>
                   <%= booking.user.first_name %>
                 </div>
               </div>

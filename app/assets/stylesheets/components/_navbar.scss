@@ -16,6 +16,10 @@
   color: $color-primary;
 }
 
+.navbar-brand h3:hover {
+  opacity: 0.7;
+}
+
 .navbar-nav {
   align-items: center;
   width: auto;
@@ -55,6 +59,10 @@
   color: white;
 }
 
+.navbar-transparent .nav-item:hover:not(.dropdown) {
+  opacity: 0.7;
+}
+
 .user-infos .nav-item {
   display: flex;
   align-items: center;
@@ -66,6 +74,13 @@
 
 .nav-item {
   margin-left: 2em;
+}
+.nav-item:hover {
+  font-weight: 600;
+}
+
+.nav-item a {
+  color: $color-primary;
 }
 
 #addjambutton:hover {
@@ -82,4 +97,15 @@
 
 .user-name {
   cursor:pointer;
+  display: flex;
+  align-items: center;
+}
+
+.user-name:hover {
+  font-weight: 600;
+  opacity: 0.7;
+}
+
+.dropdown-item:active {
+  background-color: $color-primary;
 }
