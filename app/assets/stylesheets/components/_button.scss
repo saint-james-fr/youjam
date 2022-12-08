@@ -7,6 +7,22 @@
   border: none;
 }
 
+.spotify-button {
+  background-color: $color-spotify;
+  color: white;
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 4px;
+  border: none;
+  transition: 0.1s ease-in-out
+}
+
+.spotify-button:hover {
+  opacity: 0.7;
+  color: white!important;
+}
+
+
 .primary-button:hover {
   background-color: $color-secondary;
   color: white;
@@ -47,11 +63,11 @@
   transition: background 0.3s ease;
 }
 
-.primary-button.b-inactive {
+.secondary-button.b-inactive {
   background-color: $color-grey ;
 }
 
-.primary-button.b-inactive:hover {
+.secondary-button.b-inactive:hover {
   background-color: $color-grey ;
 }
 

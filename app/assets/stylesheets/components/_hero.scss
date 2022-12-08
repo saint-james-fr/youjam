@@ -1,0 +1,32 @@
+.hero-home {
+  background: $color-tertiary;
+  color: white;
+  height:550px;
+
+  h2 {
+    color: white!important;
+  }
+}
+
+.hero-two-sides {
+  display: flex;
+  height: 100%;
+}
+
+.hero-left {
+  width: 50%;
+  height: 100%;
+}
+
+.hero-right {
+  width: 50%;
+  height: 100%;
+}
+
+.carousel-item, .carousel, .carousel-inner {
+  height: 100%;
+}
+
+.carousel-caption {
+  bottom:initial!important
+}

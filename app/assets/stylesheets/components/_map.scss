@@ -17,11 +17,12 @@
 
 .mapboxgl-map {
   width: 50%;
-  height: 90vh;
   margin: 1em;
   border-radius: 12px;
   position: sticky !important;
   top: 0;
+  margin-bottom: 0;
+  height: auto;
 }
 
 .mapboxgl-popup-content img {
@@ -66,4 +67,8 @@
   opacity: .7;
   margin: 8px
 
+}
+
+.mapboxgl-canvas{
+  height: 100%;
 }

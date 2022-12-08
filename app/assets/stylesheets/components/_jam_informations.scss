@@ -1,12 +1,22 @@
 .information-title {
-  color: $color-tertiary;
   font-size: 1.4em;
   font-weight: 1000;
   font-family: quicksand;
   margin-bottom: 20px;
+  background: -webkit-linear-gradient(45deg, rgba(45,11,141,1) 0%, rgba(10,155,131,1) 55%);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  i {
+    background: initial;
+    background-clip: initial;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial;
+  }
 }
 
-.proposed-by{
+.proposed-by {
   display: flex;
   background-color: white;
   border-radius: 5px;
@@ -14,7 +24,7 @@
   color: $color-dark-blue;
 }
 
-.informations-picto{
+.informations-picto {
   background-color: $color-primary;
   margin-top: 20px;
   border-radius: 5px;
@@ -33,7 +43,7 @@
 }
 
 .informations-description{
-  margin-top: 10px;
+  margin-top: 20px;
   background-color: #fff;
   border-radius: 5px;
   padding: 15px 10px;
@@ -41,6 +51,7 @@
 
 .information-container{
   width: 50%;
+  height: auto;
 }
 .user-information-jam {
   padding: 0px 10px;
@@ -62,4 +73,5 @@
 
 .map-jam {
   margin-top: 52px;
+  height: auto;
 }

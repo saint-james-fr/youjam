@@ -1,0 +1,21 @@
+<div class="container-home">
+  <%# ! Banner Home %>
+  <%= render "pages/home/home_banner" %>
+  <%# ! About the jams %>
+  <%= render "pages/home/home_about_us" %>
+  <%# ! Latest Jams %>
+  <%= render "pages/home/home_latest_jams" %>
+  <%# ! Hero Banner for Creations %>
+  <%= render "pages/home/home_feed_creations" %>
+  <%# ! Meet Jammers %>
+  <div class="container mt-5 mb-5">
+    <h2>Rencontre des Jammers</h2>
+    <div class="scrollmenu">
+      <div class="jammer-cards mt-4">
+        <% @users.each do |user| %>
+              <%= render "shared/jammer_card", user: user %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>

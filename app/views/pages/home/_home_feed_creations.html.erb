@@ -1,0 +1,48 @@
+<% unless @creations.empty?  %>
+  <% transform_url(@creations) %>
+    <div class="hero-home mt-5 mb-2 pt-3 pb-3">
+      <div class="container hero-two-sides">
+        <div class="hero-left pt-3 pe-3">
+          <div id="carouselCreations" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselCreations" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselCreations" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselCreations" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#carouselCreations" data-bs-slide-to="3" aria-label="Slide 4"></button>
+              <button type="button" data-bs-target="#carouselCreations" data-bs-slide-to="4" aria-label="Slide 5"></button>
+            </div>
+            <div class="carousel-inner">
+              <% @creations.last(5).reverse.each do |creation| %>
+                <div class="carousel-item <%= "active" if creation == @creations.last(5).reverse.first %>">
+                  <iframe class="br-3" height="300px" width="100%" loading="lazy" src="<%= creation.creation_url %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5><%= creation.user.first_name %></h5>
+                    <p>"<%= creation.message %>"</p>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselCreations" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden"><i class="fa-solid fa-left"></i></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselCreations" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden"><i class="fa-solid fa-right"></i></span>
+            </button>
+          </div> <%# ! end of carrousel %>
+        </div>
+        <div class="hero-right pt-3 ps-3 d-flex flex-column justify-content-between">
+          <h2 class="text-center">Nos jammeurs et jammeuses ont du talent !</h2>
+          <div>
+            <p>Toi aussi, tu as du talent, et chez Youjam, on pense que tu devrais l'exprimer.</p>
+            <p>Alors évidemment, on ne peut pas t'empêcher d'avoir le trac, mais on peut t'aider à renconter des musiciens et musiciennes talentueux.ses près de chez toi.</p>
+            <p>Alors arrête de jouer solo tes solos, invite les musiciens les plus motivés à te rejoindre et jammer jusqu'au bout de la nuit !</p>
+          </div>
+          <div class="mx-auto mb-5">
+            <%= link_to "Créer une Jam", new_jam_path, class: "nav-link secondary-button" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>

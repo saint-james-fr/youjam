@@ -8,5 +8,34 @@
 }
 
 .container-home h2 {
-  color: $color-primary
+  background: -webkit-linear-gradient(45deg, rgba(45,11,141,1) 0%, rgba(10,155,131,1) 45%);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.container-home-transparent h2 {
+
+    background: -webkit-linear-gradient(45deg, rgba(205,190,251,1) 28%, rgba(82,192,174,1) 60%);
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+.scrollmenu {
+  overflow: auto;
+  white-space: nowrap;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollmenu::-webkit-scrollbar {
+  display: none;
+}
+
+.home-creations {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
 }

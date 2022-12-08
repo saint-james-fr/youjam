@@ -4,6 +4,12 @@ class PagesController < ApplicationController
   def home
     @jams = Jam.all.first(4).reverse
     @users = User.all
+    @reviews = Review.all
+    @users.each do |user|
+      set_average(user)
+    end
+    @creations = Creation.all
+    render "pages/home/home"
   end
 
   def dashboard
@@ -13,15 +19,12 @@ class PagesController < ApplicationController
 
   def profile
     @user = User.find(params[:id])
-    @user.creations.map do |creation|
-      match = creation.creation_url.match(/\w+\Z/)
-      creation_url = "https://www.youtube.com/embed/#{match}"
-      creation.update(creation_url: creation_url)
-    end
     @review = Review.new
     @reviews = Review.all
 
-    set_average(@user)
+    unless @user.reviews_as_reviewee.empty?
+      set_average(@user)
+    end
 
     @user_artists = UserArtist.where(user_id: @user.id)
     @all_artists = @user.artists
@@ -44,11 +47,7 @@ class PagesController < ApplicationController
   end
 
   def set_average(user)
-    if user.reviews_as_reviewee.empty?
-      @average = 2
-    else
     @average = user.reviews_as_reviewee.average(:rating)
-    end
   end
 
 end
