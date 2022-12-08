@@ -914,3 +914,232 @@ end
 
 puts ">"
 puts "Done!"
+
+
+review1 = {
+  description: "Super jammer, on a passé un bon moment avec Gaspard!",
+  rating: 5,
+  reviewer_id: users[1].id,
+  reviewee_id: users[4].id,
+}
+
+review2 = {
+  description: "Dingue de voir quelqu'un encore joué du clavecin",
+  rating: 4,
+  reviewer_id: users[2].id,
+  reviewee_id: users[4].id,
+}
+
+review3 = {
+  description: "Super jam session ensemble, bravo Gaspard !",
+  rating: 5,
+  reviewer_id: users[3].id,
+  reviewee_id: users[4].id,
+}
+
+review4 = {
+  description: "Il est chaud au clavecin ! ",
+  rating: 5,
+  reviewer_id: users[5].id,
+  reviewee_id: users[4].id,
+}
+
+review5 = {
+  description: "Super jammeuse, j'ai passé un très bon moment!",
+  rating: 5,
+  reviewer_id: users[2].id,
+  reviewee_id: users[1].id,
+}
+
+review6 = {
+  description: "Une bassiste comme on en a rarement vu",
+  rating: 4,
+  reviewer_id: users[3].id,
+  reviewee_id: users[1].id,
+}
+
+review7 = {
+  description: "Elle s'est endormie sur sa basse ...",
+  rating: 2,
+  reviewer_id: users[4].id,
+  reviewee_id: users[1].id,
+}
+
+review8 = {
+  description: "Il fait n'importe quoi avec son kazoo!",
+  rating: 2,
+  reviewer_id: users[5].id,
+  reviewee_id: users[2].id,
+}
+
+review9 = {
+  description: "Sympa & volontaire, c'était la jam de l'ambiance",
+  rating: 4,
+  reviewer_id: users[3].id,
+  reviewee_id: users[2].id,
+}
+
+review10 = {
+  description: "Chaud le pierrot !",
+  rating: 5,
+  reviewer_id: users[4].id,
+  reviewee_id: users[2].id,
+}
+
+review11 = {
+  description: "Benjamin est solaire et jam comme un fou!",
+  rating: 5,
+  reviewer_id: users[6].id,
+  reviewee_id: users[3].id,
+}
+
+review12 = {
+  description: "Bravo pour ton sens de la musique",
+  rating: 4,
+  reviewer_id: users[7].id,
+  reviewee_id: users[3].id,
+}
+
+review13 = {
+  description: "Super benjamin !",
+  rating: 5,
+  reviewer_id: users[8].id,
+  reviewee_id: users[3].id,
+}
+
+review11 = {
+  description: "Paul a passé la journée à faire des écharpes...",
+  rating: 3,
+  reviewer_id: users[11].id,
+  reviewee_id: users[5].id,
+}
+
+review12 = {
+  description: "Il ne fait que parler de sa marque 'hottter'",
+  rating: 2,
+  reviewer_id: users[12].id,
+  reviewee_id: users[5].id,
+}
+
+review13 = {
+  description: "Bravo paulo t'es chauuuud !",
+  rating: 5,
+  reviewer_id: users[13].id,
+  reviewee_id: users[5].id,
+}
+
+review14 = {
+  description: "bravo c'était top !",
+  rating: 4,
+  reviewer_id: users[11].id,
+  reviewee_id: users[6].id,
+}
+
+review15 = {
+  description: "yess jammer de fouuuu",
+  rating: 4,
+  reviewer_id: users[12].id,
+  reviewee_id: users[6].id,
+}
+
+review16 = {
+  description: "c'était la fête !",
+  rating: 5,
+  reviewer_id: users[13].id,
+  reviewee_id: users[6].id,
+}
+
+review17 = {
+  description: "bravo c'était top !",
+  rating: 4,
+  reviewer_id: users[2].id,
+  reviewee_id: users[7].id,
+}
+
+review18 = {
+  description: "yess jammer de fouuuu",
+  rating: 4,
+  reviewer_id: users[3].id,
+  reviewee_id: users[7].id,
+}
+
+review19 = {
+  description: "c'était la fête !",
+  rating: 5,
+  reviewer_id: users[4].id,
+  reviewee_id: users[7].id,
+}
+review20 = {
+  description: "bravo c'était top !",
+  rating: 4,
+  reviewer_id: users[5].id,
+  reviewee_id: users[8].id,
+}
+
+review21 = {
+  description: "yess jammer de fouuuu",
+  rating: 4,
+  reviewer_id: users[7].id,
+  reviewee_id: users[8].id,
+}
+
+review22 = {
+  description: "c'était la fête !",
+  rating: 5,
+  reviewer_id: users[9].id,
+  reviewee_id: users[8].id,
+}
+
+review23 = {
+  description: "bravo c'était top !",
+  rating: 4,
+  reviewer_id: users[11].id,
+  reviewee_id: users[9].id,
+}
+
+review24 = {
+  description: "yess jammer de fouuuu",
+  rating: 4,
+  reviewer_id: users[12].id,
+  reviewee_id: users[9].id,
+}
+
+review25 = {
+  description: "c'était la fête !",
+  rating: 5,
+  reviewer_id: users[13].id,
+  reviewee_id: users[9].id,
+}
+
+review26 = {
+  description: "bravo c'était top !",
+  rating: 4,
+  reviewer_id: users[11].id,
+  reviewee_id: users[10].id,
+}
+
+review27 = {
+  description: "yess jammer de fouuuu",
+  rating: 4,
+  reviewer_id: users[12].id,
+  reviewee_id: users[10].id,
+}
+
+review28 = {
+  description: "c'était la fête !",
+  rating: 5,
+  reviewer_id: users[13].id,
+  reviewee_id: users[10].id,
+}
+
+reviews = [review1, review2, review3, review4, review5, review6, review7, review8, review9, review10, review11, review12, review13, review14, review15, review16, review17, review18, review19, review20, review21, review22, review23, review24, review25, review26, review27, review28]
+
+puts ">"
+puts "Starts creating reviews..."
+reviews.each do |review|
+  review_new = Review.new(review)
+  review_new.save!
+end
+
+puts ">"
+puts "Done!"
