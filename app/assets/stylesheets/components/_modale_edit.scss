@@ -1,0 +1,36 @@
+#editJamModal {
+  --bs-modal-width: 750px;
+}
+
+// .modal-body {
+//   padding: 40px 40px;
+// }
+
+// .modal-header {
+//   background-color: $color-primary;
+//   // border-radius: 3px 3px 0px 0px;
+// }
+
+.was-validated .form-select:valid, .form-select.is-valid {
+  border-color: #EFEAFF;
+}
+
+.edit-form .form_input{
+  padding-left: 13px;
+}
+
+.edit-form .form-select.is-valid:not([multiple]):not([size]) {
+  padding-right: 2.125rem
+}
+
+.edit-form .mapboxgl-ctrl-geocoder--input {
+  height: 35px !important;
+}
+
+.edit-form .search-input-address input{
+  padding-right: 58px!important;
+}
+.edit-form .secondary-button {
+  float: right;
+  margin-top: 15px;
+}

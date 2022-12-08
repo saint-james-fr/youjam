@@ -1,25 +1,19 @@
 .modale {
   background-color: $color-light-blue;
   color: $color-dark-blue;
-  border-radius: 3px 3px 0px 0px;
-}
-
-.modal {
-  --bs-modal-width: 750px;
 }
 
 .modal-content {
-  border-radius: 46px;
+  border-radius: 4px;
 }
-
-.modal-body {
-  padding: 40px 40px;
-}
-
 
 .modal-header {
   background-color: $color-primary;
-  border-radius: 5px 5px 0px 0px;
+  border-radius: 2px 2px 0px 0px;
+}
+
+.modal-body {
+  border-radius: 0px 0px 4px 4px;
 }
 
 .modal-title {
@@ -88,31 +82,4 @@
   padding-left: 49px;
   padding-bottom: 10px;
   border-bottom: 1px solid $color-primary
-}
-.was-validated .form-select:valid, .form-select.is-valid {
-  border-color: #EFEAFF;
-}
-
-.form_input{
-  padding-left: 13px;
-}
-
-
-
-
-.form-select.is-valid:not([multiple]):not([size]) {
-  padding-right: 2.125rem
-}
-
-.mapboxgl-ctrl-geocoder--input {
-height: 36px !important;
-
-}
-
-.search-input-address input{
-  padding-right: 58px!important;
-}
-.secondary-button {
-  float: right;
-  margin-top: 15px;
 }
