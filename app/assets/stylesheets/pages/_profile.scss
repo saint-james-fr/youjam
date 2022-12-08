@@ -138,6 +138,18 @@
   color: white;
 }
 
+.information-title-profil {
+  background: -webkit-linear-gradient(45deg, rgba(205,190,251,1) 28%, rgba(82,192,174,1) 60%);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.4em;
+  font-weight: 1000;
+  font-family: quicksand;
+  margin-bottom: 20px;
+
+}
+
 .profile-background-inside {
   height: 65vh;
   filter: hue-rotate(-162deg);

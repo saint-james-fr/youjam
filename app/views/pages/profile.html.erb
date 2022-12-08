@@ -4,7 +4,7 @@
       <div>
         <div class="profile-name">
           <p class="information-title mb-3 ">
-            <%= @user.first_name%> <%= @user.last_name %>  
+              <span class= "information-title-profil"><%= @user.first_name%> <%= @user.last_name %></span>  
             <% if current_user == @user %>
               <%= link_to edit_user_registration_path(current_user), class: "text-decoration-none" do %>
                 <i class="fa-solid fa-pen"></i>
