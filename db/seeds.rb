@@ -302,7 +302,7 @@ jam1 =  {
   title: "Entraînons-nous ensemble",
   location: "16 Villa Gaudelet, 75011 Paris",
   description: "La célèbre Jam du Wagon",
-  instruments_list: ["Batterie", "Guitare", "Basse"], 
+  instruments_list: ["Batterie", "Guitare", "Basse"],
   capacity: 3,
   jam_date: DateTime.strptime("12/22/2022 20:00", "%m/%d/%Y %H:%M"),
   user_id: users[0].id
@@ -948,146 +948,146 @@ review5 = {
   description: "Super jammeuse, j'ai passé un très bon moment!",
   rating: 5,
   reviewer_id: users[2].id,
-  reviewee_id: users[1].id,
+  reviewee_id: users[0].id,
 }
 
 review6 = {
   description: "Une bassiste comme on en a rarement vu",
   rating: 4,
   reviewer_id: users[3].id,
-  reviewee_id: users[1].id,
+  reviewee_id: users[0].id,
 }
 
 review7 = {
   description: "Elle s'est endormie sur sa basse ...",
   rating: 2,
   reviewer_id: users[4].id,
-  reviewee_id: users[1].id,
+  reviewee_id: users[0].id,
 }
 
 review8 = {
   description: "Il fait n'importe quoi avec son kazoo!",
   rating: 2,
   reviewer_id: users[5].id,
-  reviewee_id: users[2].id,
+  reviewee_id: users[1].id,
 }
 
 review9 = {
   description: "Sympa & volontaire, c'était la jam de l'ambiance",
   rating: 4,
   reviewer_id: users[3].id,
-  reviewee_id: users[2].id,
+  reviewee_id: users[1].id,
 }
 
 review10 = {
   description: "Chaud le pierrot !",
   rating: 5,
   reviewer_id: users[4].id,
-  reviewee_id: users[2].id,
+  reviewee_id: users[1].id,
 }
 
 review11 = {
   description: "Benjamin est solaire et jam comme un fou!",
   rating: 5,
   reviewer_id: users[6].id,
-  reviewee_id: users[3].id,
+  reviewee_id: users[2].id,
 }
 
 review12 = {
   description: "Bravo pour ton sens de la musique",
   rating: 4,
   reviewer_id: users[7].id,
-  reviewee_id: users[3].id,
+  reviewee_id: users[2].id,
 }
 
 review13 = {
   description: "Super benjamin !",
   rating: 5,
   reviewer_id: users[8].id,
-  reviewee_id: users[3].id,
+  reviewee_id: users[2].id,
 }
 
 review11 = {
   description: "Paul a passé la journée à faire des écharpes...",
   rating: 3,
   reviewer_id: users[11].id,
-  reviewee_id: users[5].id,
+  reviewee_id: users[3].id,
 }
 
 review12 = {
   description: "Il ne fait que parler de sa marque 'hottter'",
   rating: 2,
   reviewer_id: users[12].id,
-  reviewee_id: users[5].id,
+  reviewee_id: users[3].id,
 }
 
 review13 = {
   description: "Bravo paulo t'es chauuuud !",
   rating: 5,
   reviewer_id: users[13].id,
-  reviewee_id: users[5].id,
+  reviewee_id: users[3].id,
 }
 
 review14 = {
   description: "bravo c'était top !",
   rating: 4,
   reviewer_id: users[11].id,
-  reviewee_id: users[6].id,
+  reviewee_id: users[5].id,
 }
 
 review15 = {
   description: "yess jammer de fouuuu",
   rating: 4,
   reviewer_id: users[12].id,
-  reviewee_id: users[6].id,
+  reviewee_id: users[5].id,
 }
 
 review16 = {
   description: "c'était la fête !",
   rating: 5,
   reviewer_id: users[13].id,
-  reviewee_id: users[6].id,
+  reviewee_id: users[5].id,
 }
 
 review17 = {
   description: "bravo c'était top !",
   rating: 4,
   reviewer_id: users[2].id,
-  reviewee_id: users[7].id,
+  reviewee_id: users[6].id,
 }
 
 review18 = {
   description: "yess jammer de fouuuu",
   rating: 4,
   reviewer_id: users[3].id,
-  reviewee_id: users[7].id,
+  reviewee_id: users[6].id,
 }
 
 review19 = {
   description: "c'était la fête !",
   rating: 5,
   reviewer_id: users[4].id,
-  reviewee_id: users[7].id,
+  reviewee_id: users[6].id,
 }
 review20 = {
   description: "bravo c'était top !",
   rating: 4,
   reviewer_id: users[5].id,
-  reviewee_id: users[8].id,
+  reviewee_id: users[7].id,
 }
 
 review21 = {
   description: "yess jammer de fouuuu",
   rating: 4,
   reviewer_id: users[7].id,
-  reviewee_id: users[8].id,
+  reviewee_id: users[9].id,
 }
 
 review22 = {
   description: "c'était la fête !",
   rating: 5,
   reviewer_id: users[9].id,
-  reviewee_id: users[8].id,
+  reviewee_id: users[7].id,
 }
 
 review23 = {
