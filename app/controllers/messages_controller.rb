@@ -6,6 +6,9 @@ class MessagesController < ApplicationController
     @message.chatroom = @chatroom
     @message.user = current_user
     authorize @message
+    if params[:message][:content] == ""
+      return
+    end
     if @message.save
       ChatroomChannel.broadcast_to(
         @chatroom,
