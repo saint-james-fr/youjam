@@ -15,18 +15,18 @@
             <%= link_to "Créer une Jam", new_jam_path, class: "nav-link primary-button", id: "addjambutton" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Toutes les jams", jams_path, class: "nav-link" %>
+            <%= link_to "Toutes les jams", jams_path, class: "nav-link nav-hover" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Mes messages", chatrooms_path, class: "nav-link" %>
+            <%= link_to "Mes messages", chatrooms_path, class: "nav-link nav-hover" %>
           </li>
           <div class="user-infos">
             <li class="nav-item dropdown">
               <div class="dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown">
-                <div class="user-name">
+                <div class="user-name nav-hover">
                   <%= current_user.first_name %> <%= current_user.last_name %>
                 </div>
-                <%= cl_image_tag current_user.avatar.key, class: "avatar ms-2" %>
+                <%= cl_image_tag current_user.avatar.key, class: "avatar ms-2 nav-hover" %>
               </div>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <%= link_to "Mes jams", dashboard_path, class: "dropdown-item" %>
@@ -37,7 +37,7 @@
           </div>
         <% else %>
           <li class="nav-item">
-            <%= link_to "S'identifier", new_user_session_path, class: "nav-link" %>
+            <%= link_to "S'identifier", new_user_session_path, class: "nav-link nav-hover" %>
           </li>
         <% end %>
       </ul>
