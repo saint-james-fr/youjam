@@ -2,7 +2,8 @@
                     html: {
                       data: {
                         controller: 'flatpickr'
-                      }
+                      },
+                      class: "edit-form"
                     } do |f| %>
     <%= f.input :title, label: 'Titre de la Jam', required: false %>
     <%= f.input :description, required: false, label: 'Description' %>

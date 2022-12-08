@@ -19,12 +19,12 @@ class PagesController < ApplicationController
 
   def profile
     @user = User.find(params[:id])
-    @review = Review.new
-    @reviews = Review.all
-
     unless @user.reviews_as_reviewee.empty?
       set_average(@user)
     end
+    @review = Review.new
+    @reviews = Review.where(reviewee_id: @user)
+
 
     @user_artists = UserArtist.where(user_id: @user.id)
     @all_artists = @user.artists
