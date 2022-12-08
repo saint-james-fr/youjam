@@ -21,6 +21,7 @@
     height: 100%;
     overflow: scroll;
     padding: 1rem;
+    position:relative;
   }
 
   // FIX THE WHITE SCROLLBAR :)
@@ -62,4 +63,18 @@
 
 #message_content {
   width: 96%;
+}
+
+.messagerie-background {
+  height: 65vh;
+  filter: hue-rotate(-162deg);
+  opacity: 0.8;
+}
+
+.messagerie-background-inside {
+  height: 65vh;
+  filter: hue-rotate(-162deg);
+  position: absolute;
+  left: 10%;
+  z-index: -1;
 }

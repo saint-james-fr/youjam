@@ -1,37 +1,40 @@
-<button data-bs-toggle="modal" data-bs-target="#reviewAverageModal">
 
-  <div class="avr-review">
-    <% average.round.times do %>
-      <i class="fa-solid fa-star"></i>
-    <% end %>
-    <% (5-average.round).times do %>
-      <i class="fa-regular fa-star"></i>
-    <% end %>
-  </div>
+<% unless average.nil? %>
+  <button data-bs-toggle="modal" data-bs-target="#reviewAverageModal">
 
-</button>
+    <div class="avr-review">
+      <% average.round.times do %>
+        <i class="fa-solid fa-star"></i>
+      <% end %>
+      <% (5-average.round).times do %>
+        <i class="fa-regular fa-star"></i>
+      <% end %>
+    </div>
 
-<div class="modal fade" id="reviewAverageModal" tabindex="-1" aria-labelledby="reviewAverageModalLabel" aria-hidden="true" >
-  <div class="modal-dialog modal-dialog-centered ">
-    <div class="modal-content">
-        <div class="modal-header modale">
-          <%= cl_image_tag user.avatar.key, class: "avatar" %>
-          <h2 class="modal-title fs-5" id="reviewAverageModalLabel">
-            <% average.round.times do %>
-              <i class="fa-solid fa-star"></i>
+  </button>
+
+  <div class="modal fade" id="reviewAverageModal" tabindex="-1" aria-labelledby="reviewAverageModalLabel" aria-hidden="true" >
+    <div class="modal-dialog modal-dialog-centered ">
+      <div class="modal-content">
+          <div class="modal-header modale">
+            <%= cl_image_tag user.avatar.key, class: "avatar" %>
+            <h2 class="modal-title fs-5" id="reviewAverageModalLabel">
+              <% average.round.times do %>
+                <i class="fa-solid fa-star"></i>
+              <% end %>
+              <% (5-average.round).times do %>
+                <i class="fa-regular fa-star"></i>
+              <% end %>
+            </h2>
+            <div class="note-review"> <%= average %> </div>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body modale reviews-body-modal">
+            <% reviews.each do |review| %>
+              <%= render "reviews/index_review", review: review %>
             <% end %>
-            <% (5-average.round).times do %>
-              <i class="fa-regular fa-star"></i>
-            <% end %>
-          </h2>
-          <div class="note-review"> <%= average %> </div>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body modale reviews-body-modal">
-          <% reviews.each do |review| %>
-            <%= render "reviews/index_review", review: review %>
-          <% end %>
-        </div>
+          </div>
+      </div>
     </div>
   </div>
-</div>
+<% end %>

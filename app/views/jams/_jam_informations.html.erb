@@ -14,7 +14,7 @@
       <div class="user-information-description">
       <p><%= jam.user.description.truncate(100) %></p>
       <%# * Run test to see if there is a match with top artists %>
-      <% if user_signed_in? %>
+      <% if user_signed_in? && jam.user.id != current_user.id %>
         <% union = jam.user.user_artists.where(toplist: true) + current_user.user_artists.where(toplist: true) %>
         <% array = [] %>
         <% union.each do |ref| %>
@@ -69,5 +69,5 @@
 
 <%= render "jams/guests_modal", jam: @jam %>
 <% if user_signed_in? %>
-<%= render "jams/artists_modal", common_array: common_array %>
+<%= render "jams/artists_modal", common_array: common_array.nil? ? [] : common_array %>
 <% end %>

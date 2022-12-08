@@ -1,9 +1,19 @@
 .information-title {
-  color: $color-tertiary;
   font-size: 1.4em;
   font-weight: 1000;
   font-family: quicksand;
   margin-bottom: 20px;
+  background: -webkit-linear-gradient(45deg, rgba(45,11,141,1) 0%, rgba(10,155,131,1) 55%);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  i {
+    background: initial;
+    background-clip: initial;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial;
+  }
 }
 
 .proposed-by {

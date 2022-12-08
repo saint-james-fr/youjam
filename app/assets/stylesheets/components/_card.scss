@@ -97,11 +97,13 @@
 
  .card-about-us {
     display: flex;
-    height: 450px;
+    height: auto;
     margin: 25px 0;
 
     img {
       object-fit: cover;
+      width: 34%;
+      filter: hue-rotate(-162deg);
     }
  }
 
@@ -109,6 +111,10 @@
     font-size: 1.2em;
 
     div {
+<<<<<<< HEAD
       padding: 0px 0px 50px 30px;;
+=======
+      padding: 0 20px 20px 20px;
+>>>>>>> 6b6a6d894541407ef53635bcffae3f5156814182
     }
  }
