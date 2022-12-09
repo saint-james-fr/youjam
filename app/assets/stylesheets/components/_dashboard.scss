@@ -6,3 +6,16 @@
 .status-participants {
   font-size: 0.9em;
 }
+
+.container-dashboard h2 {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-size: 2em;
+  font-weight: 1000;
+  font-family: quicksand;
+  margin-bottom: 20px;
+  background: -webkit-linear-gradient(109deg, #2d0b8d 0%, #0a9b83 130%);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

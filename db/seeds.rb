@@ -933,7 +933,7 @@ review2 = {
 review3 = {
   description: "Super jam session ensemble, bravo Gaspard !",
   rating: 5,
-  reviewer_id: users[3].id,
+  reviewer_id: users[8].id,
   reviewee_id: users[4].id,
 }
 
