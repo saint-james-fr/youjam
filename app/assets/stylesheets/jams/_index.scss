@@ -16,6 +16,7 @@
   padding: 2em;
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
 .message-error-index {
@@ -23,3 +24,10 @@
   color: $color-dark-blue;
 }
 
+.jams-index-search img {
+  position: absolute;
+  height: 128%;
+  z-index: -1;
+  left: -89px;
+  top: 9px;
+}
