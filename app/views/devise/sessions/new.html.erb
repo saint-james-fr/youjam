@@ -3,7 +3,7 @@
     <div class="container fullheight py-2">
       <h2 class="text-center"><%= t("Bienvenue") %></h2>
       <p p-3>Renseigne tes informations pour te connecter.</p>
-      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { data: { turbo: false } }) do |f| %>
         <div class="form-inputs my-4">
           <%= f.input :email,
                       required: false,
