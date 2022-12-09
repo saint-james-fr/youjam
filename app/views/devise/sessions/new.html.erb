@@ -2,7 +2,7 @@
   <div class="sign-in col-6 pt-3 px-5">
     <div class="container fullheight py-2">
       <h2 class="text-center"><%= t("Bienvenue") %></h2>
-      <p p-3>Renseigne tes informations pour te connecter</p>
+      <p p-3>Renseigne tes informations pour te connecter.</p>
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="form-inputs my-4">
           <%= f.input :email,
