@@ -13,8 +13,10 @@
     <div class="scrollmenu">
       <div class="jammer-cards mt-4">
         <% @users.shuffle.each do |user| %>
-              <%= render "shared/jammer_card", user: user %>
+          <% unless user == current_user %>
+            <%= render "shared/jammer_card", user: user %>
           <% end %>
+        <% end %>
       </div>
     </div>
   </div>
