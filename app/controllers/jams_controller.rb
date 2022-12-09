@@ -49,7 +49,7 @@ class JamsController < ApplicationController
     end
     if params['search']['address'].present?
       @jamsfit = @jams.near(params['search']['address'], 1)
-      @jams = @jams.near(params['search']['address'], 10).excluding(@jamsfit)
+      @jams = @jams.near(params['search']['address'], 7).excluding(@jamsfit)
       # unless @jams.length > 2
       #   @jams = @jams.near(params['search']['address'], 10)
       # end
