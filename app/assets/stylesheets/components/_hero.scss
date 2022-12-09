@@ -27,5 +27,18 @@
 }
 
 .carousel-caption {
-  bottom:initial!important
+  bottom:initial!important;
+  color: $color-dark-blue;
+}
+
+.carousel-item iframe {
+  border-radius: 10px;
+}
+
+.carousel-indicators {
+  bottom: -16px;
+}
+
+.carousel-indicators [data-bs-target] {
+  background-color:$color-dark-blue;
 }

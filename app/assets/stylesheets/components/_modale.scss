@@ -37,14 +37,21 @@
 }
 
 .modal-submit {
-  color: $color-dark-blue;
-  background-color: $color-lighter-blue;
+  background-color: $color-primary;
+  color: white;
   width: 100%;
 }
 
+.modal-submit:hover {
+  opacity: 0.8;
+  color: white;
+  background-color: $color-primary;
+}
+
 .modale .avatar {
-  border: solid $color-secondary 2px;
   margin-right: 10px;
+  box-shadow: 0px 0px 8px #ffffff90;
+  outline: 2px solid white;
 }
 
 

@@ -20,9 +20,11 @@
   margin: 1em;
   border-radius: 12px;
   position: sticky !important;
-  top: 0;
+  top: 15px;
   margin-bottom: 0;
   height: auto;
+  max-height: 96vh;
+  margin-bottom: 15px
 }
 
 .mapboxgl-popup-content img {

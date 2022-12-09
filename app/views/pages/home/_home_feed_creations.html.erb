@@ -16,7 +16,7 @@
                 <div class="carousel-item <%= "active" if creation == @creations.last(5).reverse.first %>">
                   <iframe class="br-3" height="300px" width="100%" loading="lazy" src="<%= creation.creation_url %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                   <div class="carousel-caption d-none d-md-block">
-                    <h5><%= creation.user.first_name %></h5>
+                    <h5><%= cl_image_tag creation.user.avatar.key, class: "avatar" %>  <%= creation.user.first_name %></h5>
                     <p>"<%= creation.message %>"</p>
                   </div>
                 </div>

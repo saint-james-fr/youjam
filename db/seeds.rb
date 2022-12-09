@@ -57,12 +57,12 @@ user3 = {
   spotify_account: "gas.fauchille"
 }
 user4 = {
-  first_name: "Benjamin",
+  first_name: "Henri",
   last_name: "Doberset",
-  password: "benjamindoberset",
-  password_confirmation: "benjamindoberset",
-  description: "Salut les amis, moi c'est Benjamin et j'essaie de prôner la musique sur les lieux de travail",
-  email: "benjamin@youjam.com",
+  password: "youjam",
+  password_confirmation: "youjam",
+  description: "Salut les amis, je me présente je m'appelle Henri. Et j'essaie de prôner la musique sur les lieux de travail",
+  email: "henri@youjam.co",
   location: "70 Rue Myrha, 75018 Paris",
   soundcloud_url: "https://soundcloud.com/chuwanaga",
   instagram_url: "https://www.instagram.com/universalmusicfrance/",
@@ -390,7 +390,7 @@ jam9 =  {
 
 jam10 =  {
   title: "Edit path",
-  location: "4 place Jean-Baptiste Pigalle, 75009 Paris",
+  location: "16 Rue du Faubourg Saint-Denis, 75010 Paris",
   description: "Pour les codeurs qui aiment les classiques de la chanson française",
   instruments_list: ["Piano", "Trompette"],
   capacity: 5,
@@ -420,7 +420,7 @@ jam12 =  {
 
 jam13 =  {
   title: "Composons ensemble",
-  location: "65 Av. de Verdun, 64200 Biarritz",
+  location: "9 Rue du Tunnel, 75019 Paris",
   description: "Venez composer avec moi lors de cette jam session",
   instruments_list: ["Batterie", "Piano", "Ukulele"],
   capacity: 4,
@@ -540,7 +540,70 @@ booking4 =  {
   jam_id: jams.last.id
 }
 
-bookings_options = [booking1, booking2, booking3, booking4]
+booking5 =  {
+  message: "Hâte d'y être",
+  status: "accepted",
+  user_id: users[8].id,
+  jam_id: jams[15].id
+}
+
+booking6 =  {
+  message: "Dispo, mais possible de changer l'horraire ?",
+  status: "pending",
+  user_id: users[14].id,
+  jam_id: jams[15].id
+}
+
+booking7 =  {
+  message: "Salut, j'suis dispo !",
+  status: "accepted",
+  user_id: users[13].id,
+  jam_id: jams[15].id
+}
+
+booking8 =  {
+  message: "Hâte d'y être",
+  status: "accepted",
+  user_id: users[12].id,
+  jam_id: jams[14].id
+}
+
+booking9 =  {
+  message: "Dispo, mais possible de changer l'horraire ?",
+  status: "pending",
+  user_id: users[11].id,
+  jam_id: jams[14].id
+}
+
+booking10 =  {
+  message: "Salut, j'suis dispo !",
+  status: "accepted",
+  user_id: users[10].id,
+  jam_id: jams[14].id
+}
+
+booking11 =  {
+  message: "Hâte d'y être",
+  status: "accepted",
+  user_id: users[8].id,
+  jam_id: jams[1].id
+}
+
+booking12 =  {
+  message: "Dispo, mais possible de changer l'horraire ?",
+  status: "pending",
+  user_id: users[9].id,
+  jam_id: jams[1].id
+}
+
+booking13 =  {
+  message: "Salut, j'suis dispo !",
+  status: "accepted",
+  user_id: users[10].id,
+  jam_id: jams[1].id
+}
+
+bookings_options = [booking1, booking2, booking3, booking4, booking5, booking6, booking7, booking8, booking9, booking10, booking11, booking12, booking13]
 
 puts ">"
 puts "Starts creating Bookings..."
@@ -933,7 +996,7 @@ review2 = {
 review3 = {
   description: "Super jam session ensemble, bravo Gaspard !",
   rating: 5,
-  reviewer_id: users[3].id,
+  reviewer_id: users[8].id,
   reviewee_id: users[4].id,
 }
 
@@ -987,7 +1050,7 @@ review10 = {
 }
 
 review11 = {
-  description: "Benjamin est solaire et jam comme un fou!",
+  description: "Henri est solaire et jam comme un fou!",
   rating: 5,
   reviewer_id: users[6].id,
   reviewee_id: users[2].id,
@@ -1001,7 +1064,7 @@ review12 = {
 }
 
 review13 = {
-  description: "Super benjamin !",
+  description: "Super Henri !",
   rating: 5,
   reviewer_id: users[8].id,
   reviewee_id: users[2].id,
