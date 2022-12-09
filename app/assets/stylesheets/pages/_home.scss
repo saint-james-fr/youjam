@@ -8,7 +8,7 @@
 }
 
 .container-home h2 {
-  background: -webkit-linear-gradient(45deg, rgba(45,11,141,1) 0%, rgba(10,155,131,1) 45%);
+  background: -webkit-linear-gradient(45deg, rgba(45,11,141,1) 0%, rgba(10,155,131,1) 130%);
   background-clip: border-box;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -38,4 +38,10 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+}
+
+.background-latest-jam {
+  width: 100%;
+  padding-bottom: 63px
+
 }

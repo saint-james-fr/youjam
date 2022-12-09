@@ -302,7 +302,7 @@ jam1 =  {
   title: "Entraînons-nous ensemble",
   location: "16 Villa Gaudelet, 75011 Paris",
   description: "La célèbre Jam du Wagon",
-  instruments_list: ["Batterie", "Guitare", "Basse"], 
+  instruments_list: ["Batterie", "Guitare", "Basse"],
   capacity: 3,
   jam_date: DateTime.strptime("12/22/2022 20:00", "%m/%d/%Y %H:%M"),
   user_id: users[0].id
@@ -914,3 +914,437 @@ end
 
 puts ">"
 puts "Done!"
+
+
+review1 = {
+  description: "Super jammer, on a passé un bon moment avec Gaspard!",
+  rating: 5,
+  reviewer_id: users[1].id,
+  reviewee_id: users[4].id,
+}
+
+review2 = {
+  description: "Dingue de voir quelqu'un encore joué du clavecin",
+  rating: 4,
+  reviewer_id: users[2].id,
+  reviewee_id: users[4].id,
+}
+
+review3 = {
+  description: "Super jam session ensemble, bravo Gaspard !",
+  rating: 5,
+  reviewer_id: users[8].id,
+  reviewee_id: users[4].id,
+}
+
+review4 = {
+  description: "Il est chaud au clavecin ! ",
+  rating: 5,
+  reviewer_id: users[5].id,
+  reviewee_id: users[4].id,
+}
+
+review5 = {
+  description: "Super jammeuse, j'ai passé un très bon moment!",
+  rating: 5,
+  reviewer_id: users[2].id,
+  reviewee_id: users[0].id,
+}
+
+review6 = {
+  description: "Une bassiste comme on en a rarement vu",
+  rating: 4,
+  reviewer_id: users[3].id,
+  reviewee_id: users[0].id,
+}
+
+review7 = {
+  description: "Elle s'est endormie sur sa basse ...",
+  rating: 2,
+  reviewer_id: users[4].id,
+  reviewee_id: users[0].id,
+}
+
+review8 = {
+  description: "Il fait n'importe quoi avec son kazoo!",
+  rating: 2,
+  reviewer_id: users[5].id,
+  reviewee_id: users[1].id,
+}
+
+review9 = {
+  description: "Sympa & volontaire, c'était la jam de l'ambiance",
+  rating: 4,
+  reviewer_id: users[3].id,
+  reviewee_id: users[1].id,
+}
+
+review10 = {
+  description: "Chaud le pierrot !",
+  rating: 5,
+  reviewer_id: users[4].id,
+  reviewee_id: users[1].id,
+}
+
+review11 = {
+  description: "Benjamin est solaire et jam comme un fou!",
+  rating: 5,
+  reviewer_id: users[6].id,
+  reviewee_id: users[2].id,
+}
+
+review12 = {
+  description: "Bravo pour ton sens de la musique",
+  rating: 4,
+  reviewer_id: users[7].id,
+  reviewee_id: users[2].id,
+}
+
+review13 = {
+  description: "Super benjamin !",
+  rating: 5,
+  reviewer_id: users[8].id,
+  reviewee_id: users[2].id,
+}
+
+review11 = {
+  description: "Paul a passé la journée à faire des écharpes...",
+  rating: 3,
+  reviewer_id: users[11].id,
+  reviewee_id: users[3].id,
+}
+
+review12 = {
+  description: "Il ne fait que parler de sa marque 'hottter'",
+  rating: 2,
+  reviewer_id: users[12].id,
+  reviewee_id: users[3].id,
+}
+
+review13 = {
+  description: "Bravo paulo t'es chauuuud !",
+  rating: 5,
+  reviewer_id: users[13].id,
+  reviewee_id: users[3].id,
+}
+
+review14 = {
+  description: "bravo c'était top !",
+  rating: 4,
+  reviewer_id: users[11].id,
+  reviewee_id: users[5].id,
+}
+
+review15 = {
+  description: "yess jammer de fouuuu",
+  rating: 4,
+  reviewer_id: users[12].id,
+  reviewee_id: users[5].id,
+}
+
+review16 = {
+  description: "c'était la fête !",
+  rating: 5,
+  reviewer_id: users[13].id,
+  reviewee_id: users[5].id,
+}
+
+review17 = {
+  description: "bravo c'était top !",
+  rating: 4,
+  reviewer_id: users[2].id,
+  reviewee_id: users[6].id,
+}
+
+review18 = {
+  description: "yess jammer de fouuuu",
+  rating: 4,
+  reviewer_id: users[3].id,
+  reviewee_id: users[6].id,
+}
+
+review19 = {
+  description: "c'était la fête !",
+  rating: 5,
+  reviewer_id: users[4].id,
+  reviewee_id: users[6].id,
+}
+review20 = {
+  description: "bravo c'était top !",
+  rating: 4,
+  reviewer_id: users[5].id,
+  reviewee_id: users[7].id,
+}
+
+review21 = {
+  description: "yess jammer de fouuuu",
+  rating: 4,
+  reviewer_id: users[7].id,
+  reviewee_id: users[9].id,
+}
+
+review22 = {
+  description: "c'était la fête !",
+  rating: 5,
+  reviewer_id: users[9].id,
+  reviewee_id: users[7].id,
+}
+
+review23 = {
+  description: "bravo c'était top !",
+  rating: 4,
+  reviewer_id: users[11].id,
+  reviewee_id: users[9].id,
+}
+
+review24 = {
+  description: "yess jammer de fouuuu",
+  rating: 4,
+  reviewer_id: users[12].id,
+  reviewee_id: users[9].id,
+}
+
+review25 = {
+  description: "c'était la fête !",
+  rating: 5,
+  reviewer_id: users[13].id,
+  reviewee_id: users[9].id,
+}
+
+review26 = {
+  description: "bravo c'était top !",
+  rating: 4,
+  reviewer_id: users[11].id,
+  reviewee_id: users[10].id,
+}
+
+review27 = {
+  description: "yess jammer de fouuuu",
+  rating: 4,
+  reviewer_id: users[12].id,
+  reviewee_id: users[10].id,
+}
+
+review28 = {
+  description: "c'était la fête !",
+  rating: 5,
+  reviewer_id: users[13].id,
+  reviewee_id: users[10].id,
+}
+
+reviews = [review1, review2, review3, review4, review5, review6, review7, review8, review9, review10, review11, review12, review13, review14, review15, review16, review17, review18, review19, review20, review21, review22, review23, review24, review25, review26, review27, review28]
+
+puts ">"
+puts "Starts creating reviews..."
+reviews.each do |review|
+  review_new = Review.new(review)
+  review_new.save!
+end
+
+puts ">"
+puts "Done!"
+
+chatroom1 = { name: "La git har"}
+chatroom2 = { name: "time2dance"}
+chatroom3 = { name: "Les écharpes de Paul"}
+chatroom4 = { name: "Dit anne" }
+chatroom5 = { name: "les loustics" }
+chatroom6 = { name: "la raclette c'est la fête"}
+
+chatrooms_options = [chatroom1, chatroom2, chatroom3, chatroom4, chatroom5, chatroom6]
+
+puts ">"
+puts "Starts creating chatrooms..."
+chatrooms = []
+chatrooms_options.each do |chatroom|
+  chatroom_new = Chatroom.new(chatroom)
+  chatroom_new.save!
+  chatrooms << chatroom_new
+end
+
+puts ">"
+puts "done !"
+
+chatmembers1 = {
+  chatroom_id: chatrooms[0].id,
+  user_id: users[3].id
+}
+
+chatmembers2 = {
+  chatroom_id: chatrooms[0].id,
+  user_id: users[0].id
+}
+
+chatmembers3 = {
+  chatroom_id: chatrooms[0].id,
+  user_id: users[1].id
+}
+
+chatmembers4 = {
+  chatroom_id: chatrooms[0].id,
+  user_id: users[2].id
+}
+chatmembers5 = {
+  chatroom_id: chatrooms[1].id,
+  user_id: users[3].id
+}
+
+chatmembers6 = {
+  chatroom_id: chatrooms[1].id,
+  user_id: users[6].id
+}
+
+chatmembers7 = {
+  chatroom_id: chatrooms[2].id,
+  user_id: users[3].id
+}
+
+chatmembers8 = {
+  chatroom_id: chatrooms[2].id,
+  user_id: users[2].id
+}
+
+chatmembers9 = {
+  chatroom_id: chatrooms[3].id,
+  user_id: users[3].id
+}
+
+chatmembers10 = {
+  chatroom_id: chatrooms[3].id,
+  user_id: users[11].id
+}
+
+chatmembers11 = {
+  chatroom_id: chatrooms[3].id,
+  user_id: users[12].id
+}
+
+chatmembers12 = {
+  chatroom_id: chatrooms[3].id,
+  user_id: users[0].id
+}
+chatmembers13 = {
+  chatroom_id: chatrooms[3].id,
+  user_id: users[13].id
+}
+
+chatmembers14 = {
+  chatroom_id: chatrooms[4].id,
+  user_id: users[3].id
+}
+
+chatmembers15 = {
+  chatroom_id: chatrooms[4].id,
+  user_id: users[2].id
+}
+
+chatmembers16 = {
+  chatroom_id: chatrooms[4].id,
+  user_id: users[5].id
+}
+chatmembers17 = {
+  chatroom_id: chatrooms[5].id,
+  user_id: users[3].id
+}
+
+chatmembers18 = {
+  chatroom_id: chatrooms[5].id,
+  user_id: users[0].id
+}
+
+chatmembers19 = {
+  chatroom_id: chatrooms[5].id,
+  user_id: users[1].id
+}
+
+chatmembers20 = {
+  chatroom_id: chatrooms[5].id,
+  user_id: users[2].id
+}
+
+chatmembers21 = {
+  chatroom_id: chatrooms[5].id,
+  user_id: users[4].id
+}
+
+chatmembers22 = {
+  chatroom_id: chatrooms[5].id,
+  user_id: users[5].id
+}
+
+
+chatmembers = [chatmembers1, chatmembers2, chatmembers3, chatmembers4, chatmembers5, chatmembers6, chatmembers7, chatmembers8, chatmembers9, chatmembers10, chatmembers11, chatmembers12, chatmembers13, chatmembers14, chatmembers15, chatmembers16, chatmembers17, chatmembers18, chatmembers19, chatmembers20, chatmembers21, chatmembers22 ]
+
+puts ">"
+puts "Starts creating chatmembers..."
+chatmembers.each do |chatmember|
+  chatmember_new = Chatmember.new(chatmember)
+  chatmember_new.save!
+end
+
+puts ">"
+puts "done !"
+
+message_options = []
+i = 0
+while i < 6
+  message_option = {
+    content: "Hello, vous allez bien ?",
+    chatroom_id: chatrooms[i].id,
+    user_id: users[3].id
+  }
+  i += 1
+  message_options << message_option
+end
+
+message_option = {
+  content: "Yes, super et toi ? On jam bientôt ?",
+  chatroom_id: chatrooms[0].id,
+  user_id: users[0].id
+}
+message_options << message_option
+
+message_option = {
+  content: "Yes, super et toi ? On jam bientôt ?",
+  chatroom_id: chatrooms[1].id,
+  user_id: users[6].id
+}
+message_options << message_option
+
+message_option = {
+  content: "Yes, super et toi ? On jam bientôt ?",
+  chatroom_id: chatrooms[2].id,
+  user_id: users[2].id
+}
+message_options << message_option
+
+message_option = {
+  content: "Yes, super et toi ? On jam bientôt ?",
+  chatroom_id: chatrooms[3].id,
+  user_id: users[11].id
+}
+message_options << message_option
+
+message_option = {
+  content: "Yes, super et toi ? On jam bientôt ?",
+  chatroom_id: chatrooms[4].id,
+  user_id: users[2].id
+}
+message_options << message_option
+
+message_option = {
+  content: "Yes, super et toi ? On jam bientôt ?",
+  chatroom_id: chatrooms[5].id,
+  user_id: users[5].id
+}
+message_options << message_option
+
+puts ">"
+puts "Starts creating chatmembers..."
+message_options.each do |message_option|
+  message_new = Message.new(message_option)
+  message_new.save!
+end
+
+puts ">"
+puts "done !"

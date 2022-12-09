@@ -10,7 +10,6 @@
         <i class="fa-regular fa-star"></i>
       <% end %>
     </div>
-
   </button>
 
   <div class="modal fade" id="reviewAverageModal" tabindex="-1" aria-labelledby="reviewAverageModalLabel" aria-hidden="true" >
@@ -26,12 +25,12 @@
                 <i class="fa-regular fa-star"></i>
               <% end %>
             </h2>
-            <div class="note-review"> <%= average %> </div>
+            <div class="note-review"> <%= average.round(1) %> </div>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body modale reviews-body-modal">
             <% reviews.each do |review| %>
-              <%= render "reviews/index_review", review: review %>
+              <%= render "reviews/index_review", review: review, average: @average %>
             <% end %>
           </div>
       </div>
