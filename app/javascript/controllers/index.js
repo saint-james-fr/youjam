@@ -28,5 +28,8 @@ application.register("jam-subscription", JamSubscriptionController)
 import MapController from "./map_controller"
 application.register("map", MapController)
 
+import PersistController from "./persist_controller"
+application.register("persist", PersistController)
+
 import TomSelectController from "./tom_select_controller"
 application.register("tom-select", TomSelectController)

@@ -48,7 +48,7 @@ class JamsController < ApplicationController
       @jams = @jams.where(sql_query, query: "%#{params['search']['query']}%").or(Jam.where('id in (?)', jam_ids))
     end
     if params['search']['address'].present?
-      @jams = @jams.near(params['search']['address'], 10)
+      @jams = @jams.near(params['search']['address'], 2)
     end
     @markers = @jams.geocoded.map do |jam|
       {
