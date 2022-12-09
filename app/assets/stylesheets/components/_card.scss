@@ -99,16 +99,29 @@
     display: flex;
     height: auto;
     margin: 25px 0;
+    padding-top: 42px;
 
     img {
-      height: 100vh;
+      height: 60vh;
+      margin-left:80px;
     }
  }
 
  .text-about-us {
-    font-size: 1.2em;
+    font-size: larger;
 
-    div {
-      padding: 0px 0px 50px 30px;;
+
+    .title-about-us {
+      color: #0A9B83;
     }
+ }
+
+.second-text {
+  padding-top: 80px;
+  text-align: end;
+
+ }
+
+ .align-paragraph {
+  // padding-right: 225px;
  }
