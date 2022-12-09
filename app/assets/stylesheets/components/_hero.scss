@@ -1,6 +1,8 @@
 .hero-home {
   color: white;
   height:550px;
+  z-index: -2;
+  position: relative;
 
   h2 {
     color: white!important;
@@ -20,6 +22,20 @@
 .hero-right {
   width: 50%;
   height: 100%;
+
+  .secondary-button{
+  font-size: 1.2em;
+  margin-top: 30px;
+  padding: 15px 20px;
+  }
+
+}
+
+#h2-hero {
+  background: -webkit-linear-gradient(45deg, rgba(45,11,141,1) 0%, rgba(10,155,131,1) 160%);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .carousel-item, .carousel, .carousel-inner {
@@ -41,4 +57,12 @@
 
 .carousel-indicators [data-bs-target] {
   background-color:$color-dark-blue;
+}
+
+.carroussel-illustration {
+  position: relative;
+  width: 600px;
+  z-index: -1;
+  bottom: 1px;
+
 }
