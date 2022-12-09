@@ -37,6 +37,11 @@
       <div class="profile-description mt-3 mb-5">
         <p><%= @user.description %></p>
       </div>
+      <% unless @user == current_user %>
+        <div class="profile-description mt-3 mb-5">
+          <%= link_to "Contacter #{@user.first_name}", chatrooms_path(chatroom: {users: ["", @user]}), class:"secondary-button", data: {turbo_method: :post} %>
+        </div>
+      <% end %>
       <div class="w-100">
         <p><i class="fa-solid fa-location-dot"></i> <%= @user.location %></p>
       </div>

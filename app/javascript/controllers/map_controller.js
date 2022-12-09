@@ -1,12 +1,14 @@
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 import { Controller } from "@hotwired/stimulus"
+import { end } from "@popperjs/core"
 
 // Connects to data-controller="map"
 export default class extends Controller {
 
   static values = {
     apiKey: String,
-    markers: Array
+    markers: Array,
+    fittedmarkers: Array
   }
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
@@ -44,11 +46,37 @@ export default class extends Controller {
 
 //
       })
+
+      this.fittedmarkersValue.forEach((marker) => {
+        const popup = new mapboxgl.Popup().setHTML(marker.info_window)
+        const customMarker = document.createElement("div")
+        customMarker.className = "marker"
+        customMarker.style.backgroundImage = `url('${marker.image_url}')`
+        customMarker.style.backgroundSize = "contain"
+        customMarker.style.width = "25px"
+        customMarker.style.height = "25px"
+        const newMarker = new mapboxgl.Marker(customMarker)
+          .setLngLat([ marker.lng, marker.lat ])
+          .setPopup(popup)
+          .addTo(this.map)
+
+        // newMarker.getElement().dataset.markerId = marker.id;
+        // newMarker.getElement().addEventListener('click', (e) => this.#toggleCardHighlighting(e) );
+        // newMarker.getElement().addEventListener('click', (e) => this.#toggleCardHighlighting(e) );
+        // console.log(newMarker)
+
+//
+      })
     }
 
     #fitMapToMarkers() {
       const bounds = new mapboxgl.LngLatBounds()
-      this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
+      console.log(this.fittedmarkersValue)
+      if (this.fittedmarkersValue.length === 0) {
+        this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
+      } else {
+        this.fittedmarkersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
+      }
       this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
     }
 

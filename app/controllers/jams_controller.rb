@@ -48,7 +48,12 @@ class JamsController < ApplicationController
       @jams = @jams.where(sql_query, query: "%#{params['search']['query']}%").or(Jam.where('id in (?)', jam_ids))
     end
     if params['search']['address'].present?
-      @jams = @jams.near(params['search']['address'], 10)
+      @jamsfit = @jams.near(params['search']['address'], 1)
+      @jams = @jams.near(params['search']['address'], 7).excluding(@jamsfit)
+      # unless @jams.length > 2
+      #   @jams = @jams.near(params['search']['address'], 10)
+      # end
+
     end
     @markers = @jams.geocoded.map do |jam|
       {
@@ -57,6 +62,17 @@ class JamsController < ApplicationController
         info_window: render_to_string(partial: 'info_window', locals: { jam: jam }),
         image_url: helpers.asset_url("jitar")
       }
+    end
+     if @jamsfit
+
+      @fittedmarkers = @jamsfit.geocoded.map do |jam|
+        {
+          lat: jam.latitude,
+          lng: jam.longitude,
+          info_window: render_to_string(partial: 'info_window', locals: { jam: jam }),
+          image_url: helpers.asset_url("jitar")
+        }
+      end
     end
     @jams = @jams.sort_by(&:jam_date)
   end
