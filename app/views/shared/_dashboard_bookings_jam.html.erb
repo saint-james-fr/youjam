@@ -17,7 +17,7 @@
                 <div class="tag tag-instruments mt-1"><%= instrument %></div>
               <% end %>
               <div class="tag tag-supp mt-1">
-                ...
+                + <%=jam.instruments_list.count - 3 %>
               </div>
             <% else %>
               <% jam.instruments_list.each do |instrument| %>
@@ -42,7 +42,7 @@
           </div>
               <p class="card-location mt-2"><% jam.bookings.each do |booking|%>
                 <% if booking.user == current_user %>
-                  <%= booking.status %>
+                  <%= booking.status.capitalize %>
                 <% end %>
               <% end %>
             </p>
