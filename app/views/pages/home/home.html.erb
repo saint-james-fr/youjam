@@ -12,7 +12,7 @@
     <h2>Rencontre des Jammers</h2>
     <div class="scrollmenu">
       <div class="jammer-cards mt-4">
-        <% @users.each do |user| %>
+        <% @users.shuffle.each do |user| %>
               <%= render "shared/jammer_card", user: user %>
           <% end %>
       </div>
