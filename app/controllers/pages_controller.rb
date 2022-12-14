@@ -40,10 +40,16 @@ class PagesController < ApplicationController
     end
   end
 
-  def update
-    @user = User.find(params[:id])
-    @user.update(params[:user])
-  end
+  # def edit
+  #   raise
+  #   @user = User.find(params[:id])
+  # end
+
+  # def update
+  #   raise
+  #   @user = User.find(params[:id])
+  #   @user.update(params[:user])
+  # end
 
   def set_average(user)
     @average = user.reviews_as_reviewee.average(:rating)
