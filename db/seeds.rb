@@ -334,7 +334,7 @@ jam4 =  {
   description: "Venez comme vous êtes, ça va jazzer!",
   instruments_list: ["Batterie", "Trompette", "Basse", "Saxophone", "Contrebasse"],
   capacity: 5,
-  jam_date: DateTime.strptime("12/01/2023 20:00", "%m/%d/%Y %H:%M"),
+  jam_date: DateTime.strptime("12/04/2023 20:00", "%m/%d/%Y %H:%M"),
   user_id: users[3].id
 }
 
@@ -364,7 +364,7 @@ jam7 =  {
   description: "Venez jouez du synthé sur nos textes enjoués ",
   instruments_list: ["Synthétiseur",],
   capacity: 2,
-  jam_date: DateTime.strptime("01/01/2023 10:00", "%m/%d/%Y %H:%M"),
+  jam_date: DateTime.strptime("02/04/2023 10:00", "%m/%d/%Y %H:%M"),
   user_id: users[6].id
 }
 
@@ -404,7 +404,7 @@ jam11 =  {
   description: "Fan de Bob Marley, je cherche des jammers pour faire un petit revival",
   instruments_list: ["Guitare", "Tambour"],
   capacity: 3,
-  jam_date: DateTime.strptime("01/05/2023 18:00", "%m/%d/%Y %H:%M"),
+  jam_date: DateTime.strptime("12/05/2023 18:00", "%m/%d/%Y %H:%M"),
   user_id: users[10].id
 }
 
@@ -444,7 +444,7 @@ jam15 =  {
   description: "J'aime trop la musique et je souahite jammer avec vous",
   instruments_list: ["Piano", "Ukulele"],
   capacity: 2,
-  jam_date: DateTime.strptime("01/05/2023 19:30", "%m/%d/%Y %H:%M"),
+  jam_date: DateTime.strptime("02/05/2023 19:30", "%m/%d/%Y %H:%M"),
   user_id: users[4].id
 }
 
